@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Login from './LogIn';
 
 function LandingPage() {
   // Declare a new state variable, which we'll call "count"
@@ -6,14 +7,7 @@ function LandingPage() {
 
   return (
     <div>
-      <p>
-        You clicked
-        {count}
-        times
-      </p>
-      <button type="button" onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
+      <Login />
     </div>
   );
 }
