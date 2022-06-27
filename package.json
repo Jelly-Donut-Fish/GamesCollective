@@ -9,7 +9,8 @@
     "devstart": "webpack --watch --mode=development",
     "build": "webpack --mode=production",
     "devopen": "webpack serve --open",
-    "serverstart": "nodemon --watch server './server/'"
+    "serverstart": "nodemon --watch server './server/'",
+    "sass-joy": "sass client/dist/styles/usercollection.scss"
   },
   "dependencies": {
     "axios": "^0.27.2",
