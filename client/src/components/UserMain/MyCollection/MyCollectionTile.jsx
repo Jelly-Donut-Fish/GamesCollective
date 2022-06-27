@@ -13,7 +13,12 @@ function MyCollectionTile() {
       <span>genre, genre, genre</span>
       <p>Rating</p>
       <label htmlFor="game status">
-        <select></select>
+        <select name="status" id="game status">
+          <option value="Want">Want</option>
+          <option value="Started">Started</option>
+          <option value="Finished">Finished</option>
+          <option value="Backlog">Haven&apos;t Started</option>
+        </select>
       </label>
       <p><MdComment /></p>
       <p><FaTrashAlt /></p>
