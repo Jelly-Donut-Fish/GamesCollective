@@ -12,6 +12,7 @@
     "serverstart": "nodemon --watch server './server/'",
     "sass-joy": "sass client/dist/styles/usercollection.scss",
     "sass-ben": "sass client/dist/styles/styles-ben.scss client/dist/styles/styles-ben.css --watch"
+    "sass-joy": "sass client/dist/styles/usercollection.scss"
   },
   "dependencies": {
     "axios": "^0.27.2",
