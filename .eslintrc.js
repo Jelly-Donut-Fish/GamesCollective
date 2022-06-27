@@ -18,5 +18,8 @@ module.exports = {
     'react',
   ],
   rules: {
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'no-tabs': 0,
+    'react/prop-types': 0,
   },
 };
