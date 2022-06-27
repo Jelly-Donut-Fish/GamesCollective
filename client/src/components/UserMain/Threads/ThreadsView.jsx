@@ -1,9 +1,10 @@
 import React from 'react';
+import ThreadsList from './ThreadsList';
 
-const ThreadsView = (props) => {
+const ThreadsView = function (props) {
   return (
     <div>
-      <ThreadsList/>
+      <ThreadsList />
     </div>
   );
 };
