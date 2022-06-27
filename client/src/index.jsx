@@ -1,9 +1,17 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import * as serviceWorker from './serviceWorker';
 import App from './components/App';
 
 // import hello from "./images/helloworld.gif"; // how to import images
 
 const root = createRoot(document.getElementById('root'));
 
-root.render(<App />);
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+  );
+
+serviceWorker.unregister();
