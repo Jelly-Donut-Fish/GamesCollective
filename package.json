@@ -10,13 +10,15 @@
     "build": "webpack --mode=production",
     "devopen": "webpack serve --open",
     "serverstart": "nodemon --watch server './server/'",
-    "sass-joy": "sass client/dist/styles/usercollection.scss"
+    "sass-joy": "sass client/dist/styles/usercollection.scss",
+    "sass-ben": "sass client/dist/styles/styles-ben.scss client/dist/styles/styles-ben.css --watch"
   },
   "dependencies": {
     "axios": "^0.27.2",
     "babel": "^6.23.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "firebase": "^9.8.4",
     "moment": "^2.29.3",
     "path": "^0.12.7",
     "pg": "^8.7.3",
@@ -24,6 +26,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-redux": "^8.0.2",
+    "react-firebase-hooks": "^5.0.3",
     "react-router-dom": "^6.3.0",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1"
