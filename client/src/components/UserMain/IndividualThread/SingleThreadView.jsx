@@ -1,14 +1,16 @@
 import React from 'react';
 import ThreadTopic from './ThreadTopic';
 import Comments from './Comments';
+import AddComment from './AddComment';
 
-const SingleThreadView = function (props) {
+function SingleThreadView() {
   return (
     <div>
       <ThreadTopic />
       <Comments />
+      <AddComment />
     </div>
   );
-};
+}
 
 export default SingleThreadView;

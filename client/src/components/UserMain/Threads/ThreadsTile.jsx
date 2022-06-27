@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ThreadsTile = function (props) {
+function ThreadsTile() {
   return (
     <div>
       <span> This is a tile </span>
@@ -13,11 +13,11 @@ const ThreadsTile = function (props) {
         <h3>Thread Title</h3>
       </div>
       <div>
-        <span>comment</span>
+        <span>discuss</span>
         <span>report</span>
       </div>
     </div>
   );
-};
+}
 
 export default ThreadsTile;

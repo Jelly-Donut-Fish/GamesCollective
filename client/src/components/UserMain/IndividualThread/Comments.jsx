@@ -1,13 +1,14 @@
 import React from 'react';
+import CommentTile from './CommentTile';
 
-const Comments = function (props) {
+function Comments() {
   return (
     <div>
-      <span>this is a comment</span>
-      <span>this is a comment</span>
-      <span>this is a comment</span>
+      <CommentTile />
+      <CommentTile />
+      <CommentTile />
     </div>
   );
-};
+}
 
 export default Comments;
