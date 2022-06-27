@@ -101,4 +101,5 @@ export {
   sendPasswordReset,
   logout,
   signInWithEmailAndPassword,
+  sendPasswordResetEmail,
 };

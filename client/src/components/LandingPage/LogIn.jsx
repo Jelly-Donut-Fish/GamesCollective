@@ -34,7 +34,8 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <button type="button"
+        <button
+          type="button"
           className="login__btn"
           onClick={() => signInWithEmailAndPassword(email, password)}
         >
@@ -49,8 +50,7 @@ function Login() {
         <div>
           Don't have an account?
           {/* pop up model to register */}
-          <Link to="/register">Register</Link>
-          now.
+          <button type="button" className="login__btn login__google" onClick={signInWithGoogle}>Register now.</button>
         </div>
       </div>
     </div>
