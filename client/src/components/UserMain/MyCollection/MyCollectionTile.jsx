@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { MdComment } from 'react-icons/md';
 import { FaTrashAlt } from 'react-icons/fa';
+import GameComment from './GameComment';
 
 function MyCollectionTile() {
+  const [commentOpen, setCommentOpen] = useState(false);
+  const [comment, setComment] = useState('');
+  // open comment modal
+  const showCommentModal = (e) => {
+    e.preventDefault();
+    setCommentOpen(!commentOpen);
+  };
+
   // comment - put request
   const addComment = (e) => {
     e.preventDefault();
-    axios.put('[insert endpoint here]', { data: { comment: '[user\'s comment here]' } })
+    axios.put('[insert endpoint here]', { data: { review: comment } })
       .then(() => {
 
       })
@@ -21,7 +30,7 @@ function MyCollectionTile() {
   const removeFromCollection = (e) => {
     e.preventDefault();
     if (confirm('Are you sure you want to remove [insert game title here] from your collection?') === true) {
-      axios.delete('[insert endpoint here]', { data: { userId: '[userId here]', gameId: '[gameId here]' } })
+      axios.delete('[insert endpoint here]', { data: { user_id: '[userId here]', game_id: '[gameId here]' } })
         .then(() => {
           alert('[Game Title] was removed from your collection');
         })
@@ -49,8 +58,9 @@ function MyCollectionTile() {
           <option value="Backlog">Haven&apos;t Started</option>
         </select>
       </label>
-      <p ><MdComment /></p>
-      <p onClick={removeFromCollection}><FaTrashAlt /></p>
+      <button type="button" onClick={showCommentModal}><MdComment /></button>
+      <button type="button" onClick={removeFromCollection}><FaTrashAlt /></button>
+      {commentOpen && <GameComment showCommentModal={showCommentModal}/>}
     </div>
   );
 }
