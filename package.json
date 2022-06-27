@@ -9,7 +9,8 @@
     "devstart": "webpack --watch --mode=development",
     "build": "webpack --mode=production",
     "devopen": "webpack serve --open",
-    "serverstart": "nodemon --watch server './server/'"
+    "serverstart": "nodemon --watch server './server/'",
+    "sass-joy": "sass client/dist/styles/usercollection.scss"
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -21,6 +22,7 @@
     "pg": "^8.7.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1"
