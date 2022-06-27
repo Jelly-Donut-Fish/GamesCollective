@@ -30,6 +30,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
     "react-validation": "^3.0.7",
+    "sequelize": "^6.21.1",
     "validator": "^13.7.0"
   },
   "devDependencies": {
