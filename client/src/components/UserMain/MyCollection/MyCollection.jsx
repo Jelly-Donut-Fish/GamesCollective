@@ -3,7 +3,13 @@ import MyCollectionList from './MyCollectionList';
 import MyCollectionSearch from './MyCollectionSearch';
 
 function MyCollection(props) {
-  const [] = useState();
+  const [searchString, setSearchString] = useState('');
+  const [searchFilter, setSearchFilter] = useState('');
+
+  // take in search parameters, pass to collection list
+  const filterMyCollection = () => {
+
+  }
 
   return (
     <div>
