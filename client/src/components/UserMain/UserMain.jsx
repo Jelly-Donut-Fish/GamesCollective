@@ -1,9 +1,12 @@
 import React from 'react';
 import MyCollection from './MyCollection/MyCollection';
 
-function UserMain() {
+function UserMain({ catalog }) {
+  console.log(catalog);
   return (
-    <MyCollection />
+    <div>
+      <MyCollection />
+    </div>
   );
 }
 
