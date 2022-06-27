@@ -7,15 +7,16 @@ function MyCollection(props) {
   const [searchFilter, setSearchFilter] = useState('');
 
   // take in search parameters, pass to collection list
-  const filterMyCollection = () => {
-
-  }
+  const filterMyCollection = (query, filter) => {
+    setSearchString(query);
+    setSearchFilter(filter);
+  };
 
   return (
     <div>
       <h2>My Collection</h2>
-      <MyCollectionSearch />
-      <MyCollectionList />
+      <MyCollectionSearch filterMyCollection={filterMyCollection} />
+      <MyCollectionList searchString={searchString} searchFilter={searchFilter} />
     </div>
   );
 }

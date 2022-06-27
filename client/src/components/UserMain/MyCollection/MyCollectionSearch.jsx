@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-function MyCollectionSearch() {
+function MyCollectionSearch({ filterMyCollection }) {
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('');
+
+  // set submit handler
+  const submitSearch = (e) => {
+    e.preventDefault();
+    filterMyCollection(search, filter);
+  };
 
   // set search string
   const searchHandler = (e) => {
@@ -21,7 +27,7 @@ function MyCollectionSearch() {
     <div>
       <label htmlFor="user filter">
         <select name="filters" id="user filter" onChange={filterHandler}>
-          <option value="">Filter by</option>
+          <option value="">Filter options</option>
           <option value="title">Title</option>
           <option value="genre">Genre</option>
           <option value="category">Category</option>
@@ -34,7 +40,7 @@ function MyCollectionSearch() {
         <input type="text" placeholder="Search Your Collection" id="filter collection" onChange={searchHandler} />
       </label>
       <label htmlFor="search_collection" />
-      <button id="search_collection" type="button">
+      <button id="search_collection" type="button" onClick={submitSearch}>
         <AiOutlineSearch />
       </button>
 
