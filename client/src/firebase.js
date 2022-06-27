@@ -100,4 +100,5 @@ export {
   registerWithEmailAndPassword,
   sendPasswordReset,
   logout,
+  signInWithEmailAndPassword,
 };
