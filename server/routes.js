@@ -1,80 +1,53 @@
 const router = require('express').Router();
 // controller func imports
 const FUNC = (req, res) => {
-  console.log('put in a real function');
+  console.log('replace with a real function');
   console.log(req.url, ' query params: ', req.query, 'params: ', req.params, 'body: ', req.body);
   res.sendStatus(200);
 };
+// req.query = query params
+// req.params = path params
+// req.body = req body
 
 // GAMES & COLLECTIONS
-router.get('/games', (req, res) => {
-  FUNC(req, res);
-});
+router.get('/games', FUNC);
 
-router.get('/games/:game_id', (req, res) => {
-  FUNC(req, res);
-});
+router.get('/games/:game_id', FUNC);
 
-router.get('/games_users', (req, res) => {
-  FUNC(req, res);
-});
+router.get('/games_users/:user_id', FUNC);
 
-router.post('/games_users', (req, res) => {
-  FUNC(req, res);
-});
+router.post('/games_users/:user_id', FUNC);
 
-router.put('/games_users/status', (req, res) => {
-  FUNC(req, res);
-});
+router.put('/games_users/status', FUNC);
 
-router.put('/games_users/ratings', (req, res) => {
-  FUNC(req, res);
-});
+router.put('/games_users/ratings', FUNC);
 
-router.delete('/games_users', (req, res) => {
-  FUNC(req, res);
-});
+router.delete('/games_users', FUNC);
 
 // COMMENTS
-router.post('/comments', (req, res) => {
-  FUNC(req, res);
-});
+router.post('/comments', FUNC);
 
-router.put('/comments/:comment_id/report', (req, res) => {
-  FUNC(req, res);
-});
+router.get('/comments/:game_id', FUNC);
+
+router.put('/comments/:comment_id/report', FUNC);
 
 // USERS
-router.post('/users', (req, res) => {
-  FUNC(req, res);
-});
+router.post('/users', FUNC);
 
-router.get('/users', (req, res) => {
-  FUNC(req, res);
-});
+router.get('/users', FUNC);
 
-router.put('/users', (req, res) => {
-  FUNC(req, res);
-});
+router.put('/users', FUNC);
 
 // CATEGORIES
-router.get('/categories', (req, res) => {
-  FUNC(req, res);
-});
+router.get('/categories', FUNC);
 
 // GENRES
-router.get('/genres', (req, res) => {
-  FUNC(req, res);
-});
+router.get('/genres', FUNC);
 
 // PLATFORMS
-router.get('/platforms', (req, res) => {
-  FUNC(req, res);
-});
+router.get('/platforms', FUNC);
 
 // LIBRARIES
-router.get('/libraries', (req, res) => {
-  FUNC(req, res);
-});
+router.get('/libraries', FUNC);
 
 module.exports = router;
