@@ -3,20 +3,37 @@ import MyCollectionList from './MyCollectionList';
 import MyCollectionSearch from './MyCollectionSearch';
 
 function MyCollection(props) {
-  const [searchString, setSearchString] = useState('');
-  const [searchFilter, setSearchFilter] = useState('');
+  const [genres, setGenres] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [statuses, setStatuses] = useState([]);
+  const [query, setQuery] = useState('');
+  const [genre, setGenre] = useState('');
+  const [category, setCategory] = useState('');
+  const [status, setStatus] = useState('');
 
-  // take in search parameters, pass to collection list
-  const filterMyCollection = (query, filter) => {
-    setSearchString(query);
-    setSearchFilter(filter);
+  const setDropDowns = (genre, category, status) => {
+    var genreList = genres.slice();
+    var categoryList = categories.slice();
+    var statusList = statuses.slice();
+    if (genreList.indexOf(genre) > -1) {
+      genreList.push(genre);
+    };
+    if (categoryList.indexOf(category) > -1) {
+      categoryList.push(category);
+    };
+    if (statusList.indexOf(status) > -1) {
+      statusList.push(category);
+    };
+    setGenres(genreList);
+    setCategories(categoryList);
+    setStatuses(statusList);
   };
 
   return (
     <div>
       <h2>My Collection</h2>
-      <MyCollectionSearch filterMyCollection={filterMyCollection} />
-      <MyCollectionList searchString={searchString} searchFilter={searchFilter} />
+      <MyCollectionSearch genres={genres} categories={categories} statuses={statuses}/>
+      <MyCollectionList setDropDowns={setDropDowns} />
     </div>
   );
 }
