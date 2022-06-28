@@ -47,7 +47,7 @@ function MyCollection(props) {
   return (
     <div>
       <h2>My Collection</h2>
-      <MyCollectionSearch genres={genres} categories={categories} statuses={statuses}/>
+      <MyCollectionSearch genres={genres} categories={categories} statuses={statuses} setFilters={setFilters} />
       <MyCollectionList setDropDowns={setDropDowns} />
     </div>
   );
