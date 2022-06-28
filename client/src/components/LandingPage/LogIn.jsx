@@ -11,47 +11,53 @@ function Login() {
   const navigate = useNavigate();
 
   const steamLogIn = () => {
-    axios.post('/auth/steam');
+    axios.post('/auth/openid')
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log('error in steam axios', err)
+      })
   };
 
-  useEffect(() => {
-    if (loading) {
-      // maybe trigger a loading screen
-      return;
-    }
-    if (user) navigate('/UserMain');
-  }, [user, loading]);
+  // useEffect(() => {
+  //   if (loading) {
+  //     // maybe trigger a loading screen
+  //     return;
+  //   }
+  //   if (user) navigate('/UserMain');
+  // }, [user, loading]);
 
   return (
     <div className="login">
-      <div className="login__container">
+      <div className="login_container">
         <input
           type="text"
-          className="login__textBox"
+          className="login_textBox"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail Address"
         />
         <input
           type="password"
-          className="login__textBox"
+          className="login_textBox"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
         <button
           type="button"
-          className="login__btn"
+          className="login_btn"
           onClick={() => signInWithEmailAndPassword(email, password)}
         >
           Login
         </button>
-        <button type="button" className="login__btn login__google" onClick={signInWithGoogle}>
+        <button type="button" className="login_btn login_google" onClick={signInWithGoogle}>
           Login with Google
         </button>
 
-        <button type="button" className="login__btn login__google" onClick={steamLogIn}>
-          <img id="steamLogin" src="../../../../dist/assets/steamLogin.png" alt="" />
+        <button type="button" className="login_btn login_google" onClick={steamLogIn}>
+          {/* <img id="steamLogin" src="../../../../dist/assets/steamLogin.png" alt="" /> */}
           Login with Steam
         </button>
 
@@ -61,7 +67,8 @@ function Login() {
         <div>
           Don't have an account?
           {/* pop up model to register */}
-          <button type="button" className="login__btn login__google" onClick={signInWithGoogle}>Register now.</button>
+          <Link to="/register">Register</Link>
+          {/* <button type="button" className="login__btn login__google" onClick={signInWithGoogle}>Register now.</button> */}
         </div>
       </div>
     </div>

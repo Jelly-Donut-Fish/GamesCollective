@@ -30,17 +30,19 @@ function LandingPage() {
   // }, [user, loading]);
   return (
     <div>
-      <div className="dashboard">
-        <div className="dashboard__container">
-          Logged in as
-          <div>{name}</div>
-          <div>{user?.email}</div>
-          <button type="button" className="dashboard__btn" onClick={logout}>
-            Logout
-          </button>
-        </div>
+      <div className="landing">
         <DemoSection />
+        <div className="landing_login">
+          <div className="log-out">
+            Logged in as
+            <div>{name}</div>
+            <div>{user?.email}</div>
+            <button type="button" className="landing_btn" onClick={logout}>
+              Logout
+            </button>
+          </div>
         <Login />
+        </div>
       </div>
     </div>
   );
