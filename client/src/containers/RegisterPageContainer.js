@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import LandingPage from '../components/LandingPage/LandingPage';
+import Register from '../components/LandingPage/Register';
 
 const mapStateToProps = (state) => (
   {
@@ -15,6 +15,6 @@ const mapStateToProps = (state) => (
 //   };
 // };
 
-const LandingPageContainer = connect(mapStateToProps)(LandingPage);
+const RegisterPageContainer = connect(mapStateToProps)(Register);
 
-export default LandingPageContainer;
+export default RegisterPageContainer;
