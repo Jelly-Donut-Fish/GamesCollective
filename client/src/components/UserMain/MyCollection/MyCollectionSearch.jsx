@@ -22,8 +22,6 @@ function MyCollectionSearch({ filterMyCollection }) {
     // call function to lift state here
   };
 
-  const genres = ['yellow', 'blue', 'green'];
-
   return (
     <div>
       <label htmlFor="title">
