@@ -7,37 +7,37 @@ function MyCollectionList() { // import functions that take information about ea
     <div>
       {[input].map(game => {
         // call function here and pass in game.title, game.genre, game.category, game.status, game.platform
-        if (query !== undefined) {
+        if (query) {
           var gameTitle = game.title.toLowerCase();
           query = query.toLowerCase();
           if (gameTitle.includes(query)) {
             return  <MyCollectionTile />
           }
         }
-        if (genre !== undefined) {
+        if (genre) {
           if (game.genre === genre) {
             return <MyCollectionTile />
           }
         }
-        if (category !== undefined) {
+        if (category) {
           if (game.category === category) {
             return <MyCollectionTile />
           }
         }
-        if (status !== undefined) {
+        if (status) {
           if (game.status === status) {
             return <MyCollectionTile />
           }
         }
-        if (platform !== undefined) {
+        if (platform) {
           if (game.platform === platform) {
             return <MyCollectionTile />
           }
         }
-        if (query === undefined &&
-          genre === undefined &&
-          category === undefined &&
-          status === undefined) {
+        if (!query &&
+          !genre &&
+          !category &&
+          !status) {
             return <MyCollectionTile />
           }
 })}
