@@ -15,17 +15,16 @@ function MyCollectionSearch({ genres, categories, statuses, setFilters }) {
     setSearch(e.target.value);
   };
 
-  // set filter
   const filterHandler = (e) => {
     e.preventDefault();
     if (e.target.id === 'genre') {
-      setFilters('', e.target.value)
+      setFilters(null, e.target.value)
     }
     if (e.target.id === 'category') {
-      setFilters('', '', e.target.value)
+      setFilters(null, null, e.target.value)
     }
     if (e.target.id === 'status') {
-      setFilters('', '', '', e.target.value)
+      setFilters(null, null, null, e.target.value)
     }
   };
 
