@@ -29,6 +29,21 @@ function MyCollection(props) {
     setStatuses(statusList);
   };
 
+  const setFilters = (search, genre, category, status) => {
+    if (search) {
+      setQuery(search);
+    };
+    if (genre) {
+      setGenre(genre);
+    }
+    if (category) {
+      setCategory(category);
+    };
+    if (status) {
+      setStatus(status);
+    };
+  }
+
   return (
     <div>
       <h2>My Collection</h2>
