@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LandingPageContainer from '../containers/LandingPageContainer';
-import UserMainContainer from '../containers/UserMainContainer';
+// import LandingPage from './LandingPage/LandingPage';
+import UserMainContainer from '../containers/UserMainContainer.js';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPageContainer />} />
-        <Route path="/UserMain" element={<UserMainContainer />} />
+        {/* <Route exact path="/"><LandingPage /></Route> */}
+        <Route path="/" element={<UserMainContainer />} />
       </Routes>
     </Router>
   );

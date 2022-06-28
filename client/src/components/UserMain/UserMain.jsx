@@ -1,9 +1,14 @@
 import React from 'react';
 import MyCollection from './MyCollection/MyCollection';
+import Catalog from './PublicCatalog/Catalog.jsx';
 
-function UserMain() {
+function UserMain({ catalog }) {
+  console.log(catalog);
   return (
-    <MyCollection />
+    <div>
+      <MyCollection />
+      <Catalog />
+    </div>
   );
 }
 

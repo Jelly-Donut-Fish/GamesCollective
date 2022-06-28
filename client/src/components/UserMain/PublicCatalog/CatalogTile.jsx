@@ -1,10 +1,9 @@
 import React from 'react';
-import CatalogTile from './CatalogTile.jsx'
 
 function CatalogList({ catalog }) {
   return (
     <div>
-      <h1> hello</h1>
+      <h1> Yo </h1>
     </div>
   );
 }
