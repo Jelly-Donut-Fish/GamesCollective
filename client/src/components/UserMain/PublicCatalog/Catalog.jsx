@@ -1,11 +1,10 @@
 import React from 'react';
 import CatalogList from './CatalogList.jsx'
 
-function Catalog({ catalog }) {
-  console.log(catalog);
+function Catalog( {catalog}) {
   return (
     <div>
-      <CatalogList />
+      <CatalogList catalog = {catalog}/>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import CatalogTile from './CatalogTile.jsx'
 function CatalogList({ catalog }) {
   return (
     <div>
-      <h1> hello</h1>
+      {catalog.results.map((item, index) => <CatalogTile key={index} item={item} />)}
     </div>
   );
 }

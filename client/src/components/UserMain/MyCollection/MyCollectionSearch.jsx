@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-function MyCollectionSearch({ genres, categories, statuses, setFilters }) {
+function MyCollectionSearch({
+  genres, categories, statuses, setFilters,
+}) {
   const [search, setSearch] = useState('');
   // set submit handler
   const submitSearch = (e) => {
     e.preventDefault();
-    setFilters(search)
+    setFilters(search);
   };
 
   // set search string
@@ -18,13 +20,13 @@ function MyCollectionSearch({ genres, categories, statuses, setFilters }) {
   const filterHandler = (e) => {
     e.preventDefault();
     if (e.target.id === 'genre') {
-      setFilters(null, e.target.value)
+      setFilters(null, e.target.value);
     }
     if (e.target.id === 'category') {
-      setFilters(null, null, e.target.value)
+      setFilters(null, null, e.target.value);
     }
     if (e.target.id === 'status') {
-      setFilters(null, null, null, e.target.value)
+      setFilters(null, null, null, e.target.value);
     }
   };
 
@@ -40,7 +42,7 @@ function MyCollectionSearch({ genres, categories, statuses, setFilters }) {
 
       <label htmlFor="genre">
         <select name="filters" id="genre" onChange={filterHandler}>
-          <option value="" disabled selected hidden>Choose a genre</option>
+          <option value="" disabled defaultValue="" hidden>Choose a genre</option>
           {genres.map((genre) => (
             <option value={genre}>{genre}</option>
           ))}
@@ -48,7 +50,7 @@ function MyCollectionSearch({ genres, categories, statuses, setFilters }) {
       </label>
       <label htmlFor="category">
         <select name="filters" id="category" onChange={filterHandler}>
-          <option value="" disabled selected hidden>Choose a genre</option>
+          <option value="" disabled defaultValue="" hidden>Choose a genre</option>
           {categories.map(category => (
             <option value={category}>{category}</option>
           ))}
@@ -56,21 +58,12 @@ function MyCollectionSearch({ genres, categories, statuses, setFilters }) {
       </label>
       <label htmlFor="status">
         <select name="filters" id="status" onChange={filterHandler}>
-          <option value="" disabled selected hidden>Choose a genre</option>
+          <option value="" disabled defaultValue="" hidden>Choose a genre</option>
           {statuses.map(status => (
             <option value={status}>{status}</option>
           ))}
         </select>
       </label>
-      <label htmlFor="platform">
-        <select name="filters" id="platform" onChange={filterHandler}>
-          <option value="" disabled selected hidden>Choose a genre</option>
-          {platforms.map(platform => (
-            <option value={platform}>{platform}</option>
-          ))}
-        </select>
-      </label>
-
     </div>
   );
 }

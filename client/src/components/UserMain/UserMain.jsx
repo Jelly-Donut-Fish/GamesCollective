@@ -1,16 +1,13 @@
 import React from 'react';
-import UserInfo from './UserInfo';
-import MyCollection from './MyCollection/MyCollection';
-import Catalog from './PublicCatalog/Catalog';
+import CatalogContainer from '../../containers/CatalogContainer.js';
+import MyCollectionContainer from '../../containers/MyCollectionContainer.js';
 
-function UserMain({ catalog }) {
-  console.log(catalog);
+function UserMain() {
   return (
-    <>
-      <UserInfo />
-      <MyCollection />
-      <Catalog />
-    </>
+    <div>
+      <MyCollectionContainer />
+      <CatalogContainer />
+    </div>
   );
 }
 

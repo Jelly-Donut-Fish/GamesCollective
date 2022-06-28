@@ -1,47 +1,46 @@
 import React from 'react';
 import MyCollectionTile from './MyCollectionTile';
 
-function MyCollectionList({ setDropDowns }) { // import functions that take information about each game and push it up into state
-
+function MyCollectionList({ catalog, setDropDowns }) {
   return (
     <div>
-      {[input].map(game => {
+      {catalog.results.map((game) => {
         // call function here and pass in game.genre, game.category, game.status, game.platform
         setDropDowns(game.genre, game.category, game.status);
         if (query) {
           var gameTitle = game.title.toLowerCase();
           query = query.toLowerCase();
           if (gameTitle.includes(query)) {
-            return  <MyCollectionTile />
+            return <MyCollectionTile />;
           }
         }
         if (genre) {
           if (game.genre === genre) {
-            return <MyCollectionTile />
+            return (<MyCollectionTile />);
           }
         }
         if (category) {
           if (game.category === category) {
-            return <MyCollectionTile />
+            return (<MyCollectionTile />);
           }
         }
         if (status) {
           if (game.status === status) {
-            return <MyCollectionTile />
+            return (<MyCollectionTile />);
           }
         }
         if (platform) {
           if (game.platform === platform) {
-            return <MyCollectionTile />
+            return (<MyCollectionTile />);
           }
         }
-        if (!query &&
-          !genre &&
-          !category &&
-          !status) {
-            return <MyCollectionTile />
-          }
-})}
+        if (query
+          && !genre
+          && !category
+          && !status) {
+          return <MyCollectionTile />;
+        }
+      })}
     </div>
   );
 }
