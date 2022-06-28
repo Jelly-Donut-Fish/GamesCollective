@@ -4,7 +4,7 @@ import CatalogTile from './CatalogTile.jsx'
 function CatalogList({ catalog }) {
   return (
     <div>
-      <CatalogTile />
+      <h1> hello</h1>
     </div>
   );
 }
