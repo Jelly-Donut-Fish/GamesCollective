@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import axios from 'axios';
-import { auth, signInWithEmailAndPassword, signInWithGoogle } from '../../authentication/firebase';
+import {
+  auth, signInWithEmailAndPassword, signInWithGoogle,
+} from '../../authentication/firebase';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -16,8 +18,8 @@ function Login() {
         console.log(res);
       })
       .catch((err) => {
-        console.log('error in steam axios', err)
-      })
+        console.log('error in steam axios', err);
+      });
   };
 
   // useEffect(() => {
@@ -56,10 +58,10 @@ function Login() {
           Login with Google
         </button>
 
-        <button type="button" className="login_btn login_google" onClick={steamLogIn}>
-          {/* <img id="steamLogin" src="../../../../dist/assets/steamLogin.png" alt="" /> */}
+        {/* <button type="button" className="login_btn login_google" onClick={steamLogIn}>
+          <img id="steamLogin" src="../../../../dist/assets/steamLogin.png" alt="" />
           Login with Steam
-        </button>
+        </button> */}
 
         <div>
           <Link to="/reset">Forgot Password</Link>
