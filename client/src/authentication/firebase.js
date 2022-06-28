@@ -92,6 +92,10 @@ const logout = () => {
   signOut(auth);
 };
 
+const logInWithSteam = async () => {
+  
+}
+
 export {
   auth,
   db,

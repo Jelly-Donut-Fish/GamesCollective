@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import axios from 'axios';
 import { auth, signInWithEmailAndPassword, signInWithGoogle } from '../../authentication/firebase';
 
 function Login() {
@@ -9,12 +10,16 @@ function Login() {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
+  const steamLogIn = () => {
+    axios.post('/auth/steam');
+  };
+
   useEffect(() => {
     if (loading) {
       // maybe trigger a loading screen
       return;
     }
-    if (user) navigate("/UserMain");
+    if (user) navigate('/UserMain');
   }, [user, loading]);
 
   return (
@@ -45,10 +50,10 @@ function Login() {
           Login with Google
         </button>
 
-        {/* <a type="button" href="auth/steam" className="login__btn login__google">
+        <button type="button" className="login__btn login__google" onClick={steamLogIn}>
           <img id="steamLogin" src="../../../../dist/assets/steamLogin.png" alt="" />
           Login with Steam
-        </a> */}
+        </button>
 
         <div>
           <Link to="/reset">Forgot Password</Link>
