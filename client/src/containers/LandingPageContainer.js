@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import LandingPage from '../components/LandingPage/LandingPage.jsx';
+import LandingPage from '../components/LandingPage/LandingPage';
 
 const mapStateToProps = (state) => (
   {
@@ -9,10 +9,9 @@ const mapStateToProps = (state) => (
 );
 
 // example of mapping reducers
-// var mapDispatchToProps = (dispatch) => {
+// const mapDispatchToProps = (dispatch) => {
 //   return {
-//     setNewFilter: (filter) => dispatch(setNewFilter(filter)),
-//     setUserIsSort: (boolValue) => dispatch(setUserIsSort(boolValue))
+//     setUser: (user) => dispatch(setUser(user)),
 //   };
 // };
 
