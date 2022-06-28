@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-function MyCollectionSearch({ filterMyCollection }) {
+function MyCollectionSearch({ genres, categories, statuses }) {
   const [search, setSearch] = useState('');
   // set submit handler
   const submitSearch = (e) => {
     e.preventDefault();
-    filterMyCollection(search);
+    // filterMyCollection(search);
   };
 
   // set search string

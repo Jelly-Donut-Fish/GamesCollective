@@ -1,12 +1,13 @@
 import React from 'react';
 import MyCollectionTile from './MyCollectionTile';
 
-function MyCollectionList() { // import functions that take information about each game and push it up into state
+function MyCollectionList({ setDropDowns }) { // import functions that take information about each game and push it up into state
 
   return (
     <div>
       {[input].map(game => {
-        // call function here and pass in game.title, game.genre, game.category, game.status, game.platform
+        // call function here and pass in game.genre, game.category, game.status, game.platform
+        setDropDowns(game.genre, game.category, game.status);
         if (query) {
           var gameTitle = game.title.toLowerCase();
           query = query.toLowerCase();
