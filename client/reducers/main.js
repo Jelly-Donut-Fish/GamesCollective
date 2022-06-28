@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import getCatalogReducer from './getCatalogReducer.js';
+import getCatalogReducer from './getCatalogReducer';
+import getGameIdReducer from './getGameIdReducer';
 
-var rootReducer = combineReducers({
+const rootReducer = combineReducers({
   catalog: getCatalogReducer,
+  gameId: getGameIdReducer,
 });
 
 export default rootReducer;
