@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import {
   query, collection, getDocs, where,
 } from 'firebase/firestore';
@@ -33,6 +33,7 @@ function LandingPage() {
       <div className="landing">
         <DemoSection />
         <div className="landing_login">
+          <Link to="/UserMain">User Main</Link>
           <div className="log-out">
             Logged in as
             <div>{name}</div>
@@ -41,7 +42,7 @@ function LandingPage() {
               Logout
             </button>
           </div>
-        <Login />
+          <Login />
         </div>
       </div>
     </div>
