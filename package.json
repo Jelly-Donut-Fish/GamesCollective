@@ -10,14 +10,9 @@
     "build": "webpack --mode=production",
     "devopen": "webpack serve --open",
     "serverstart": "nodemon --watch server './server/'",
-<<<<<<< HEAD
-    "sass-joy": "sass client/dist/styles/usercollection.scss client/dist/styles/usercollection.scss --watch",
-    "sass-ben": "sass client/dist/styles/styles-ben.scss client/dist/styles/styles-ben.css --watch"
-=======
     "sass-joy": "sass client/dist/styles/usercollection.scss",
     "sass-ben": "sass client/dist/styles/styles-ben.scss client/dist/styles/styles-ben.css --watch",
     "sass-kayla": "sass client/dist/styles/styles-threads.scss client/dist/styles/styles-threads.css --watch"
->>>>>>> origin/dev
   },
   "dependencies": {
     "axios": "^0.27.2",
