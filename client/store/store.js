@@ -42,6 +42,7 @@ const initialState = {
       },
     ]
   },
+  user: {},
 };
 
 const store = createStore(
