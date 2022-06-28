@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   query, collection, getDocs, where,
 } from 'firebase/firestore';
-import { auth, db, logout } from '../../firebase';
+import { auth, db, logout } from '../../authentication/firebase';
 import Login from './LogIn';
 import DemoSection from './DemoSection';
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, signInWithEmailAndPassword, signInWithGoogle } from '../../firebase';
+import { auth, signInWithEmailAndPassword, signInWithGoogle } from '../../authentication/firebase';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -44,6 +44,12 @@ function Login() {
         <button type="button" className="login__btn login__google" onClick={signInWithGoogle}>
           Login with Google
         </button>
+
+        {/* <a type="button" href="auth/steam" className="login__btn login__google">
+          <img id="steamLogin" src="../../../../dist/assets/steamLogin.png" alt="" />
+          Login with Steam
+        </a> */}
+
         <div>
           <Link to="/reset">Forgot Password</Link>
         </div>
