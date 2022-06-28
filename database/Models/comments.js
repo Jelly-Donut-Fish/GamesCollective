@@ -1,14 +1,19 @@
 const { pool } = require('../index');
 
 const post = function(body) {
- //TODO: write query to get all games form db
+
 }
 
 const put = function(comment_id) {
- //TODO: write query to single game form db
+
+}
+
+const get = function(game_id) {
+
 }
 
 module.exports = {
+  get: get,
   post:post,
   put:put
 }

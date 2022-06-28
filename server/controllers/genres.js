@@ -1,10 +1,16 @@
+const genreModel = require('../../database/Models/genres');
 
-
-const getAll = function(req, res) {
-
+const get = function (req, res) {
+  genreModel.get()
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.send(err.message);
+    })
 }
 
 
 module.exports = {
-  getAll: getAll
+  get: get
 }

@@ -3,10 +3,10 @@ require('dotenv').config();
 
 const pool = new Pool({
   user: USER,
-  host: HOST,
+  host: AWS_HOST,
   database: DATABASE,
   password: PASSWORD,
-  "max?": 25
+  max: 25
 });
 
 const poolConnect = function() {

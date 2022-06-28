@@ -1,15 +1,15 @@
-const commentsModel = require('../../database/Models/comments');
+const categoriesModel = require('../../database/Models/categories');
 
-const getAll = function(req, res) {
-  commentsModel.getAll()
-  .then(() => {
-
-  })
-  .catch(() => {
-
-  })
+const get = function (req, res) {
+  categoriesModel.get()
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.send(err.message)
+    })
 }
 
 module.exports = {
-  getAll: getAll
+  get: get
 }

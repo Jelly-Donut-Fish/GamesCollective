@@ -1,6 +1,6 @@
 const { pool } = require('../index');
 
-const getAll = function (user_id) {
+const get = function (user_id) {
 
 }
 
@@ -21,7 +21,7 @@ const deleteGame = function (body) {
 }
 
 module.exports = {
-  getAll: getAll,
+  get: get,
   post: post,
   putStatus: putStatus,
   putRatings: putRatings,

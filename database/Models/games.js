@@ -1,6 +1,6 @@
 const { pool } = require('../index');
 
-const getAll = function(page, count, q, genre, platform, game_library) {
+const getAll = function(page, count) {
  // Will return a list of all the games that match the search parameters,
  // including the full information for every game.
 }
