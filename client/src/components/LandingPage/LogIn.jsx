@@ -65,7 +65,7 @@ function Login() {
           <Link to="/reset">Forgot Password</Link>
         </div>
         <div>
-          Don't have an account?
+          Don't have an account? Join the ultimate collection today!
           {/* pop up model to register */}
           <Link to="/register">Register</Link>
           {/* <button type="button" className="login__btn login__google" onClick={signInWithGoogle}>Register now.</button> */}
