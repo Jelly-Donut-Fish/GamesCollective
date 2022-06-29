@@ -21,7 +21,7 @@ body {
   background-size: 100% 100%;
   background-attachment: fixed;
   animation: gradient 1s ease infinite;
-
+  color: white;
 }
 
 input {
@@ -30,12 +30,12 @@ input {
   border-radius: 5vw;
   outline-color: $main;
 
-  &.search-itemId-input-err {
-    &::placeholder {
-      color: $crimson;
-    }
+  // &.search-itemId-input-err {
+  //   &::placeholder {
+  //     color: $crimson;
+  //   }
 
-  }
+  // }
 
   &:focus {
     box-shadow: $mainBoxShadow;
@@ -65,6 +65,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+
   .register__container {
     display: flex;
     flex-direction: column;

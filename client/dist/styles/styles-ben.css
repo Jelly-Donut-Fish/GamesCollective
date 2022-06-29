@@ -8,6 +8,7 @@ body {
   background-size: 100% 100%;
   background-attachment: fixed;
   animation: gradient 1s ease infinite;
+  color: white;
 }
 
 input {
@@ -15,9 +16,6 @@ input {
   padding: 0.5vw 5vw 0.5vw 1vw;
   border-radius: 5vw;
   outline-color: black;
-}
-input.search-itemId-input-err::placeholder {
-  color: #D8315B;
 }
 input:focus {
   box-shadow: 0 0 1vw 0.1vw rgb(84, 4, 69), 0 0 1vw 0.1vw rgb(84, 4, 69) inset;

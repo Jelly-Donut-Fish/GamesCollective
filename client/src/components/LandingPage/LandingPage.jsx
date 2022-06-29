@@ -8,21 +8,37 @@ import { auth, db, logout } from '../../authentication/firebase';
 import Login from './LogIn';
 import DemoSection from './DemoSection';
 
-function LandingPage() {
+function LandingPage({ getUser }) {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState('');
   const navigate = useNavigate();
-  const fetchUserName = async () => {
+  // const fetchUserName = async () => {
+  //   try {
+  //     const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
+  //     const doc = await getDocs(q);
+  //     const data = doc.docs[0].data();
+  //     setName(data.name);
+  //   } catch (err) {
+  //     console.error(err);
+  //     alert('An error occured while fetching user data');
+  //   }
+  // };
+
+  const getuserId = async () => {
     try {
       const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
-      setName(data.name);
+      getUser(data.uid);
     } catch (err) {
       console.error(err);
       alert('An error occured while fetching user data');
     }
   };
+
+  useEffect(() => {
+    if (user) getuserId();
+  });
 
   // useEffect(() => {
   //   if (loading) return;
