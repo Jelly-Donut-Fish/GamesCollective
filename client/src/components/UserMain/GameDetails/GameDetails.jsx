@@ -4,11 +4,32 @@ import { BsFillCheckCircleFill, BsFillPencilFill } from 'react-icons/bs';
 
 function GameDetails({ game }) {
   const [rating, setRating] = useState('');
+  const [saveRating, setSaveRating] = useState('');
+  const [review, setReview] = useState('');
+  const [saveReview, setSaveReview] = useState('');
   const [changeRating, setChangeRating] = useState(false);
+  const [changeReview, setChangeReview] = useState(false);
 
   const setNewRating = (e) => {
     e.preventDefault();
-    setChangeRating(!changeRating);
+    if (e.target.name === 'rating') {
+      setChangeRating(!changeRating);
+      setRating(saveRating);
+    }
+    if (e.target.name === 'review') {
+      setChangeReview(!changeReview);
+      setReview(saveReview);
+    }
+  };
+
+  const saveNewRating = (e) => {
+    e.preventDefault();
+    if (e.target.name === 'rating') {
+      setSaveRating(e.target.value);
+    }
+    if (e.target.name === 'review') {
+      setSaveReview(e.target.value);
+    }
   };
 
   return (
@@ -29,14 +50,34 @@ function GameDetails({ game }) {
         <div>
           {rating ? (changeRating ? (
             <span>
-              <input type="number" min="0" max="5" />
-              <BsFillCheckCircleFill onClick={setNewRating} />
+              <input type="number" min="0" max="5" name="rating" onChange={saveNewRating} />
+              <BsFillCheckCircleFill name="rating" onClick={setNewRating} />
             </span>
           )
-            : <p>{rating} <BsFillPencilFill onClick={setNewRating} /></p>)
-            : <p>0.0 <BsFillPencilFill /></p>}
+            : <p>{rating} <BsFillPencilFill name="rating" onClick={setNewRating} /></p>)
+            : <p>0.0 <BsFillPencilFill name="rating" onClick={setNewRating} /></p>}
         </div>
-        <p>Status</p>
+        <div>
+          <p>Status</p>
+          <div>
+            {review ? (changeReview ? (
+              <span>
+                <textarea rows="5" columns="30" name="review" onChange={saveNewRating} />
+                <BsFillCheckCircleFill name="review" onClick={setNewRating} />
+              </span>
+            )
+              : <p>{review} <BsFillPencilFill name="review" onClick={setNewRating} /></p>)
+              : (
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  <BsFillPencilFill name="review" onClick={setNewRating} />
+                </p>
+              )}
+          </div>
+        </div>
       </div>
     </div>
   );
