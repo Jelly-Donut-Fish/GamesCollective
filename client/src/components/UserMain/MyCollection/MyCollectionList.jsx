@@ -3,12 +3,12 @@ import React from 'react';
 import MyCollectionTile from './MyCollectionTile';
 
 function MyCollectionList({
-  catalog, query, genre, category, status, platform,
+  myCollection, query, genre, category, status, platform,
   toggleGameView,
 }) {
   return (
     <div>
-      {catalog.results.map((game) => {
+      {myCollection.map((game) => {
         const gameTitle = game.title.toLowerCase();
         const lowerQuery = query.toLowerCase();
 
