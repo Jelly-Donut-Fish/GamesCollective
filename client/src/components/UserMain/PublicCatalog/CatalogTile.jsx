@@ -1,15 +1,21 @@
 import React from 'react';
 
-function CatalogTile( {item} ) {
+function CatalogTile({ item }) {
   console.log(item);
   return (
     <div>
-      <img src={item.header_image} />
+      <img src={item.header_image} alt="game in the collection" />
       <h3>{item.name}</h3>
       <span>{item.release_date.date}</span>
       <h4>{item.publishers}</h4>
-      <span>Platforms Available</span>
-      <span>genre, genre, genre</span>
+      <h4> Available on: </h4>
+      <ul>
+        {item.platforms.map((platform) => <li>{platform}</li>)}
+      </ul>
+      <h4> Genres </h4>
+      <ul>
+        {item.genres.map((genres) => <li>{genres}</li>)}
+      </ul>
       <p>{item.rating}</p>
       <label htmlFor="game status">
         <select name="status" id="game status">
