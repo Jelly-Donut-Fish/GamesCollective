@@ -12,15 +12,17 @@ function Login() {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
-  const steamLogIn = () => {
-    axios.post('/auth/openid')
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log('error in steam axios', err);
-      });
-  };
+
+
+  // const steamLogIn = () => {
+  //   axios.post('/auth/openid')
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log('error in steam axios', err);
+  //     });
+  // };
 
   // useEffect(() => {
   //   if (loading) {
@@ -64,12 +66,12 @@ function Login() {
         </button> */}
 
         <div>
-          <Link to="/reset">Forgot Password</Link>
+          <Link className="link" to="/Reset">Forgot Password</Link>
         </div>
         <div>
           Don't have an account? Join the ultimate collection today!
           {/* pop up model to register */}
-          <Link to="/register">Register</Link>
+          <Link className="link" to="/Register">Register</Link>
           {/* <button type="button" className="login__btn login__google" onClick={signInWithGoogle}>Register now.</button> */}
         </div>
       </div>
