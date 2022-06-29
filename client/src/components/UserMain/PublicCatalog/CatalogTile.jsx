@@ -1,7 +1,10 @@
 import React from 'react';
 
-function CatalogTile({ item }) {
-  console.log(item);
+function CatalogTile({ item, getMyCollection }) {
+  const handleClick = function () {
+    getMyCollection([...getMyCollection, item]);
+    // axios request to add to my collection
+  };
   return (
     <div>
       <img src={item.header_image} alt="game in the collection" />
@@ -25,6 +28,7 @@ function CatalogTile({ item }) {
           <option value="Backlog">Haven&apos;t Started</option>
         </select>
       </label>
+      <button onClick={handleClick} type="submit"> Add </button>
     </div>
   );
 }
