@@ -22,16 +22,24 @@ function UserMain() {
 
   return (
     <div>
-      <MyCollectionContainer
-        toggleGameView={toggleGameView}
-        toggleThreadsView={toggleThreadsView}
-      />
-      <CatalogContainer
-        toggleGameView={toggleGameView}
-        toggleThreadsView={toggleThreadsView}
-      />
-      {gameDisplayed && <GameDetails gameId={gameId} />}
-      {gameThreadsDisplayed && <ThreadsView gameId={gameId} />}
+      <div className="container">
+        <div className="collection">
+          <MyCollectionContainer
+            toggleGameView={toggleGameView}
+            toggleThreadsView={toggleThreadsView}
+          />
+        </div>
+        <div className="catalog">
+          <CatalogContainer
+            toggleGameView={toggleGameView}
+            toggleThreadsView={toggleThreadsView}
+          />
+        </div>
+      </div>
+      <div className="clear">
+        {gameDisplayed && <GameDetails gameId={gameId} />}
+        {gameThreadsDisplayed && <ThreadsView gameId={gameId} />}
+      </div>
     </div>
   );
 }
