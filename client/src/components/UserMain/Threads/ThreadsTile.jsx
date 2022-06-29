@@ -10,7 +10,6 @@ function ThreadsTile({ toggleThreadView, thread }) {
     <div>
       <div>
         <span>{thread.username}  </span>
-        <span>{thread.rating}  </span>
         <span>{thread.datePosted}</span>
       </div>
       <div>

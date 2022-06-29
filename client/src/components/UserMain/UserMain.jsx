@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CatalogContainer from '../../containers/CatalogContainer.js';
 import MyCollectionContainer from '../../containers/MyCollectionContainer.js';
 import GameDetails from './GameDetails/GameDetails';
-import ThreadsView from './Threads/ThreadsView';
+import ThreadsContainer from '../../containers/ThreadsContainer';
 
 function UserMain() {
   const [gameDisplayed, toggleGameDisplay] = useState(false);
@@ -38,7 +38,7 @@ function UserMain() {
       </div>
       <div className="clear">
         {gameDisplayed && <GameDetails gameId={gameId} />}
-        {gameThreadsDisplayed && <ThreadsView gameId={gameId} />}
+        {gameThreadsDisplayed && <ThreadsContainer game={game} />}
       </div>
     </div>
   );

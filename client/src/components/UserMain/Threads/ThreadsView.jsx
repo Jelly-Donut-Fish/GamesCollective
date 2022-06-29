@@ -3,22 +3,23 @@ import ThreadsList from './ThreadsList';
 import SingleThreadView from '../IndividualThread/SingleThreadView';
 import AddThread from './AddThread';
 
+
 const dummyThreads = [
   {
-    commentId: 1, parentId: 0, username: 'WillyWonka', rating: 4, datePosted: '04/24/1994', body: 'Opened a candy factory in this game and had some guests over. Things got a little messy.', title: 'Come on in, the chocolate is fine!',
+    id: 1, username: 'WillyWonka', date: '04/24/1994', title: 'Come on in, the chocolate is fine!', body: 'Opened a candy factory in this game and had some guests over. Things got a little messy.', parent_id: 0,
   },
   {
-    commentId: 446, parentId: 0, username: 'GrandpaJoe', rating: 4, datePosted: '04/24/1994', body: 'All I\'m saying is I was bedridden for years and I got to Fly. No regrets.', title: 'Fly like a bubble... to the fan',
+    id: 446, username: 'GrandpaJoe', date: '04/24/1994', title: 'Fly like a bubble... to the fan', body: 'All I\'m saying is I was bedridden for years and I got to Fly. No regrets.', parent_id: 0,
   },
   {
-    commentId: 545, parentId: 1, username: 'Augustus', rating: 4, datePosted: '04/24/1994', body: 'This chocolate was amazing but they should really put up a no swimming sign.', title: null,
+    id: 545, username: 'Augustus', date: '04/24/1994', title: null, body: 'This chocolate was amazing but they should really put up a no swimming sign.', parent_id: 1,
   },
   {
-    commentId: 546, parentId: 1, username: 'Violet', rating: 3, datePosted: '04/24/1994', body: 'Amazing you say? Well I want it now!', title: null,
+    id: 546, username: 'Violet', date: '04/24/1994', title: null, body: 'Amazing you say? Well I want it now!', parent_id: 1,
   },
 ];
 
-function ThreadsView() {
+function ThreadsView({ currentUser, game }) {
   const [addThreadView, setAddThreadView] = useState(false);
   const [singleThreadView, setSingleThreadView] = useState(false);
   const [selectedThread, setSelectedThread] = useState({});
@@ -48,12 +49,17 @@ function ThreadsView() {
 
   return (
     <div>
-      <ThreadsList toggleThreadView={toggleSingleThreadView} threads={threads} />
+      <ThreadsList
+        toggleThreadView={toggleSingleThreadView}
+        threads={threads}
+      />
       {singleThreadView && (
       <SingleThreadView
         toggleThreadView={toggleSingleThreadView}
         thread={selectedThread}
         childComments={singleThreadComments}
+        currentUser={currentUser}
+        gameId={game.id}
       />
       )}
       <button
@@ -63,7 +69,13 @@ function ThreadsView() {
         Add Thread
       </button>
       {addThreadView && (
-      <AddThread toggleAddThread={toggleAddThreadView} addThread={addThread} threads={threads} />
+      <AddThread
+        toggleAddThread={toggleAddThreadView}
+        addThread={addThread}
+        threads={threads}
+        currentUser={currentUser}
+        gameId={game.id}
+      />
       )}
     </div>
   );

@@ -5,15 +5,14 @@ function CommentTile({ comment }) {
   return (
     <div className="commentTile">
       <div className="postInfo">
-        <span className="Author">{comment.username   }</span>
-        <span className="authorRating">{comment.rating   }</span>
-        <span className="postDate">{comment.datePosted   }</span>
+        <span className="Author">{comment.username}</span>
+        <span className="postDate">{comment.date}</span>
       </div>
       <div className="commentBody">
         <p className="postBody">{comment.body}</p>
       </div>
       <div className="actionsIcons">
-        <span>{MdReport}</span>
+        <span onClick={reportComment}>{MdReport}</span>
       </div>
     </div>
   );

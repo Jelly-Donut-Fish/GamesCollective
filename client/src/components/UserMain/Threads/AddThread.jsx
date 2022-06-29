@@ -3,7 +3,7 @@ import { MdClear } from "react-icons/md";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db, logout } from '../../../authentication/firebase';
 
-function AddThread({ toggleAddThread, addThread, threads }) {
+function AddThread({ toggleAddThread, addThread, threads, currentUser, gameId }) {
   const [newThreadTitle, setNewThreadTitle] = useState('');
   const [newThreadBody, setNewThreadBody] = useState('');
   const [user] = useAuthState(auth);
@@ -31,13 +31,11 @@ function AddThread({ toggleAddThread, addThread, threads }) {
   const postThread = (event) => {
     event.preventDefault();
     const postBody = {
-      commentId: threads.length + 1,
-      parentId: 0,
-      author: user,
-      datePosted: Date.now(),
-      rating: 4,
-      title: newThreadTitle,
+      user_id: currentUser.id,
+      game_id: gameId,
       body: newThreadBody,
+      parent_comment_id: 0,
+      title: newThreadTitle,
     };
 
     addThread(postBody);
