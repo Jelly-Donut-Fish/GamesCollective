@@ -1,7 +1,9 @@
 const addGamesToCol = `
   insert into
-  game_user (game_id, site_id, status, review, rating)
-  values($1, $2, $3, $4, $5)
+  game_user (game_id, user_id, status, review, rating)
+  values(4, (select u.id
+            from users u
+            where u.site_id = $1), 'playing', 'fun', 5);
 `;
 
 const editRatingReview = `
@@ -9,13 +11,19 @@ const editRatingReview = `
   set
     rating = $1,
     review = $2
-  where game_id = $3 and site_id = $4
+  where game_id = $3 and user_id =
+    (select u.id
+    from users u
+    where u.site_id = $4);
 `;
 
 const changeStatus = `
   update game_user
   set status = $1
-  where game_id = $2 and site_id = $3
+  where game_id = $2 and user_id =
+  (select u.id
+    from users u
+    where u.site_id = $3);
 `;
 
 const getUsersGames = `
@@ -69,7 +77,9 @@ from (
 `;
 
 const removeGameFromCol = `
-  delete from game_user where site_id = $1 and game_id = $2
+  delete from game_user where user_id = (select u.id
+  from users u
+  where u.site_id = $1) and game_id = $2
 `;
 
 module.exports = {
