@@ -55,12 +55,12 @@ CREATE TABLE "genre"(
 ALTER TABLE
     "genre" ADD PRIMARY KEY("id");
 CREATE TABLE "game_user"(
-    "id" INTEGER NOT NULL,
+    "id" SERIAL,
     "game_id" INTEGER NOT NULL,
     "user_id" INTEGER NOT NULL,
-    "note" TEXT NOT NULL,
-    "rating" INTEGER NOT NULL,
-    "status" VARCHAR(255) NOT NULL
+    "status" VARCHAR(15) DEFAULT 'want to play',
+    "review" TEXT,
+    "rating" INTEGER
 );
 ALTER TABLE
     "game_user" ADD PRIMARY KEY("id");
