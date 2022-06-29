@@ -12,9 +12,8 @@ const put = function(body) {
 
 }
 
-
 module.exports = {
-  post: post,
-  get: get,
-  put: put
-}
+  post,
+  get,
+  put,
+};
