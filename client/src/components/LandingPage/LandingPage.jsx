@@ -23,22 +23,28 @@ function LandingPage() {
       alert('An error occured while fetching user data');
     }
   };
+
   // useEffect(() => {
   //   if (loading) return;
   //   if (!user) return navigate('/');
   //   fetchUserName();
   // }, [user, loading]);
+
   return (
-    <div>
+    <div className="landing-page">
+      <nav className="nav-bar">
+        <h3>Games Collection</h3>
+        <br />
+        <Link className="link" to="/UserMain">User Main</Link>
+      </nav>
       <div className="landing">
         <DemoSection />
         <div className="landing_login">
-          <Link to="/UserMain">User Main</Link>
           <div className="log-out">
             Logged in as
             <div>{name}</div>
             <div>{user?.email}</div>
-            <button type="button" className="landing_btn" onClick={logout}>
+            <button type="button" className="logout_btn" onClick={logout}>
               Logout
             </button>
           </div>
