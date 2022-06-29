@@ -7,13 +7,11 @@ function MyCollectionList({
   toggleGameView, toggleThreadsView, getMyCollection,
 }) {
   const removeFromCollection = (index) => {
-    if (confirm('Are you sure you want to remove [insert game title here] from your collection?') === true) {
-      console.log('my collection:');
-      const myList = myCollection;
-      myList.splice(0, 1);
-      console.log(myList);
-      getMyCollection(myList);
-    }
+    console.log('my collection:');
+    const myList = myCollection;
+    myList.splice(index, 1);
+    console.log(myList);
+    getMyCollection([...myList]);
   };
 
   return (
