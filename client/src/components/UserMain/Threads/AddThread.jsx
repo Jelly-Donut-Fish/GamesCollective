@@ -52,12 +52,16 @@ function AddThread({ toggleAddThread, addThread, threads }) {
           id="newThreadTitle"
           onChange={handleTyping}
           label="Title"
+          placeholder="Topic Title"
         />
-        <input
-          type="textarea"
+        <br />
+        <textarea
           id="newThreadBody"
+          rows="10"
+          col="100"
           onChange={handleTyping}
           label="Body"
+          placeholder="What are your thoughts?"
         />
       </form>
       <button type="submit" onClick={postThread}>Submit</button>

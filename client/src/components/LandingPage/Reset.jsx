@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { auth, sendPasswordResetEmail } from '../../authentication/firebase';
 
 function Reset() {
@@ -13,8 +13,18 @@ function Reset() {
   //   if (user) navigate('/');
   // }, [user, loading]);
 
+  const resetClickHandler = (email) => {
+    sendPasswordResetEmail(email);
+    navigate('/UserMain');
+  };
+
   return (
     <div className="reset">
+      <nav className="nav-bar">
+        <h3>Games Collection</h3>
+        <br />
+        <Link className="link" to="/">Home</Link>
+      </nav>
       <div className="reset__container">
         <input
           type="text"
@@ -26,20 +36,14 @@ function Reset() {
         <button
           type="button"
           className="reset__btn"
-          onClick={() => sendPasswordResetEmail(email)}
+          onClick={() => resetClickHandler(email)}
         >
           Send password reset email
         </button>
         <div>
           Don't have an account?
           <br />
-          <button
-            type="button"
-            className="login__btn"
-            onClick={() => alert('closes model')}
-          >
-            Register now
-          </button>
+          <Link className="link" to="/Register">Register Now</Link>
         </div>
       </div>
     </div>
