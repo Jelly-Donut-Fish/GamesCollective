@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 import { MdComment } from 'react-icons/md';
 import { FaTrashAlt } from 'react-icons/fa';
 
-function MyCollectionTile() {
+function MyCollectionTile({ game, toggleGameView }) {
   // delete request
   const removeFromCollection = (e) => {
     e.preventDefault();
@@ -19,10 +19,15 @@ function MyCollectionTile() {
     }
   };
 
+  const openGameView = (e) => {
+    e.preventDefault();
+    toggleGameView(game.id);
+  };
+
   return (
     <div>
       <img src="https://en.wikipedia.org/wiki/Sly_Cooper#/media/File:Sly_Cooper_series.png" alt="[Game Title] thumbnail" />
-      <h3>Game Title</h3>
+      <h3 onClick={openGameView}>Game Title</h3>
       <span>[Release Date]</span>
       <h4>Publisher/Studio</h4>
       <span>Platforms Available</span>

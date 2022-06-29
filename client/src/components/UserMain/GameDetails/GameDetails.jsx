@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GameDetails({ toggleGameView }) {
+function GameDetails({  }) {
   return (
 
   );

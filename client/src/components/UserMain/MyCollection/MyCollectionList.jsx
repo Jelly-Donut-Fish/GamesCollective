@@ -14,34 +14,34 @@ function MyCollectionList({
 
         if (query) {
           if (gameTitle.includes(lowerQuery)) {
-            return <MyCollectionTile />;
+            return <MyCollectionTile toggleGameView={toggleGameView} />;
           }
         }
         if (genre) {
           if (game.genre === genre) {
-            return (<MyCollectionTile />);
+            return (<MyCollectionTile toggleGameView={toggleGameView} />);
           }
         }
         if (category) {
           if (game.category === category) {
-            return (<MyCollectionTile />);
+            return (<MyCollectionTile toggleGameView={toggleGameView} />);
           }
         }
         if (status) {
           if (game.status === status) {
-            return (<MyCollectionTile />);
+            return (<MyCollectionTile toggleGameView={toggleGameView} />);
           }
         }
         if (platform) {
           if (game.platform === platform) {
-            return (<MyCollectionTile />);
+            return (<MyCollectionTile toggleGameView={toggleGameView} />);
           }
         }
         if (!query
           && !genre
           && !category
           && !status) {
-          return <MyCollectionTile />;
+          return <MyCollectionTile toggleGameView={toggleGameView} />;
         }
       })}
     </div>
