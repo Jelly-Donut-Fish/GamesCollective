@@ -17,7 +17,7 @@ const get = function (user_id) {
     )from games g where g.id = gu.game_id
   ))from  game_user gu where gu.user_id = $1
 `;
-pool.query(getUsersGames, user_id)
+return pool.query(getUsersGames, user_id)
 }
 
 const post = function (game_id, body) {

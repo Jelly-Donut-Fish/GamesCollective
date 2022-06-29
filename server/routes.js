@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const gameUsersController = require('./controllers/games_users')
 // controller func imports
 const FUNC = (req, res) => {
   console.log('replace with a real function');
@@ -14,9 +15,9 @@ router.get('/games', FUNC);
 
 router.get('/games/:game_id', FUNC);
 
-router.get('/games_users/:user_id', FUNC);
+router.get('/games_users/:user_id', gameUsersController);
 
-router.post('/games_users/:user_id', FUNC);
+router.post('/games_users/:user_id', gameUsersController);
 
 router.put('/games_users/status', FUNC);
 

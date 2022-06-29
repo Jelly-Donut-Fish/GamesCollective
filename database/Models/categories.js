@@ -5,5 +5,5 @@ const get = function () {
 }
 
 module.exports = {
-  getAll: getAll
+  get: get
 }
