@@ -85,6 +85,8 @@ a:hover {
   text-align: center;
   background-color: #dcdcdc;
   padding: 30px;
+  background-color: #000000;
+  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
 }
 .reset .reset__textBox {
   padding: 10px;

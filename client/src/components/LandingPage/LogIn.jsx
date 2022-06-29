@@ -70,9 +70,7 @@ function Login() {
         </div>
         <div>
           Don't have an account? Join the ultimate collection today!
-          {/* pop up model to register */}
           <Link className="link" to="/Register">Register</Link>
-          {/* <button type="button" className="login__btn login__google" onClick={signInWithGoogle}>Register now.</button> */}
         </div>
       </div>
     </div>
