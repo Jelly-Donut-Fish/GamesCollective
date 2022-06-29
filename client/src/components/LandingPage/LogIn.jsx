@@ -53,6 +53,11 @@ function Login({ getUser }) {
 
   return (
     <div className="login">
+      <nav className="nav-bar">
+        <h3>Games Collection</h3>
+        <br />
+        <Link className="link" to="/UserMain">User Main</Link>
+      </nav>
       <div className="login_container">
         <input
           type="text"
