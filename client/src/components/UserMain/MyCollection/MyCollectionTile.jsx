@@ -8,17 +8,7 @@ function MyCollectionTile({
 }) {
   // delete request
   const removeFromCollection = (e) => {
-    e.preventDefault();
-    if (confirm('Are you sure you want to remove [insert game title here] from your collection?') === true) {
-      axios.delete('/games_users', { data: { user_id: '[userId here]', game_id: '[gameId here]' } })
-        .then(() => {
-          alert('[Game Title] was removed from your collection');
-        })
-        .catch((err) => {
-          console.error('[game title] was not able to be removed at this time, please see the below error:');
-          console.log(err);
-        });
-    }
+
   };
 
   const openGameView = (e) => {

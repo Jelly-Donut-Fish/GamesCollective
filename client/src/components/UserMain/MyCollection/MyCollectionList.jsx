@@ -6,6 +6,21 @@ function MyCollectionList({
   myCollection, query, genre, category, status, platform,
   toggleGameView, toggleThreadsView, getMyCollection,
 }) {
+  const removeFromCollection = (gameID) => {
+    e.preventDefault();
+    if (confirm('Are you sure you want to remove [insert game title here] from your collection?') === true) {
+      getMyCollection(myCollection.splice((myCollection.indexOf(gameID)), 1));
+      axios.delete('/games_users', { data: { user_id: '[userId here]', game_id: '[gameId here]' } })
+        .then(() => {
+          alert('[Game Title] was removed from your collection');
+        })
+        .catch((err) => {
+          console.error('[game title] was not able to be removed at this time, please see the below error:');
+          console.log(err);
+        });
+    }
+  };
+
   return (
     <div>
       {myCollection.map((game) => {

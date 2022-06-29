@@ -10,14 +10,12 @@ const mapStateToProps = (state) => (
   }
 );
 
-// example of mapping reducers
-// var mapDispatchToProps = (dispatch) => {
-//   return {
-//     setNewFilter: (filter) => dispatch(setNewFilter(filter)),
-//     setUserIsSort: (boolValue) => dispatch(setUserIsSort(boolValue))
-//   };
-// };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getMyCollection: (myCollection) => dispatch(getMyCollection(myCollection))
+  };
+};
 
-const MyCollectionContainer = connect(mapStateToProps)(MyCollection);
+const MyCollectionContainer = connect(mapStateToProps, mapDispatchToProps)(MyCollection);
 
 export default MyCollectionContainer;
