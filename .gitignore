@@ -1,1 +1,10 @@
 node_modules
+<<<<<<< HEAD
+=======
+.env
+bundle.js
+yarn.lock
+.gitignore
+firebaseAuth.js
+yarn-error.log
+>>>>>>> dev

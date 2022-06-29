@@ -8,27 +8,49 @@ import { auth, db, logout } from '../../authentication/firebase';
 import Login from './LogIn';
 import DemoSection from './DemoSection';
 
-function LandingPage() {
+function LandingPage({ getUser, currentUser }) {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState('');
   const navigate = useNavigate();
-  const fetchUserName = async () => {
-    try {
-      const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
-      const doc = await getDocs(q);
-      const data = doc.docs[0].data();
-      setName(data.name);
-    } catch (err) {
-      console.error(err);
-      alert('An error occured while fetching user data');
-    }
-  };
+  // const fetchUserName = async () => {
+  //   try {
+  //     const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
+  //     const doc = await getDocs(q);
+  //     const data = doc.docs[0].data();
+  //     setName(data.name);
+  //   } catch (err) {
+  //     console.error(err);
+  //     alert('An error occured while fetching user data');
+  //   }
+  // };
 
   // useEffect(() => {
   //   if (loading) return;
   //   if (!user) return navigate('/');
   //   fetchUserName();
   // }, [user, loading]);
+
+  // useEffect(() => {
+  //   if (user) getuserId();
+  // }, [user]);
+
+  // const getuserId = async () => {
+  //   try {
+  //     const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
+  //     const doc = await getDocs(q);
+  //     const data = doc.docs[0].data();
+  //     getUser(data.uid);
+  //   } catch (err) {
+  //     console.error(err);
+  //     console.log('An error occured while fetching user data');
+  //   }
+  // };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    logout();
+    getUser();
+  };
 
   return (
     <div className="landing-page">
@@ -44,11 +66,11 @@ function LandingPage() {
             Logged in as
             <div>{name}</div>
             <div>{user?.email}</div>
-            <button type="button" className="logout_btn" onClick={logout}>
+            <button type="button" className="logout_btn" onClick={handleLogout}>
               Logout
             </button>
           </div>
-          <Login />
+          <Login getUser={getUser} currentUser={currentUser} />
         </div>
       </div>
     </div>
