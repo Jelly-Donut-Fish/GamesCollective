@@ -6,7 +6,7 @@ import getMyCollectionReducer from './getMyCollectionReducer.js';
 
 const rootReducer = combineReducers({
   catalog: getCatalogReducer,
-  user: getUserReducer,
+  currentUser: getUserReducer,
   myCollection: getMyCollectionReducer,
 });
 
