@@ -6,7 +6,7 @@ import ThreadsView from './Threads/ThreadsView';
 
 function UserMain() {
   const [gameDisplayed, toggleGameDisplay] = useState(false);
-  const [gameThreadsDisplayed, toggleGameThreads] = useState(false);
+  const [gameThreadsDisplayed, toggleGameThreads] = useState(true);
   const [game, setGame] = useState({});
   const [gameId, setGameId] = useState();
 
@@ -22,16 +22,24 @@ function UserMain() {
 
   return (
     <div>
-      <MyCollectionContainer
-        toggleGameView={toggleGameView}
-        toggleThreadsView={toggleThreadsView}
-      />
-      <CatalogContainer
-        toggleGameView={toggleGameView}
-        toggleThreadsView={toggleThreadsView}
-      />
-      {gameDisplayed && <GameDetails gameId={gameId} />}
-      {gameThreadsDisplayed && <ThreadsView gameId={gameId} />}
+      <div className="container">
+        <div className="collection">
+          <MyCollectionContainer
+            toggleGameView={toggleGameView}
+            toggleThreadsView={toggleThreadsView}
+          />
+        </div>
+        <div className="catalog">
+          <CatalogContainer
+            toggleGameView={toggleGameView}
+            toggleThreadsView={toggleThreadsView}
+          />
+        </div>
+      </div>
+      <div className="clear">
+        {gameDisplayed && <GameDetails gameId={gameId} />}
+        {gameThreadsDisplayed && <ThreadsView gameId={gameId} />}
+      </div>
     </div>
   );
 }

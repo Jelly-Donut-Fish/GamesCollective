@@ -3,45 +3,45 @@ import React from 'react';
 import MyCollectionTile from './MyCollectionTile';
 
 function MyCollectionList({
-  catalog, query, genre, category, status, platform,
+  myCollection, query, genre, category, status, platform,
   toggleGameView,
 }) {
   return (
     <div>
-      {catalog.results.map((game) => {
-        const gameTitle = game.title.toLowerCase();
+      {myCollection.map((game) => {
+        const gameTitle = game.name.toLowerCase();
         const lowerQuery = query.toLowerCase();
 
         if (query) {
           if (gameTitle.includes(lowerQuery)) {
-            return <MyCollectionTile toggleGameView={toggleGameView} />;
+            return <MyCollectionTile key={game.id} game={game} toggleGameView={toggleGameView} />;
           }
         }
         if (genre) {
           if (game.genre === genre) {
-            return (<MyCollectionTile toggleGameView={toggleGameView} />);
+            return (<MyCollectionTile key={game.id} game={game} toggleGameView={toggleGameView} />);
           }
         }
         if (category) {
           if (game.category === category) {
-            return (<MyCollectionTile toggleGameView={toggleGameView} />);
+            return (<MyCollectionTile key={game.id} game={game} toggleGameView={toggleGameView} />);
           }
         }
         if (status) {
           if (game.status === status) {
-            return (<MyCollectionTile toggleGameView={toggleGameView} />);
+            return (<MyCollectionTile key={game.id} game={game} toggleGameView={toggleGameView} />);
           }
         }
         if (platform) {
           if (game.platform === platform) {
-            return (<MyCollectionTile toggleGameView={toggleGameView} />);
+            return (<MyCollectionTile key={game.id} game={game} toggleGameView={toggleGameView} />);
           }
         }
         if (!query
           && !genre
           && !category
           && !status) {
-          return <MyCollectionTile toggleGameView={toggleGameView} />;
+          return <MyCollectionTile key={game.id} game={game} toggleGameView={toggleGameView} />;
         }
       })}
     </div>

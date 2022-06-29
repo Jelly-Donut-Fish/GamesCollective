@@ -21,7 +21,7 @@ body {
   background-size: 100% 100%;
   background-attachment: fixed;
   animation: gradient 1s ease infinite;
-
+  color: white;
 }
 
 input {
@@ -30,12 +30,12 @@ input {
   border-radius: 5vw;
   outline-color: $main;
 
-  &.search-itemId-input-err {
-    &::placeholder {
-      color: $crimson;
-    }
+  // &.search-itemId-input-err {
+  //   &::placeholder {
+  //     color: $crimson;
+  //   }
 
-  }
+  // }
 
   &:focus {
     box-shadow: $mainBoxShadow;
@@ -50,6 +50,10 @@ a:link, a:visited {
 a:hover {
   color: red;
 }
+.nav-bar{
+  align-self: center;
+  grid-column-start:2
+}
 
 // button {
 //   transition-duration: 0.4s;
@@ -62,15 +66,23 @@ a:hover {
 .register {
   height: 100vh;
   width: 100vw;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 10% 90%;
   justify-content: center;
+
+
   .register__container {
+    grid-column-start: 2;
+    grid-row-start: 2;
     display: flex;
     flex-direction: column;
+    align-self: flex-start;
     text-align: center;
-    background-color: #dcdcdc;
-    padding: 30px;
+    padding: 1vw;
+    background-color: #000000;
+    box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
+
   }
   .register__textBox {
     padding: 10px;
@@ -83,7 +95,7 @@ a:hover {
     margin-bottom: 10px;
     border: none;
     color: white;
-    background-color: black;
+    background-color: rgb(119, 56, 125);
     &:hover {
       color: $crimson;
       box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
@@ -91,8 +103,13 @@ a:hover {
     }
   }
   .register__google {
-    background-color: #4285f4;
+    background-color: rgb(119, 56, 125);
+    &:hover {
+      color: $crimson;
+      box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
+      transition: $boxShadowTransition;
   }
+}
   .register div {
     margin-top: 7px;
   }
@@ -101,15 +118,21 @@ a:hover {
 .reset {
   height: 100vh;
   width: 100vw;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 10% 90%;
   justify-content: center;
+
   .reset__container {
+    grid-column-start: 2;
+    grid-row-start: 2;
     display: flex;
     flex-direction: column;
+    align-self: flex-start;
     text-align: center;
-    background-color: #dcdcdc;
-    padding: 30px;
+    padding: 1vw;
+    background-color: #000000;
+    box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
   }
   .reset__textBox {
     padding: 10px;
@@ -122,7 +145,7 @@ a:hover {
     margin-bottom: 10px;
     border: none;
     color: white;
-    background-color: black;
+    background-color: rgb(119, 56, 125);
     &:hover {
       color: $crimson;
       box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
@@ -139,10 +162,6 @@ a:hover {
   flex-flow: column wrap;
   position: relative;
   color: white;
-
-  .nav-bar{
-    align-self: center;
-  }
 
   .landing {
     height: 100vh;
@@ -216,6 +235,8 @@ a:hover {
         box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
 
         .login_container {
+          grid-column-start: 2;
+          grid-row-start: 2;
           display: flex;
           flex-direction: column;
           text-align: center;
