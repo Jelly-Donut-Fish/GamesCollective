@@ -7,7 +7,7 @@ import { auth } from '../../authentication/firebase';
 function UpdateProfile() {
   const [user, loading, error] = useAuthState(auth);
   const [email, setEmail] = useState(user?.email);
-  const [name, setName] = useState(user?.displayName);
+  const [displayName, setName] = useState(user?.displayName);
   const [photoURL, setPhotoURL] = useState(user?.photoURL);
   const [summary, setSummary] = useState(user?.summary);
   const navigate = useNavigate();
@@ -20,12 +20,11 @@ function UpdateProfile() {
 
     // Passing user's object as first param and updating it
     await updateProfile(user, {
-      email,
-      displayName: name,
+      displayName,
       photoURL,
       summary,
     });
-    navigate('/UserMain');
+    navigate('/');
   };
 
   return (
@@ -39,28 +38,28 @@ function UpdateProfile() {
         <input
           type="text"
           className="register__textBox"
-          value={name}
+          value={displayName || ''}
           onChange={(e) => setName(e.target.value)}
           placeholder="Username"
         />
         <input
           type="text"
           className="register__textBox"
-          value={email}
+          value={email || ''}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail Address"
         />
         <input
           type="text"
           className="register__textBox"
-          value={photoURL}
+          value={photoURL || ''}
           onChange={(e) => setPhotoURL(e.target.value)}
           placeholder="Profile Pic URL"
         />
         <input
           type="text"
           className="register__textBox"
-          value={summary}
+          value={summary || ''}
           onChange={(e) => setSummary(e.target.value)}
           placeholder="Summary"
         />

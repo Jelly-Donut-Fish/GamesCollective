@@ -66,7 +66,7 @@ function LandingPage({ getUser, currentUser }) {
           <div className="log-out">
             Logged in as
             <div>{name}</div>
-            <div>{user?.email}</div>
+            <div>{user?.displayName}</div>
             <button type="button" className="logout_btn" onClick={handleLogout}>
               Logout
             </button>

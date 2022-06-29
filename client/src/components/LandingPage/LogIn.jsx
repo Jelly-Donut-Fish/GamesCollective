@@ -39,14 +39,16 @@ function Login({ getUser }) {
   }, [user]);
 
   const getuserId = async () => {
-    try {
-      const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
-      const doc = await getDocs(q);
-      const data = doc.docs[0].data();
-      getUser(data.uid);
-    } catch (err) {
-      console.error(err);
-      console.log('An error occured while fetching user data');
+    if (user) {
+      try {
+        const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
+        const doc = await getDocs(q);
+        const data = doc.docs[0].data();
+        getUser(data.uid);
+      } catch (err) {
+        console.error(err);
+        console.log('An error occured while fetching user data');
+      }
     }
   };
 
