@@ -16,7 +16,7 @@ function UpdateProfile( {currentUser} ) {
     const authenticate = getAuth();
     // You need to pass the authentication instance as param
     // Passing user's object as first param and updating it
-    updateProfile(authenticate.user, {
+    updateProfile(authenticate.currentUser, {
       displayName,
       photoURL,
     })

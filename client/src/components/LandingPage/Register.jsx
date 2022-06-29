@@ -8,7 +8,7 @@ import {
   signInWithGoogle,
 } from '../../authentication/firebase';
 
-function Register() {
+function Register({ getUser, currentUser }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
@@ -20,13 +20,13 @@ function Register() {
   const register = () => {
     if (!name) alert('Please enter name');
     registerWithEmailAndPassword(name, email, password, displayName, photoURL);
-    //
+    // putUserindb();
     navigate('/UserMain');
   };
 
   // const putUserindb = () => {
   //   axios.post('/users', {
-  //     name, email, password,
+  //     name, displayName, email, password, photoURL
   //   })
   //     .then(() => console.log('registered successfully'))
   //     .catch((err) => console.log(err));

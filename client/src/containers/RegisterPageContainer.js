@@ -4,17 +4,17 @@ import Register from '../components/LandingPage/Register';
 const mapStateToProps = (state) => (
   {
     //  place state props that need to be added
-    catalog: state.catalog,
+    ccurrentUser: state.currentUser,
   }
 );
 
 // example of mapping reducers
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     setUser: (user) => dispatch(setUser(user)),
-//   };
-// };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getUser: (currentUser) => dispatch(getUser(currentUser)),
+  };
+};
 
-const RegisterPageContainer = connect(mapStateToProps)(Register);
+const RegisterPageContainer = connect(mapStateToProps, mapDispatchToProps)(Register);
 
 export default RegisterPageContainer;

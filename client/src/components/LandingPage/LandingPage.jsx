@@ -17,6 +17,7 @@ function LandingPage({ getUser, currentUser }) {
       const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
+      console.log(data.displayName);
       setName(data.displayName);
     } catch (err) {
       console.error(err);
@@ -26,6 +27,7 @@ function LandingPage({ getUser, currentUser }) {
 
   useEffect(() => {
     if (loading) return;
+    console.log('use effect')
     fetchUserName();
   }, [user, loading]);
 
@@ -64,7 +66,7 @@ function LandingPage({ getUser, currentUser }) {
         <div className="landing_login">
           <div className="log-out">
             Logged in as
-            <div>{name}</div>
+            <div>{currentUser.displayName}</div>
             <button type="button" className="logout_btn" onClick={handleLogout}>
               Logout
             </button>
