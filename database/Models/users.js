@@ -1,20 +1,26 @@
 const { pool } = require('../index');
 
-const post = function(body) {
+const { createUser, getUserInfo, updateUser } = require('./userProfileQueries');
 
-}
+const post = (body) => {
+  console.log('inside users', body);
+  pool.connect()
+    .then((client) => {
+      return client.query()
+    })
+    .catch();
+};
 
-const get = function(user_id) {
+const get = (user_id) => {
 
-}
+};
 
-const put = function(body) {
+const put = (body) => {
 
-}
-
+};
 
 module.exports = {
-  post: post,
-  get: get,
-  put: put
-}
+  post,
+  get,
+  put,
+};
