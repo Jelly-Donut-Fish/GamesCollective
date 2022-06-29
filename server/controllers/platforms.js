@@ -1,4 +1,4 @@
-const platformModel = require('../../database/models/platforms');
+const platformModel = require('../../database/Models/platforms');
 const get = function (req, res) {
   platformModel.get()
     .then((data) => {

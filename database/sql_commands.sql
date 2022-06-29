@@ -10,8 +10,7 @@ ALTER TABLE
     "users" ADD PRIMARY KEY("id");
 CREATE TABLE "platforms"(
     "id" INTEGER NOT NULL,
-    "name" VARCHAR(255) NOT NULL,
-    "description" TEXT NOT NULL
+    "name" VARCHAR(255) NOT NULL
 );
 ALTER TABLE
     "platforms" ADD PRIMARY KEY("id");
@@ -32,7 +31,7 @@ ALTER TABLE
     "games" ADD PRIMARY KEY("id");
 CREATE TABLE "category"(
     "id" INTEGER NOT NULL,
-    "name" INTEGER NOT NULL,
+    "description" TEXT NOT NULL,
     "categories_id" INTEGER NOT NULL
 );
 ALTER TABLE
@@ -44,24 +43,25 @@ CREATE TABLE "comments"(
     "game_id" INTEGER NOT NULL,
     "up_vote" INTEGER NOT NULL,
     "down_vote" INTEGER NOT NULL,
-    "parent_comment_id" INTEGER NOT NULL
+    "parent_comment_id" INTEGER NOT NULL,
+    "title" TEXT NULL
 );
 ALTER TABLE
     "comments" ADD PRIMARY KEY("id");
 CREATE TABLE "genre"(
     "id" INTEGER NOT NULL,
-    "name" INTEGER NOT NULL,
-    "genre_id" INTEGER NOT NULL
+    "genre_id" INTEGER NOT NULL,
+    "description" TEXT NOT NULL
 );
 ALTER TABLE
     "genre" ADD PRIMARY KEY("id");
 CREATE TABLE "game_user"(
-    "id" SERIAL,
+    "id" INTEGER NOT NULL,
     "game_id" INTEGER NOT NULL,
     "user_id" INTEGER NOT NULL,
-    "status" VARCHAR(15) DEFAULT 'want to play',
-    "review" TEXT,
-    "rating" INTEGER
+    "note" TEXT NOT NULL,
+    "rating" INTEGER NOT NULL,
+    "status" VARCHAR(255) NOT NULL
 );
 ALTER TABLE
     "game_user" ADD PRIMARY KEY("id");
@@ -84,11 +84,13 @@ CREATE TABLE "game_category"(
     "game_id" INTEGER NOT NULL,
     "category_id" INTEGER NOT NULL
 );
-
-
-
 ALTER TABLE
     "game_category" ADD PRIMARY KEY("id");
+
+
+
+
+
 ALTER TABLE
     "game_user" ADD CONSTRAINT "game_user_user_id_foreign" FOREIGN KEY("user_id") REFERENCES "users"("id");
 ALTER TABLE
@@ -105,7 +107,3 @@ ALTER TABLE
     "game_user" ADD CONSTRAINT "game_user_game_id_foreign" FOREIGN KEY("game_id") REFERENCES "games"("id");
 ALTER TABLE
     "comments" ADD CONSTRAINT "comments_game_id_foreign" FOREIGN KEY("game_id") REFERENCES "games"("id");
-ALTER TABLE
-    "game_category" ADD CONSTRAINT "game_category_category_id_foreign" FOREIGN KEY("category_id") REFERENCES "category"("id");
-ALTER TABLE
-    "game_genre" ADD CONSTRAINT "game_genre_genre_id_foreign" FOREIGN KEY("genre_id") REFERENCES "genre"("id");
