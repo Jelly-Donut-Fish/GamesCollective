@@ -4,6 +4,7 @@ import { MdComment } from 'react-icons/md';
 import { FaTrashAlt } from 'react-icons/fa';
 
 function MyCollectionTile({ game, toggleGameView }) {
+  console.log(game);
   // delete request
   const removeFromCollection = (e) => {
     e.preventDefault();
@@ -27,13 +28,22 @@ function MyCollectionTile({ game, toggleGameView }) {
   return (
     <div>
       <img src="https://en.wikipedia.org/wiki/Sly_Cooper#/media/File:Sly_Cooper_series.png" alt="[Game Title] thumbnail" />
-      <h3 onClick={openGameView}>Game Title</h3>
-      <span>[Release Date]</span>
-      <h4>Publisher/Studio</h4>
-      <span>Platforms Available</span>
-      <p>genre, genre, genre</p>
+      <h3 onClick={openGameView}>{game.name}</h3>
+      <span>{game.release_date.date}</span>
+      <h4>{game.developers}</h4>
+      <h4>{game.publishers}</h4>
+      <span>Platforms Available: </span>
+      {game.platforms.map((platform) => {
+        return <span>{platform}</span>
+      })}
+      {game.genres.map((genre) => {
+        return <p>{genre}</p>
+      })}
+      {game.categories.map((category) => {
+        return <p>{category}</p>
+      })}
       <p>Rating</p>
-      <p>Status</p>
+      <p>{game.status}</p>
       <p className="game_icon"><MdComment /></p>
       <p onClick={removeFromCollection} className="game_icon"><FaTrashAlt /></p>
     </div>
