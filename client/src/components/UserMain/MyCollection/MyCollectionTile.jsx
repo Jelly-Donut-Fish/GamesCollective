@@ -3,7 +3,9 @@ import axios from 'axios';
 import { MdComment } from 'react-icons/md';
 import { FaTrashAlt } from 'react-icons/fa';
 
-function MyCollectionTile({ game, toggleGameView, toggleThreadsView }) {
+function MyCollectionTile({
+  game, toggleGameView, toggleThreadsView, getMyCollection,
+}) {
   // delete request
   const removeFromCollection = (e) => {
     e.preventDefault();

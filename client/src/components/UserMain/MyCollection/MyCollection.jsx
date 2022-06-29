@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import MyCollectionList from './MyCollectionList';
 import MyCollectionSearch from './MyCollectionSearch';
 
-function MyCollection({ myCollection, toggleGameView, toggleThreadsView }) {
+function MyCollection({
+  myCollection, getMyCollection, toggleGameView, toggleThreadsView,
+}) {
   const [query, setQuery] = useState('');
   const [genre, setGenre] = useState('');
   const [category, setCategory] = useState('');
@@ -35,6 +37,7 @@ function MyCollection({ myCollection, toggleGameView, toggleThreadsView }) {
         status={status}
         toggleGameView={toggleGameView}
         toggleThreadsView={toggleThreadsView}
+        getMyCollection={getMyCollection}
       />
     </div>
   );

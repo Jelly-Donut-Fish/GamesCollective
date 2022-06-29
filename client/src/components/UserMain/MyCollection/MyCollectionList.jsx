@@ -4,7 +4,7 @@ import MyCollectionTile from './MyCollectionTile';
 
 function MyCollectionList({
   myCollection, query, genre, category, status, platform,
-  toggleGameView, toggleThreadsView,
+  toggleGameView, toggleThreadsView, getMyCollection,
 }) {
   return (
     <div>
@@ -20,6 +20,7 @@ function MyCollectionList({
                 game={game}
                 toggleGameView={toggleGameView}
                 toggleThreadsView={toggleThreadsView}
+                getMyCollection={getMyCollection}
               />
             );
           }
@@ -32,6 +33,7 @@ function MyCollectionList({
                 game={game}
                 toggleGameView={toggleGameView}
                 toggleThreadsView={toggleThreadsView}
+                getMyCollection={getMyCollection}
               />
             );
           }
@@ -44,6 +46,7 @@ function MyCollectionList({
                 game={game}
                 toggleGameView={toggleGameView}
                 toggleThreadsView={toggleThreadsView}
+                getMyCollection={getMyCollection}
               />
             );
           }
@@ -56,6 +59,7 @@ function MyCollectionList({
                 game={game}
                 toggleGameView={toggleGameView}
                 toggleThreadsView={toggleThreadsView}
+                getMyCollection={getMyCollection}
               />
             );
           }
@@ -68,6 +72,7 @@ function MyCollectionList({
                 game={game}
                 toggleGameView={toggleGameView}
                 toggleThreadsView={toggleThreadsView}
+                getMyCollection={getMyCollection}
               />
             );
           }
@@ -82,6 +87,7 @@ function MyCollectionList({
               game={game}
               toggleGameView={toggleGameView}
               toggleThreadsView={toggleThreadsView}
+              getMyCollection={getMyCollection}
             />
           );
         }
