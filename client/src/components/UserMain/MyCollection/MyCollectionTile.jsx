@@ -3,7 +3,7 @@ import axios from 'axios';
 import { MdComment } from 'react-icons/md';
 import { FaTrashAlt } from 'react-icons/fa';
 
-function MyCollectionTile({ game, toggleGameView }) {
+function MyCollectionTile({ game, toggleGameView, toggleThreadsView }) {
   // delete request
   const removeFromCollection = (e) => {
     e.preventDefault();
@@ -24,27 +24,26 @@ function MyCollectionTile({ game, toggleGameView }) {
     toggleGameView(game);
   };
 
+  const openThreadView = (e) => {
+    e.preventDefault();
+    toggleThreadsView(game.id);
+  };
+
   return (
     <div>
       <img src={game.header_image} alt={`${game.name} thumbnail`} />
-      <h3 onClick={openGameView}>{game.name}</h3>
+      <div><h3 onClick={openGameView} className="title">{game.name}</h3></div>
       <span>{game.release_date.date}</span>
       <h4>{game.developers}</h4>
       <h4>{game.publishers}</h4>
       <span>Platforms Available: </span>
-      {game.platforms.map((platform) => {
-        return <span>{platform}</span>
-      })}
-      {game.genres.map((genre) => {
-        return <p>{genre}</p>
-      })}
-      {game.categories.map((category) => {
-        return <p>{category}</p>
-      })}
+      {game.platforms.map((platform) => <span>{platform}</span>)}
+      {game.genres.map((genre) => <p>{genre}</p>)}
+      {game.categories.map((category) => <p>{category}</p>)}
       <p>{game.rating}</p>
       <p>{game.status}</p>
-      <p className="game_icon"><MdComment /></p>
-      <p onClick={removeFromCollection} className="game_icon"><FaTrashAlt /></p>
+      <button type="button" onClick={openThreadView} className="game_icon"><MdComment /></button>
+      <button type="button" onClick={removeFromCollection} className="game_icon"><FaTrashAlt /></button>
     </div>
   );
 }
