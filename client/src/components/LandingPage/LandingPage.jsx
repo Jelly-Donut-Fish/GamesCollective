@@ -35,7 +35,7 @@ function LandingPage() {
       <nav className="nav-bar">
         <h3>Games Collection</h3>
         <br />
-        <Link to="/UserMain">User Main</Link>
+        <Link className="link" to="/UserMain">User Main</Link>
       </nav>
       <div className="landing">
         <DemoSection />
@@ -44,7 +44,7 @@ function LandingPage() {
             Logged in as
             <div>{name}</div>
             <div>{user?.email}</div>
-            <button type="button" className="landing_btn" onClick={logout}>
+            <button type="button" className="logout_btn" onClick={logout}>
               Logout
             </button>
           </div>

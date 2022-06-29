@@ -1,3 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(-45deg, #2d2b2a, #6c2769, #300f22);
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  animation: gradient 15s ease infinite;
+}
+
+input {
+  margin-top: 1.5vh;
+  padding: 0.5vw 5vw 0.5vw 1vw;
+  border-radius: 5vw;
+  outline-color: black;
+}
+input.search-itemId-input-err::placeholder {
+  color: #D8315B;
+}
+input:focus {
+  box-shadow: 0 0 1vw 0.1vw white, 0 0 1vw 0.1vw white inset;
+}
+
+a:link, a:visited {
+  color: white;
+}
+
+a:hover {
+  color: red;
+}
+
 .register {
   height: 100vh;
   width: 100vw;
@@ -24,6 +57,11 @@
   border: none;
   color: white;
   background-color: black;
+}
+.register .register__btn:hover {
+  color: #D8315B;
+  box-shadow: 0 0 1.3vw 0.2vw white, 0 0 1.3vw 0.2vw white inset;
+  transition: box-shadow 1s ease-in-out;
 }
 .register .register__google {
   background-color: #4285f4;
@@ -59,6 +97,11 @@
   color: white;
   background-color: black;
 }
+.reset .reset__btn:hover {
+  color: #D8315B;
+  box-shadow: 0 0 1.3vw 0.2vw white, 0 0 1.3vw 0.2vw white inset;
+  transition: box-shadow 1s ease-in-out;
+}
 .reset .reset div {
   margin-top: 7px;
 }
@@ -67,6 +110,7 @@
   display: flex;
   flex-flow: column wrap;
   position: relative;
+  color: white;
 }
 .landing-page .nav-bar {
   align-self: center;
@@ -109,15 +153,20 @@
   text-align: center;
   padding: 1vw;
   width: 100%;
-  background-color: #dcdcdc;
+  background-color: #000000;
 }
-.landing-page .landing .landing_login .landing_btn {
+.landing-page .landing .landing_login .logout_btn {
   padding: 10px;
   font-size: 18px;
   margin-top: 10px;
   border: none;
   color: white;
-  background-color: black;
+  background-color: rgb(119, 56, 125);
+}
+.landing-page .landing .landing_login .logout_btn:hover {
+  color: #D8315B;
+  box-shadow: 0 0 1.3vw 0.2vw white, 0 0 1.3vw 0.2vw white inset;
+  transition: box-shadow 1s ease-in-out;
 }
 .landing-page .landing .landing_login .login {
   height: auto;
@@ -126,13 +175,13 @@
   align-self: center;
   align-items: center;
   padding: 1vw;
-  background-color: #dcdcdc;
+  background-color: #000000;
 }
 .landing-page .landing .landing_login .login .login_container {
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-color: #dcdcdc;
+  background-color: #2b1426;
   padding: 1vw;
 }
 .landing-page .landing .landing_login .login .login_textBox {
@@ -146,10 +195,20 @@
   margin-bottom: 10px;
   border: none;
   color: white;
-  background-color: black;
+  background-color: rgb(119, 56, 125);
+}
+.landing-page .landing .landing_login .login .login_btn:hover {
+  color: #D8315B;
+  box-shadow: 0 0 1.3vw 0.2vw white, 0 0 1.3vw 0.2vw white inset;
+  transition: box-shadow 1s ease-in-out;
 }
 .landing-page .landing .landing_login .login .login_google {
-  background-color: #4285f4;
+  background-color: rgb(119, 56, 125);
+}
+.landing-page .landing .landing_login .login .login_google:hover {
+  color: #D8315B;
+  box-shadow: 0 0 1.3vw 0.2vw white, 0 0 1.3vw 0.2vw white inset;
+  transition: box-shadow 1s ease-in-out;
 }
 .landing-page .landing .landing_login .login .login div {
   margin-top: 7px;

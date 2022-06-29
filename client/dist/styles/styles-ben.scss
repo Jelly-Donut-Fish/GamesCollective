@@ -1,4 +1,61 @@
 
+$main: black;
+$second: white;
+$darkGray: rgb(43, 42, 42);
+$gray: rgb(202, 202, 202);
+$crimson: #D8315B;
+
+$defaultBorder: 0.075vw solid black;
+$mainBorder: 0.3vw solid $second;
+$mainBoxShadow: 0 0 1vw 0.1vw $second, 0 0 1vw 0.1vw $second inset;
+
+$boxShadowTransition: box-shadow 1s ease-in-out;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(-45deg, #2d2b2a, #6c2769, #300f22);
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  animation: gradient 15s ease infinite;
+
+}
+
+input {
+  margin-top: 1.5vh;
+  padding: 0.5vw 5vw 0.5vw 1vw;
+  border-radius: 5vw;
+  outline-color: $main;
+
+  &.search-itemId-input-err {
+    &::placeholder {
+      color: $crimson;
+    }
+
+  }
+
+  &:focus {
+    box-shadow: $mainBoxShadow;
+  }
+}
+
+a:link, a:visited {
+  color: white;
+}
+a:hover {
+  color: red;
+}
+
+// button {
+//   transition-duration: 0.4s;
+// }
+
+// button:hover {
+//   background-color: red;
+// }
 
 .register {
   height: 100vh;
@@ -25,6 +82,11 @@
     border: none;
     color: white;
     background-color: black;
+    &:hover {
+      color: $crimson;
+      box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
+      transition: $boxShadowTransition;
+    }
   }
   .register__google {
     background-color: #4285f4;
@@ -59,6 +121,11 @@
     border: none;
     color: white;
     background-color: black;
+    &:hover {
+      color: $crimson;
+      box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
+      transition: $boxShadowTransition;
+    }
   }
   .reset div {
     margin-top: 7px;
@@ -69,6 +136,7 @@
   display: flex;
   flex-flow: column wrap;
   position: relative;
+  color: white;
 
   .nav-bar{
     align-self: center;
@@ -80,6 +148,7 @@
     display: grid;
     grid-template-columns: 2fr 3fr 2fr 1fr;
     grid-template-rows: 10% 90%;
+
 
     .demo-section {
       grid-column-start: 2;
@@ -115,16 +184,21 @@
         text-align: center;
         padding: 1vw;
         width: 100%;
-        background-color: #dcdcdc;
+        background-color: #000000;
       }
 
-      .landing_btn {
+      .logout_btn {
         padding: 10px;
         font-size: 18px;
         margin-top: 10px;
         border: none;
         color: white;
-        background-color: black;
+        background-color: rgb(119, 56, 125);
+        &:hover {
+          color: $crimson;
+          box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
+          transition: $boxShadowTransition;
+        }
       }
         .login {
         height: auto;
@@ -134,13 +208,13 @@
         align-items: center;
         // justify-content: flex-end;
         padding: 1vw;
-        background-color: #dcdcdc;
+        background-color: #000000;
 
         .login_container {
           display: flex;
           flex-direction: column;
           text-align: center;
-          background-color: #dcdcdc;
+          background-color: #2b1426;
           padding: 1vw;
         }
         .login_textBox {
@@ -154,10 +228,20 @@
           margin-bottom: 10px;
           border: none;
           color: white;
-          background-color: black;
+          background-color: rgb(119, 56, 125);
+          &:hover {
+            color: $crimson;
+            box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
+            transition: $boxShadowTransition;
+          }
         }
         .login_google {
-          background-color: #4285f4;
+          background-color: rgb(119, 56, 125);
+          &:hover {
+            color: $crimson;
+            box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
+            transition: $boxShadowTransition;
+          }
         }
         .login div {
           margin-top: 7px;
