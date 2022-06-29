@@ -1,4 +1,4 @@
-const userModel = require('../../database/models/users');
+const userModel = require('../../database/Models/users');
 
 const get = function (req, res) {
   userModel.get(req.body)
