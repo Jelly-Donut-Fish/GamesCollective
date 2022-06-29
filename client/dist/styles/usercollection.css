@@ -1,0 +1,10 @@
+.game_icon {
+  color: blue;
+}
+
+.game_icon:hover {
+  color: red;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=usercollection.css.map */
