@@ -1,4 +1,4 @@
-const getAllCoomments = `
+const getAllCoommentsForAGame = `
   select json_agg(
     json_build_object(
       'id', cu.id,
@@ -11,7 +11,7 @@ const getAllCoomments = `
       'upvote', cu.up_vote,
       'downvote', cu.down_vote
     ) order by id
-  ) from (
+  ) results from (
       select
         c.id,
         u.username,
@@ -21,11 +21,12 @@ const getAllCoomments = `
         c.parent_comment_id,
         c.image_url,
         c.up_vote,
-        c.down_vote,
+        c.down_vote
         FROM comments c
         INNER JOIN
         users u ON
         (c.user_id = u.id)
+        where c.game_id = $1
   ) as cu;
 `;
 
@@ -63,7 +64,7 @@ const deleteCoomment = `
 `;
 
 module.exports = {
-  getAllCoomments,
+  getAllCoommentsForAGame,
   addCoomment,
   reportCoomment,
   upvoteCoomment,
