@@ -32,6 +32,7 @@ function Reset() {
         </button>
         <div>
           Don't have an account?
+          <br />
           <button
             type="button"
             className="login__btn"

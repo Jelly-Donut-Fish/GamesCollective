@@ -4,10 +4,10 @@
 }
 
 body {
-  background: linear-gradient(-45deg, #2d2b2a, #6c2769, #300f22);
-  background-size: 400% 400%;
+  background: linear-gradient(-45deg, #060606, #1a0e19, #250824, #300f22);
+  background-size: 100% 100%;
   background-attachment: fixed;
-  animation: gradient 15s ease infinite;
+  animation: gradient 1s ease infinite;
 }
 
 input {
@@ -20,11 +20,13 @@ input.search-itemId-input-err::placeholder {
   color: #D8315B;
 }
 input:focus {
-  box-shadow: 0 0 1vw 0.1vw white, 0 0 1vw 0.1vw white inset;
+  box-shadow: 0 0 1vw 0.1vw rgb(84, 4, 69), 0 0 1vw 0.1vw rgb(84, 4, 69) inset;
 }
 
 a:link, a:visited {
   color: white;
+  font-size: 24px;
+  border: 2px inset purple;
 }
 
 a:hover {
@@ -60,7 +62,7 @@ a:hover {
 }
 .register .register__btn:hover {
   color: #D8315B;
-  box-shadow: 0 0 1.3vw 0.2vw white, 0 0 1.3vw 0.2vw white inset;
+  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
   transition: box-shadow 1s ease-in-out;
 }
 .register .register__google {
@@ -99,7 +101,7 @@ a:hover {
 }
 .reset .reset__btn:hover {
   color: #D8315B;
-  box-shadow: 0 0 1.3vw 0.2vw white, 0 0 1.3vw 0.2vw white inset;
+  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
   transition: box-shadow 1s ease-in-out;
 }
 .reset .reset div {
@@ -154,6 +156,7 @@ a:hover {
   padding: 1vw;
   width: 100%;
   background-color: #000000;
+  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
 }
 .landing-page .landing .landing_login .logout_btn {
   padding: 10px;
@@ -165,7 +168,7 @@ a:hover {
 }
 .landing-page .landing .landing_login .logout_btn:hover {
   color: #D8315B;
-  box-shadow: 0 0 1.3vw 0.2vw white, 0 0 1.3vw 0.2vw white inset;
+  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
   transition: box-shadow 1s ease-in-out;
 }
 .landing-page .landing .landing_login .login {
@@ -176,6 +179,7 @@ a:hover {
   align-items: center;
   padding: 1vw;
   background-color: #000000;
+  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
 }
 .landing-page .landing .landing_login .login .login_container {
   display: flex;
@@ -199,7 +203,7 @@ a:hover {
 }
 .landing-page .landing .landing_login .login .login_btn:hover {
   color: #D8315B;
-  box-shadow: 0 0 1.3vw 0.2vw white, 0 0 1.3vw 0.2vw white inset;
+  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
   transition: box-shadow 1s ease-in-out;
 }
 .landing-page .landing .landing_login .login .login_google {
@@ -207,7 +211,7 @@ a:hover {
 }
 .landing-page .landing .landing_login .login .login_google:hover {
   color: #D8315B;
-  box-shadow: 0 0 1.3vw 0.2vw white, 0 0 1.3vw 0.2vw white inset;
+  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
   transition: box-shadow 1s ease-in-out;
 }
 .landing-page .landing .landing_login .login .login div {

@@ -1,6 +1,6 @@
 
 $main: black;
-$second: white;
+$second: rgb(84, 4, 69);
 $darkGray: rgb(43, 42, 42);
 $gray: rgb(202, 202, 202);
 $crimson: #D8315B;
@@ -17,10 +17,10 @@ $boxShadowTransition: box-shadow 1s ease-in-out;
 }
 
 body {
-  background: linear-gradient(-45deg, #2d2b2a, #6c2769, #300f22);
-  background-size: 400% 400%;
+  background: linear-gradient(-45deg, #060606, #1a0e19, #250824, #300f22);
+  background-size: 100% 100%;
   background-attachment: fixed;
-  animation: gradient 15s ease infinite;
+  animation: gradient 1s ease infinite;
 
 }
 
@@ -44,6 +44,8 @@ input {
 
 a:link, a:visited {
   color: white;
+  font-size: 24px;
+  border: 2px inset purple;
 }
 a:hover {
   color: red;
@@ -177,6 +179,7 @@ a:hover {
       height: 100%;
       position: fixed;
 
+
       .log-out {
         display: flex;
         flex-direction: column;
@@ -185,6 +188,7 @@ a:hover {
         padding: 1vw;
         width: 100%;
         background-color: #000000;
+        box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
       }
 
       .logout_btn {
@@ -209,6 +213,7 @@ a:hover {
         // justify-content: flex-end;
         padding: 1vw;
         background-color: #000000;
+        box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
 
         .login_container {
           display: flex;
