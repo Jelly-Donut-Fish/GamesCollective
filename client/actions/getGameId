@@ -1,8 +1,0 @@
-const getGameId = (gameId) => (
-  {
-    type: 'GET_GAMEID',
-    gameId,
-  }
-);
-
-export default getGameId;
