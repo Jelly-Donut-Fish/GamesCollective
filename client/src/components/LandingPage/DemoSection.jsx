@@ -2,7 +2,7 @@ import React from 'react';
 
 function DemoSection() {
   return (
-    <div>
+    <div className="demo-section">
       demo placeholder
     </div>
   );
