@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-function MyCollectionSearch({
-  genres, categories, statuses, setFilters,
-}) {
+function MyCollectionSearch({ statuses }) {
   const [search, setSearch] = useState('');
+  const [genres, setGenres] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [platforms, setPlatforms] = useState([]);
   // set submit handler
   const submitSearch = (e) => {
     e.preventDefault();
@@ -28,6 +30,21 @@ function MyCollectionSearch({
     if (e.target.id === 'status') {
       setFilters(null, null, null, e.target.value);
     }
+  };
+
+  const getAllGenres = () => {
+    const promise1 = axios.get('/genres');
+    const promise2 = axios.get('/categories');
+    const promise3 = axios.get('/platforms');
+    Promise.all([promise1, promise2, promise3])
+      .then((results) => {
+        setGenres(results[0]);
+        setCategories(results[1]);
+        setPlatforms(results[2]);
+      })
+      .catch((err) => {
+        console.lot(err);
+      });
   };
 
   return (
