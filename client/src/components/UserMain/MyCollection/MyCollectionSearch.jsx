@@ -63,7 +63,7 @@ function MyCollectionSearch({ setFilters }) {
 
       <label htmlFor="genre">
         <select name="filters" id="genre" onChange={filterHandler}>
-          <option value="" disabled defaultValue="" hidden>Choose a genre</option>
+          <option value="" defaultValue="" hidden>Choose a genre</option>
           {genres.map((genre) => (
             <option value={genre}>{genre}</option>
           ))}
@@ -71,7 +71,7 @@ function MyCollectionSearch({ setFilters }) {
       </label>
       <label htmlFor="category">
         <select name="filters" id="category" onChange={filterHandler}>
-          <option value="" disabled defaultValue="" hidden>Choose a category</option>
+          <option value="" defaultValue="" hidden>Choose a category</option>
           {categories.map((category) => (
             <option value={category}>{category}</option>
           ))}
@@ -79,7 +79,7 @@ function MyCollectionSearch({ setFilters }) {
       </label>
       <label htmlFor="status">
         <select name="filters" id="status" onChange={filterHandler}>
-          <option value="" disabled defaultValue="" hidden>Choose a status</option>
+          <option value="" defaultValue="">Choose a status</option>
           <option value="want">Want to Play</option>
           <option value="started">Started</option>
           <option value="playing">Playing</option>
