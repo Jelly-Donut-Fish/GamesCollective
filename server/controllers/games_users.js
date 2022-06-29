@@ -23,7 +23,7 @@ const post = (req, res) => {
 };
 
 const putStatus = (req, res) => {
-  gameUsersModel.putStatus()
+  gameUsersModel.putStatus(req.body)
     .then(() => {
       res.sendStatus(204);
     })
@@ -43,8 +43,7 @@ const putRatings = (req, res) => {
 };
 
 const deleteGame = (req, res) => {
-  const { user_id, game_id } = req.params;
-  gameUsersModel.deleteGame(user_id, game_id)
+  gameUsersModel.deleteGame(req.body)
     .then(() => {
       res.sendStatus(204);
     })

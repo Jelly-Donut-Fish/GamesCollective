@@ -41,27 +41,52 @@ const post = (user_id, body) => {
 };
 
 const putStatus = (body) => {
+  const {
+    user_id,
+    game_id,
+    status,
+  } = body;
   const changeStatus = `
   update game_user
-  set status = $1
-  where game_id = $2 and user_id = $3
+  set status = '${status}'
+  where game_id = ${game_id} and user_id = ${user_id}
 `;
+
+  // eslint-disable-next-line semi
+  return pool.query(changeStatus)
 };
 
 const putRatings = (body) => {
+  const {
+    user_id,
+    game_id,
+    review,
+    rating,
+  } = body;
+
   const editRatingReview = `
   update game_user
   set
-    rating = $1,
-    review = $2
-  where game_id = $3 and user_id = $4
+    rating = ${rating},
+    review = '${review}'
+  where game_id = ${game_id} and user_id = ${user_id}
 `;
+
+  // eslint-disable-next-line semi
+  return pool.query(editRatingReview)
 };
 
 const deleteGame = (body) => {
+  const {
+    user_id,
+    game_id,
+  } = body;
   const removeGameFromCol = `
-  delete from game_user where user_id = $1 and game_id = $2
+  delete from game_user where user_id = ${user_id} and game_id = ${game_id}
 `;
+
+  // eslint-disable-next-line semi
+  return pool.query(removeGameFromCol)
 };
 
 module.exports = {
