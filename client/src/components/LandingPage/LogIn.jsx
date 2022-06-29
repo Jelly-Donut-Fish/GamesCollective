@@ -44,7 +44,7 @@ function Login({ getUser }) {
         const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
         const doc = await getDocs(q);
         const data = doc.docs[0].data();
-        getUser(data.uid);
+        getUser(data);
       } catch (err) {
         console.error(err);
         console.log('An error occured while fetching user data');

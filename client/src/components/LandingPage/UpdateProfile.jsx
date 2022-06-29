@@ -4,27 +4,29 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth, updateProfile, signInAnonymously } from 'firebase/auth';
 import { auth } from '../../authentication/firebase';
 
-function UpdateProfile() {
+function UpdateProfile( {currentUser} ) {
   const [user, loading, error] = useAuthState(auth);
-  const [email, setEmail] = useState(user?.email);
-  const [displayName, setName] = useState(user?.displayName);
-  const [photoURL, setPhotoURL] = useState(user?.photoURL);
-  const [summary, setSummary] = useState(user?.summary);
+  const [email, setEmail] = useState(currentUser.email);
+  const [displayName, setName] = useState(currentUser.displayName);
+  const [photoURL, setPhotoURL] = useState(currentUser.photoURL);
   const navigate = useNavigate();
 
   const profileUpdate = async () => {
     // Calling authentication function
-    const auth = getAuth();
+    const authenticate = getAuth();
     // You need to pass the authentication instance as param
-    let { user } = await signInAnonymously(auth);
-
     // Passing user's object as first param and updating it
-    await updateProfile(user, {
+    updateProfile(authenticate.user, {
       displayName,
       photoURL,
-      summary,
-    });
-    navigate('/');
+    })
+      .then(() => {
+        console.log('Profile Updated');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // navigate('/');
   };
 
   return (
@@ -45,23 +47,9 @@ function UpdateProfile() {
         <input
           type="text"
           className="register__textBox"
-          value={email || ''}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
-        />
-        <input
-          type="text"
-          className="register__textBox"
           value={photoURL || ''}
           onChange={(e) => setPhotoURL(e.target.value)}
           placeholder="Profile Pic URL"
-        />
-        <input
-          type="text"
-          className="register__textBox"
-          value={summary || ''}
-          onChange={(e) => setSummary(e.target.value)}
-          placeholder="Summary"
         />
         <button type="button" className="register__btn" onClick={profileUpdate}>
           Update Profile

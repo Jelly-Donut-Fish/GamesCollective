@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UpdateProfile from '../components/LandingPage/UpdateProfile';
-import getUser from '../../actions/getUser';
+// import getUser from '../../actions/getUser';
 
 const mapStateToProps = (state) => (
   {
@@ -10,12 +10,12 @@ const mapStateToProps = (state) => (
 );
 
 // example of mapping reducers
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getUser: (currentUser) => dispatch(getUser(currentUser)),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     getUser: (currentUser) => dispatch(getUser(currentUser)),
+//   };
+// };
 
-const UpdateProfileContainer = connect(mapStateToProps, mapDispatchToProps)(UpdateProfile);
+const UpdateProfileContainer = connect(mapStateToProps)(UpdateProfile);
 
 export default UpdateProfileContainer;
