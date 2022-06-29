@@ -4,12 +4,12 @@ module.exports = {
   mode: 'development',
   entry: './client/src/index.jsx',
   output: {
-    path: path.join(__dirname, 'client/dist'),
+    path: path.join(__dirname, '/client/dist'),
     filename: 'bundle.js',
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, '.client/dist'),
+      directory: path.join(__dirname, '/client/dist'),
     },
     compress: true,
     port: 3000,

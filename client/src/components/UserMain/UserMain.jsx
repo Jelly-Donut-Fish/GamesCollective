@@ -1,9 +1,13 @@
 import React from 'react';
-import MyCollection from './MyCollection/MyCollection';
+import CatalogContainer from '../../containers/CatalogContainer.js';
+import MyCollectionContainer from '../../containers/MyCollectionContainer.js';
 
 function UserMain() {
   return (
-    <MyCollection />
+    <div>
+      <MyCollectionContainer />
+      <CatalogContainer />
+    </div>
   );
 }
 

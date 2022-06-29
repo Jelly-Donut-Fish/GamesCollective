@@ -2,18 +2,19 @@ const { Pool } = require('pg');
 require('dotenv').config();
 
 const pool = new Pool({
-  user: USER,
-  host: AWS_HOST,
-  database: DATABASE,
-  password: PASSWORD,
-  max: 25
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB,
+  password: process.env.DB_PASS,
+  port: process.env.DB_PORT,
+  max: 25,
 });
 
 const poolConnect = function() {
   this.pool.connect()
-  .then((res) => console.log('Success!!'))
-  .catch((err) => console.log(err))
-}
+    .then((res) => console.log('Success!!'))
+    .catch((err) => console.log(err));
+};
 
 module.exports = {
   pool: pool,

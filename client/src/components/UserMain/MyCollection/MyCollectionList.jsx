@@ -4,7 +4,9 @@ import MyCollectionTile from './MyCollectionTile';
 function MyCollectionList() {
   return (
     <div>
+      {/* [input].map(game => ( */}
       <MyCollectionTile />
+      {/* )) */}
     </div>
   );
 }
