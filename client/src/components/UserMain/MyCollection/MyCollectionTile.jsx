@@ -4,11 +4,20 @@ import { MdComment } from 'react-icons/md';
 import { FaTrashAlt } from 'react-icons/fa';
 
 function MyCollectionTile({
-  game, toggleGameView, toggleThreadsView, getMyCollection,
+  game, index, toggleGameView, toggleThreadsView, removeFromCollection,
 }) {
   // delete request
-  const removeFromCollection = (e) => {
-
+  const removeGame = (e) => {
+    e.preventDefault();
+    removeFromCollection(index);
+    axios.delete('/games_users', { data: { user_id: '[userId here]', game_id: game.id } })
+    .then(() => {
+      alert(`${game.name} was removed from your collection`);
+    })
+    .catch((err) => {
+      console.error('[game title] was not able to be removed at this time, please see the below error:');
+      console.log(err);
+    });
   };
 
   const openGameView = (e) => {
@@ -35,7 +44,7 @@ function MyCollectionTile({
       <p>{game.rating}</p>
       <p>{game.status}</p>
       <button type="button" onClick={openThreadView} className="game_icon"><MdComment /></button>
-      <button type="button" onClick={removeFromCollection} className="game_icon"><FaTrashAlt /></button>
+      <button type="button" onClick={removeGame} className="game_icon"><FaTrashAlt /></button>
     </div>
   );
 }

@@ -6,24 +6,15 @@ function MyCollectionList({
   myCollection, query, genre, category, status, platform,
   toggleGameView, toggleThreadsView, getMyCollection,
 }) {
-  const removeFromCollection = (gameID) => {
-    e.preventDefault();
+  const removeFromCollection = (index) => {
     if (confirm('Are you sure you want to remove [insert game title here] from your collection?') === true) {
-      getMyCollection(myCollection.splice((myCollection.indexOf(gameID)), 1));
-      axios.delete('/games_users', { data: { user_id: '[userId here]', game_id: '[gameId here]' } })
-        .then(() => {
-          alert('[Game Title] was removed from your collection');
-        })
-        .catch((err) => {
-          console.error('[game title] was not able to be removed at this time, please see the below error:');
-          console.log(err);
-        });
+      getMyCollection(myCollection.splice(index, 1));
     }
   };
 
   return (
     <div>
-      {myCollection.map((game) => {
+      {myCollection.map((game, i) => {
         const gameTitle = game.name.toLowerCase();
 
         if (query) {
@@ -33,9 +24,10 @@ function MyCollectionList({
               <MyCollectionTile
                 key={game.id}
                 game={game}
+                index={i}
                 toggleGameView={toggleGameView}
                 toggleThreadsView={toggleThreadsView}
-                getMyCollection={getMyCollection}
+                removeFromCollection={removeFromCollection}
               />
             );
           }
@@ -46,9 +38,10 @@ function MyCollectionList({
               <MyCollectionTile
                 key={game.id}
                 game={game}
+                index={i}
                 toggleGameView={toggleGameView}
                 toggleThreadsView={toggleThreadsView}
-                getMyCollection={getMyCollection}
+                removeFromCollection={removeFromCollection}
               />
             );
           }
@@ -59,9 +52,10 @@ function MyCollectionList({
               <MyCollectionTile
                 key={game.id}
                 game={game}
+                index={i}
                 toggleGameView={toggleGameView}
                 toggleThreadsView={toggleThreadsView}
-                getMyCollection={getMyCollection}
+                removeFromCollection={removeFromCollection}
               />
             );
           }
@@ -72,9 +66,10 @@ function MyCollectionList({
               <MyCollectionTile
                 key={game.id}
                 game={game}
+                index={i}
                 toggleGameView={toggleGameView}
                 toggleThreadsView={toggleThreadsView}
-                getMyCollection={getMyCollection}
+                removeFromCollection={removeFromCollection}
               />
             );
           }
@@ -85,9 +80,10 @@ function MyCollectionList({
               <MyCollectionTile
                 key={game.id}
                 game={game}
+                index={i}
                 toggleGameView={toggleGameView}
                 toggleThreadsView={toggleThreadsView}
-                getMyCollection={getMyCollection}
+                removeFromCollection={removeFromCollection}
               />
             );
           }
@@ -100,9 +96,10 @@ function MyCollectionList({
             <MyCollectionTile
               key={game.id}
               game={game}
+              index={i}
               toggleGameView={toggleGameView}
               toggleThreadsView={toggleThreadsView}
-              getMyCollection={getMyCollection}
+              removeFromCollection={removeFromCollection}
             />
           );
         }
