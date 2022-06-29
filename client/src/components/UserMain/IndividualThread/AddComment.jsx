@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function AddComment() {
+function AddComment({ addComment }) {
   const [newCommentBody, setNewCommentBody] = useState('');
 
   let handleTyping = (event) => {
@@ -10,7 +10,12 @@ function AddComment() {
 
   const sendComment = (event) => {
     event.preventDefault();
+    let comment = {
+      user_id:
+    };
     //axios.post()
+    addComment(comment);
+
   };
 
   return (

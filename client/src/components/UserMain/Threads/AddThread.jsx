@@ -31,8 +31,8 @@ function AddThread({ toggleAddThread, addThread, threads }) {
   const postThread = (event) => {
     event.preventDefault();
     const postBody = {
-      commentId: ++threads.length,
-      parentId: null,
+      commentId: threads.length + 1,
+      parentId: 0,
       author: user,
       datePosted: Date.now(),
       rating: 4,
@@ -57,8 +57,8 @@ function AddThread({ toggleAddThread, addThread, threads }) {
         <br />
         <textarea
           id="newThreadBody"
-          rows="10"
-          col="100"
+          rows="5"
+          col="200"
           onChange={handleTyping}
           label="Body"
           placeholder="What are your thoughts?"
