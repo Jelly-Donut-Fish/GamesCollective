@@ -7,10 +7,10 @@ import ThreadsView from './Threads/ThreadsView';
 function UserMain() {
   const [gameDisplayed, toggleGameDisplay] = useState(false);
   const [gameThreadsDisplayed, toggleGameThreads] = useState(false);
-  const [gameId, setGameId] = useState();
+  const [game, setGame] = useState({});
 
-  const toggleGameView = (gameID) => {
-    setGameId(gameID);
+  const toggleGameView = (gameInfo) => {
+    setGame(gameInfo);
     toggleGameDisplay(!gameDisplayed);
   };
 

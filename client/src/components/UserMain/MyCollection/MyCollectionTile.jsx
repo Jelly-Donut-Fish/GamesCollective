@@ -21,7 +21,7 @@ function MyCollectionTile({ game, toggleGameView }) {
 
   const openGameView = (e) => {
     e.preventDefault();
-    toggleGameView(game.id);
+    toggleGameView(game);
   };
 
   return (
