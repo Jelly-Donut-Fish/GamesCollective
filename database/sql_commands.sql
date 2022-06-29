@@ -1,9 +1,10 @@
 CREATE TABLE "users"(
-    "id" INTEGER NOT NULL,
-    "username" VARCHAR(255) NOT NULL,
-    "bio" TEXT NOT NULL,
-    "img_url" TEXT NOT NULL,
-    "site_id" INTEGER NOT NULL
+    "id" SERIAL,
+    "username" VARCHAR(50) NOT NULL UNIQUE,
+    "email" varchar(100) NOT NULL UNIQUE,
+    "site_id" INTEGER NOT NULL,
+    "bio" TEXT,
+    "img_url" TEXT
 );
 ALTER TABLE
     "users" ADD PRIMARY KEY("id");
