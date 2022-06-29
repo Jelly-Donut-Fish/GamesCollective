@@ -1,4 +1,4 @@
-const getAllCoommentsForAGame = `
+const getAllCommentsForAGame = `
   select json_agg(
     json_build_object(
       'id', cu.id,
@@ -31,43 +31,43 @@ const getAllCoommentsForAGame = `
 `;
 
 //image_url is not required
-const addCoomment = `
+const addComment = `
   insert into
   comments (user_id, body, game_id, title, image_url)
   values ($1, $2, $3, $4, $5)
 `;
 
-const reportCoomment = `
+const reportComment = `
   update comments
   set
     report = report + 1
   where id = $1
 `;
 
-const upvoteCoomment = `
+const upvoteComment = `
   update comments
   set
     up_vote = up_vote + 1
   where id = $1
 `;
 
-const downvoteCoomment = `
+const downvoteComment = `
   update comments
   set
     down_vote = down_vote + 1
   where id = $1
 `;
 
-const deleteCoomment = `
+const deleteComment = `
   delete from comments
   where id = $1
 `;
 
 module.exports = {
-  getAllCoommentsForAGame,
-  addCoomment,
-  reportCoomment,
-  upvoteCoomment,
-  downvoteCoomment,
-  deleteCoomment,
+  getAllCommentsForAGame,
+  addComment,
+  reportComment,
+  upvoteComment,
+  downvoteComment,
+  deleteComment,
 };
