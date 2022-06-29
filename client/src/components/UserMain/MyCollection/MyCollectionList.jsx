@@ -1,7 +1,10 @@
+/* eslint-disable consistent-return */
 import React from 'react';
 import MyCollectionTile from './MyCollectionTile';
 
-function MyCollectionList({ catalog, query, genre, category, status, platform}) {
+function MyCollectionList({
+  catalog, query, genre, category, status, platform,
+}) {
   return (
     <div>
       {catalog.results.map((game) => {
