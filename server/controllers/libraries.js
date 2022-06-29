@@ -1,4 +1,4 @@
-const libraryModel = require('../../database/models/libraries');
+const libraryModel = require('../../database/Models/libraries');
 
 const get = function (req, res) {
   libraryModel.get()
