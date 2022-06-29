@@ -1,12 +1,13 @@
 import React from 'react';
 import CommentTile from './CommentTile';
 
-function Comments() {
+function Comments({ comments }) {
+  console.log(comments);
   return (
     <div>
-      <CommentTile />
-      <CommentTile />
-      <CommentTile />
+      {comments.map((comment) => (
+        <CommentTile comment={comment} key={comment.id} />
+      ))}
     </div>
   );
 }
