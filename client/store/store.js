@@ -44,7 +44,7 @@ const initialState = {
       },
     ]
   },
-  user: {},
+  currentUser: {},
   myCollection: [],
 
 };

@@ -1,20 +1,24 @@
 import React from 'react';
+import { MdComment, MdReport } from 'react-icons/md';
 
-function ThreadsTile() {
+function ThreadsTile({ toggleThreadView, thread }) {
+  const handleThreadClick = (event) => {
+    event.preventDefault();
+    toggleThreadView(thread);
+  };
   return (
     <div>
-      <span> This is a tile </span>
       <div>
-        <span>Author</span>
-        <span>Rating</span>
-        <span>Date Posted</span>
+        <span>{thread.username}  </span>
+        <span>{thread.rating}  </span>
+        <span>{thread.datePosted}</span>
       </div>
       <div>
-        <h3>Thread Title</h3>
+        <h3 onClick={handleThreadClick}>{thread.title}</h3>
       </div>
       <div>
-        <span>discuss</span>
-        <span>report</span>
+        <span onClick={handleThreadClick}>{MdComment}</span>
+        <span>{MdReport}</span>
       </div>
     </div>
   );
