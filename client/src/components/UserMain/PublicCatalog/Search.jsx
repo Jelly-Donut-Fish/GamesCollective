@@ -1,13 +1,18 @@
 import React from 'react';
 
-function Search({ setSearchQuery }) {
+function Search({ setSearchQuery, setFilterBy }) {
   const handleChange = function (event) {
     setSearchQuery(event.target.value);
   };
+
+  const handleFilter = function (event) {
+    setFilterBy(event.target.value);
+  };
+
   return (
     <div>
       <label htmlFor="user filter">
-        <select name="filters" id="user filter">
+        <select name="filters" id="user filter" onChange={handleFilter}>
           <option value="">Filter by</option>
           <option value="title">Title</option>
           <option value="genre">Genre</option>

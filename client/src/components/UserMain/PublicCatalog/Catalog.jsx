@@ -4,11 +4,12 @@ import Search from './Search.jsx'
 
 function Catalog({ catalog }) {
   const [searchQuery, setSearchQuery] = useState('');
+  const [filterBy, setFilterBy] = useState('');
 
   return (
     <div>
-      <CatalogList catalog={catalog} searchQuery={searchQuery} />
-      <Search setSearchQuery={setSearchQuery} />
+      <CatalogList catalog={catalog} searchQuery={searchQuery} filterBy={filterBy} />
+      <Search setSearchQuery={setSearchQuery} setFilterBy={setFilterBy} />
     </div>
   );
 }
