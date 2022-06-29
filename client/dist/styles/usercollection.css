@@ -7,4 +7,25 @@
   cursor: pointer;
 }
 
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.collection {
+  width: 70%;
+  float: left;
+}
+
+.catalog {
+  width: 30%;
+  float: left;
+}
+
+.clear {
+  width: 80%;
+  margin: auto;
+  clear: both;
+}
+
 /*# sourceMappingURL=usercollection.css.map */

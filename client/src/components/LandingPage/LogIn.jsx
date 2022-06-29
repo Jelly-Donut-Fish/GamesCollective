@@ -3,10 +3,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import axios from 'axios';
 import {
-  auth, signInWithEmailAndPassword, signInWithGoogle,
+  query, collection, getDocs, where,
+} from 'firebase/firestore';
+import {
+  auth, signInWithEmailAndPassword, signInWithGoogle, db, logout
 } from '../../authentication/firebase';
 
-function Login() {
+function Login({ getUser }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [user, loading, error] = useAuthState(auth);
@@ -32,8 +35,29 @@ function Login() {
   //   if (user) navigate('/UserMain');
   // }, [user, loading]);
 
+  useEffect(() => {
+    if (user) getuserId();
+  }, [user]);
+
+  const getuserId = async () => {
+    try {
+      const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
+      getUser(data.uid);
+    } catch (err) {
+      console.error(err);
+      console.log('An error occured while fetching user data');
+    }
+  };
+
   return (
     <div className="login">
+      <nav className="nav-bar">
+        <h3>Games Collection</h3>
+        <br />
+        <Link className="link" to="/UserMain">User Main</Link>
+      </nav>
       <div className="login_container">
         <input
           type="text"
@@ -70,9 +94,7 @@ function Login() {
         </div>
         <div>
           Don't have an account? Join the ultimate collection today!
-          {/* pop up model to register */}
           <Link className="link" to="/Register">Register</Link>
-          {/* <button type="button" className="login__btn login__google" onClick={signInWithGoogle}>Register now.</button> */}
         </div>
       </div>
     </div>
