@@ -2,10 +2,12 @@
 import { combineReducers } from 'redux';
 import getCatalogReducer from './getCatalogReducer.js';
 import getUserReducer from './getUserReducer.js';
+import getMyCollectionReducer from './getMyCollectionReducer.js';
 
 const rootReducer = combineReducers({
   catalog: getCatalogReducer,
-  currentUser: getUserReducer,
+  user: getUserReducer,
+  myCollection: getMyCollectionReducer,
 });
 
 export default rootReducer;

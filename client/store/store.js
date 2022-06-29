@@ -7,10 +7,6 @@ const initialState = {
   catalog: {
     page: 1,
     count: 5,
-    q: "Super",
-    genre: "",
-    platform: "Mac",
-    game_library: "Steam",
     results: [
       {
         id: 1,
@@ -24,7 +20,10 @@ const initialState = {
         release_date: {"coming_soon":false,"date":"Aug 25, 2014"},
         website: "http://www.supertimeforce.com",
         required_age: 0,
-        rating: 3.8
+        rating: 3.8,
+        genres: ["fantasy", "horror"],
+        categories: ["muliplayer"],
+        platforms: ["mac", "windows"],
       },
       {
         id: 2,
@@ -38,11 +37,16 @@ const initialState = {
         release_date: {"coming_soon":false,"date":"Jul 27, 2021"},
         website: "http://www.google.com",
         required_age: 0,
-        rating: 4.0
+        rating: 4.0,
+        genres: ["fantasy", "adventure"],
+        categories: ["singleplayer"],
+        platforms: ["Wii", "N64"],
       },
     ]
   },
   user: {},
+  myCollection: [],
+
 };
 
 const store = createStore(
