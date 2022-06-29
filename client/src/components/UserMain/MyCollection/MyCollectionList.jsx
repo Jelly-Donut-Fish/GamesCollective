@@ -1,16 +1,15 @@
 import React from 'react';
 import MyCollectionTile from './MyCollectionTile';
 
-function MyCollectionList({ catalog, setDropDowns }) {
+function MyCollectionList({ catalog, query, genre, category, status, platform}) {
   return (
     <div>
       {catalog.results.map((game) => {
-        // call function here and pass in game.genre, game.category, game.status, game.platform
-        setDropDowns(game.genre, game.category, game.status);
+        const gameTitle = game.title.toLowerCase();
+        const lowerQuery = query.toLowerCase();
+
         if (query) {
-          var gameTitle = game.title.toLowerCase();
-          query = query.toLowerCase();
-          if (gameTitle.includes(query)) {
+          if (gameTitle.includes(lowerQuery)) {
             return <MyCollectionTile />;
           }
         }
@@ -34,7 +33,7 @@ function MyCollectionList({ catalog, setDropDowns }) {
             return (<MyCollectionTile />);
           }
         }
-        if (query
+        if (!query
           && !genre
           && !category
           && !status) {

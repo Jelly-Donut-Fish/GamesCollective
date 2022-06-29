@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-function MyCollectionSearch({ statuses }) {
+function MyCollectionSearch({ setFilters }) {
   const [search, setSearch] = useState('');
   const [genres, setGenres] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -43,9 +43,13 @@ function MyCollectionSearch({ statuses }) {
         setPlatforms(results[2]);
       })
       .catch((err) => {
-        console.lot(err);
+        console.log(err);
       });
   };
+
+  useEffect(() => {
+    getAllGenres();
+  }, []);
 
   return (
     <div>
@@ -67,18 +71,20 @@ function MyCollectionSearch({ statuses }) {
       </label>
       <label htmlFor="category">
         <select name="filters" id="category" onChange={filterHandler}>
-          <option value="" disabled defaultValue="" hidden>Choose a genre</option>
-          {categories.map(category => (
+          <option value="" disabled defaultValue="" hidden>Choose a category</option>
+          {categories.map((category) => (
             <option value={category}>{category}</option>
           ))}
         </select>
       </label>
       <label htmlFor="status">
         <select name="filters" id="status" onChange={filterHandler}>
-          <option value="" disabled defaultValue="" hidden>Choose a genre</option>
-          {statuses.map(status => (
-            <option value={status}>{status}</option>
-          ))}
+          <option value="" disabled defaultValue="" hidden>Choose a status</option>
+          <option value="want">Want to Play</option>
+          <option value="started">Started</option>
+          <option value="playing">Playing</option>
+          <option value="finished">Finished</option>
+          <option value="purchased">Purchased</option>
         </select>
       </label>
     </div>
