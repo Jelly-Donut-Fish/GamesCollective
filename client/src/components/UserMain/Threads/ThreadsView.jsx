@@ -5,10 +5,10 @@ import AddThread from './AddThread';
 
 const dummyThreads = [
   {
-    commentId: 1, parentId: null, username: 'WillyWonka', rating: 4, datePosted: '04/24/1994', body: 'Opened a candy factory in this game and had some guests over. Things got a little messy.', title: 'Come on in, the chocolate is fine!',
+    commentId: 1, parentId: 0, username: 'WillyWonka', rating: 4, datePosted: '04/24/1994', body: 'Opened a candy factory in this game and had some guests over. Things got a little messy.', title: 'Come on in, the chocolate is fine!',
   },
   {
-    commentId: 446, parentId: null, username: 'GrandpaJoe', rating: 4, datePosted: '04/24/1994', body: 'All I\'m saying is I was bedridden for years and I got to Fly. No regrets.', title: 'Fly like a bubble... to the fan',
+    commentId: 446, parentId: 0, username: 'GrandpaJoe', rating: 4, datePosted: '04/24/1994', body: 'All I\'m saying is I was bedridden for years and I got to Fly. No regrets.', title: 'Fly like a bubble... to the fan',
   },
   {
     commentId: 545, parentId: 1, username: 'Augustus', rating: 4, datePosted: '04/24/1994', body: 'This chocolate was amazing but they should really put up a no swimming sign.', title: null,
