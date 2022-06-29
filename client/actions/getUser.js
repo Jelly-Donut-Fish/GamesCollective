@@ -1,7 +1,7 @@
-const getUser = (user) => (
+const getUser = (currentUser) => (
   {
     type: 'GET_USER',
-    user: user
+    currentUser: currentUser
   }
 );
 

@@ -5,7 +5,7 @@ import getUserReducer from './getUserReducer.js';
 
 const rootReducer = combineReducers({
   catalog: getCatalogReducer,
-  user: getUserReducer,
+  currentUser: getUserReducer,
 });
 
 export default rootReducer;

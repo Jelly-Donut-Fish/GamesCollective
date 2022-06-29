@@ -11,7 +11,7 @@ const mapStateToProps = (state) => (
 // example of mapping reducers
 const mapDispatchToProps = (dispatch) => {
   return {
-    setUser: (user) => dispatch(setUser(user)),
+    setCurrentUser: (currentUser) => dispatch(setCurrentUser(currentUser)),
   };
 };
 

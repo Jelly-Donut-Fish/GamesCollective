@@ -12,15 +12,17 @@ function Login() {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
-  const steamLogIn = () => {
-    axios.post('/auth/openid')
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log('error in steam axios', err);
-      });
-  };
+
+
+  // const steamLogIn = () => {
+  //   axios.post('/auth/openid')
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log('error in steam axios', err);
+  //     });
+  // };
 
   // useEffect(() => {
   //   if (loading) {
