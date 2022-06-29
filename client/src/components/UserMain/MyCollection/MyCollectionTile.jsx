@@ -1,10 +1,11 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { MdComment } from 'react-icons/md';
 import { FaTrashAlt } from 'react-icons/fa';
 
 function MyCollectionTile({
-  game, index, toggleGameView, toggleThreadsView, removeFromCollection,
+  game, index, currentUser,
+  toggleGameView, toggleThreadsView, removeFromCollection,
 }) {
   // delete request
   const removeGame = (e) => {
@@ -12,7 +13,7 @@ function MyCollectionTile({
     if (confirm(`Are you sure you want to remove ${game.name} from your collection?`) === true) {
     removeFromCollection(index);
     }
-    // axios.delete('/games_users', { data: { user_id: , game_id: game.id } })
+    // axios.delete('/games_users', { data: { user_id: currentUser, game_id: game.id } })
     // .then(() => {
     //   alert(`${game.name} was removed from your collection`);
     // })

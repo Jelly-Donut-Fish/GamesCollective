@@ -47,9 +47,9 @@ function MyCollectionSearch({ setFilters }) {
       });
   };
 
-  useEffect(() => {
-    getAllGenres();
-  }, []);
+  // useEffect(() => {
+  //   getAllGenres();
+  // }, []);
 
   return (
     <div>

@@ -3,7 +3,8 @@ import MyCollectionList from './MyCollectionList';
 import MyCollectionSearch from './MyCollectionSearch';
 
 function MyCollection({
-  myCollection, getMyCollection, toggleGameView, toggleThreadsView,
+  currentUser, myCollection, getMyCollection,
+  toggleGameView, toggleThreadsView,
 }) {
   const [query, setQuery] = useState('');
   const [genre, setGenre] = useState('');
@@ -35,6 +36,7 @@ function MyCollection({
         genre={genre}
         category={category}
         status={status}
+        currentUser={currentUser}
         toggleGameView={toggleGameView}
         toggleThreadsView={toggleThreadsView}
         getMyCollection={getMyCollection}

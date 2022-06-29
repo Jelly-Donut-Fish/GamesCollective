@@ -3,7 +3,7 @@ import React from 'react';
 import MyCollectionTile from './MyCollectionTile';
 
 function MyCollectionList({
-  myCollection, query, genre, category, status, platform,
+  myCollection, currentUser, query, genre, category, status, platform,
   toggleGameView, toggleThreadsView, getMyCollection,
 }) {
   const removeFromCollection = (index) => {
@@ -27,6 +27,7 @@ function MyCollectionList({
                 key={game.id}
                 game={game}
                 index={i}
+                currentUser={currentUser}
                 toggleGameView={toggleGameView}
                 toggleThreadsView={toggleThreadsView}
                 removeFromCollection={removeFromCollection}
@@ -41,6 +42,7 @@ function MyCollectionList({
                 key={game.id}
                 game={game}
                 index={i}
+                currentUser={currentUser}
                 toggleGameView={toggleGameView}
                 toggleThreadsView={toggleThreadsView}
                 removeFromCollection={removeFromCollection}
@@ -69,6 +71,7 @@ function MyCollectionList({
                 key={game.id}
                 game={game}
                 index={i}
+                currentUser={currentUser}
                 toggleGameView={toggleGameView}
                 toggleThreadsView={toggleThreadsView}
                 removeFromCollection={removeFromCollection}
@@ -83,6 +86,7 @@ function MyCollectionList({
                 key={game.id}
                 game={game}
                 index={i}
+                currentUser={currentUser}
                 toggleGameView={toggleGameView}
                 toggleThreadsView={toggleThreadsView}
                 removeFromCollection={removeFromCollection}
@@ -99,6 +103,7 @@ function MyCollectionList({
               key={game.id}
               game={game}
               index={i}
+              currentUser={currentUser}
               toggleGameView={toggleGameView}
               toggleThreadsView={toggleThreadsView}
               removeFromCollection={removeFromCollection}
