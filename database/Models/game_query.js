@@ -77,23 +77,7 @@ const getGame = `
         (platforms.id = gp.platform_id )
         INNER JOIN games ON (games.id = gp.game_id)
         where gp.game_id = g.id)) order by id) results
-    from (
-      SELECT
-        gs.id,
-        gs.steam_appid,
-        gs.name,
-        gs.developers,
-        gs.publishers,
-        gs.short_description,
-        gs.header_image,
-        gs.release_date,
-        gs.website,
-        gs.required_age
-      FROM games gs
-        where (gs.name not like '%?%' and gs.short_description not like '%?%')
-        order by id
-      where id = $1
-    ) as g;
+    from games as g where id = $1;
 `;
 
 module.exports = {
