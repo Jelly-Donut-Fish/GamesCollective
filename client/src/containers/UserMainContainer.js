@@ -8,6 +8,7 @@ const mapStateToProps = (state) => (
     // place state props that need to be added
     catalog: state.catalog,
     currentUser: state.currentUser,
+    myCollection: state.myCollection,
   }
 );
 

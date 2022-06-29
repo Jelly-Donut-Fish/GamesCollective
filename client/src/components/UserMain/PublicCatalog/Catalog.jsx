@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CatalogList from './CatalogList.jsx'
 import Search from './Search.jsx'
 
-function Catalog({ catalog, getMyCollection, currentUser }) {
+function Catalog({ catalog, getMyCollection, currentUser, myCollection }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [filterBy, setFilterBy] = useState('');
 
@@ -14,7 +14,8 @@ function Catalog({ catalog, getMyCollection, currentUser }) {
         searchQuery={searchQuery}
         filterBy={filterBy}
         getMyCollection={getMyCollection}
-        currentUser={currentUser} />
+        currentUser={currentUser}
+        myCollection={myCollection} />
     </div>
   );
 }

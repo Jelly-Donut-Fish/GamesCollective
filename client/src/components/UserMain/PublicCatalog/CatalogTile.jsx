@@ -1,10 +1,12 @@
 import React from 'react';
 
-function CatalogTile({ item, getMyCollection }) {
+function CatalogTile({ item, getMyCollection, myCollection }) {
+  console.log(item);
   const handleClick = function () {
-    getMyCollection([...getMyCollection, item]);
+    getMyCollection([...myCollection, item]);
     // axios request to add to my collection
   };
+  const uniqueCheck = (game) => game.name === item.name;
   return (
     <div>
       <img src={item.header_image} alt="game in the collection" />
@@ -28,7 +30,7 @@ function CatalogTile({ item, getMyCollection }) {
           <option value="Backlog">Haven&apos;t Started</option>
         </select>
       </label>
-      <button onClick={handleClick} type="submit"> Add </button>
+      {!myCollection.some(uniqueCheck) ? <button onClick={handleClick} type="submit"> Add </button> : null}
     </div>
   );
 }
