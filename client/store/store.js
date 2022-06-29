@@ -62,7 +62,7 @@ const initialState = {
       genres: ["fantasy", "horror"],
       categories: ["muliplayer"],
       platforms: ["mac", "windows"],
-      status: [],
+      status: 'Want to Play',
     },
   ],
 
