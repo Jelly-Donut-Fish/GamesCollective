@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useHistory, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import {
   auth,
   registerWithEmailAndPassword,
@@ -17,8 +18,17 @@ function Register() {
   const register = () => {
     if (!name) alert('Please enter name');
     registerWithEmailAndPassword(name, email, password);
+    //
     navigate('/UserMain');
   };
+
+  // const putUserindb = () => {
+  //   axios.post('/users', {
+  //     name, email, password,
+  //   })
+  //     .then(() => console.log('registered successfully'))
+  //     .catch((err) => console.log(err));
+  // };
 
   // useEffect(() => {
   //   if (loading) return;
@@ -38,7 +48,7 @@ function Register() {
           className="register__textBox"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Full Name"
+          placeholder="Username"
         />
         <input
           type="text"
@@ -66,7 +76,6 @@ function Register() {
         </button>
         <div>
           Already have an account?
-          {/* close modal */}
           <Link className="link" to="/">Login</Link>
         </div>
       </div>
