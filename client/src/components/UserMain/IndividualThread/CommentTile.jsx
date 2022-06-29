@@ -1,19 +1,19 @@
 import React from 'react';
+import { MdComment, MdReport } from 'react-icons/md';
 
-function CommentTile() {
+function CommentTile({ comment }) {
   return (
     <div className="commentTile">
       <div className="postInfo">
-        <span className="Author">Author</span>
-        <span className="authorRating">Author Rating</span>
-        <span className="postDate">Date Posted</span>
+        <span className="Author">{comment.username}</span>
+        <span className="authorRating">{comment.rating}</span>
+        <span className="postDate">{comment.datePosted}</span>
       </div>
       <div className="commentBody">
-        <p className="postBody">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi.</p>
+        <p className="postBody">{comment.body}</p>
       </div>
       <div className="actionsIcons">
-        <span>comment icon</span>
-        <span>report icon</span>
+        <span>{MdReport}</span>
       </div>
     </div>
   );

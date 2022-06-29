@@ -3,11 +3,11 @@ import ThreadTopic from './ThreadTopic';
 import Comments from './Comments';
 import AddComment from './AddComment';
 
-function SingleThreadView() {
+function SingleThreadView({ thread, childComments }) {
   return (
     <div>
-      <ThreadTopic />
-      <Comments />
+      <ThreadTopic thread={thread} />
+      <Comments comments={childComments} />
       <AddComment />
     </div>
   );
