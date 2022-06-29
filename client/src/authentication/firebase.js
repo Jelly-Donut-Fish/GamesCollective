@@ -16,7 +16,7 @@ import {
   where,
   addDoc,
 } from 'firebase/firestore';
-import { firebaseConfig } from '../../../firebase';
+import { firebaseConfig } from '../../../firebaseAuth';
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
