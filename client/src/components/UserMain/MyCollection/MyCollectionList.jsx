@@ -4,6 +4,7 @@ import MyCollectionTile from './MyCollectionTile';
 
 function MyCollectionList({
   catalog, query, genre, category, status, platform,
+  toggleGameView,
 }) {
   return (
     <div>
