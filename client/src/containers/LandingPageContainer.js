@@ -9,12 +9,12 @@ const mapStateToProps = (state) => (
 );
 
 // example of mapping reducers
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     setUser: (user) => dispatch(setUser(user)),
-//   };
-// };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setCurrentUser: (currentUser) => dispatch(setCurrentUser(currentUser)),
+  };
+};
 
-const LandingPageContainer = connect(mapStateToProps)(LandingPage);
+const LandingPageContainer = connect(mapStateToProps, mapDispatchToProps)(LandingPage);
 
 export default LandingPageContainer;
