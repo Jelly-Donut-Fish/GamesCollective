@@ -17,8 +17,8 @@ function ThreadsTile({ toggleThreadView, thread }) {
         <h3 onClick={handleThreadClick}>{thread.title}</h3>
       </div>
       <div>
-        <span onClick={handleThreadClick}>{MdComment}</span>
-        <span>{MdReport}</span>
+        <button onClick={handleThreadClick}>discuss</button>
+        <button>report</button>
       </div>
     </div>
   );
