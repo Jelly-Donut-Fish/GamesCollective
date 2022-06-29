@@ -29,7 +29,11 @@ function MyCollection({
   return (
     <div>
       <h2>My Collection</h2>
-      <MyCollectionSearch setFilters={setFilters} />
+      <MyCollectionSearch
+        myCollection={myCollection}
+        setFilters={setFilters}
+        getMyCollection={getMyCollection}
+      />
       <MyCollectionList
         myCollection={myCollection}
         query={query}

@@ -5,7 +5,8 @@ import { FaTrashAlt } from 'react-icons/fa';
 
 function MyCollectionTile({
   game, index, currentUser,
-  toggleGameView, toggleThreadsView, removeFromCollection,
+  toggleGameView, toggleThreadsView,
+  removeFromCollection,
 }) {
   // delete request
   const removeGame = (e) => {
