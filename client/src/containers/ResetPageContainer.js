@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import LandingPage from '../components/LandingPage/LandingPage';
+import Reset from '../components/LandingPage/Reset';
 
 const mapStateToProps = (state) => (
   {
@@ -15,6 +15,6 @@ const mapStateToProps = (state) => (
 //   };
 // };
 
-const LandingPageContainer = connect(mapStateToProps)(LandingPage);
+const ResetPageContainer = connect(mapStateToProps)(Reset);
 
-export default LandingPageContainer;
+export default ResetPageContainer;

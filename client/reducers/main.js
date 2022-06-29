@@ -1,8 +1,13 @@
+/* eslint-disable import/extensions */
 import { combineReducers } from 'redux';
 import getCatalogReducer from './getCatalogReducer.js';
+import getUserReducer from './getUserReducer.js';
+import getMyCollectionReducer from './getMyCollectionReducer.js';
 
-var rootReducer = combineReducers({
+const rootReducer = combineReducers({
   catalog: getCatalogReducer,
+  user: getUserReducer,
+  myCollection: getMyCollectionReducer,
 });
 
 export default rootReducer;
