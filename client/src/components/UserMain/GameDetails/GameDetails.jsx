@@ -1,5 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
+import axios from 'axios';
 import { BsFillCheckCircleFill, BsFillPencilFill } from 'react-icons/bs';
 
 function GameDetails({ game }) {
@@ -29,6 +30,7 @@ function GameDetails({ game }) {
     }
     if (e.target.name === 'review') {
       setSaveReview(e.target.value);
+      axios.put()
     }
   };
 
