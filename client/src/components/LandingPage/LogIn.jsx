@@ -6,14 +6,13 @@ import {
   query, collection, getDocs, where,
 } from 'firebase/firestore';
 import {
-  auth, signInWithEmailAndPassword, signInWithGoogle, db, logout
+  auth, logInWithEmailAndPassword, signInWithGoogle, db, logout
 } from '../../authentication/firebase';
 
 function Login({ getUser }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [user, loading, error] = useAuthState(auth);
-  const navigate = useNavigate();
 
 
 
@@ -53,11 +52,6 @@ function Login({ getUser }) {
 
   return (
     <div className="login">
-      <nav className="nav-bar">
-        <h3>Games Collection</h3>
-        <br />
-        <Link className="link" to="/UserMain">User Main</Link>
-      </nav>
       <div className="login_container">
         <input
           type="text"
@@ -76,7 +70,7 @@ function Login({ getUser }) {
         <button
           type="button"
           className="login_btn"
-          onClick={() => signInWithEmailAndPassword(email, password)}
+          onClick={() => logInWithEmailAndPassword(email, password)}
         >
           Login
         </button>
