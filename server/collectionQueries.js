@@ -63,7 +63,7 @@ from (
           on (gs.id = gu.game_id)
           inner join users u
           on (gu.user_id = u.id)
-          where (u.site_id = '1' AND gs.name not like '%?%' and gs.short_description not like '%?%')
+          where (u.site_id = $1 AND gs.name not like '%?%' and gs.short_description not like '%?%')
         ORDER BY id
     ) as g;
 `;
