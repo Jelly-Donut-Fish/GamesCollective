@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
 import LandingPage from '../components/LandingPage/LandingPage';
+import getUser from '../../actions/getUser';
 
 const mapStateToProps = (state) => (
   {
     //  place state props that need to be added
-    catalog: state.catalog,
+    currentUser: state.currentUser,
   }
 );
 
 // example of mapping reducers
 const mapDispatchToProps = (dispatch) => {
   return {
-    setCurrentUser: (currentUser) => dispatch(setCurrentUser(currentUser)),
+    getUser: (currentUser) => dispatch(getUser(currentUser)),
   };
 };
 
