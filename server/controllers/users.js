@@ -1,35 +1,16 @@
-const userModel = require('../../database/models/users');
+const userModel = require('../../database/Models/users');
 
 const get = function (req, res) {
-  userModel.get(req.body)
-    .then(() => {
-      res.sendStatus(200);
-    })
-    .catch((err) => {
-      res.send(err.message);
-    })
-}
+  userModel.get(req.query, res);
+};
 
 const post = function (req, res) {
-  let { user_id } = req.params;
-  userModel.post(user_id)
-    .then(() => {
-      res.sendStatus(201);
-    })
-    .catch((err) => {
-      res.send(err.message);
-    })
-}
+  userModel.post(req.body, res);
+};
 
 const put = function (req, res) {
-  userModel.put(req.body)
-    .then(() => {
-      res.sendStatus(204);
-    })
-    .catch((err) => {
-      res.send(err.message);
-    })
-}
+  userModel.put(req.body, res);
+};
 
 module.exports = {
   get: get,
