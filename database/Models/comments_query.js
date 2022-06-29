@@ -30,11 +30,11 @@ const getAllCommentsForAGame = `
   ) as cu;
 `;
 
-//image_url is not required
+//image_url and parent_comment_id is not required
 const addComment = `
   insert into
-  comments (user_id, body, game_id, title, image_url)
-  values ($1, $2, $3, $4, $5)
+  comments (user_id, body, game_id, title, image_url, parent_comment_id)
+  values ($1, $2, $3, $4, $5, $6)
 `;
 
 const reportComment = `
