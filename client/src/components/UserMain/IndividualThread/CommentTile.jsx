@@ -2,6 +2,8 @@ import React from 'react';
 import { MdComment, MdReport } from 'react-icons/md';
 
 function CommentTile({ comment }) {
+
+
   return (
     <div className="commentTile">
       <div className="postInfo">
@@ -13,6 +15,7 @@ function CommentTile({ comment }) {
       </div>
       <div className="actionsIcons">
         <span onClick={reportComment}>{MdReport}</span>
+        <span onClick={}
       </div>
     </div>
   );

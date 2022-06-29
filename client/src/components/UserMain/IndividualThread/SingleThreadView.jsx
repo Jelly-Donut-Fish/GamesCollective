@@ -3,7 +3,7 @@ import ThreadTopic from './ThreadTopic';
 import Comments from './Comments';
 import AddComment from './AddComment';
 
-function SingleThreadView({ thread, childComments }) {
+function SingleThreadView({ thread, childComments, currentUser, gameId }) {
   const [comments, setComments] = useState(childComments);
 
   const addComment = (comment) => {
@@ -14,7 +14,12 @@ function SingleThreadView({ thread, childComments }) {
     <div>
       <ThreadTopic thread={thread} />
       <Comments comments={childComments} />
-      <AddComment addComment={addComment}/>
+      <AddComment
+        addComment={addComment}
+        currentUser={currentUser}
+        gameId={gameId}
+        parentId={thread.id}
+      />
     </div>
   );
 }
