@@ -2,7 +2,7 @@ CREATE TABLE "users"(
     "id" SERIAL,
     "username" VARCHAR(50) NOT NULL UNIQUE,
     "email" varchar(100) NOT NULL UNIQUE,
-    "site_id" INTEGER NOT NULL,
+    "site_id" TEXT UNIQUE NOT NULL,
     "bio" TEXT,
     "img_url" TEXT
 );
