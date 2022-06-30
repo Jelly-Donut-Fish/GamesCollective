@@ -39,6 +39,7 @@ select json_agg(
       'release_date', g.release_date,
       'website', g.website,
       'required_age', g.required_age,
+      'status', g.status,
       'genres', (select json_agg(description)
                  from genre INNER JOIN game_genre gg ON
                  (genre.genre_id = gg.genre_id )
@@ -65,14 +66,15 @@ from (
       gs.header_image,
       gs.release_date,
       gs.website,
-      gs.required_age
+      gs.required_age,
+      gu.status
           FROM games gs
           inner join game_user gu
           on (gs.id = gu.game_id)
           inner join users u
           on (gu.user_id = u.id)
           where (u.site_id = $1 AND gs.name not like '%?%' and gs.short_description not like '%?%')
-        ORDER BY id
+        ORDER BY gs.id
     ) as g;
 `;
 
