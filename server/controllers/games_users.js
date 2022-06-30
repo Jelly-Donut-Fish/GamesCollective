@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const gameUsersModel = require('../../database/Models/games_users');
 
 const get = (req, res) => {
@@ -43,7 +44,8 @@ const putRatings = (req, res) => {
 };
 
 const deleteGame = (req, res) => {
-  gameUsersModel.deleteGame(req.body)
+  const { game_id, user_id } = req.query;
+  gameUsersModel.deleteGame(game_id, user_id)
     .then(() => {
       res.sendStatus(204);
     })
