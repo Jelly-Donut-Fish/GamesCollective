@@ -17,8 +17,8 @@ function ThreadsTile({ toggleThreadView, thread }) {
   };
 
   return (
-    <div>
-      <div>
+    <div className="threadTile">
+      <div className="postInfo">
         <span>{thread.username}  </span>
         <span>{thread.date}</span>
       </div>

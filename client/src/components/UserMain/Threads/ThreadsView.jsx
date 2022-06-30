@@ -52,44 +52,46 @@ function ThreadsView({ currentUser, game, exitModal }) {
   };
 
   return (
-    <div>
-      <h2>{game.name}</h2>
-      {singleThreadView && (
-        <span onClick={toggleSingleThreadView}>Go Back to Discussions</span>
-      )}
-      <span onClick={exit}>{MdClear}</span>
-      { !singleThreadView && (
-      <ThreadsList
-        toggleThreadView={toggleSingleThreadView}
-        threads={threads}
-      />
-      )}
-      {singleThreadView && (
-      <SingleThreadView
-        toggleThreadView={toggleSingleThreadView}
-        thread={selectedThread}
-        childComments={singleThreadComments}
-        currentUser={currentUser}
-        gameId={game.id}
-        game={game.name}
-        addThread={addThread}
-      />
-      )}
-      <button
-        type="button"
-        onClick={toggleAddThreadView}
-      >
-        Add Thread
-      </button>
-      {addThreadView && (
-      <AddThread
-        toggleAddThread={toggleAddThreadView}
-        addThread={addThread}
-        threads={threads}
-        currentUser={currentUser}
-        gameId={game.id}
-      />
-      )}
+    <div className="outerModal">
+      <div className="modal">
+        <h2>{game.name}</h2>
+        {singleThreadView && (
+          <span onClick={toggleSingleThreadView}>Go Back to Discussions</span>
+        )}
+        <span onClick={exit}>{MdClear}</span>
+        { !singleThreadView && (
+        <ThreadsList
+          toggleThreadView={toggleSingleThreadView}
+          threads={threads}
+        />
+        )}
+        {singleThreadView && (
+        <SingleThreadView
+          toggleThreadView={toggleSingleThreadView}
+          thread={selectedThread}
+          childComments={singleThreadComments}
+          currentUser={currentUser}
+          gameId={game.id}
+          game={game.name}
+          addThread={addThread}
+        />
+        )}
+        <button
+          type="button"
+          onClick={toggleAddThreadView}
+        >
+          Add Thread
+        </button>
+        {addThreadView && (
+        <AddThread
+          toggleAddThread={toggleAddThreadView}
+          addThread={addThread}
+          threads={threads}
+          currentUser={currentUser}
+          gameId={game.id}
+        />
+        )}
+      </div>
     </div>
   );
 }

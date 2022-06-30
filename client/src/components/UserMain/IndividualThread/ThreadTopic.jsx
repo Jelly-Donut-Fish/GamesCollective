@@ -8,7 +8,7 @@ function ThreadTopic({ thread }) {
         <h2>{thread.title}</h2>
       </div>
       <div>
-        <div>
+        <div className="postInfo">
           <span>{thread.username}</span>
           <span>{thread.rating}</span>
           <span>{thread.datePosted}</span>
