@@ -3,7 +3,7 @@ const categoriesModel = require('../../database/Models/categories');
 const get = function (req, res) {
   categoriesModel.get()
     .then((data) => {
-      res.send(data);
+      res.send(data.rows[0]);
     })
     .catch((err) => {
       res.send(err.message)
