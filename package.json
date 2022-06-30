@@ -9,7 +9,7 @@
     "devstart": "webpack --watch --mode=development",
     "build": "webpack --mode=production",
     "devopen": "webpack serve --open",
-    "serverstart": "nodemon --watch server './server/'",
+    "serverstart": "nodemon --watch server './server'",
     "sass-joy": "sass client/dist/styles/usercollection.scss client/dist/styles/usercollection.css --watch",
     "sass-ben": "sass client/dist/styles/styles-ben.scss client/dist/styles/styles-ben.css --watch",
     "sass-kayla": "sass client/dist/styles/styles-threads.scss client/dist/styles/styles-threads.css --watch"
@@ -19,6 +19,7 @@
     "axios": "^0.27.2",
     "babel": "^6.23.0",
     "connect-session-firebase": "^5.13.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-session": "^1.17.3",

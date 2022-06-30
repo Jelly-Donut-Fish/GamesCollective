@@ -1,62 +1,61 @@
 const gameUsersModel = require('../../database/Models/games_users');
 
-const get = function (req, res) {
-  let { user_id } = req.params;
-  gameUsersModel.getAll(user_id)
+const get = (req, res) => {
+  const { user_id } = req.params;
+  gameUsersModel.get(user_id)
     .then((data) => {
-      res.send(data);
+      res.send(data.rows[0]);
     })
     .catch((err) => {
-      res.send(err.message)
-    })
-}
+      res.send(err);
+    });
+};
 
-const post = function (req, res) {
-  let { user_id } = req.params;
-  gameUsersModel.post(user_id)
+const post = (req, res) => {
+  const { user_id } = req.params;
+  gameUsersModel.post(user_id, req.body)
     .then(() => {
       res.sendStatus(201);
     })
     .catch((err) => {
-      res.send(err.message)
-    })
-}
+      res.send(err.message);
+    });
+};
 
-const putStatus = function (req, res) {
-  gameUsersModel.putStatus()
+const putStatus = (req, res) => {
+  gameUsersModel.putStatus(req.body)
     .then(() => {
       res.sendStatus(204);
     })
     .catch((err) => {
-      res.send(err.message)
-    })
-}
+      res.send(err.message);
+    });
+};
 
-const putRatings = function (req, res) {
+const putRatings = (req, res) => {
   gameUsersModel.putRatings(req.body)
     .then(() => {
       res.sendStatus(204);
     })
     .catch((err) => {
-      res.send(err.message)
-    })
-}
+      res.send(err.message);
+    });
+};
 
-const deleteGame = function (req, res) {
-  let { user_id, game_id } = req.params;
-  gameUsersModel.deleteGame(user_id, game_id)
+const deleteGame = (req, res) => {
+  gameUsersModel.deleteGame(req.body)
     .then(() => {
       res.sendStatus(204);
     })
     .catch((err) => {
-      res.send(err.message)
-    })
-}
+      res.send(err.message);
+    });
+};
 
 module.exports = {
-  get: get,
-  post: post,
-  putStatus: putStatus,
-  putRatings: putRatings,
-  deleteGame: deleteGame
-}
+  get,
+  post,
+  putStatus,
+  putRatings,
+  deleteGame,
+};

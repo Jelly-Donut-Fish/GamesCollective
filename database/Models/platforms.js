@@ -7,5 +7,5 @@ const get = function () {
 }
 
 module.exports = {
-  get: get
-}
+  get,
+};

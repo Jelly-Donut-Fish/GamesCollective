@@ -1,7 +1,6 @@
 node_modules
 .env
-bundle.js
 yarn.lock
-.gitignore
-firebaseAuth.js
+bundle.js
 yarn-error.log
+firebaseAuth.js

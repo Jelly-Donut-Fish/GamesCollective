@@ -1,22 +1,27 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { MdComment } from 'react-icons/md';
 import { FaTrashAlt } from 'react-icons/fa';
 
-function MyCollectionTile({ game, toggleGameView }) {
+function MyCollectionTile({
+  game, index, currentUser,
+  toggleGameView, toggleThreadsView,
+  removeFromCollection,
+}) {
   // delete request
-  const removeFromCollection = (e) => {
+  const removeGame = (e) => {
     e.preventDefault();
-    if (confirm('Are you sure you want to remove [insert game title here] from your collection?') === true) {
-      axios.delete('/games_users', { data: { user_id: '[userId here]', game_id: '[gameId here]' } })
-        .then(() => {
-          alert('[Game Title] was removed from your collection');
-        })
-        .catch((err) => {
-          console.error('[game title] was not able to be removed at this time, please see the below error:');
-          console.log(err);
-        });
+    if (confirm(`Are you sure you want to remove ${game.name} from your collection?`) === true) {
+    removeFromCollection(index);
     }
+    // axios.delete('/games_users', { data: { user_id: currentUser, game_id: game.id } })
+    // .then(() => {
+    //   alert(`${game.name} was removed from your collection`);
+    // })
+    // .catch((err) => {
+    //   console.error('[game title] was not able to be removed at this time, please see the below error:');
+    //   console.log(err);
+    // });
   };
 
   const openGameView = (e) => {
@@ -24,27 +29,26 @@ function MyCollectionTile({ game, toggleGameView }) {
     toggleGameView(game);
   };
 
+  const openThreadView = (e) => {
+    e.preventDefault();
+    toggleThreadsView(game.id);
+  };
+
   return (
     <div>
       <img src={game.header_image} alt={`${game.name} thumbnail`} />
-      <h3 onClick={openGameView}>{game.name}</h3>
+      <div><h3 onClick={openGameView} className="title">{game.name}</h3></div>
       <span>{game.release_date.date}</span>
       <h4>{game.developers}</h4>
       <h4>{game.publishers}</h4>
       <span>Platforms Available: </span>
-      {game.platforms.map((platform) => {
-        return <span>{platform}</span>
-      })}
-      {game.genres.map((genre) => {
-        return <p>{genre}</p>
-      })}
-      {game.categories.map((category) => {
-        return <p>{category}</p>
-      })}
+      {game.platforms.map((platform) => <span>{platform}</span>)}
+      {game.genres.map((genre) => <p>{genre}</p>)}
+      {game.categories.map((category) => <p>{category}</p>)}
       <p>{game.rating}</p>
       <p>{game.status}</p>
-      <p className="game_icon"><MdComment /></p>
-      <p onClick={removeFromCollection} className="game_icon"><FaTrashAlt /></p>
+      <button type="button" onClick={openThreadView} className="game_icon"><MdComment /></button>
+      <button type="button" onClick={removeGame} className="game_icon"><FaTrashAlt /></button>
     </div>
   );
 }

@@ -3,11 +3,14 @@ const path = require('path');
 const router = require('./routes');
 const db = require('../database/index');
 require('dotenv').config();
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 
 // middleware
 app.use(express.static(path.join(__dirname, '..', '/client/dist')));
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.use('/', router);

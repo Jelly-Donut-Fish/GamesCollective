@@ -1,4 +1,6 @@
+/* eslint-disable camelcase */
 const { pool } = require('../index');
+
 const get = (user_id) => {
   const getUsersGames = `
   select json_agg(
@@ -54,6 +56,7 @@ const get = (user_id) => {
   // eslint-disable-next-line semi
   return pool.query(getUsersGames)
 };
+
 const post = (user_id, body) => {
   // eslint-disable-next-line no-param-reassign
   body.status = body.status || 'want to play';
@@ -62,6 +65,7 @@ const post = (user_id, body) => {
     review,
     rating,
   } = body;
+
   const addGamesToCol = `
   insert into
   game_user (game_id, user_id, status, review, rating)
@@ -72,6 +76,7 @@ const post = (user_id, body) => {
   // eslint-disable-next-line semi
   return pool.query(addGamesToCol)
 };
+
 const putStatus = (body) => {
   const {
     user_id,
@@ -89,6 +94,7 @@ const putStatus = (body) => {
   // eslint-disable-next-line semi
   return pool.query(changeStatus)
 };
+
 const putRatings = (body) => {
   const {
     user_id,
@@ -96,6 +102,7 @@ const putRatings = (body) => {
     review,
     rating,
   } = body;
+
   const editRatingReview = `
   update game_user
   set
@@ -109,6 +116,7 @@ const putRatings = (body) => {
   // eslint-disable-next-line semi
   return pool.query(editRatingReview)
 };
+
 const deleteGame = (body) => {
   const {
     user_id,
@@ -122,6 +130,7 @@ const deleteGame = (body) => {
   // eslint-disable-next-line semi
   return pool.query(removeGameFromCol)
 };
+
 module.exports = {
   get,
   post,
