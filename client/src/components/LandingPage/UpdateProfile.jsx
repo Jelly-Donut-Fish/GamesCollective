@@ -16,15 +16,19 @@ function UpdatUserProfile({ currentUser, getUser }) {
   const navigate = useNavigate();
 
   const profileUpdate = () => {
-    const loggedUser = {
-      username: displayName,
-      site_id: user.uid,
-      image_url: photoURL,
-      bio,
-    };
+    const loggedUser = currentUser;
+    loggedUser.username = displayName;
+    loggedUser.image_url = photoURL;
+    loggedUser.bio = bio;
+
     console.log('logged user', loggedUser);
     getUser(loggedUser);
-    axios.put('/users', loggedUser);
+    axios.put('/users', {
+      user_id: loggedUser.site_id,
+      bio: loggedUser.bio,
+      username: loggedUser.username,
+      img_url: loggedUser.image_url,
+    });
     // navigate('/');
   };
 
