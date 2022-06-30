@@ -1,48 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { AiOutlineSearch } from 'react-icons/ai';
 
 function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
   const [search, setSearch] = useState('');
   const [genres, setGenres] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [quer, setQuer] = useState('');
+  const [gen, setGen] = useState('');
+  const [cat, setCat] = useState('');
+  const [stat, setStat] = useState('');
   // const [platforms, setPlatforms] = useState([]);
   // set submit handler
   const submitSearch = (e) => {
     e.preventDefault();
-    setFilters(search);
-  };
-
-  // set search string
-  const searchHandler = (e) => {
-    e.preventDefault();
-    setSearch(e.target.value);
-    getMyCollection([...myCollection]);
+    console.log(quer, gen, cat, stat);
+    setFilters(quer, gen, cat, stat);
+    const myNewCollection = myCollection.slice();
+    getMyCollection([...myNewCollection]);
   };
 
   const filterHandler = (e) => {
     e.preventDefault();
-    console.log(e.target.id, e.target.value);
+    console.log('filter', e.target.value);
+    if (e.target.id === 'title') {
+      setQuer(e.target.value);
+    }
     if (e.target.id === 'genre') {
-      setFilters(null, e.target.value);
+      setGen(e.target.value);
     }
     if (e.target.id === 'category') {
-      setFilters(null, null, e.target.value);
+      setCat(e.target.value);
     }
     if (e.target.id === 'status') {
-      setFilters(null, null, null, e.target.value);
+      setStat(e.target.value);
     }
-    getMyCollection([...myCollection]);
   };
 
   const getAllGenres = () => {
     const promise1 = axios.get('/genres');
-    console.log(promise1.then((results) => console.log(results)));
     const promise2 = axios.get('/categories');
     // const promise3 = axios.get('/platforms');
     Promise.all([promise1, promise2])
       .then((res) => {
-        console.log(res[0].data.results);
         setGenres(res[0].data.results);
         setCategories(res[1].data.results);
         // setPlatforms(results[2]);
@@ -59,42 +58,37 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
   return (
     <div>
       <label htmlFor="title">
-        <input type="text" placeholder="Search for a title" id="title" onChange={searchHandler} />
+        <input type="text" placeholder="Search for a title" id="title" onChange={filterHandler} />
       </label>
       <label htmlFor="searchTitle" />
-      <button id="searchTitle" type="button" onClick={submitSearch}>
-        <AiOutlineSearch />
-      </button>
 
       <label htmlFor="genre">
         <select name="filters" id="genre" onChange={filterHandler}>
-          <option value="" defaultValue="" hidden>Choose a genre</option>
+          <option value="" defaultValue="">Choose a genre</option>
           {genres.map((genre) => (
             <option value={genre.name}>{genre.name}</option>
           ))}
-          <option value={null}>Any</option>
         </select>
       </label>
       <label htmlFor="category">
         <select name="filters" id="category" onChange={filterHandler}>
-          <option value="" defaultValue="" hidden>Choose a category</option>
+          <option value="" defaultValue="">Choose a category</option>
           {categories.map((category) => (
             <option value={category.name}>{category.name}</option>
           ))}
-          <option value={null}>Any</option>
         </select>
       </label>
       <label htmlFor="status">
         <select name="filters" id="status" onChange={filterHandler}>
-          <option value="''" hidden>Choose a status</option>
+          <option value="">Choose a status</option>
           <option value="Want to Play">Want to Play</option>
           <option value="Started">Started</option>
           <option value="Playing">Playing</option>
           <option value="Finished">Finished</option>
           <option value="Purchased">Purchased</option>
-          <option value={null}>Any</option>
         </select>
       </label>
+      <button type="button" onClick={submitSearch}>Search</button>
     </div>
   );
 }
