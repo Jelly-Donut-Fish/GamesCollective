@@ -27,7 +27,7 @@ function LandingPage({ getUser, currentUser }) {
         loggedUser.email = user.email;
         loggedUser.site_id = user.uid;
         loggedUser.image_url = res.data.results.img_url;
-        loggedUser.bio = res.data.results.bio;);
+        loggedUser.bio = res.data.results.bio;
         getUser(loggedUser);
       })
       .catch((err) => {
