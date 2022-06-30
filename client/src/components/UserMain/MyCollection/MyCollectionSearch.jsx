@@ -84,13 +84,13 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
       </label>
       <label htmlFor="status">
         <select name="filters" id="status" onChange={filterHandler}>
-          <option value="">Choose a status</option>
+          <option value="''" hidden>Choose a status</option>
           <option value="Want to Play">Want to Play</option>
           <option value="Started">Started</option>
           <option value="Playing">Playing</option>
           <option value="Finished">Finished</option>
           <option value="Purchased">Purchased</option>
-          <option value="''">Any</option>
+
         </select>
       </label>
     </div>
