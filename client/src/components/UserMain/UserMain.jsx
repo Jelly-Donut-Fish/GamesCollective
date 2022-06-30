@@ -37,8 +37,8 @@ function UserMain() {
         </div>
       </div>
       <div className="clear">
-        {gameDisplayed && <GameDetails gameId={gameId} />}
-        {gameThreadsDisplayed && <ThreadsView gameId={gameId} />}
+        {gameDisplayed && <GameDetails gameId={gameId} game={game} />}
+        {gameThreadsDisplayed && <ThreadsView gameId={gameId} game={game}/>}
       </div>
     </div>
   );
