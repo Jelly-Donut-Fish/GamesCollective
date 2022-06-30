@@ -17,8 +17,8 @@ function ThreadsTile({ toggleThreadView, thread }) {
   };
 
   return (
-    <div>
-      <div>
+    <div className="threadTile">
+      <div className="postInfo">
         <span>{thread.username}  </span>
         <span>{thread.date}</span>
       </div>
@@ -28,8 +28,8 @@ function ThreadsTile({ toggleThreadView, thread }) {
         </h3>
       </div>
       <div>
-        <button onClick={handleThreadClick}>discuss</button>
-        <button onClick={handleReport}>report</button>
+        <MdComment onClick={handleThreadClick} alt="discuss" />
+        <MdReport onClick={handleReport} alt="report"/>
       </div>
     </div>
   );
