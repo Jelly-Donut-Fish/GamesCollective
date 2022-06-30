@@ -2,10 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { getAuth, updateProfile, signInAnonymously } from 'firebase/auth';
-import {
-  query, collection, getDocs, where,
-} from 'firebase/firestore';
+// import { getAuth, updateProfile, signInAnonymously } from 'firebase/auth';
 import { auth, db, updateUser } from '../../authentication/firebase';
 
 function UpdatUserProfile({ currentUser, getUser }) {

@@ -2,10 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import {
-  query, collection, getDocs, where,
-} from 'firebase/firestore';
-import { auth, db, logout } from '../../authentication/firebase';
+import { auth, logout } from '../../authentication/firebase';
 import Login from './LogIn';
 import DemoSection from './DemoSection';
 
@@ -44,6 +41,7 @@ function LandingPage({ getUser, currentUser }) {
 
   useEffect(() => {
     if (user) getUserdb();
+    // navigate('/')
   }, [user]);
 
   return (

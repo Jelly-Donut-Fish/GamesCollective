@@ -58,7 +58,7 @@ function Register({ getUser, currentUser }) {
 
   useEffect(() => {
     if (loading) return;
-    if (user) history.replace('/');
+    if (user) navigate('/');
   }, [user, loading]);
 
   return (
