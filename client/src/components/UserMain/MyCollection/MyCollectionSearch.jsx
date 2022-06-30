@@ -72,6 +72,7 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
           {genres.map((genre) => (
             <option value={genre.name}>{genre.name}</option>
           ))}
+          <option value={null}>Any</option>
         </select>
       </label>
       <label htmlFor="category">
@@ -80,17 +81,18 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
           {categories.map((category) => (
             <option value={category.name}>{category.name}</option>
           ))}
+          <option value={null}>Any</option>
         </select>
       </label>
       <label htmlFor="status">
         <select name="filters" id="status" onChange={filterHandler}>
-          <option value="">Choose a status</option>
+          <option value="''" hidden>Choose a status</option>
           <option value="Want to Play">Want to Play</option>
           <option value="Started">Started</option>
           <option value="Playing">Playing</option>
           <option value="Finished">Finished</option>
           <option value="Purchased">Purchased</option>
-          <option value="''">Any</option>
+          <option value={null}>Any</option>
         </select>
       </label>
     </div>
