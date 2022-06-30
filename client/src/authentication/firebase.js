@@ -103,7 +103,7 @@ const updateUser = async (user, photoURL, displayName) => {
       displayName,
     });
   } catch (err) {
-    console.log('error in firebase.js', err)
+    console.log('error in firebase.js', err);
   }
 };
 

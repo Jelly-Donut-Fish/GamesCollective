@@ -12,40 +12,74 @@ function LandingPage({ getUser, currentUser }) {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState('');
   const navigate = useNavigate();
-  const fetchUserName = async () => {
-    try {
-      const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
-      const doc = await getDocs(q);
-      const data = doc.docs[0].data();
-      console.log(data.displayName);
-      setName(data.displayName);
-    } catch (err) {
-      console.error(err);
-      alert('An error occured while fetching user data');
-    }
-  };
-
-  useEffect(() => {
-    if (loading) return;
-    console.log('use effect');
-    fetchUserName();
-  }, [user, loading]);
-
-  // useEffect(() => {
-  //   if (user) getuserId();
-  // }, [user]);
-
-  // const getuserId = async () => {
+  // const fetchUserName = async () => {
   //   try {
   //     const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
   //     const doc = await getDocs(q);
   //     const data = doc.docs[0].data();
-  //     getUser(data.uid);
+  //     setName(data.displayName);
   //   } catch (err) {
   //     console.error(err);
-  //     console.log('An error occured while fetching user data');
+  //     alert('An error occured while fetching user data');
   //   }
   // };
+
+  // useEffect(() => {
+  //   if (loading) return;
+  //   console.log('use effect');
+  //   fetchUserName();
+  // }, [user, loading]);
+
+  useEffect(() => {
+    if (user) getUserInfo();
+  }, [user]);
+
+  // const getuserId = async () => {
+  //   if (user) {
+  //     try {
+  //       const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
+  //       const doc = await getDocs(q);
+  //       const data = doc.docs[0].data();
+  //       const loggedUser = {
+  //         username: data.displayName,
+  //         email: data.email,
+  //         site_id: data.uid,
+  //       };
+  //       getUser(data);
+  //     } catch (err) {
+  //       console.error(err);
+  //       console.log('An error occured while fetching user data');
+  //     }
+  //   }
+  // };
+  const getUserInfo = () => {
+    if (user) {
+      try {
+        console.log('user', user)
+        const loggedUser = {
+          username: user.displayName,
+          email: user.email,
+          site_id: user.uid,
+        };
+        console.log(loggedUser);
+        // getUser(loggedUser);
+      } catch (err) {
+        console.error(err);
+        console.log('An error occured while fetching user data');
+      }
+    }
+  };
+  const putUserindb = () => {
+    axios.post('/users', {
+      name,
+      username: displayName,
+      email,
+      site_id: 'local',
+      image_url: photoURL,
+    })
+      .then(() => console.log('registered successfully'))
+      .catch((err) => console.log(err));
+  };
 
   const handleLogout = (e) => {
     e.preventDefault();

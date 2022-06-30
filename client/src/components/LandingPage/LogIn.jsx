@@ -14,18 +14,6 @@ function Login({ getUser }) {
   const [password, setPassword] = useState('');
   const [user, loading, error] = useAuthState(auth);
 
-
-
-  // const steamLogIn = () => {
-  //   axios.post('/auth/openid')
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log('error in steam axios', err);
-  //     });
-  // };
-
   // useEffect(() => {
   //   if (loading) {
   //     // maybe trigger a loading screen
@@ -34,23 +22,6 @@ function Login({ getUser }) {
   //   if (user) navigate('/UserMain');
   // }, [user, loading]);
 
-  useEffect(() => {
-    if (user) getuserId();
-  }, [user]);
-
-  const getuserId = async () => {
-    if (user) {
-      try {
-        const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
-        const doc = await getDocs(q);
-        const data = doc.docs[0].data();
-        getUser(data);
-      } catch (err) {
-        console.error(err);
-        console.log('An error occured while fetching user data');
-      }
-    }
-  };
 
   return (
     <div className="login">

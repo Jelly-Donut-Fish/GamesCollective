@@ -18,16 +18,15 @@ function UpdateProfile( {currentUser} ) {
     // Calling authentication function
     const authenticate = getAuth();
     const res = authenticate.user;
-    console.log('user', user)
     // You need to pass the authentication instance as param
     // Passing user's object as first param and updating it
     updateUser(user, photoURL, displayName)
-    .then(() => {
-      console.log('user updated')
-    })
-    .catch((err) => {
-      console.log('error in update Profile', err)
-    })
+      .then(() => {
+        console.log('user updated');
+      })
+      .catch((err) => {
+        console.log('error in update Profile', err);
+      });
     // navigate('/');
   };
 
