@@ -56,10 +56,10 @@ function Register({ getUser, currentUser }) {
     }
   };
 
-  // useEffect(() => {
-  //   if (loading) return;
-  //   if (user) history.replace('/');
-  // }, [user, loading]);
+  useEffect(() => {
+    if (loading) return;
+    if (user) history.replace('/');
+  }, [user, loading]);
 
   return (
     <div className="register">
