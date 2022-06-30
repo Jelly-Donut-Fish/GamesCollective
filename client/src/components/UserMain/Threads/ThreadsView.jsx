@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { MdClear } from 'react-icons/md'
 import ThreadsList from './ThreadsList';
@@ -10,17 +10,17 @@ function ThreadsView({ currentUser, game, exitModal }) {
   const [singleThreadView, setSingleThreadView] = useState(false);
   const [selectedThread, setSelectedThread] = useState({});
   const [singleThreadComments, setSingleThreadComments] = useState([]);
-  const [threads, setThreads] = useState([{
-    id: 1,
-    username: 'IsMyEl',
-    date: 1656517924,
-    title: 'Can play for hours',
-    body: 'This game is so good. ',
-    parent_id: 0,
-    image_url: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80',
-  }]);
+  const [threads, setThreads] = useState([]);
 
+  const selectedGame = game.id || 0;
   console.table(threads);
+  useEffect(() => {
+    axios.get(`/comments/${selectedGame}`)
+      .then((res) => {
+        setThreads(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, [game]);
 
   const toggleAddThreadView = (event) => {
     event.preventDefault();
@@ -30,7 +30,7 @@ function ThreadsView({ currentUser, game, exitModal }) {
   const toggleSingleThreadView = (comment = {}) => {
     const childrenComments = [];
     threads.forEach((thread) => {
-      if (thread.parentId === comment.commentId) {
+      if (thread.parent_id === comment.id) {
         childrenComments.push(thread);
       }
     });

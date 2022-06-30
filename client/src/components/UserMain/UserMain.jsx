@@ -7,7 +7,7 @@ import ThreadsContainer from '../../containers/ThreadsContainer.js';
 
 function UserMain() {
   const [gameDisplayed, toggleGameDisplay] = useState(false);
-  const [gameThreadsDisplayed, toggleGameThreads] = useState(true);
+  const [gameThreadsDisplayed, toggleGameThreads] = useState(false);
   const [game, setGame] = useState({});
   const [gameId, setGameId] = useState();
 
