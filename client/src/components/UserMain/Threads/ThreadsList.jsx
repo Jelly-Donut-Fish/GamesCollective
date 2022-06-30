@@ -6,7 +6,7 @@ function ThreadsList({ toggleThreadView, threads }) {
   return (
     <div>
       <h3>Discussions</h3>
-      <div>
+      <div className="threadsList">
         {parents.map((parent) => (
           <ThreadsTile
             toggleThreadView={toggleThreadView}
