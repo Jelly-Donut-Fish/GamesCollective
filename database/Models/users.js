@@ -38,12 +38,12 @@ const get = ({ user_id }, res) => {
 };
 
 const put = ({
-  user_id, bio, username, image_url,
+  user_id, bio, username, img_url,
 }, res) => {
-  console.log([user_id, bio, username, image_url]);
+  console.log([user_id, bio, username, img_url]);
   pool.connect()
     .then((client) => {
-      client.query(updateUser, [user_id, bio, username, image_url])
+      client.query(updateUser, [user_id, bio, username, img_url])
         .then((dbRes) => {
           client.release();
           res.sendStatus(200);
