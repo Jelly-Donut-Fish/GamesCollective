@@ -7,7 +7,7 @@ import {
 } from 'firebase/firestore';
 import { auth, db, updateUser } from '../../authentication/firebase';
 
-function UpdateProfile({ currentUser, getUser }) {
+function UpdatUserProfile({ currentUser, getUser }) {
   const [user, loading, error] = useAuthState(auth);
   const [displayName, setName] = useState(currentUser.username);
   const [photoURL, setPhotoURL] = useState(currentUser.image_url);
@@ -75,4 +75,4 @@ function UpdateProfile({ currentUser, getUser }) {
     </div>
   );
 }
-export default UpdateProfile;
+export default UpdatUserProfile;

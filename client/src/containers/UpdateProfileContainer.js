@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import UpdateProfile from '../components/LandingPage/UpdateProfile';
+import UpdatUserProfile from '../components/LandingPage/UpdateProfile';
 import getUser from '../../actions/getUser';
 
 const mapStateToProps = (state) => (
@@ -16,6 +16,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const UpdateProfileContainer = connect(mapStateToProps, mapDispatchToProps)(UpdateProfile);
+const UpdateProfileContainer = connect(mapStateToProps, mapDispatchToProps)(UpdatUserProfile);
 
 export default UpdateProfileContainer;

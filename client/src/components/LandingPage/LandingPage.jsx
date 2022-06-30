@@ -35,8 +35,6 @@ function LandingPage({ getUser, currentUser }) {
       .catch((err) => console.log(err));
   };
 
-  
-
   const getUserdb = () => {
     if (user) {
       try {
