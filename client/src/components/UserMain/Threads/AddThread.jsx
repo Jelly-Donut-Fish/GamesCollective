@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { MdClear } from "react-icons/md";
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, db, logout } from '../../../authentication/firebase';
 
-function AddThread({ toggleAddThread, addThread, threads }) {
+function AddThread({
+  toggleAddThread, addThread, currentUser, gameId,
+}) {
   const [newThreadTitle, setNewThreadTitle] = useState('');
   const [newThreadBody, setNewThreadBody] = useState('');
-  const [user] = useAuthState(auth);
 
   const exitAddThread = (event) => {
     event.preventDefault();
@@ -14,8 +13,7 @@ function AddThread({ toggleAddThread, addThread, threads }) {
   };
 
   const handleTyping = (event) => {
-    let id = event.target.id;
-    let value = event.target.value;
+    const { id, value } = event.target;
     switch (id) {
       case 'newThreadTitle':
         setNewThreadTitle(value);
@@ -31,40 +29,39 @@ function AddThread({ toggleAddThread, addThread, threads }) {
   const postThread = (event) => {
     event.preventDefault();
     const postBody = {
-      commentId: ++threads.length,
-      parentId: null,
-      author: user,
-      datePosted: Date.now(),
-      rating: 4,
-      title: newThreadTitle,
+      user_id: currentUser,
+      game_id: gameId,
       body: newThreadBody,
+      parent_comment_id: 0,
+      title: newThreadTitle,
     };
-
     addThread(postBody);
   };
 
   return (
     <div>
-      <span onClick={exitAddThread}>{MdClear}</span>
-      <form>
-        <input
-          type="text"
-          id="newThreadTitle"
-          onChange={handleTyping}
-          label="Title"
-          placeholder="Topic Title"
-        />
-        <br />
-        <textarea
-          id="newThreadBody"
-          rows="10"
-          col="100"
-          onChange={handleTyping}
-          label="Body"
-          placeholder="What are your thoughts?"
-        />
-      </form>
-      <button type="submit" onClick={postThread}>Submit</button>
+      <div>
+        <span onClick={exitAddThread}>{MdClear}</span>
+        <form>
+          <input
+            type="text"
+            id="newThreadTitle"
+            onChange={handleTyping}
+            label="Title"
+            placeholder="Topic Title"
+          />
+          <br />
+          <textarea
+            id="newThreadBody"
+            rows="5"
+            col="200"
+            onChange={handleTyping}
+            label="Body"
+            placeholder="What are your thoughts?"
+          />
+        </form>
+        <button type="submit" onClick={postThread}>Submit</button>
+      </div>
     </div>
   );
 }

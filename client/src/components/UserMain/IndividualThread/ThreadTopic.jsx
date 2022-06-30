@@ -4,12 +4,9 @@ import { MdComment, MdReport, MdClear } from 'react-icons/md';
 function ThreadTopic({ thread }) {
   return (
     <div>
-      <span>{MdClear}</span>
       <div>
-        <h1>Game Title</h1>
-        <span>Back to Discussions</span>
+        <h2>{thread.title}</h2>
       </div>
-      <h2>{thread.title}</h2>
       <div>
         <div>
           <span>{thread.username}</span>
