@@ -14,31 +14,22 @@ function LandingPage({ getUser, currentUser }) {
   const [name, setName] = useState('');
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (loading) return;
-  //   console.log('use effect');
-  //   fetchUserName();
-  // }, [user, loading]);
-
-  const putUserindb = () => {
-    axios.post('/users', currentUser)
-      .then(() => console.log('registered successfully'))
-      .catch((err) => console.log(err));
-  };
-
   const getUserdb = () => {
-    try {
-      const loggedUser = {
-        username: user.displayName,
-        email: user.email,
-        site_id: user.uid,
-        image_url: user.photoURL,
-        // bio,
-      };
-      getUser(loggedUser);
-    } catch (err) {
-      console.error('An error occured while fetching user data', err);
-    }
+    console.log('landing page getuserdb', user.uid);
+    axios.get('./users', user.uid)
+      .then((res) => {
+        const loggedUser = {};
+        loggedUser.username = res.displayName;
+        loggedUser.email = res.email;
+        loggedUser.site_id = res.user.uid;
+        loggedUser.image_url = res.photoURL;
+        loggedUser.bio = res.bio;
+        console.log('logged user landin page', loggedUser);
+        getUser(loggedUser);
+      })
+      .catch((err) => {
+        console.log('error in landign page get user db', err)
+      });
   };
 
   const handleLogout = (e) => {
@@ -64,7 +55,7 @@ function LandingPage({ getUser, currentUser }) {
         <div className="landing_login">
           <div className="log-out">
             Logged in as
-            <div>{currentUser.displayName}</div>
+            <div>{currentUser.username}</div>
             <button type="button" className="logout_btn" onClick={handleLogout}>
               Logout
             </button>

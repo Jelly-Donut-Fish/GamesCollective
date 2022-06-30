@@ -15,11 +15,7 @@ function Login({ getUser }) {
   const [user, loading, error] = useAuthState(auth);
 
   // useEffect(() => {
-  //   if (loading) {
-  //     // maybe trigger a loading screen
-  //     return;
-  //   }
-  //   if (!user) navigate('/');
+  //   if (user) {};
   // }, [user, loading]);
 
   return (
