@@ -92,7 +92,7 @@ from (
 const removeGameFromCol = `
   delete from game_user where user_id = (select u.id
   from users u
-  where u.site_id = $1) and game_id = $2
+  where u.site_id = $1::text) and game_id = $2;
 `;
 
 module.exports = {
