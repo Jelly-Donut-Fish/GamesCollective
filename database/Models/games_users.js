@@ -1,5 +1,12 @@
 /* eslint-disable camelcase */
 const { pool } = require('../index');
+const {
+  addGamesToCol,
+  editRatingReview,
+  changeStatus,
+  getUsersGames,
+  removeGameFromCol,
+} = require('./collectionQueries');
 
 const get = (user_id) => {
   const getUsersGames = `
@@ -57,25 +64,9 @@ const get = (user_id) => {
   return pool.query(getUsersGames)
 };
 
-const post = (user_id, body) => {
-  // eslint-disable-next-line no-param-reassign
-  body.status = body.status || 'want to play';
-  const {
-    game_id,
-    review,
-    rating,
-  } = body;
-
-  const addGamesToCol = `
-  insert into
-  game_user (game_id, user_id, status, review, rating)
-  values(4, (select u.id
-            from users u
-            where u.site_id = ${user_id}), 'playing', 'fun', 5);
-`;
-  // eslint-disable-next-line semi
-  return pool.query(addGamesToCol)
-};
+const post = (user_id, {
+  game_id, review, rating, status,
+}) => pool.query(addGamesToCol, [user_id, game_id, status, review, rating]);
 
 const putStatus = (body) => {
   const {
@@ -117,11 +108,7 @@ const putRatings = (body) => {
   return pool.query(editRatingReview)
 };
 
-const deleteGame = (body) => {
-  const {
-    user_id,
-    game_id,
-  } = body;
+const deleteGame = (game_id, user_id) => {
   const removeGameFromCol = `
   delete from game_user where user_id = (select u.id
   from users u
