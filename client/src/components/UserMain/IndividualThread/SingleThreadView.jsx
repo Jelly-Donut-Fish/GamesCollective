@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ThreadTopic from './ThreadTopic';
 import Comments from './Comments';
 import AddComment from './AddComment';
+import { MdClear } from 'react-icons/md';
 
-function SingleThreadView({ thread, childComments }) {
+function SingleThreadView({
+  thread, childComments, currentUser, gameId, addThread,
+}) {
+  const [comments, setComments] = useState(childComments);
+
+  const addComment = (comment) => {
+    addThread(comment);
+    setComments([...comments, comment]);
+  };
+
   return (
     <div>
-      <ThreadTopic thread={thread} />
-      <Comments comments={childComments} />
-      <AddComment />
+      <div>
+        <ThreadTopic thread={thread} />
+        <Comments comments={childComments} />
+        <AddComment
+          thread={thread}
+          addComment={addComment}
+          currentUser={currentUser}
+          gameId={gameId}
+          parentId={thread.id}
+        />
+      </div>
     </div>
   );
 }
