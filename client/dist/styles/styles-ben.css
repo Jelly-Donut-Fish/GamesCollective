@@ -36,6 +36,40 @@ a:hover {
   grid-column-start: 2;
 }
 
+.login_textBox {
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.logout_btn {
+  padding: 10px;
+  font-size: 18px;
+  margin-top: 10px;
+  border: none;
+  color: white;
+  background-color: rgb(119, 56, 125);
+}
+.logout_btn:hover {
+  color: #D8315B;
+  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
+  transition: box-shadow 1s ease-in-out;
+}
+
+.login_btn {
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border: none;
+  color: white;
+  background-color: rgb(119, 56, 125);
+}
+.login_btn:hover {
+  color: #D8315B;
+  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
+  transition: box-shadow 1s ease-in-out;
+}
+
 .register {
   height: 100vh;
   width: 100vw;
@@ -85,7 +119,7 @@ a:hover {
   margin-top: 7px;
 }
 
-.reset {
+.page {
   height: 100vh;
   width: 100vw;
   display: grid;
@@ -93,7 +127,7 @@ a:hover {
   grid-template-rows: 10% 90%;
   justify-content: center;
 }
-.reset .reset__container {
+.page .page_container {
   grid-column-start: 2;
   grid-row-start: 2;
   display: flex;
@@ -103,27 +137,6 @@ a:hover {
   padding: 1vw;
   background-color: #000000;
   box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
-}
-.reset .reset__textBox {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-.reset .reset__btn {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
-  border: none;
-  color: white;
-  background-color: rgb(119, 56, 125);
-}
-.reset .reset__btn:hover {
-  color: #D8315B;
-  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
-  transition: box-shadow 1s ease-in-out;
-}
-.reset .reset div {
-  margin-top: 7px;
 }
 
 .landing-page {
@@ -173,19 +186,6 @@ a:hover {
   background-color: #000000;
   box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
 }
-.landing-page .landing .landing_login .logout_btn {
-  padding: 10px;
-  font-size: 18px;
-  margin-top: 10px;
-  border: none;
-  color: white;
-  background-color: rgb(119, 56, 125);
-}
-.landing-page .landing .landing_login .logout_btn:hover {
-  color: #D8315B;
-  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
-  transition: box-shadow 1s ease-in-out;
-}
 .landing-page .landing .landing_login .login {
   height: auto;
   width: 100%;
@@ -204,11 +204,6 @@ a:hover {
   text-align: center;
   background-color: #2b1426;
   padding: 1vw;
-}
-.landing-page .landing .landing_login .login .login_textBox {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
 }
 .landing-page .landing .landing_login .login .login_btn {
   padding: 10px;

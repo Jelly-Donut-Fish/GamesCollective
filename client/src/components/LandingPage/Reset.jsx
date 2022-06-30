@@ -19,23 +19,23 @@ function Reset() {
   };
 
   return (
-    <div className="reset">
+    <div className="page">
       <nav className="nav-bar">
         <h3>Games Collection</h3>
         <br />
         <Link className="link" to="/">Home</Link>
       </nav>
-      <div className="reset__container">
+      <div className="page_container">
         <input
           type="text"
-          className="reset__textBox"
+          className="login_textBox"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail Address"
         />
         <button
           type="button"
-          className="reset__btn"
+          className="login_btn"
           onClick={() => resetClickHandler(email)}
         >
           Send password reset email

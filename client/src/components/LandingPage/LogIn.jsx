@@ -35,7 +35,7 @@ function Login({ getUser }) {
         >
           Login
         </button>
-        <button type="button" className="login_btn login_google" onClick={signInWithGoogle}>
+        <button type="button" className="login_btn" onClick={signInWithGoogle}>
           Login with Google
         </button>
         <div>

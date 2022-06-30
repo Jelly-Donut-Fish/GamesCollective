@@ -16,7 +16,6 @@ function Register({ getUser, currentUser }) {
   const [displayName, setDisplayName] = useState('');
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-  // const history = useHistory();
   const getUserInfo = () => {
     try {
       const loggedUser = {};
@@ -48,7 +47,7 @@ function Register({ getUser, currentUser }) {
           });
         })
         .then(() => {
-          navigate('/');
+          // navigate('/');
         })
         .catch((err) => {
           console.error('error in register', err);
@@ -56,60 +55,60 @@ function Register({ getUser, currentUser }) {
     }
   };
 
-  useEffect(() => {
-    if (loading) return;
-    if (user) navigate('/');
-  }, [user, loading]);
+  // useEffect(() => {
+  //   if (loading) return;
+  //   if (user) navigate('/');
+  // }, [user, loading]);
 
   return (
-    <div className="register">
+    <div className="page">
       <nav className="nav-bar">
         <h3>Games Collection</h3>
         <br />
         <Link className="link" to="/">Home</Link>
       </nav>
-      <div className="register__container">
+      <div className="page_container">
         <input
           type="text"
-          className="register__textBox"
+          className="login_textBox"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Username"
         />
         <input
           type="text"
-          className="register__textBox"
+          className="login_textBox"
           value={displayName}
           onChange={(e) => setDisplayName(e.target.value)}
           placeholder="DisplayName"
         />
         <input
           type="text"
-          className="register__textBox"
+          className="login_textBox"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail Address"
         />
         <input
           type="password"
-          className="register__textBox"
+          className="login_textBox"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
         <input
           type="text"
-          className="register__textBox"
+          className="login_textBox"
           value={photoURL}
           onChange={(e) => setPhotoURL(e.target.value)}
           placeholder="Photo URL"
         />
-        <button type="button" className="register__btn" onClick={register}>
+        <button type="button" className="login_btn" onClick={register}>
           Register
         </button>
         <button
           type="button"
-          className="register__btn register__google"
+          className="login_btn"
           onClick={signInWithGoogle}
         >
           Register with Google
