@@ -28,8 +28,7 @@ function Register({ getUser, currentUser }) {
         console.log('logged user', loggedUser);
         getUser(loggedUser);
       } catch (err) {
-        console.error(err);
-        console.log('An error occured while fetching user data');
+        console.error('An error occured while fetching user data', err);
       }
     }
   };
@@ -39,7 +38,7 @@ function Register({ getUser, currentUser }) {
     const promises = [
       registerWithEmailAndPassword(name, email, password, displayName, photoURL),
       getUserInfo(),
-    // post to db
+      // axios.post('/users', currentUser),
     ];
     Promise.all(promises)
       .then(() => {

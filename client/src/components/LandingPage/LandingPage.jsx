@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
 import {
   query, collection, getDocs, where,
 } from 'firebase/firestore';
@@ -13,10 +14,6 @@ function LandingPage({ getUser, currentUser }) {
   const [name, setName] = useState('');
   const navigate = useNavigate();
 
-  // if user
-    // then get info from db
-    // update current user
-
   // useEffect(() => {
   //   if (loading) return;
   //   console.log('use effect');
@@ -24,42 +21,36 @@ function LandingPage({ getUser, currentUser }) {
   // }, [user, loading]);
 
   const putUserindb = () => {
-    axios.post('/users', {
-      username,
-      username: displayName,
-      email,
-      site_id: 'local',
-      image_url: photoURL,
-    })
+    axios.post('/users', currentUser)
       .then(() => console.log('registered successfully'))
       .catch((err) => console.log(err));
   };
 
   const getUserdb = () => {
-    if (user) {
-      try {
-        console.log('user', user);
-        const loggedUser = currentUser;
-        loggedUser.username = user.displayName;
-        loggedUser.email = user.email;
-        loggedUser.site_id = user.uid;
-
-        console.log('logged user', loggedUser);
-        getUser(loggedUser);
-      } catch (err) {
-        console.error(err);
-        console.log('An error occured while fetching user data');
-      }
+    try {
+      const loggedUser = {
+        username: user.displayName,
+        email: user.email,
+        site_id: user.uid,
+        image_url: user.photoURL,
+        // bio,
+      };
+      getUser(loggedUser);
+    } catch (err) {
+      console.error('An error occured while fetching user data', err);
     }
   };
+
   const handleLogout = (e) => {
     e.preventDefault();
     logout();
     getUser({});
   };
+
   useEffect(() => {
     if (user) getUserdb();
   }, [user]);
+
   return (
     <div className="landing-page">
       <nav className="nav-bar">
@@ -73,7 +64,7 @@ function LandingPage({ getUser, currentUser }) {
         <div className="landing_login">
           <div className="log-out">
             Logged in as
-            <div>{currentUser.username}</div>
+            <div>{currentUser.displayName}</div>
             <button type="button" className="logout_btn" onClick={handleLogout}>
               Logout
             </button>

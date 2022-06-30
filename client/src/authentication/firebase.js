@@ -50,17 +50,11 @@ const signInWithGoogle = async () => {
         authProvider: 'google',
         email: user.email,
       });
-      const putUserindb = () => {
-        axios.post('/users', {
-          name,
-          username: displayName,
-          email,
-          site_id: 'local',
-          image_url: photoURL,
-        })
-          .then(() => console.log('registered successfully'))
-          .catch((err) => console.log(err));
-      };
+      await axios.post('/users', {
+        site_id: user.uid,
+        name: user.displayName,
+        email: user.email,
+      });
     }
   } catch (err) {
     console.error(err);

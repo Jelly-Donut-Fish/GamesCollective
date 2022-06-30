@@ -19,7 +19,7 @@ function Login({ getUser }) {
   //     // maybe trigger a loading screen
   //     return;
   //   }
-  //   if (user) navigate('/UserMain');
+  //   if (!user) navigate('/');
   // }, [user, loading]);
 
   return (

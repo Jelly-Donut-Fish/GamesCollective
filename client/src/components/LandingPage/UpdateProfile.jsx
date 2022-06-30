@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth, updateProfile, signInAnonymously } from 'firebase/auth';
@@ -14,28 +15,16 @@ function UpdatUserProfile({ currentUser, getUser }) {
   const [bio, setBio] = useState(currentUser.bio);
   const navigate = useNavigate();
 
-  const profileUpdate = async () => {
-    const authenticate = getAuth();
-    const res = authenticate.user;
-    updateProfile(user, { photoURL, displayName })
-      .then(() => {
-        console.log('user updated');
-      })
-      .then(() => {
-        const loggedUser = {
-          username: displayName,
-          email: user.email,
-          site_id: user.uid,
-          image_url: photoURL,
-          bio,
-        };
-        console.log('logged user', loggedUser);
-        getUser(loggedUser);
-      })
-      .catch((err) => {
-        console.log('error in update Profile', err);
-      });
-      // then post to db
+  const profileUpdate = () => {
+    const loggedUser = {
+      username: displayName,
+      site_id: user.uid,
+      image_url: photoURL,
+      bio,
+    };
+    console.log('logged user', loggedUser);
+    getUser(loggedUser);
+    axios.put('/users', loggedUser);
     // navigate('/');
   };
 
