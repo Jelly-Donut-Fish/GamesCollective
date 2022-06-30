@@ -1,8 +1,9 @@
 const gamesModel = require('../../database/Models/games');
 
 const getAll = function (req, res) {
-  let { page, count } = req.params;
-  gamesModel.getAll(page = 1, count = 5)
+  const { page, count, q } = req.query;
+  console.log(req.query);
+  gamesModel.getAll(page, count, q)
     .then((data) => {
       res.send(data.rows[0].results);
     })
