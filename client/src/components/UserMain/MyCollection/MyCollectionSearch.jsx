@@ -72,6 +72,7 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
           {genres.map((genre) => (
             <option value={genre.name}>{genre.name}</option>
           ))}
+          <option value={null}>Any</option>
         </select>
       </label>
       <label htmlFor="category">
@@ -80,6 +81,7 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
           {categories.map((category) => (
             <option value={category.name}>{category.name}</option>
           ))}
+          <option value={null}>Any</option>
         </select>
       </label>
       <label htmlFor="status">
@@ -90,7 +92,7 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
           <option value="Playing">Playing</option>
           <option value="Finished">Finished</option>
           <option value="Purchased">Purchased</option>
-
+          <option value={null}>Any</option>
         </select>
       </label>
     </div>

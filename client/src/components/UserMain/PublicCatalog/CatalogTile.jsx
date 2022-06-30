@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function CatalogTile({ item, getMyCollection, myCollection, currentUser }) {
   const handleClick = function () {
+    item.status = 'Want to Play';
     getMyCollection([...myCollection, item]);
     // axios request to add to my collection
     axios.post(`/games_users/${currentUser}`, {
@@ -25,14 +26,6 @@ function CatalogTile({ item, getMyCollection, myCollection, currentUser }) {
         {item.genres.map((genres) => <li>{genres}</li>)}
       </ul>
       <p>{item.rating}</p>
-      <label htmlFor="game status">
-        <select name="status" id="game status">
-          <option value="Want">Want</option>
-          <option value="Started">Started</option>
-          <option value="Finished">Finished</option>
-          <option value="Backlog">Haven&apos;t Started</option>
-        </select>
-      </label>
       {!myCollection.some(uniqueCheck) ? <button onClick={handleClick} type="submit"> Add </button> : null}
     </div>
   );
