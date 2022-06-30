@@ -10,7 +10,7 @@ select json_build_object(
   'username', u.username,
 	'bio', u.bio,
 	'img_url', u.img_url
-)from users u where site_id = $1
+) results from users u where site_id = $1
 `;
 
 const updateUser = `
