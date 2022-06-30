@@ -14,23 +14,28 @@ function LandingPage({ getUser, currentUser }) {
   const [name, setName] = useState('');
   const navigate = useNavigate();
 
-  // const getUserdb = () => {
-  //   console.log('landing page getuserdb', user.uid);
-  //   axios.get('./users', user.uid)
-  //     .then((res) => {
-  //       const loggedUser = {};
-  //       loggedUser.username = res.displayName;
-  //       loggedUser.email = res.email;
-  //       loggedUser.site_id = res.user.uid;
-  //       loggedUser.image_url = res.photoURL;
-  //       loggedUser.bio = res.bio;
-  //       console.log('logged user landin page', loggedUser);
-  //       getUser(loggedUser);
-  //     })
-  //     .catch((err) => {
-  //       console.log('error in landign page get user db', err)
-  //     });
-  // };
+  const getUserdb = () => {
+    console.log('landing page getuserdb', user.uid);
+    axios.get('./users', {
+      params: {
+        user_id: user.uid
+      }
+    })
+      .then((res) => {
+        console.log('res', res);
+        const loggedUser = {};
+        loggedUser.username = res.data.results.username;
+        loggedUser.email = user.email;
+        loggedUser.site_id = user.uid;
+        loggedUser.image_url = res.data.results.img_url;
+        loggedUser.bio = res.data.results.bio;
+        console.log('logged user landin page', loggedUser);
+        getUser(loggedUser);
+      })
+      .catch((err) => {
+        console.log('error in landing page get user db', err)
+      });
+  };
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -38,9 +43,9 @@ function LandingPage({ getUser, currentUser }) {
     getUser({});
   };
 
-  // useEffect(() => {
-  //   if (user) getUserdb();
-  // }, [user]);
+  useEffect(() => {
+    if (user) getUserdb();
+  }, [user]);
 
   return (
     <div className="landing-page">
