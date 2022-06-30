@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import MyCollectionList from './MyCollectionList';
 import MyCollectionSearch from './MyCollectionSearch';
 
-function MyCollection({ myCollection, toggleGameView }) {
+function MyCollection({
+  currentUser, myCollection, getMyCollection,
+  toggleGameView, toggleThreadsView,
+}) {
   const [query, setQuery] = useState('');
   const [genre, setGenre] = useState('');
   const [category, setCategory] = useState('');
@@ -26,14 +29,21 @@ function MyCollection({ myCollection, toggleGameView }) {
   return (
     <div>
       <h2>My Collection</h2>
-      <MyCollectionSearch setFilters={setFilters} />
+      <MyCollectionSearch
+        myCollection={myCollection}
+        setFilters={setFilters}
+        getMyCollection={getMyCollection}
+      />
       <MyCollectionList
         myCollection={myCollection}
         query={query}
         genre={genre}
         category={category}
         status={status}
+        currentUser={currentUser}
         toggleGameView={toggleGameView}
+        toggleThreadsView={toggleThreadsView}
+        getMyCollection={getMyCollection}
       />
     </div>
   );
