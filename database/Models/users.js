@@ -9,13 +9,13 @@ const post = ({
   pool.connect()
     .then((client) => {
       client.query(createUser, [username, email, site_id, bio, image_url])
-        .then((dbRes) => {
+        .then(() => {
           client.release();
-          res.json(dbRes);
+          res.sendStatus(201);
         });
     })
     .catch(() => {
-      res.sendStaus(500);
+      res.sendStatus(500);
     });
 };
 

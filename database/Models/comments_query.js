@@ -34,7 +34,9 @@ select json_agg(
 const addComment = `
   insert into
   comments (user_id, body, game_id, title, image_url, parent_comment_id)
-  values ($1, $2, $3, $4, $5, $6)
+  values ((select u.id
+    from users u
+    where u.site_id = $1), $2, $3, $4, $5, $6)
 `;
 
 const reportComment = `
