@@ -17,12 +17,37 @@ function Register({ getUser, currentUser }) {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   // const history = useHistory();
-
+  const getUserInfo = () => {
+    if (user) {
+      try {
+        console.log('user', user);
+        const loggedUser = currentUser;
+        loggedUser.username = user.displayName;
+        loggedUser.email = user.email;
+        loggedUser.site_id = user.uid;
+        console.log('logged user', loggedUser);
+        getUser(loggedUser);
+      } catch (err) {
+        console.error(err);
+        console.log('An error occured while fetching user data');
+      }
+    }
+  };
 
   const register = () => {
     if (!name) alert('Please enter name');
-    registerWithEmailAndPassword(name, email, password, displayName, photoURL);
-    navigate('/UserMain');
+    const promises = [
+      registerWithEmailAndPassword(name, email, password, displayName, photoURL),
+      getUserInfo(),
+    // post to db
+    ];
+    Promise.all(promises)
+      .then(() => {
+        navigate('/');
+      })
+      .catch((err) => {
+        console.error('error in register', err);
+      });
   };
 
   // useEffect(() => {
@@ -65,13 +90,6 @@ function Register({ getUser, currentUser }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-        />
-        <input
-          type="text"
-          className="register__textBox"
-          value={photoURL || ''}
-          onChange={(e) => setPhotoURL(e.target.value)}
-          placeholder="Profile Pic URL"
         />
         <button type="button" className="register__btn" onClick={register}>
           Register

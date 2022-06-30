@@ -13,13 +13,31 @@ function LandingPage({ getUser, currentUser }) {
   const [name, setName] = useState('');
   const navigate = useNavigate();
 
+  // if user
+    // then get info from db
+    // update current user
+
   // useEffect(() => {
   //   if (loading) return;
   //   console.log('use effect');
   //   fetchUserName();
   // }, [user, loading]);
 
-  const getUserInfo = () => {
+  const putUserindb = () => {
+    axios.post('/users', {
+      username,
+      username: displayName,
+      email,
+      site_id: 'local',
+      image_url: photoURL,
+    })
+      .then(() => console.log('registered successfully'))
+      .catch((err) => console.log(err));
+  };
+
+  
+
+  const getUserdb = () => {
     if (user) {
       try {
         console.log('user', user);
@@ -36,25 +54,13 @@ function LandingPage({ getUser, currentUser }) {
       }
     }
   };
-  const putUserindb = () => {
-    axios.post('/users', {
-      name,
-      username: displayName,
-      email,
-      site_id: 'local',
-      image_url: photoURL,
-    })
-      .then(() => console.log('registered successfully'))
-      .catch((err) => console.log(err));
-  };
-
   const handleLogout = (e) => {
     e.preventDefault();
     logout();
-    getUser();
+    getUser({});
   };
   useEffect(() => {
-    if (user) getUserInfo();
+    if (user) getUserdb();
   }, [user]);
   return (
     <div className="landing-page">

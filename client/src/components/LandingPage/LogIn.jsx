@@ -22,7 +22,6 @@ function Login({ getUser }) {
   //   if (user) navigate('/UserMain');
   // }, [user, loading]);
 
-
   return (
     <div className="login">
       <div className="login_container">
@@ -50,12 +49,6 @@ function Login({ getUser }) {
         <button type="button" className="login_btn login_google" onClick={signInWithGoogle}>
           Login with Google
         </button>
-
-        {/* <button type="button" className="login_btn login_google" onClick={steamLogIn}>
-          <img id="steamLogin" src="../../../../dist/assets/steamLogin.png" alt="" />
-          Login with Steam
-        </button> */}
-
         <div>
           <Link className="link" to="/Reset">Forgot Password</Link>
         </div>

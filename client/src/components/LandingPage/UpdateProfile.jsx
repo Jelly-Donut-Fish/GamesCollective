@@ -35,6 +35,7 @@ function UpdateProfile({ currentUser, getUser }) {
       .catch((err) => {
         console.log('error in update Profile', err);
       });
+      // then post to db
     // navigate('/');
   };
 
