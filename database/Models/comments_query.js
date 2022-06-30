@@ -1,33 +1,33 @@
 const getAllCommentsForAGame = `
-  select json_agg(
-    json_build_object(
-      'id', cu.id,
-      'username', cu.username,
-      'date', cu.date,
-      'title', cu.title,
-      'body', cu.body,
-      'parent_id', cu.parent_comment_id,
-      'image_url', cu.image_url,
-      'upvote', cu.up_vote,
-      'downvote', cu.down_vote
-    ) order by id
-  ) results from (
-      select
-        c.id,
-        u.username,
-        c.date,
-        c.title,
-        c.body,
-        c.parent_comment_id,
-        c.image_url,
-        c.up_vote,
-        c.down_vote
-        FROM comments c
-        INNER JOIN
-        users u ON
-        (c.user_id = u.id)
-        where c.game_id = $1
-  ) as cu;
+select json_agg(
+  json_build_object(
+    'id', cu.id,
+    'username', cu.username,
+    'date', cu.date,
+    'title', cu.title,
+    'body', cu.body,
+    'parent_id', cu.parent_comment_id,
+    'image_url', cu.image_url,
+    'upvote', cu.up_vote,
+    'downvote', cu.down_vote
+  ) order by id
+) results from (
+    select
+      c.id,
+      u.username,
+      c.date,
+      c.title,
+      c.body,
+      c.parent_comment_id,
+      c.image_url,
+      c.up_vote,
+      c.down_vote
+      FROM comments c
+      INNER JOIN
+      users u ON
+      (c.user_id = u.id)
+      where c.game_id = $1::int and c.report = 0
+) as cu;
 `;
 
 //image_url and parent_comment_id is not required
