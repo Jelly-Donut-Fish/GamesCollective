@@ -2,16 +2,16 @@ import React from 'react';
 import ThreadsTile from './ThreadsTile';
 
 function ThreadsList({ toggleThreadView, threads }) {
-  const parents = threads.filter((thread) => (thread.parentId === 0));
-  console.log(parents);
+  const parents = threads.filter((thread) => (thread.parent_id === 0)) || [];
   return (
     <div>
-      <span>Threads List will go here</span>
+      <h3>Discussions</h3>
       <div>
         {parents.map((parent) => (
           <ThreadsTile
             toggleThreadView={toggleThreadView}
             thread={parent}
+            key={parent.id}
           />
         ))}
       </div>

@@ -9,6 +9,7 @@
 
 .title:hover {
   color: blue;
+  cursor: pointer;
 }
 
 .container {
@@ -35,4 +36,38 @@
 .empty {
   width: 50%;
   margin: auto;
+}
+
+#collectionList{
+  width: 90%;
+  margin: auto;
+}
+// game card
+
+.image_container {
+  width: 35%;
+}
+
+.info_container {
+  width: 40%;
+}
+
+.title_image {
+  width: 90%;
+}
+
+h1, h2, h3, h4, p {
+  display: inline-block;
+}
+h1, h2, h3, h4, p, span {
+  margin: 5px;
+}
+
+.date {
+  font-style: italic;
+}
+
+.features{
+  border: 1px solid white;
+  border-radius: 5px;
 }
