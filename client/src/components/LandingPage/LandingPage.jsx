@@ -15,7 +15,6 @@ function LandingPage({ getUser, currentUser }) {
   const navigate = useNavigate();
 
   const getUserdb = () => {
-    console.log('landing page getuserdb', user.uid);
     axios.get('./users', {
       params: {
         user_id: user.uid
@@ -28,8 +27,7 @@ function LandingPage({ getUser, currentUser }) {
         loggedUser.email = user.email;
         loggedUser.site_id = user.uid;
         loggedUser.image_url = res.data.results.img_url;
-        loggedUser.bio = res.data.results.bio;
-        console.log('logged user landin page', loggedUser);
+        loggedUser.bio = res.data.results.bio;);
         getUser(loggedUser);
       })
       .catch((err) => {
