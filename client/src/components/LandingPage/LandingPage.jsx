@@ -22,12 +22,12 @@ function LandingPage({ getUser, currentUser }) {
   const getUserInfo = () => {
     if (user) {
       try {
-        console.log('user', user)
-        const loggedUser = {
-          username: user.displayName,
-          email: user.email,
-          site_id: user.uid,
-        };
+        console.log('user', user);
+        const loggedUser = currentUser;
+        loggedUser.username = user.displayName;
+        loggedUser.email = user.email;
+        loggedUser.site_id = user.uid;
+
         console.log('logged user', loggedUser);
         getUser(loggedUser);
       } catch (err) {
