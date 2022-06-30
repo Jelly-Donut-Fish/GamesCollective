@@ -25,7 +25,11 @@ const get = ({ user_id }, res) => {
       client.query(getUserInfo, [user_id])
         .then((dbRes) => {
           client.release();
-          res.json(dbRes.rows[0].json_build_object);
+          if (dbRes.rows[0]) {
+            res.json(dbRes.rows[0]);
+          } else {
+            res.json('no user found');
+          }
         });
     })
     .catch(() => {
