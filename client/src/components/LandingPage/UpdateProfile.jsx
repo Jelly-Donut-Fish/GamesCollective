@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth, updateProfile, signInAnonymously } from 'firebase/auth';
-import { auth } from '../../authentication/firebase';
+import {
+  query, collection, getDocs, where,
+} from 'firebase/firestore';
+import { auth, db, updateUser } from '../../authentication/firebase';
 
 function UpdateProfile( {currentUser} ) {
   const [user, loading, error] = useAuthState(auth);
@@ -14,18 +17,17 @@ function UpdateProfile( {currentUser} ) {
   const profileUpdate = async () => {
     // Calling authentication function
     const authenticate = getAuth();
+    const res = authenticate.user;
+    console.log('user', user)
     // You need to pass the authentication instance as param
     // Passing user's object as first param and updating it
-    updateProfile(authenticate.currentUser, {
-      displayName,
-      photoURL,
+    updateUser(user, photoURL, displayName)
+    .then(() => {
+      console.log('user updated')
     })
-      .then(() => {
-        console.log('Profile Updated');
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    .catch((err) => {
+      console.log('error in update Profile', err)
+    })
     // navigate('/');
   };
 

@@ -27,7 +27,7 @@ function LandingPage({ getUser, currentUser }) {
 
   useEffect(() => {
     if (loading) return;
-    console.log('use effect')
+    console.log('use effect');
     fetchUserName();
   }, [user, loading]);
 

@@ -7,6 +7,7 @@ import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   signOut,
+  updateProfile,
 } from 'firebase/auth';
 import {
   getFirestore,
@@ -70,6 +71,18 @@ const registerWithEmailAndPassword = async (name, email, password, displayName, 
   }
 };
 
+const updateUser = async (user, photoURL, displayName) => {
+  try {
+    await updateProfile(collection(db, 'users'), {
+      uid: user.uid,
+      photoURL,
+      displayName,
+    });
+  } catch (err) {
+    console.log('error in firebase.js', err)
+  }
+};
+
 const sendPasswordReset = async (email) => {
   try {
     await sendPasswordResetEmail(auth, email);
@@ -93,4 +106,5 @@ export {
   sendPasswordReset,
   logout,
   sendPasswordResetEmail,
+  updateUser,
 };
