@@ -17,20 +17,23 @@ function Register({ getUser, currentUser }) {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   // const history = useHistory();
+  const putUserindb = () => {
+    axios.post('/users', {
+      name,
+      username: displayName,
+      email,
+      site_id: 'local',
+      image_url: photoURL,
+    })
+      .then(() => console.log('registered successfully'))
+      .catch((err) => console.log(err));
+  };
   const register = () => {
     if (!name) alert('Please enter name');
     registerWithEmailAndPassword(name, email, password, displayName, photoURL);
-    // putUserindb();
+    putUserindb();
     navigate('/UserMain');
   };
-
-  // const putUserindb = () => {
-  //   axios.post('/users', {
-  //     name, displayName, email, password, photoURL
-  //   })
-  //     .then(() => console.log('registered successfully'))
-  //     .catch((err) => console.log(err));
-  // };
 
   // useEffect(() => {
   //   if (loading) return;

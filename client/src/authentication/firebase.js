@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app';
+import axios from 'axios';
 import {
   GoogleAuthProvider,
   getAuth,
@@ -24,6 +25,18 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 const googleProvider = new GoogleAuthProvider();
+const putUserindb = () => {
+  axios.post('/users', {
+    name,
+    username: displayName,
+    email,
+    site_id: 'local',
+    image_url: photoURL,
+  })
+    .then(() => console.log('registered successfully'))
+    .catch((err) => console.log(err));
+};
+
 const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, googleProvider);
@@ -37,6 +50,17 @@ const signInWithGoogle = async () => {
         authProvider: 'google',
         email: user.email,
       });
+      const putUserindb = () => {
+        axios.post('/users', {
+          name,
+          username: displayName,
+          email,
+          site_id: 'local',
+          image_url: photoURL,
+        })
+          .then(() => console.log('registered successfully'))
+          .catch((err) => console.log(err));
+      };
     }
   } catch (err) {
     console.error(err);
