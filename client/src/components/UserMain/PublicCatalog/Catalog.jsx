@@ -12,7 +12,8 @@ function Catalog({ catalog, getMyCollection, currentUser, myCollection, getCatal
         setSearchQuery={setSearchQuery}
         setFilterBy={setFilterBy}
         getCatalog={getCatalog}
-        catalog={catalog} />
+        catalog={catalog}
+        filterBy={filterBy} />
       <CatalogList
         catalog={catalog}
         searchQuery={searchQuery}

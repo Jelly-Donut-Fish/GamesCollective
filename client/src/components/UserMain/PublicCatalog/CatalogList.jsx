@@ -16,7 +16,10 @@ function CatalogList({ catalog, searchQuery, filterBy, getMyCollection, currentU
                 <CatalogTile
                   key={index}
                   item={item}
-                  getMyCollection={getMyCollection} />
+                  getMyCollection={getMyCollection}
+                  myCollection={myCollection}
+                  currentUser={currentUser}
+                  getCatalog={getCatalog} />
               );
             }
             break;
