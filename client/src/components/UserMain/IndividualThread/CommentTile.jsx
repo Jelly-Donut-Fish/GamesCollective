@@ -2,7 +2,9 @@ import React from 'react';
 import { MdComment, MdReport } from 'react-icons/md';
 
 function CommentTile({ comment }) {
-
+  const reportComment = (event) => {
+    event.preventDefault();
+  }
 
   return (
     <div className="commentTile">
@@ -14,8 +16,12 @@ function CommentTile({ comment }) {
         <p className="postBody">{comment.body}</p>
       </div>
       <div className="actionsIcons">
-        <span onClick={reportComment}>{MdReport}</span>
-        <span onClick={}
+        <span onClick={addComment}>
+          {MdComment}
+        </span>
+        <span onClick={reportComment}>
+          {MdReport}
+        </span>
       </div>
     </div>
   );

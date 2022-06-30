@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { MdClear } from "react-icons/md";
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, db, logout } from '../../../authentication/firebase';
 
-function AddThread({ toggleAddThread, addThread, threads, currentUser, gameId }) {
+
+function AddThread({
+  toggleAddThread, addThread, currentUser, gameId,
+}) {
   const [newThreadTitle, setNewThreadTitle] = useState('');
   const [newThreadBody, setNewThreadBody] = useState('');
-  const [user] = useAuthState(auth);
 
   const exitAddThread = (event) => {
     event.preventDefault();
@@ -14,8 +14,7 @@ function AddThread({ toggleAddThread, addThread, threads, currentUser, gameId })
   };
 
   const handleTyping = (event) => {
-    let id = event.target.id;
-    let value = event.target.value;
+    const { id, value } = event.target;
     switch (id) {
       case 'newThreadTitle':
         setNewThreadTitle(value);

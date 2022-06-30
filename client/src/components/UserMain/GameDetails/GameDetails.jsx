@@ -8,9 +8,10 @@ function GameDetails({ game }) {
   const [saveRating, setSaveRating] = useState('');
   const [review, setReview] = useState('');
   const [saveReview, setSaveReview] = useState('');
-  const [changeRating, setChangeRating] = useState(false);
-  const [changeReview, setChangeReview] = useState(false);
+  const [changeRating, setChangeRating] = useState(true);
+  const [changeReview, setChangeReview] = useState(true);
 
+  console.log(game);
   const setNewRating = (e) => {
     e.preventDefault();
     if (e.target.name === 'rating') {
@@ -64,7 +65,7 @@ function GameDetails({ game }) {
           <div>
             {review ? (changeReview ? (
               <span>
-                <textarea rows="5" columns="30" name="review" onChange={saveNewRating} />
+                <textarea value="" rows="5" columns="30" name="review" onChange={saveNewRating} />
                 <BsFillCheckCircleFill name="review" onClick={setNewRating} />
               </span>
             )

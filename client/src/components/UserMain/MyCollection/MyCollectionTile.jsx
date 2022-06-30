@@ -31,7 +31,7 @@ function MyCollectionTile({
 
   const openThreadView = (e) => {
     e.preventDefault();
-    toggleThreadsView(game.id);
+    toggleThreadsView(game);
   };
 
   return (

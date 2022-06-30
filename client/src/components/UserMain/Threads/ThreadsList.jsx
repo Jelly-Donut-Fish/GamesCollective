@@ -12,6 +12,7 @@ function ThreadsList({ toggleThreadView, threads }) {
           <ThreadsTile
             toggleThreadView={toggleThreadView}
             thread={parent}
+            key={parent.id}
           />
         ))}
       </div>
