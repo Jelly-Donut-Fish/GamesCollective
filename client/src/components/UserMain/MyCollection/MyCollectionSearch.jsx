@@ -41,10 +41,10 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
     const promise2 = axios.get('/categories');
     // const promise3 = axios.get('/platforms');
     Promise.all([promise1, promise2])
-      .then((results) => {
-        console.log(results);
-        setGenres(results[0]);
-        setCategories(results[1]);
+      .then((res) => {
+        console.log(res[0].data.results);
+        setGenres(res[0].data.results);
+        setCategories(res[1].data.results);
         // setPlatforms(results[2]);
       })
       .catch((err) => {
@@ -52,9 +52,9 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
       });
   };
 
-  // useEffect(() => {
-  //   getAllGenres();
-  // }, []);
+  useEffect(() => {
+    getAllGenres();
+  }, []);
 
   return (
     <div>
@@ -70,7 +70,7 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
         <select name="filters" id="genre" onChange={filterHandler}>
           <option value="" defaultValue="" hidden>Choose a genre</option>
           {genres.map((genre) => (
-            <option value={genre}>{genre}</option>
+            <option value={genre.name}>{genre.name}</option>
           ))}
         </select>
       </label>
@@ -78,7 +78,7 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
         <select name="filters" id="category" onChange={filterHandler}>
           <option value="" defaultValue="" hidden>Choose a category</option>
           {categories.map((category) => (
-            <option value={category}>{category}</option>
+            <option value={category.name}>{category.name}</option>
           ))}
         </select>
       </label>
