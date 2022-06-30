@@ -13,6 +13,9 @@ SELECT json_build_object(
       'short_description', g.short_description,
       'header_image', g.header_image,
       'release_date', g.release_date,
+      'rating', (select trim_scale(AVG(gu.rating))
+                from game_user gu
+                where gu.game_id = g.id and gu.rating is not null),
       'website', g.website,
       'required_age', g.required_age,
       'genres', (SELECT json_agg(description)
@@ -63,6 +66,7 @@ const getGame = `
       'short_description', g.short_description,
       'header_image', g.header_image,
       'release_date', g.release_date,
+      'rating', (select trim_scale(AVG(gu.rating)) from game_user gu where gu.game_id = g.id and gu.rating is not null),
       'website', g.website,
       'required_age', g.required_age,
       'genres', (select json_agg(description)
