@@ -1,8 +1,9 @@
 const { pool } = require('../index');
 const comment = require('./comments_query');
 
-const post = function(body) {
-  return pool.query(comment.addComment, [body.user_id, body.body, body.game_id, body.title, body.image_url, body.parent_comment_id])
+const post = function(bodyObj) {
+  const { user_id, body, game_id, title, image_url, parent_comment_id } = bodyObj;
+  return pool.query(comment.addComment, [user_id, body, game_id, title, image_url, parent_comment_id])
 }
 
 const put = function(comment_id) {
