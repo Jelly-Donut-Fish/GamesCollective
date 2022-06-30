@@ -11,7 +11,6 @@ function GameDetails({ game }) {
   const [changeRating, setChangeRating] = useState(true);
   const [changeReview, setChangeReview] = useState(true);
 
-  console.log(game);
   const setNewRating = (e) => {
     e.preventDefault();
     if (e.target.name === 'rating') {
