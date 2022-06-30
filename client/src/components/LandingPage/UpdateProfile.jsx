@@ -15,7 +15,9 @@ function UpdateProfile({ currentUser, getUser }) {
   const navigate = useNavigate();
 
   const profileUpdate = async () => {
-    updateUser(user, photoURL, displayName)
+    const authenticate = getAuth();
+    const res = authenticate.user;
+    updateProfile(user, { photoURL, displayName })
       .then(() => {
         console.log('user updated');
       })
