@@ -27,7 +27,7 @@ function MyCollectionList({
           </div>
         )
         : (
-          <div>
+          <div >
             {myCollection.map((game, i) => {
               const gameTitle = game.name.toLowerCase();
 
