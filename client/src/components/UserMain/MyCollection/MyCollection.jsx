@@ -34,17 +34,19 @@ function MyCollection({
         setFilters={setFilters}
         getMyCollection={getMyCollection}
       />
-      <MyCollectionList
-        myCollection={myCollection}
-        query={query}
-        genre={genre}
-        category={category}
-        status={status}
-        currentUser={currentUser}
-        toggleGameView={toggleGameView}
-        toggleThreadsView={toggleThreadsView}
-        getMyCollection={getMyCollection}
-      />
+      <div id="collectionList">
+        <MyCollectionList
+          myCollection={myCollection}
+          query={query}
+          genre={genre}
+          category={category}
+          status={status}
+          currentUser={currentUser}
+          toggleGameView={toggleGameView}
+          toggleThreadsView={toggleThreadsView}
+          getMyCollection={getMyCollection}
+        />
+      </div>
     </div>
   );
 }
