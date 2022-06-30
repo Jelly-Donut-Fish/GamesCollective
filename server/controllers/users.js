@@ -1,19 +1,19 @@
 const userModel = require('../../database/Models/users');
 
-const get = function (req, res) {
+const get = (req, res) => {
   userModel.get(req.query, res);
 };
 
-const post = function (req, res) {
+const post = (req, res) => {
   userModel.post(req.body, res);
 };
 
-const put = function (req, res) {
+const put = (req, res) => {
   userModel.put(req.body, res);
 };
 
 module.exports = {
-  get: get,
-  post: post,
-  put: put
-}
+  get,
+  post,
+  put,
+};

@@ -1,17 +1,18 @@
+/* eslint-disable camelcase */
 const commentsModel = require('../../database/Models/comments');
 
-const get = function (req, res) {
-  let { game_id } = req.params;
+const get = (req, res) => {
+  const { game_id } = req.params;
   commentsModel.get(game_id)
     .then((data) => {
       res.send(data.rows[0].results);
     })
     .catch((err) => {
-      res.send(err.message)
-    })
-}
+      res.send(err.message);
+    });
+};
 
-const post = function (req, res) {
+const post = (req, res) => {
   if (!req.body.title) {
     req.body.title = '';
   }
@@ -26,23 +27,23 @@ const post = function (req, res) {
       res.sendStatus(201);
     })
     .catch((err) => {
-      res.send(err.message)
-    })
-}
+      res.send(err.message);
+    });
+};
 
-const put = function (req, res) {
-  let { comment_id } = req.params;
+const put = (req, res) => {
+  const { comment_id } = req.params;
   commentsModel.put(comment_id)
     .then(() => {
       res.sendStatus(204);
     })
     .catch((err) => {
-      res.send(err.message)
-    })
-}
+      res.send(err.message);
+    });
+};
 
 module.exports = {
-  get: get,
-  post: post,
-  put: put
-}
+  get,
+  post,
+  put,
+};
