@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Register from '../components/LandingPage/Register';
+import UpdatUserProfile from '../components/LandingPage/UpdateProfile';
 import getUser from '../../actions/getUser';
 
 const mapStateToProps = (state) => (
@@ -16,6 +16,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const RegisterPageContainer = connect(mapStateToProps, mapDispatchToProps)(Register);
+const UpdateProfileContainer = connect(mapStateToProps, mapDispatchToProps)(UpdatUserProfile);
 
-export default RegisterPageContainer;
+export default UpdateProfileContainer;
