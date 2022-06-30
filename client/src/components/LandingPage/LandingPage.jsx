@@ -69,7 +69,7 @@ function LandingPage({ getUser, currentUser }) {
         <div className="landing_login">
           <div className="log-out">
             Logged in as
-            <div>{currentUser.displayName}</div>
+            <div>{currentUser.username}</div>
             <button type="button" className="logout_btn" onClick={handleLogout}>
               Logout
             </button>
