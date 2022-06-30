@@ -1,3 +1,6 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Akshar:wght@600&family=Barlow:wght@400;700&display=swap");
+* {
+  font-family: "Barlow", sans-serif;
+}
 
 /*# sourceMappingURL=styles.css.map */
