@@ -64,31 +64,28 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
 
       <label htmlFor="genre">
         <select name="filters" id="genre" onChange={filterHandler}>
-          <option value="" defaultValue="" hidden>Choose a genre</option>
+          <option value="" defaultValue="">Choose a genre</option>
           {genres.map((genre) => (
             <option value={genre.name}>{genre.name}</option>
           ))}
-          <option value="''">Any</option>
         </select>
       </label>
       <label htmlFor="category">
         <select name="filters" id="category" onChange={filterHandler}>
-          <option value="" defaultValue="" hidden>Choose a category</option>
+          <option value="" defaultValue="">Choose a category</option>
           {categories.map((category) => (
             <option value={category.name}>{category.name}</option>
           ))}
-          <option value="''">Any</option>
         </select>
       </label>
       <label htmlFor="status">
         <select name="filters" id="status" onChange={filterHandler}>
-          <option value="''" hidden>Choose a status</option>
+          <option value="">Choose a status</option>
           <option value="Want to Play">Want to Play</option>
           <option value="Started">Started</option>
           <option value="Playing">Playing</option>
           <option value="Finished">Finished</option>
           <option value="Purchased">Purchased</option>
-          <option value="''">Any</option>
         </select>
       </label>
       <button type="button" onClick={submitSearch}>Search</button>
