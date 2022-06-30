@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app';
+import axios from 'axios';
 import {
   GoogleAuthProvider,
   getAuth,
@@ -7,6 +8,7 @@ import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   signOut,
+  updateProfile,
 } from 'firebase/auth';
 import {
   getFirestore,
@@ -23,6 +25,18 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 const googleProvider = new GoogleAuthProvider();
+const putUserindb = () => {
+  axios.post('/users', {
+    name,
+    username: displayName,
+    email,
+    site_id: 'local',
+    image_url: photoURL,
+  })
+    .then(() => console.log('registered successfully'))
+    .catch((err) => console.log(err));
+};
+
 const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, googleProvider);
@@ -35,6 +49,13 @@ const signInWithGoogle = async () => {
         name: user.displayName,
         authProvider: 'google',
         email: user.email,
+      });
+      console.log(user);
+      axios.post('/users', {
+        site_id: user.uid,
+        username: user.displayName,
+        email: user.email,
+        image_url: user.photoURL,
       });
     }
   } catch (err) {
@@ -52,19 +73,33 @@ const logInWithEmailAndPassword = async (email, password) => {
   }
 };
 
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (name, email, password, displayName, photoURL) => {
   try {
-    const res = await createUserWithEmailAndPassword(auth, email, password);
+    const res = await createUserWithEmailAndPassword(auth, email, password, photoURL);
     const user = res.user;
     await addDoc(collection(db, 'users'), {
       uid: user.uid,
       name,
       authProvider: 'local',
       email,
+      displayName,
+      photoURL,
     });
   } catch (err) {
     console.error(err);
     alert(err.message);
+  }
+};
+
+const updateUser = async (user, photoURL, displayName) => {
+  try {
+    await updateProfile(collection(db, 'users'), {
+      uid: user.uid,
+      photoURL,
+      displayName,
+    });
+  } catch (err) {
+    console.log('error in firebase.js', err);
   }
 };
 
@@ -91,4 +126,5 @@ export {
   sendPasswordReset,
   logout,
   sendPasswordResetEmail,
+  updateUser,
 };
