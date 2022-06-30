@@ -25,7 +25,7 @@ const get = ({ user_id }, res) => {
       client.query(getUserInfo, [user_id])
         .then((dbRes) => {
           client.release();
-          res.json(dbRes);
+          res.json(dbRes.rows[0].json_build_object);
         });
     })
     .catch(() => {
