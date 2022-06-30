@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import MyCollectionList from './MyCollectionList';
 import MyCollectionSearch from './MyCollectionSearch';
 
@@ -6,6 +7,7 @@ function MyCollection({
   currentUser, myCollection, getMyCollection,
   toggleGameView, toggleThreadsView,
 }) {
+  console.log(currentUser);
   const [query, setQuery] = useState('');
   const [genre, setGenre] = useState('');
   const [category, setCategory] = useState('');
@@ -17,6 +19,12 @@ function MyCollection({
     setCategory(cat);
     setStatus(stat);
   };
+
+  useEffect(() => {
+    axios.get(`/user_id/${currentUser}`)
+      .then((games) => console.log(games))
+      .catch((err) => console.log('no games'));
+  }, []);
 
   return (
     <div>

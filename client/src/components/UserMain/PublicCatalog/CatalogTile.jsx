@@ -6,9 +6,14 @@ function CatalogTile({ item, getMyCollection, myCollection, currentUser }) {
     item.status = 'Want to Play';
     getMyCollection([...myCollection, item]);
     // axios request to add to my collection
-    axios.post(`/games_users/${currentUser}`, {
-      game_id: item.id,
-    }).catch((err) => console.log(err));
+    axios.post(
+      `/games_users/${currentUser}`,
+      {
+        params: { game_id: item.id },
+      },
+    )
+      .then(() => console.log('added'))
+      .catch((err) => console.log(err));
   };
   const uniqueCheck = (game) => game.name === item.name;
   return (
