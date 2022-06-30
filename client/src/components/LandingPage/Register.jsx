@@ -18,19 +18,17 @@ function Register({ getUser, currentUser }) {
   const navigate = useNavigate();
   // const history = useHistory();
   const getUserInfo = () => {
-    if (user) {
-      try {
-        console.log('user', user);
-        const loggedUser = {};
-        loggedUser.username = displayName;
-        loggedUser.email = email;
-        loggedUser.site_id = user.uid;
-        loggedUser.image_url = photoURL;
-        console.log('logged user', loggedUser);
-        getUser(loggedUser);
-      } catch (err) {
-        console.error('An error occured while fetching user data', err);
-      }
+    try {
+      console.log('user', user);
+      const loggedUser = {};
+      loggedUser.username = displayName;
+      loggedUser.email = email;
+      loggedUser.site_id = user.uid;
+      loggedUser.image_url = photoURL;
+      console.log('logged user', loggedUser);
+      getUser(loggedUser);
+    } catch (err) {
+      console.error('An error occured while fetching user data', err);
     }
   };
 
@@ -44,11 +42,17 @@ function Register({ getUser, currentUser }) {
       ];
       Promise.all(promises)
         .then(() => {
-          axios.post('/users', currentUser);
+          console.log(user);
+          axios.post('/users', {
+            site_id: user.uid,
+            username: displayName,
+            email: email,
+            image_url: photoURL,
+          });
         })
-        .then(() => {
-          navigate('/');
-        })
+        // .then(() => {
+        //   navigate('/');
+        // })
         .catch((err) => {
           console.error('error in register', err);
         });
