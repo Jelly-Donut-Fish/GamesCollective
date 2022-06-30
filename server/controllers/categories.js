@@ -1,15 +1,15 @@
 const categoriesModel = require('../../database/Models/categories');
 
-const get = function (req, res) {
+const get = (req, res) => {
   categoriesModel.get()
     .then((data) => {
       res.send(data.rows[0]);
     })
     .catch((err) => {
-      res.send(err.message)
-    })
-}
+      res.send(err.message);
+    });
+};
 
 module.exports = {
-  get: get
-}
+  get,
+};
