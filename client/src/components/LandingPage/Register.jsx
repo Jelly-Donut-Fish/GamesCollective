@@ -21,10 +21,11 @@ function Register({ getUser, currentUser }) {
     if (user) {
       try {
         console.log('user', user);
-        const loggedUser = currentUser;
-        loggedUser.username = user.displayName;
-        loggedUser.email = user.email;
+        const loggedUser = {};
+        loggedUser.username = displayName;
+        loggedUser.email = email;
         loggedUser.site_id = user.uid;
+        loggedUser.image_url = photoURL;
         console.log('logged user', loggedUser);
         getUser(loggedUser);
       } catch (err) {
@@ -34,19 +35,24 @@ function Register({ getUser, currentUser }) {
   };
 
   const register = () => {
-    if (!name) alert('Please enter name');
-    const promises = [
-      registerWithEmailAndPassword(name, email, password, displayName, photoURL),
-      getUserInfo(),
-      // axios.post('/users', currentUser),
-    ];
-    Promise.all(promises)
-      .then(() => {
-        navigate('/');
-      })
-      .catch((err) => {
-        console.error('error in register', err);
-      });
+    if (!name) {
+      alert('Please enter name')
+    } else {
+      const promises = [
+        registerWithEmailAndPassword(name, email, password, displayName, photoURL),
+        getUserInfo(),
+      ];
+      Promise.all(promises)
+        .then(() => {
+          axios.post('/users', currentUser);
+        })
+        .then(() => {
+          navigate('/');
+        })
+        .catch((err) => {
+          console.error('error in register', err);
+        });
+    }
   };
 
   // useEffect(() => {
@@ -89,6 +95,13 @@ function Register({ getUser, currentUser }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
+        />
+        <input
+          type="text"
+          className="register__textBox"
+          value={photoURL}
+          onChange={(e) => setPhotoURL(e.target.value)}
+          placeholder="Photo URL"
         />
         <button type="button" className="register__btn" onClick={register}>
           Register
