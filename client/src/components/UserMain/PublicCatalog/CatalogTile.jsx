@@ -1,16 +1,23 @@
 import React from 'react';
 import axios from 'axios';
+import moment from 'moment';
 
 function CatalogTile({ item, getMyCollection, myCollection, currentUser }) {
   const handleClick = function () {
     item.status = 'Want to Play';
-    getMyCollection([...myCollection, item]);
+    // getMyCollection([...myCollection, item]);
     // axios request to add to my collection
+    console.log('userID post')
+    console.log(currentUser.site_id)
+    console.log(item.id)
     axios.post(
       `/games_users/${currentUser.site_id}`,
       { game_id: item.id },
     )
-      .then(() => console.log('added'))
+      .then((res) => {
+        console.log('post response', res);
+        getMyCollection([...myCollection, item]);
+      })
       .catch((err) => console.log(err));
   };
   const uniqueCheck = (game) => game.name === item.name;
@@ -18,7 +25,7 @@ function CatalogTile({ item, getMyCollection, myCollection, currentUser }) {
     <div>
       <img src={item.header_image} alt="game in the collection" />
       <h3>{item.name}</h3>
-      <span>{item.release_date ? item.release_date.date : "No release date available"}</span>
+      <span>{item.release_date ? moment(item.release_date).format("d MMM, YYYY") : "No release date available"}</span>
       <h4>{item.publishers}</h4>
       <h4> Available on: </h4>
       <ul>
