@@ -1,5 +1,6 @@
 import React from 'react';
 // import axios from 'axios';
+import moment from 'moment';
 import { MdComment } from 'react-icons/md';
 import { FaTrashAlt } from 'react-icons/fa';
 
@@ -41,7 +42,7 @@ function MyCollectionTile({
       </div>
       <div className="info_container">
         <h3 onClick={openGameView} className="title">{game.name}</h3>
-        <span className="date">{game.release_date.date}</span>
+        <span className="date">{moment(game.release_date).format("d MMM, YYYY")}</span>
         <h4>{`Developer/Publisher: ${game.developers} ${game.publishers}`}</h4><br></br>
         <span>Platforms Available: </span>
         {game.platforms.map((platform) => <span>{platform}</span>)}<br></br>
