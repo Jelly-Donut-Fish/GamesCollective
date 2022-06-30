@@ -1,8 +1,9 @@
+/* eslint-disable import/extensions */
 import React, { useState } from 'react';
 import CatalogContainer from '../../containers/CatalogContainer.js';
 import MyCollectionContainer from '../../containers/MyCollectionContainer.js';
-import GameDetails from './GameDetails/GameDetails';
-import ThreadsView from './Threads/ThreadsView';
+import GameDetails from './GameDetails/GameDetails.jsx';
+import ThreadsContainer from '../../containers/ThreadsContainer.js';
 
 function UserMain() {
   const [gameDisplayed, toggleGameDisplay] = useState(false);
@@ -15,8 +16,9 @@ function UserMain() {
     toggleGameDisplay(!gameDisplayed);
   };
 
-  const toggleThreadsView = (gameID) => {
-    setGameId(gameID);
+  const toggleThreadsView = (selectedGame) => {
+    setGame(selectedGame);
+    setGameId(selectedGame.id);
     toggleGameThreads(!gameThreadsDisplayed);
   };
 
@@ -37,8 +39,18 @@ function UserMain() {
         </div>
       </div>
       <div className="clear">
-        {gameDisplayed && <GameDetails gameId={gameId} game={game} />}
-        {gameThreadsDisplayed && <ThreadsView gameId={gameId} game={game}/>}
+        <div>
+          <div>
+            {gameDisplayed && <GameDetails gameId={gameId} game={game} />}
+            {gameThreadsDisplayed && (
+            <ThreadsContainer
+              gameId={gameId}
+              game={game}
+              exitModal={toggleThreadsView}
+            />
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
