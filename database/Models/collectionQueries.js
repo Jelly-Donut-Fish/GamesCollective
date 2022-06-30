@@ -1,9 +1,20 @@
 const addGamesToCol = `
   insert into
   game_user (game_id, user_id, status, review, rating)
-  values(4, (select u.id
-            from users u
-            where u.site_id = $1), 'playing', 'fun', 5);
+  select
+    $2,
+    (select u.id
+    from users u
+    where u.site_id = $1),
+    $3,
+    $4,
+    $5
+  where not exists
+      (select * from game_user
+        where user_id = (select u.id
+          from users u
+          where u.site_id = $1)
+        and game_id = $2)
 `;
 
 const editRatingReview = `
