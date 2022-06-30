@@ -7,11 +7,8 @@ import { MdClear } from 'react-icons/md';
 function SingleThreadView({
   thread, childComments, currentUser, gameId, addThread,
 }) {
-  const [comments, setComments] = useState(childComments);
-
   const addComment = (comment) => {
     addThread(comment);
-    setComments([...comments, comment]);
   };
 
   return (

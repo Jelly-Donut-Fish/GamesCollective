@@ -1,8 +1,8 @@
 // eslint-disable-next-line default-param-last
-const getCatalogReducer = (state = {}, action) => {
+const getCatalogReducer = (state = [], action) => {
   switch (action.type) {
     case 'GET_CATALOG':
-      return action.catalog || {};
+      return action.catalog || [];
     default:
       return state;
   }

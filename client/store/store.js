@@ -4,10 +4,9 @@ import thunk from 'redux-thunk';
 import rootReducer from '../reducers/main.js';
 
 const initialState = {
-  catalog: {},
+  catalog: [],
   currentUser: {},
   myCollection: [],
-
 };
 
 const store = createStore(

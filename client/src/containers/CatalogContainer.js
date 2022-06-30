@@ -1,7 +1,8 @@
 /* eslint-disable import/extensions */
 import { connect } from 'react-redux';
-import Catalog from '../components/UserMain/PublicCatalog/catalog.jsx';
+import Catalog from '../components/UserMain/PublicCatalog/Catalog.jsx';
 import getMyCollection from '../../actions/getMyCollection.js';
+import getCatalog from '../../actions/getCatalog.js';
 
 const mapStateToProps = (state) => (
   {
@@ -15,7 +16,8 @@ const mapStateToProps = (state) => (
 // example of mapping reducers
 const mapDispatchToProps = (dispatch) => {
   return {
-    getMyCollection: (myCollection) => dispatch(getMyCollection(myCollection))
+    getMyCollection: (myCollection) => dispatch(getMyCollection(myCollection)),
+    getCatalog: (catalog) => dispatch(getCatalog(catalog)),
   };
 };
 
