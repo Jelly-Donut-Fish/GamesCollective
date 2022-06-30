@@ -39,8 +39,18 @@ function UserMain() {
         </div>
       </div>
       <div className="clear">
-        {gameDisplayed && <GameDetails gameId={gameId} game={game} />}
-        {gameThreadsDisplayed && <ThreadsContainer gameId={gameId} game={game} />}
+        <div>
+          <div>
+            {gameDisplayed && <GameDetails gameId={gameId} game={game} />}
+            {gameThreadsDisplayed && (
+            <ThreadsContainer
+              gameId={gameId}
+              game={game}
+              exitModal={toggleThreadsView}
+            />
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

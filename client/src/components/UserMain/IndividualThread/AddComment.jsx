@@ -11,14 +11,13 @@ function AddComment({ thread, addComment, currentUser, gameId }) {
   const sendComment = (event) => {
     event.preventDefault();
     const comment = {
-      user_id: currentUser.id,
+      user_id: currentUser,
       game_id: gameId,
       body: newCommentBody,
       parent_comment_id: thread.id,
     };
-    //axios.post()
+    axios.post('/comments', comment);
     addComment(comment);
-
   };
 
   return (

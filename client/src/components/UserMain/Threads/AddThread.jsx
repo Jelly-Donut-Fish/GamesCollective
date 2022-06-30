@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { MdClear } from "react-icons/md";
 
-
 function AddThread({
   toggleAddThread, addThread, currentUser, gameId,
 }) {
@@ -30,38 +29,39 @@ function AddThread({
   const postThread = (event) => {
     event.preventDefault();
     const postBody = {
-      user_id: currentUser.id,
+      user_id: currentUser,
       game_id: gameId,
       body: newThreadBody,
       parent_comment_id: 0,
       title: newThreadTitle,
     };
-
     addThread(postBody);
   };
 
   return (
     <div>
-      <span onClick={exitAddThread}>{MdClear}</span>
-      <form>
-        <input
-          type="text"
-          id="newThreadTitle"
-          onChange={handleTyping}
-          label="Title"
-          placeholder="Topic Title"
-        />
-        <br />
-        <textarea
-          id="newThreadBody"
-          rows="5"
-          col="200"
-          onChange={handleTyping}
-          label="Body"
-          placeholder="What are your thoughts?"
-        />
-      </form>
-      <button type="submit" onClick={postThread}>Submit</button>
+      <div>
+        <span onClick={exitAddThread}>{MdClear}</span>
+        <form>
+          <input
+            type="text"
+            id="newThreadTitle"
+            onChange={handleTyping}
+            label="Title"
+            placeholder="Topic Title"
+          />
+          <br />
+          <textarea
+            id="newThreadBody"
+            rows="5"
+            col="200"
+            onChange={handleTyping}
+            label="Body"
+            placeholder="What are your thoughts?"
+          />
+        </form>
+        <button type="submit" onClick={postThread}>Submit</button>
+      </div>
     </div>
   );
 }

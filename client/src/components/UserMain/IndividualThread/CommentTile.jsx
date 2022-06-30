@@ -1,9 +1,14 @@
 import React from 'react';
-import { MdComment, MdReport } from 'react-icons/md';
+import {  MdReport } from 'react-icons/md';
+import axios from 'axios';
 
 function CommentTile({ comment }) {
   const reportComment = (event) => {
     event.preventDefault();
+    axios({
+      method: 'put',
+      url: `/comments/${comment.id}/report`,
+    });
   }
 
   return (
@@ -16,9 +21,6 @@ function CommentTile({ comment }) {
         <p className="postBody">{comment.body}</p>
       </div>
       <div className="actionsIcons">
-        <span onClick={addComment}>
-          {MdComment}
-        </span>
         <span onClick={reportComment}>
           {MdReport}
         </span>

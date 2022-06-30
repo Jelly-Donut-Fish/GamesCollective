@@ -10,14 +10,17 @@ function ThreadsTile({ toggleThreadView, thread }) {
 
   const handleReport = (event) => {
     event.preventDefault();
-    //axios
+    axios({
+      method: 'PUT',
+      url: `/comments/${thread.id}/report`,
+    });
   };
 
   return (
     <div>
       <div>
         <span>{thread.username}  </span>
-        <span>{thread.datePosted}</span>
+        <span>{thread.date}</span>
       </div>
       <div>
         <h3 onClick={handleThreadClick}>
