@@ -12,17 +12,6 @@ function LandingPage({ getUser, currentUser }) {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState('');
   const navigate = useNavigate();
-  // const fetchUserName = async () => {
-  //   try {
-  //     const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
-  //     const doc = await getDocs(q);
-  //     const data = doc.docs[0].data();
-  //     setName(data.displayName);
-  //   } catch (err) {
-  //     console.error(err);
-  //     alert('An error occured while fetching user data');
-  //   }
-  // };
 
   // useEffect(() => {
   //   if (loading) return;
@@ -30,28 +19,6 @@ function LandingPage({ getUser, currentUser }) {
   //   fetchUserName();
   // }, [user, loading]);
 
-  useEffect(() => {
-    if (user) getUserInfo();
-  }, [user]);
-
-  // const getuserId = async () => {
-  //   if (user) {
-  //     try {
-  //       const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
-  //       const doc = await getDocs(q);
-  //       const data = doc.docs[0].data();
-  //       const loggedUser = {
-  //         username: data.displayName,
-  //         email: data.email,
-  //         site_id: data.uid,
-  //       };
-  //       getUser(data);
-  //     } catch (err) {
-  //       console.error(err);
-  //       console.log('An error occured while fetching user data');
-  //     }
-  //   }
-  // };
   const getUserInfo = () => {
     if (user) {
       try {
@@ -61,8 +28,8 @@ function LandingPage({ getUser, currentUser }) {
           email: user.email,
           site_id: user.uid,
         };
-        console.log(loggedUser);
-        // getUser(loggedUser);
+        console.log('logged user', loggedUser);
+        getUser(loggedUser);
       } catch (err) {
         console.error(err);
         console.log('An error occured while fetching user data');
@@ -86,7 +53,9 @@ function LandingPage({ getUser, currentUser }) {
     logout();
     getUser();
   };
-
+  useEffect(() => {
+    if (user) getUserInfo();
+  }, [user]);
   return (
     <div className="landing-page">
       <nav className="nav-bar">

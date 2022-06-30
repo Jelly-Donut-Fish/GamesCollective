@@ -7,22 +7,28 @@ import {
 } from 'firebase/firestore';
 import { auth, db, updateUser } from '../../authentication/firebase';
 
-function UpdateProfile( {currentUser} ) {
+function UpdateProfile({ currentUser, getUser }) {
   const [user, loading, error] = useAuthState(auth);
-  const [email, setEmail] = useState(currentUser.email);
-  const [displayName, setName] = useState(currentUser.displayName);
-  const [photoURL, setPhotoURL] = useState(currentUser.photoURL);
+  const [displayName, setName] = useState(currentUser.username);
+  const [photoURL, setPhotoURL] = useState(currentUser.image_url);
+  const [bio, setBio] = useState(currentUser.bio);
   const navigate = useNavigate();
 
   const profileUpdate = async () => {
-    // Calling authentication function
-    const authenticate = getAuth();
-    const res = authenticate.user;
-    // You need to pass the authentication instance as param
-    // Passing user's object as first param and updating it
     updateUser(user, photoURL, displayName)
       .then(() => {
         console.log('user updated');
+      })
+      .then(() => {
+        const loggedUser = {
+          username: displayName,
+          email: user.email,
+          site_id: user.uid,
+          image_url: photoURL,
+          bio,
+        };
+        console.log('logged user', loggedUser);
+        getUser(loggedUser);
       })
       .catch((err) => {
         console.log('error in update Profile', err);
@@ -51,6 +57,13 @@ function UpdateProfile( {currentUser} ) {
           value={photoURL || ''}
           onChange={(e) => setPhotoURL(e.target.value)}
           placeholder="Profile Pic URL"
+        />
+        <input
+          type="text"
+          className="register__textBox"
+          value={bio || ''}
+          onChange={(e) => setBio(e.target.value)}
+          placeholder="Bio"
         />
         <button type="button" className="register__btn" onClick={profileUpdate}>
           Update Profile

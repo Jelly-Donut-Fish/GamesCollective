@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import Register from '../components/LandingPage/Register';
+import getUser from '../../actions/getUser';
 
 const mapStateToProps = (state) => (
   {
     //  place state props that need to be added
-    ccurrentUser: state.currentUser,
+    currentUser: state.currentUser,
   }
 );
 
