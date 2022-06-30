@@ -14,41 +14,9 @@ function Login({ getUser }) {
   const [password, setPassword] = useState('');
   const [user, loading, error] = useAuthState(auth);
 
-
-
-  // const steamLogIn = () => {
-  //   axios.post('/auth/openid')
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log('error in steam axios', err);
-  //     });
-  // };
-
   // useEffect(() => {
-  //   if (loading) {
-  //     // maybe trigger a loading screen
-  //     return;
-  //   }
-  //   if (user) navigate('/UserMain');
+  //   if (user) {};
   // }, [user, loading]);
-
-  useEffect(() => {
-    if (user) getuserId();
-  }, [user]);
-
-  const getuserId = async () => {
-    try {
-      const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
-      const doc = await getDocs(q);
-      const data = doc.docs[0].data();
-      getUser(data.uid);
-    } catch (err) {
-      console.error(err);
-      console.log('An error occured while fetching user data');
-    }
-  };
 
   return (
     <div className="login">
@@ -77,12 +45,6 @@ function Login({ getUser }) {
         <button type="button" className="login_btn login_google" onClick={signInWithGoogle}>
           Login with Google
         </button>
-
-        {/* <button type="button" className="login_btn login_google" onClick={steamLogIn}>
-          <img id="steamLogin" src="../../../../dist/assets/steamLogin.png" alt="" />
-          Login with Steam
-        </button> */}
-
         <div>
           <Link className="link" to="/Reset">Forgot Password</Link>
         </div>
