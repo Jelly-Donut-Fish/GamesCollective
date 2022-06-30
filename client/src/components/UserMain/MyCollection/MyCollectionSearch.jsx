@@ -6,7 +6,7 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
   const [search, setSearch] = useState('');
   const [genres, setGenres] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [platforms, setPlatforms] = useState([]);
+  // const [platforms, setPlatforms] = useState([]);
   // set submit handler
   const submitSearch = (e) => {
     e.preventDefault();
@@ -37,13 +37,15 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
 
   const getAllGenres = () => {
     const promise1 = axios.get('/genres');
+    console.log(promise1.then((results) => console.log(results)));
     const promise2 = axios.get('/categories');
-    const promise3 = axios.get('/platforms');
-    Promise.all([promise1, promise2, promise3])
+    // const promise3 = axios.get('/platforms');
+    Promise.all([promise1, promise2])
       .then((results) => {
+        console.log(results);
         setGenres(results[0]);
         setCategories(results[1]);
-        setPlatforms(results[2]);
+        // setPlatforms(results[2]);
       })
       .catch((err) => {
         console.log(err);

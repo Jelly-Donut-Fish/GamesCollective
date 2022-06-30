@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 import React from 'react';
-import MyCollectionTile from './MyCollectionTile';
 import { BsArrowRightSquareFill } from 'react-icons/bs';
+import MyCollectionTile from './MyCollectionTile';
 
 function MyCollectionList({
   myCollection, currentUser, query, genre, category, status, platform,
