@@ -12,18 +12,10 @@ function MyCollection({
   const [status, setStatus] = useState('');
 
   const setFilters = (search, gen, cat, stat) => {
-    if (search) {
-      setQuery(search);
-    }
-    if (gen) {
-      setGenre(gen);
-    }
-    if (cat) {
-      setCategory(cat);
-    }
-    if (stat) {
-      setStatus(stat);
-    }
+    setQuery(search);
+    setGenre(gen);
+    setCategory(cat);
+    setStatus(stat);
   };
 
   return (

@@ -27,99 +27,93 @@ function MyCollectionList({
           </div>
         )
         : (
-          <div >
+          <div>
             {myCollection.map((game, i) => {
+              const tile = (
+                <MyCollectionTile
+                  key={game.id}
+                  game={game}
+                  index={i}
+                  currentUser={currentUser}
+                  toggleGameView={toggleGameView}
+                  toggleThreadsView={toggleThreadsView}
+                  removeFromCollection={removeFromCollection}
+                />
+              );
+              console.log('game', game);
+              console.log(query, genre, category, status);
               const gameTitle = game.name.toLowerCase();
-
-              if (query) {
-                const lowerQuery = query.toLowerCase();
-                if (gameTitle.includes(lowerQuery)) {
-                  return (
-                    <MyCollectionTile
-                      key={game.id}
-                      game={game}
-                      index={i}
-                      currentUser={currentUser}
-                      toggleGameView={toggleGameView}
-                      toggleThreadsView={toggleThreadsView}
-                      removeFromCollection={removeFromCollection}
-                    />
-                  );
-                }
+              const lowerQuery = query.toLowerCase();
+              if (gameTitle.includes(lowerQuery)
+                && game.genres.includes(genre)
+                && game.categories.includes(category)
+                && game.status === status) {
+                return tile;
               }
-              if (genre) {
-                if (game.genre === genre) {
-                  return (
-                    <MyCollectionTile
-                      key={game.id}
-                      game={game}
-                      index={i}
-                      currentUser={currentUser}
-                      toggleGameView={toggleGameView}
-                      toggleThreadsView={toggleThreadsView}
-                      removeFromCollection={removeFromCollection}
-                    />
-                  );
-                }
+              if (gameTitle.includes(lowerQuery)
+                && game.categories.includes(category)
+                && game.status === status) {
+                return tile;
               }
-              if (category) {
-                if (game.category === category) {
-                  return (
-                    <MyCollectionTile
-                      key={game.id}
-                      game={game}
-                      index={i}
-                      toggleGameView={toggleGameView}
-                      toggleThreadsView={toggleThreadsView}
-                      removeFromCollection={removeFromCollection}
-                    />
-                  );
-                }
+              if (gameTitle.includes(lowerQuery)
+                && game.genres.includes(genre)
+                && game.status === status) {
+                return tile;
               }
-              if (status) {
-                if (game.status === status) {
-                  return (
-                    <MyCollectionTile
-                      key={game.id}
-                      game={game}
-                      index={i}
-                      currentUser={currentUser}
-                      toggleGameView={toggleGameView}
-                      toggleThreadsView={toggleThreadsView}
-                      removeFromCollection={removeFromCollection}
-                    />
-                  );
-                }
+              if (gameTitle.includes(lowerQuery)
+                && game.genres.includes(genre)
+                && game.categories.includes(category)) {
+                return tile;
               }
-              if (platform) {
-                if (game.platform === platform) {
-                  return (
-                    <MyCollectionTile
-                      key={game.id}
-                      game={game}
-                      index={i}
-                      currentUser={currentUser}
-                      toggleGameView={toggleGameView}
-                      toggleThreadsView={toggleThreadsView}
-                    />
-                  );
-                }
+              if (gameTitle.includes(lowerQuery)
+                && game.genres.includes(genre)
+                && game.categories.includes(category)
+                && game.status === status) {
+                return tile;
               }
-              if ((query === '')
-                && (genre === '' || genre === undefined)
-                && category === ''
-                && (status === '' || game.status === undefined)) {
-                return (
-                  <MyCollectionTile
-                    key={game.id}
-                    game={game}
-                    index={i}
-                    currentUser={currentUser}
-                    toggleGameView={toggleGameView}
-                    toggleThreadsView={toggleThreadsView}
-                    removeFromCollection={removeFromCollection}
-                  />
-                );
+              if (gameTitle.includes(lowerQuery)
+                && game.genres.includes(genre)) {
+                return tile;
+              }
+              if (gameTitle.includes(lowerQuery)
+                && game.categories.includes(category)) {
+                return tile;
+              }
+              if (gameTitle.includes(lowerQuery)
+                && game.status === status) {
+                return tile;
+              }
+              if (gameTitle.includes(lowerQuery) && lowerQuery !== '') {
+                return tile;
+              }
+              if (game.genres.includes(genre)
+                && game.categories.includes(category)
+                && game.status === status) {
+                return tile;
+              }
+              if (game.genres.includes(genre)
+                && game.categories.includes(category)) {
+                return tile;
+              }
+              if (game.genres.includes(genre)
+                && game.status === status) {
+                return tile;
+              }
+              if (game.genres.includes(genre)) {
+                return tile;
+              }
+              if (game.categories.includes(category)
+                && game.status === status) {
+                return tile;
+              }
+              if (game.categories.includes(category)) {
+                return tile;
+              }
+              if (game.status === status) {
+                return tile;
+              }
+              if (gameTitle.includes(lowerQuery)) {
+                return tile;
               }
             })}
           </div>
