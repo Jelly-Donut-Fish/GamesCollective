@@ -17,8 +17,8 @@ function LandingPage({ getUser, currentUser }) {
   const getUserdb = () => {
     axios.get('./users', {
       params: {
-        user_id: user.uid
-      }
+        user_id: user.uid,
+      },
     })
       .then((res) => {
         console.log('res', res);
@@ -27,11 +27,11 @@ function LandingPage({ getUser, currentUser }) {
         loggedUser.email = user.email;
         loggedUser.site_id = user.uid;
         loggedUser.image_url = res.data.results.img_url;
-        loggedUser.bio = res.data.results.bio;);
+        loggedUser.bio = res.data.results.bio;
         getUser(loggedUser);
       })
       .catch((err) => {
-        console.log('error in landing page get user db', err)
+        console.log('error in landing page get user db', err);
       });
   };
 

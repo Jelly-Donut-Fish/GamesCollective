@@ -21,10 +21,10 @@ function MyCollection({
   };
 
   useEffect(() => {
-    axios.get(`/user_id/${currentUser}`)
-      .then((games) => console.log(games))
+    axios.get(`/user_id/${currentUser.site_id}`)
+      .then((games) => console.log(games.data.results))
       .catch((err) => console.log('no games'));
-  }, []);
+  }, [myCollection]);
 
   return (
     <div>

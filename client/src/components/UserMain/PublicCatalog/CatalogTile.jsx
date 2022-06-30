@@ -7,10 +7,8 @@ function CatalogTile({ item, getMyCollection, myCollection, currentUser }) {
     getMyCollection([...myCollection, item]);
     // axios request to add to my collection
     axios.post(
-      `/games_users/${currentUser}`,
-      {
-        params: { game_id: item.id },
-      },
+      `/games_users/${currentUser.site_id}`,
+      { game_id: item.id },
     )
       .then(() => console.log('added'))
       .catch((err) => console.log(err));
