@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import { connect } from 'react-redux';
-import Catalog from '../components/UserMain/PublicCatalog/catalog.jsx';
+import Catalog from '../components/UserMain/PublicCatalog/Catalog.jsx';
 import getMyCollection from '../../actions/getMyCollection.js';
 
 const mapStateToProps = (state) => (

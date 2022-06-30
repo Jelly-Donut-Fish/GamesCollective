@@ -1,3 +1,31 @@
+.moreThreadsModal {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: black;
+  opacity: 0.4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
 
+.moreThreadsModalX {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.moreThreadsModalX:hover {
+  color: gray;
+}
 
 /*# sourceMappingURL=styles.css.map */
