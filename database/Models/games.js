@@ -13,6 +13,6 @@ const getOne = function(game_id) {
 }
 
 module.exports = {
-  getAll: getAll,
-  getOne: getOne
-}
+  getAll,
+  getOne,
+};

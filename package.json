@@ -9,7 +9,7 @@
     "devstart": "webpack --watch --mode=development",
     "build": "webpack --mode=production",
     "devopen": "webpack serve --open",
-    "serverstart": "nodemon --watch server './server/'",
+    "serverstart": "nodemon --watch server './server'",
     "sass-joy": "sass client/dist/styles/usercollection.scss client/dist/styles/usercollection.css --watch",
     "sass-ben": "sass client/dist/styles/styles-ben.scss client/dist/styles/styles-ben.css --watch",
     "sass-kayla": "sass client/dist/styles/styles-threads.scss client/dist/styles/styles-threads.css --watch"
