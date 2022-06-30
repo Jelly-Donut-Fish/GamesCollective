@@ -7,6 +7,10 @@
   cursor: pointer;
 }
 
+.title:hover {
+  color: blue;
+}
+
 .container {
   width: 80%;
   margin: auto;
@@ -26,6 +30,11 @@
   width: 80%;
   margin: auto;
   clear: both;
+}
+
+.empty {
+  width: 50%;
+  margin: auto;
 }
 
 /*# sourceMappingURL=usercollection.css.map */
