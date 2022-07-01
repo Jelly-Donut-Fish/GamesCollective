@@ -25,8 +25,10 @@ function UpdatUserProfile({ currentUser, getUser }) {
       bio: loggedUser.bio,
       username: loggedUser.username,
       img_url: loggedUser.image_url,
-    });
-    navigate('/');
+    })
+      .then(() => {
+        navigate('/UserMain');
+      });
   };
 
   return (
@@ -34,7 +36,7 @@ function UpdatUserProfile({ currentUser, getUser }) {
       <nav className="nav-bar">
         <h3 className="pageTitle">Games Collective</h3>
         <br />
-        <Link className="link" to="/">Home</Link>
+        <Link className="link" to="/UserMain">Home</Link>
       </nav>
       <div className="page_container">
         <input
