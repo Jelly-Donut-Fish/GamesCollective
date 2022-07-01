@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { auth, logout } from '../../authentication/firebase';
 import Login from './LogIn';
+import { signOut } from 'firebase/auth';
 import DemoSection from './DemoSection';
 
 function LandingPage({ getUser, currentUser }) {
@@ -38,8 +39,10 @@ function LandingPage({ getUser, currentUser }) {
 
   const handleLogout = (e) => {
     e.preventDefault();
-    logout();
-    getUser({});
+    signOut(auth)
+      .then(() => {
+        getUser({});
+      });
   };
 
   useEffect(() => {

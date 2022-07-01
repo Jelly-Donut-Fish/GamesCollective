@@ -25,17 +25,6 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 const googleProvider = new GoogleAuthProvider();
-const putUserindb = () => {
-  axios.post('/users', {
-    name,
-    username: displayName,
-    email,
-    site_id: 'local',
-    image_url: photoURL,
-  })
-    .then(() => console.log('registered successfully'))
-    .catch((err) => console.log(err));
-};
 
 const signInWithGoogle = async () => {
   try {

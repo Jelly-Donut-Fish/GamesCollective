@@ -6,7 +6,8 @@ import MyCollectionContainer from '../../containers/MyCollectionContainer.js';
 import GameDetails from './GameDetails/GameDetails.jsx';
 import ThreadsContainer from '../../containers/ThreadsContainer.js';
 import UserInfo from './UserInfo.jsx';
-import { logout } from '../../authentication/firebase';
+import { auth } from '../../authentication/firebase';
+import { signOut } from 'firebase/auth';
 
 function UserMain({ currentUser, getUser }) {
   const [gameDisplayed, toggleGameDisplay] = useState(false);
@@ -30,9 +31,12 @@ function UserMain({ currentUser, getUser }) {
 
   const handleLogout = (e) => {
     e.preventDefault();
-    getUser({});
-    logout();
-    navigate('/');
+    signOut(auth)
+      .then(() => {
+        getUser({});
+        alert('User signed out');
+        navigate('/');
+      });
   };
 
   const triggerEasterEgg = () => {
