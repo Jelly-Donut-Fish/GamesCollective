@@ -2,14 +2,35 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BsFillCheckCircleFill, BsFillPencilFill } from 'react-icons/bs';
+import moment from 'moment';
 
-function GameDetails({ gameId, user_id }) {
-  const [rating, setRating] = useState(0);
+function GameDetails({ game, toggleThreadsView, toggleGameView }) {
+  const [rating, setRating] = useState('');
   const [saveRating, setSaveRating] = useState('');
   const [review, setReview] = useState('');
   const [saveReview, setSaveReview] = useState('');
   const [changeRating, setChangeRating] = useState(true);
   const [changeReview, setChangeReview] = useState(true);
+  const [threads, setThreads] = useState([]);
+  const [parent, setParent] = useState([]);
+
+  console.log(game);
+
+  useEffect(() => {
+    axios.get(`/comments/${game.id}`)
+      .then((res) => {
+        setThreads(res.data);
+        const parents = res.data.filter((thread) => (thread.parent_id === 0)) || [];
+        setParent(parents);
+      })
+      .catch((err) => console.log(err));
+  }, [game]);
+
+  const handleMoreComments = () => {
+    toggleThreadsView(game);
+    toggleGameView(game);
+  };
+
 
   axios.get(`/games_users/${user_id}`)
     .then((res) => {
@@ -53,12 +74,15 @@ function GameDetails({ gameId, user_id }) {
         </div>
         <div className="game details">
           <span>
-            <h3>Game Title</h3>
-            <span>Release Date</span>
+            <h3>{game.name}</h3>
+            <span>{moment(game.release_date).format("d MMM, YYYY")}</span><br></br>
           </span>
-          <h4>Publisher/Studio</h4>
-          <span>Platforms Available</span>
-          <p>genre, genre, genre</p>
+          <h4>{`Developer/Publisher: ${game.developers} ${game.publishers}`}</h4><br></br>
+          <span>Platforms Available: </span>
+          {game.platforms.map((platform) => <span>{platform}</span>)}<br></br>
+          <span>Features:</span><br></br>
+          {game.genres.map((genre) => <span>{genre} |</span>)}
+          {game.categories.map((category) => <span>{category} |</span>)}
         </div>
         <div>
           {rating ? (changeRating ? (
@@ -71,7 +95,7 @@ function GameDetails({ gameId, user_id }) {
             : <p>0.0 <BsFillPencilFill name="rating" onClick={setNewRating} /></p>}
         </div>
         <div>
-          <p>Status</p>
+          <p>{game.status}</p>
           <div>
             {review ? (changeReview ? (
               <span>
@@ -90,6 +114,28 @@ function GameDetails({ gameId, user_id }) {
                 </p>
               )}
           </div>
+        </div>
+      </div>
+      <div className="short description and comments">
+        <div className="shortdescription">
+          <h2>Short Description</h2>
+          <span>{game.short_description}</span>
+        </div>
+        <div className="comments">
+          <div className="threadsList">
+            {parent.slice(0, 3).map((parent) => (
+              <div className="threadTile">
+                <div className="postInfo">
+                  <span>{parent.username}  </span>
+                  <span>{parent.date}</span>
+                </div>
+                <div>
+                  <h3>{parent.title}</h3>
+                </div>
+              </div>
+            ))}
+          </div>
+          <button onClick={handleMoreComments}>More Comments</button>
         </div>
       </div>
     </div>
