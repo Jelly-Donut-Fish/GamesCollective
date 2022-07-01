@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@600&family=Barlow:wght@400;700&display=swap');
+
+$akshar: 'Akshar', sans-serif;
+$barlow: 'Barlow', sans-serif;
+
+* {
+  font-family: $barlow;
+}
+
 .game_icon {
   color: blue;
 }
@@ -169,6 +178,7 @@ h4 {
 .mainInfo {
   width: 45%;
   float: left;
+  margin-left: 5px;
 }
 
 .title_image {
@@ -194,4 +204,11 @@ h4 {
   float: left;
   width: 15%;
   margin-bottom: 3px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;       /* Remove default arrow */
+  background-color: pink;   /* Add custom arrow */
 }
