@@ -13,8 +13,7 @@ function UserMain({ currentUser }) {
   const [gameThreadsDisplayed, toggleGameThreads] = useState(false);
   const [game, setGame] = useState({});
   const [gameId, setGameId] = useState();
-  const [username, setUsername] = useState('Joy Parker');
-  const [userphoto, setUserphoto] = useState('https://i.postimg.cc/J4Knq464/Joy.png');
+  const [userphoto, setUserphoto] = useState('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png');
   const [playAudio, setPlayAudio] = useState(false);
   const navigate = useNavigate();
 
@@ -55,7 +54,7 @@ function UserMain({ currentUser }) {
         </div>
       </nav>
       <UserInfo
-        username={username}
+        username={currentUser.username}
         userphoto={userphoto}
       />
       <div className="container">
