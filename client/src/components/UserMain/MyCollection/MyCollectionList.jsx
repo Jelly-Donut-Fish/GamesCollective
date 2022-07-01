@@ -29,7 +29,7 @@ function MyCollectionList({
         : (
           <div>
             {myCollection.map((game, i) => {
-              console.log('game', game);
+              console.log('game');
               console.log(query, genre, category, status);
               const tile = (
                 <MyCollectionTile

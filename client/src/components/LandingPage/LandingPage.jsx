@@ -29,7 +29,7 @@ function LandingPage({ getUser, currentUser }) {
         }
       })
       .catch((err) => {
-        console.log('error in landing page get user db', err)
+        console.log('error in landing page get user db', err);
       });
   };
 
