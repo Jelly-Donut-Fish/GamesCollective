@@ -16,13 +16,13 @@ $boxShadowTransition: box-shadow 1s ease-in-out;
   padding: 0;
 }
 
-// body {
-//   background: linear-gradient(-45deg, #060606, #1a0e19, #250824, #300f22);
-//   background-size: 400% 400%;
-//   background-attachment: fixed;
-//   animation: gradient 15s ease infinite;
-//   color: white;
-// }
+body {
+  background: linear-gradient(-45deg, #060606, #1a0e19, #250824, #300f22);
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  animation: gradient 15s ease infinite;
+  color: white;
+}
 
 input {
   margin-top: 1.5vh;
@@ -199,7 +199,7 @@ a:hover {
     .demo-section {
       box-sizing: border-box;
       position: relative;
-      width: 35vw;
+      width: 45vw;
       height: 100vh;
       // left: 25vw;
       grid-column-start: 2;
