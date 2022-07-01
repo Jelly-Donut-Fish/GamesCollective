@@ -15,7 +15,6 @@ function MyCollectionTile({
     if (confirm(`Are you sure you want to remove ${game.name} from your collection?`) === true) {
       removeFromCollection(index);
     }
-    console.log(currentUser.site_id, game.id)
     axios.delete('/games_users', { params: { user_id: currentUser.site_id, game_id: game.id } })
       .then(() => {
         alert(`${game.name} was removed from your collection`);
@@ -36,8 +35,6 @@ function MyCollectionTile({
     toggleThreadsView(game);
   };
 
-  console.log(game);
-
   return (
     <div className="collectionTile">
       <div className="mainInfo">
@@ -57,10 +54,10 @@ function MyCollectionTile({
       </div>
       <div className="moreInfo">
         <div className="status">
-          <p className="status">{game.status ? game.status : ""}</p>
+          <p className="status">{game.status}</p>
         </div>
         <div className="ratingMini">
-          <p className="rating">{game.overall_rating ? game.overall_rating : "No ratings yet"}</p>
+          <p className="rating">{game.rating}</p>
         </div>
         <div className="buttons">
           <span onClick={openThreadView} className="game_icon"><MdComment /></span>

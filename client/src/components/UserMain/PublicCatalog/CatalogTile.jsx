@@ -4,7 +4,7 @@ import moment from 'moment';
 
 function CatalogTile({
   item, getMyCollection, myCollection,
-  currentUser, triggerEasterEgg,
+  currentUser, triggerEasterEgg, toggleGameView,
 }) {
   console.log(item.name);
   const handleClick = function () {
@@ -24,6 +24,12 @@ function CatalogTile({
       .catch((err) => console.error(err));
   };
   const uniqueCheck = (game) => game.name === item.name;
+
+  const openGameView = (e) => {
+    e.preventDefault();
+    toggleGameView(item);
+  };
+
   return (
     <div className="catalogTile">
       <div className="gameImage">
@@ -31,7 +37,7 @@ function CatalogTile({
       </div>
       <div className="gameInfo">
         <div className="gameTitle">
-          <h3>{item.name}</h3>
+        <h3 onClick={openGameView} className="mainTitle">{item.name}</h3><br></br>
         </div>
 
         <h4>{`Publisher: ${item.publishers}`}</h4>
