@@ -10,10 +10,19 @@ $mainBorder: 0.3vw solid $second;
 $mainBoxShadow: 0 0 1vw 0.1vw $second, 0 0 1vw 0.1vw $second inset;
 
 $boxShadowTransition: box-shadow 1s ease-in-out;
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@600&family=Barlow:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+$akshar: 'Akshar', sans-serif;
+$barlow: 'Barlow', sans-serif;
+$press: 'Press Start 2P', cursive;
+
 
 * {
   margin: 0;
   padding: 0;
+  font-family: $barlow;
 }
 
 // body {
@@ -29,7 +38,6 @@ input {
   padding: 0.5vw 5vw 0.5vw 1vw;
   border-radius: 5vw;
   outline-color: $main;
-
   &:focus {
     box-shadow: $mainBoxShadow;
   }
@@ -56,7 +64,10 @@ a:link, a:visited {
   box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
 }
 a:hover {
-  color: red;
+  &:hover{
+    color: #7AFA59;
+    cursor: pointer;
+  }
 }
 .nav-bar{
   display: inline-grid;
@@ -72,7 +83,6 @@ a:hover {
   .link {
     grid-row-start: 2;
     margin: auto;
-    // width: 5vw;
     font-family: 'Barlow';
     font-style: normal;
     font-weight: 400;
@@ -81,16 +91,20 @@ a:hover {
   }
 
 
-  .title {
+  .pageTitle {
     position: absolute;
     // align-self: flex-start;
     left: 1vh;
-    font-family: 'Barlow';
-    font-style: normal;
-    font-weight: 700;
-    font-size: $fontsize*1.8;
-    line-height: 48px;
-    color: #E3DFDF;
+    // font-family: 'Barlow';
+    // font-style: normal;
+    // font-weight: 700;
+    // font-size: $fontsize*1.8;
+    // line-height: 48px;
+    // color: #E3DFDF;
+    font-size: 30px;
+  font-family: $press;
+  height: 97px;
+  line-height: 97px;
   }
   .log-out {
     display: flex;
@@ -117,12 +131,12 @@ a:hover {
   color: white;
   background-color: rgb(119, 56, 125);
   &:hover {
-    color: $crimson;
+    color: #7AFA59;
+    cursor: pointer;
     box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
     transition: $boxShadowTransition;
   }
 }
-
 
 .login_btn {
   padding: 10px;
