@@ -15,14 +15,14 @@ function MyCollectionTile({
     if (confirm(`Are you sure you want to remove ${game.name} from your collection?`) === true) {
       removeFromCollection(index);
     }
-    // axios.delete('/games_users', { data: { user_id: currentUser, game_id: game.id } })
-    // .then(() => {
-    //   alert(`${game.name} was removed from your collection`);
-    // })
-    // .catch((err) => {
-    //   console.error('[game title] was not able to be removed at this time, please see the below error:');
-    //   console.log(err);
-    // });
+    axios.delete('/games_users', { data: { user_id: currentUser.site_id, game_id: game.id } })
+      .then(() => {
+        alert(`${game.name} was removed from your collection`);
+      })
+      .catch((err) => {
+        console.error('[game title] was not able to be removed at this time, please see the below error:');
+        console.log(err);
+      });
   };
 
   const openGameView = (e) => {
@@ -47,9 +47,9 @@ function MyCollectionTile({
         <span>Platforms Available: </span>
         {game.platforms.map((platform) => <span>{platform}</span>)}<br></br>
         <div className="features">
-        <span>Features:</span><br></br>
-        {game.genres.map((genre) => <p>{genre}</p>)}
-        {game.categories.map((category) => <p>{category}</p>)}
+          <span>Features:</span><br></br>
+          {game.genres.map((genre) => <p>{genre}</p>)}
+          {game.categories.map((category) => <p>{category}</p>)}
         </div>
         <p className="rating">{game.rating}</p>
         <p className="status">{game.status}</p>

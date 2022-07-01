@@ -7,7 +7,7 @@ function CatalogList({ catalog, searchQuery, filterBy, getMyCollection, currentU
   const categoriesFilter = (categories) => categories.match(searchQuery);
 
   return (
-    <div>
+    <div className="list">
       {catalog.results.map((item, index) => {
         switch (filterBy) {
           case 'genre':

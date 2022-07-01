@@ -18,12 +18,19 @@
 }
 
 .collection {
-  width: 70%;
+  width: 60%;
   float: left;
 }
 
+.list {
+  height: 100px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
 .catalog {
-  width: 30%;
+  width: 40%;
   float: left;
 }
 
@@ -68,8 +75,68 @@ h1, h2, h3, h4, p, span {
 }
 
 .features {
-  border: 1px solid white;
-  border-radius: 5px;
+  margin: 0;
+}
+
+.catalogTile {
+  width: 100%;
+  margin: auto;
+  clear: both;
+  background-color: #38404E;
+}
+
+.gameImage {
+  width: 35%;
+  float: left;
+}
+
+.gameInfo {
+  width: 45%;
+  float: left;
+}
+
+.otherInfo {
+  width: 20%;
+  float: left;
+}
+
+img {
+  max-width: 95%;
+}
+
+.gameTitle {
+  width: 95%;
+  display: inline-block;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+.release {
+  font-size: 12px;
+  display: block;
+}
+
+h4 {
+  font-size: 11px;
+  margin: 0;
+}
+
+.addGame {
+  width: 80%;
+  margin: auto;
+}
+
+.add {
+  color: white;
+  height: 30px;
+  width: 115px;
+  left: 0px;
+  top: 0px;
+  border: 0;
+  border-radius: 0px;
+  background: #515C97;
 }
 
 /*# sourceMappingURL=usercollection.css.map */
