@@ -13,7 +13,8 @@
     "sass-joy": "sass client/dist/styles/usercollection.scss client/dist/styles/usercollection.css --watch",
     "sass-ben": "sass client/dist/styles/styles-ben.scss client/dist/styles/styles-ben.css --watch",
     "sass-kayla": "sass client/dist/styles/threads.scss client/dist/styles/threads.css --watch",
-    "sass-global": "sass client/dist/styles/styles.scss client/dist/styles/styles.css --watch"
+    "sass-global": "sass client/dist/styles/styles.scss client/dist/styles/styles.css --watch",
+    "sass-bg": "sass client/dist/styles/background.scss client/dis/styles/background.css"
   },
   "dependencies": {
     "@passport-next/passport-openid": "^1.0.0",

@@ -46,19 +46,21 @@ function UserMain() {
         </div>
       </div>
       <div className="clear">
-        {gameDisplayed && <GameDetails gameId={gameId} game={game} toggleThreadsView={toggleThreadsView} toggleGameView={toggleGameView}/>}
-        {gameThreadsDisplayed && (
-          <div className="outerModal">
-            <div className="modal">
-              <ThreadsContainer
-                gameId={gameId}
-                game={game}
-                exitModal={toggleThreadsView}
-              />
-            </div>
-          </div>
+        {gameDisplayed && (
+          <GameDetails
+            gameId={gameId}
+            game={game}
+            toggleThreadsView={toggleThreadsView}
+            toggleGameView={toggleGameView}/>
         )}
-       </div>
+        {gameThreadsDisplayed && (
+          <ThreadsContainer
+            gameId={gameId}
+            game={game}
+            exitModal={toggleThreadsView}
+          />
+        )}
+      </div>
     </div>
   );
 }
