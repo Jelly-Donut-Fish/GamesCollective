@@ -14,7 +14,8 @@ const get = (req, res) => {
 
 const post = (req, res) => {
   const { user_id } = req.params;
-  gameUsersModel.post(user_id, req.body)
+  const { game_id, status, review, rating } = req.body;
+  gameUsersModel.post(user_id, game_id, review, rating, status)
     .then(() => {
       res.sendStatus(201);
     })
@@ -24,7 +25,8 @@ const post = (req, res) => {
 };
 
 const putStatus = (req, res) => {
-  gameUsersModel.putStatus(req.body)
+  const { user_id, game_id, status } = req.body;
+  gameUsersModel.putStatus(user_id, game_id, status)
     .then(() => {
       res.sendStatus(204);
     })

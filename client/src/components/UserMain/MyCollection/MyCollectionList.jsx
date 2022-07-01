@@ -62,9 +62,9 @@ function MyCollectionList({
                 isTrue = false;
               } else if (!game.categories.some(compareCategoryTest)) {
                 isTrue = false;
-              }// else if (!game.status.toLowerCase().match(statusField)) {
-              // isTrue = false;
-              // }
+              } else if (!game.status.toLowerCase().match(statusField)) {
+                isTrue = false;
+              }
 
               if (isTrue) {
                 return tile;

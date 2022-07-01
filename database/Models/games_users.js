@@ -10,15 +10,13 @@ const {
 
 const get = (user_id) => pool.query(getUsersGames, [user_id]);
 
-const post = (user_id, {
-  game_id, review, rating, status,
-}) => pool.query(addGamesToCol, [user_id, game_id, status, review, rating]);
+const post = (user_id, game_id, review, rating, status = 'want to play') => (
+  pool.query(addGamesToCol, [user_id, game_id, status, review, rating])
+);
 
-const putStatus = ({
-  user_id,
-  game_id,
-  status,
-}) => pool.query(changeStatus, [status, game_id, user_id]);
+const putStatus = (user_id, game_id, status) => (
+  pool.query(changeStatus, [status, game_id, user_id])
+);
 
 const putRatings = ({
   user_id,
