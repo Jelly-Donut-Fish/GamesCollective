@@ -1,7 +1,7 @@
 import React from 'react';
 import ThreadsTile from './ThreadsTile';
 
-function ThreadsList({ toggleThreadView, threads }) {
+function ThreadsList({ toggleThreadView, threads, currentUser, addThread }) {
   if (threads.length > 0) {
     var parents = threads.filter((thread) => (thread.parent_id === 0))
   }
