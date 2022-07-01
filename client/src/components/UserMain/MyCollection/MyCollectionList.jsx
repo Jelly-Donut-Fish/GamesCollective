@@ -15,7 +15,7 @@ function MyCollectionList({
   };
 
   return (
-    <div>
+    <div className="list">
       {myCollection.length === 0
         ? (
           <div>
@@ -28,7 +28,7 @@ function MyCollectionList({
           </div>
         )
         : (
-          <div>
+          <div className="list">
             {myCollection.map((game, i) => {
               const tile = (
                 <MyCollectionTile
