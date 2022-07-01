@@ -30,9 +30,10 @@ function ThreadsTile({ toggleThreadView, thread }) {
         </h3>
       </div>
       <div className="actionsIcons">
-        <MdComment onClick={handleThreadClick} alt="discuss" />
-        <MdReport onClick={handleReport} alt="report" />
+        <MdComment onClick={handleThreadClick} alt="discuss" className="icon" />
+        <MdReport onClick={handleReport} alt="report" className="icon" />
       </div>
+      <div className="clear" />
     </div>
   );
 }

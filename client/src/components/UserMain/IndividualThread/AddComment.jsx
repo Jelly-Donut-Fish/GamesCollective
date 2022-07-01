@@ -11,19 +11,18 @@ function AddComment({ thread, addComment, currentUser, gameId }) {
   const sendComment = (event) => {
     event.preventDefault();
     const comment = {
-      user_id: currentUser,
+      user_id: currentUser.site_id,
       game_id: gameId,
       body: newCommentBody,
       parent_comment_id: thread.id,
     };
-    axios.post('/comments', comment);
     addComment(comment);
   };
 
   return (
     <div>
       <form>
-        <input id="newComment" type="textarea" onChange={handleTyping} value={newCommentBody} />
+        <textarea id="newComment" onChange={handleTyping} value={newCommentBody} />
       </form>
       <button
         type="submit"
