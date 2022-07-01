@@ -48,6 +48,7 @@ a:hover {
 
 .nav-bar {
   display: flex;
+  flex-direction: column;
   background: url(.png), radial-gradient(36.75% 9796.72% at 50% 50%, #434C5A 0%, #191F2F 100%);
   height: 12vh;
   mix-blend-mode: normal;
@@ -56,13 +57,12 @@ a:hover {
 }
 .nav-bar .link {
   margin: auto;
-  left: 45%;
   top: 3vh;
   width: 10%;
   font-family: "Barlow";
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 12px;
 }
 .nav-bar .title {
   position: absolute;
