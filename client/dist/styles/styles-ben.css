@@ -174,8 +174,8 @@ a:hover:hover {
 .landing-page .landing .demo-section {
   box-sizing: border-box;
   position: relative;
-  width: 45vw;
-  height: 25vh;
+  width: 600px;
+  height: 350px;
   grid-column-start: 2;
   top: 22vh;
   background: #38404E;
