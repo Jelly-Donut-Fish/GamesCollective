@@ -63,7 +63,7 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
       <label htmlFor="searchTitle" />
 
       <label htmlFor="genre">
-        <select name="filters" id="genre" onChange={filterHandler}>
+        <select name="filters" id="genre" onChange={filterHandler} className="innerFilter">
           <option value="" defaultValue="">Choose a genre</option>
           {genres.map((genre) => (
             <option value={genre.name}>{genre.name}</option>
@@ -71,7 +71,7 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
         </select>
       </label>
       <label htmlFor="category">
-        <select name="filters" id="category" onChange={filterHandler}>
+        <select name="filters" id="category" onChange={filterHandler} className="innerFilter">
           <option value="" defaultValue="">Choose a category</option>
           {categories.map((category) => (
             <option value={category.name}>{category.name}</option>
@@ -79,7 +79,7 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
         </select>
       </label>
       <label htmlFor="status">
-        <select name="filters" id="status" onChange={filterHandler}>
+        <select name="filters" id="status" onChange={filterHandler} className="innerFilter">
           <option value="">Choose a status</option>
           <option value="Want to Play">Want to Play</option>
           <option value="Started">Started</option>
@@ -88,7 +88,7 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
           <option value="Purchased">Purchased</option>
         </select>
       </label>
-      <button type="button" onClick={submitSearch}>Search</button>
+      <button type="button" onClick={submitSearch} className="searchButton">Search</button>
     </div>
   );
 }

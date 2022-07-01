@@ -208,6 +208,11 @@ h4 {
   margin-right: 10px;
 }
 
+.searchButton {
+  border-radius: 0;
+  border: none;
+}
+
 select {
   margin-top: 1.5px;
   border-radius: 5vw;
@@ -217,13 +222,13 @@ select:focus {
   box-shadow: 0 0 1vw 0.1vw rgb(84, 4, 69);
 }
 
-input[type=text] {
-  height: 15px;
+.innerFilter {
+  height: 30px;
   margin-top: 1.5px;
   border-radius: 5vw;
   outline-color: black;
 }
-input[type=text]:focus {
+.innerFilter:focus {
   box-shadow: 0 0 1vw 0.1vw rgb(84, 4, 69);
 }
 
@@ -317,6 +322,16 @@ input[type=text]:focus {
 
 .imageHolder {
   max-width: 50%;
+  float: left;
+}
+
+.deets {
+  max-width: 45%;
+  float: left;
+}
+
+.clearDeets {
+  clear: both;
 }
 
 /*# sourceMappingURL=usercollection.css.map */
