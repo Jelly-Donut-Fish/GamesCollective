@@ -21,7 +21,7 @@ function Search({ setSearchQuery, setFilterBy, getCatalog, filterBy }) {
 
   return (
     <div>
-      <label htmlFor="user filter">
+      {/* <label htmlFor="user filter">
         <select name="filters" id="user filter" onChange={handleFilter}>
           <option value="">Filter by</option>
           <option value="title">Title</option>
@@ -30,9 +30,9 @@ function Search({ setSearchQuery, setFilterBy, getCatalog, filterBy }) {
           <option value="platform">Platform</option>
           <option value="service">Game Library</option>
         </select>
-      </label>
+      </label> */}
       <label htmlFor="filter collection">
-        <input onChange={handleChange} type="text" placeholder="Filter Collection" id="filter collection" />
+        <input onChange={handleChange} type="text" placeholder="Search for Games" id="filter collection" />
       </label>
     </div>
   );

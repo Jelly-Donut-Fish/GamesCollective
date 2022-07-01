@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Akshar:wght@600&family=Barlow:wght@400;700&display=swap");
+* {
+  font-family: "Barlow", sans-serif;
+}
+
 .game_icon {
   color: blue;
 }
@@ -18,12 +23,19 @@
 }
 
 .collection {
-  width: 70%;
+  width: 55%;
   float: left;
 }
 
+.list {
+  height: 1000px;
+  overflow-y: scroll;
+  scrollbar-color: #B4376B;
+  scrollbar-width: 5px;
+}
+
 .catalog {
-  width: 30%;
+  width: 45%;
   float: left;
 }
 
@@ -55,11 +67,20 @@
   width: 90%;
 }
 
-h1, h2, h3, h4, p {
+h1,
+h2,
+h3,
+h4,
+p {
   display: inline-block;
 }
 
-h1, h2, h3, h4, p, span {
+h1,
+h2,
+h3,
+h4,
+p,
+span {
   margin: 5px;
 }
 
@@ -68,8 +89,119 @@ h1, h2, h3, h4, p, span {
 }
 
 .features {
-  border: 1px solid white;
-  border-radius: 5px;
+  margin: 0;
+}
+
+.catalogTile {
+  width: 100%;
+  margin: 10px auto;
+  clear: both;
+  background-color: #38404E;
+}
+
+.gameImage {
+  width: 35%;
+  float: left;
+}
+
+.gameInfo {
+  width: 45%;
+  float: left;
+}
+
+.otherInfo {
+  width: 18%;
+  float: left;
+}
+
+img {
+  max-width: 95%;
+}
+
+.gameTitle {
+  width: 95%;
+  display: inline-block;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+.release {
+  font-size: 12px;
+  display: block;
+}
+
+h4 {
+  font-size: 11px;
+  margin: 0;
+}
+
+.addGame {
+  width: 80%;
+  justify-content: left;
+}
+
+.add {
+  color: white;
+  height: 30px;
+  width: 115px;
+  left: 0px;
+  top: 0px;
+  border: 0;
+  border-radius: 0px;
+  background: #515C97;
+}
+
+.collectionTile {
+  border-top: 1px solid #7AFA59;
+  border-left: 1px solid #7AFA59;
+  border-radius: 16px;
+  box-shadow: 15px 10px 20px 4px rgba(55, 183, 255, 0.25);
+  background-color: #38404E;
+  width: 95%;
+  clear: both;
+  display: block;
+  overflow: auto;
+  margin: 5px;
+}
+
+.mainInfo {
+  width: 45%;
+  float: left;
+  margin-left: 5px;
+}
+
+.title_image {
+  max-width: 95%;
+}
+
+.gameDetails {
+  width: 40%;
+  width: fit-content;
+  float: left;
+}
+
+.highlight {
+  font-size: 12px;
+}
+
+.lowlight {
+  font-size: 10px;
+  width: fit-content;
+}
+
+.moreInfo {
+  float: left;
+  width: 15%;
+  margin-bottom: 3px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; /* Remove default arrow */
+  background-color: pink; /* Add custom arrow */
 }
 
 /*# sourceMappingURL=usercollection.css.map */
