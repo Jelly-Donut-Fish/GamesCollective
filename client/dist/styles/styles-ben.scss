@@ -16,13 +16,13 @@ $boxShadowTransition: box-shadow 1s ease-in-out;
   padding: 0;
 }
 
-body {
-  background: linear-gradient(-45deg, #060606, #1a0e19, #250824, #300f22);
-  background-size: 100% 100%;
-  background-attachment: fixed;
-  animation: gradient 15s ease infinite;
-  color: white;
-}
+// body {
+//   background: linear-gradient(-45deg, #060606, #1a0e19, #250824, #300f22);
+//   background-size: 400% 400%;
+//   background-attachment: fixed;
+//   animation: gradient 15s ease infinite;
+//   color: white;
+// }
 
 input {
   margin-top: 1.5vh;
@@ -35,13 +35,23 @@ input {
   }
 }
 
+textarea {
+  margin-top: 1.5vh;
+  padding: 0.5vw 5vw 0.5vw 1vw;
+  border-radius: 5vw;
+  outline-color: $main;
+  &:focus {
+    box-shadow: $mainBoxShadow;
+  }
+}
+
 a:link, a:visited {
   display: flex;
   flex-direction: column;
   align-self: center;
   text-align: center;
   padding: 1vw;
-  // width: 100%;
+  color: white;
   background-color: #000000;
   box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
 }
@@ -50,6 +60,7 @@ a:hover {
 }
 .nav-bar{
   display: flex;
+  flex-direction: column;
   background: url(.png), radial-gradient(36.75% 9796.72% at 50% 50%, #434C5A 0%, #191F2F 100%);
   height: 12vh;
   mix-blend-mode: normal;
@@ -58,14 +69,15 @@ a:hover {
 
   .link {
     margin: auto;
-    left: 45%;
     top: 3vh;
-    width: 10%;
+    width: 5%;
     font-family: 'Barlow';
     font-style: normal;
     font-weight: 400;
-    font-size: $fontsize;
+    font-size: $fontsize*0.5;
+
   }
+
 
   .title {
     position: absolute;
@@ -98,7 +110,6 @@ a:hover {
 }
 
 .logout_btn {
-
   border: none;
   color: white;
   background-color: rgb(119, 56, 125);
@@ -161,15 +172,38 @@ a:hover {
     grid-template-columns: 2fr 6fr 1fr;
     grid-template-rows: 10% 90%;
 
+    .front-header1 {
+      position: absolute;
+      align-self: flex-start;
+      font-family: 'Barlow';
+      font-style: normal;
+      font-weight: 700;
+      left: 15vw;
+      top: 15vh;
+      font-size: $fontsize*1.8;
+      color: #E3DFDF;
+
+    }
+    .front-header2 {
+      position: absolute;
+      align-self: flex-start;
+      font-family: 'Barlow';
+      font-style: normal;
+      font-weight: 700;
+      left: 40vw;
+      top: 20vh;
+      font-size: $fontsize*1.8;
+      color: #E3DFDF;
+    }
 
     .demo-section {
       box-sizing: border-box;
       position: relative;
-      width: 35vw;
+      width: 45vw;
       height: 100vh;
       // left: 25vw;
       grid-column-start: 2;
-      top: 15vh;
+      top: 22vh;
       background: #38404E;
       border-width: 1px 0px 0px 1px;
       border-style: solid;

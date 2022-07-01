@@ -48,7 +48,6 @@ function LandingPage({ getUser, currentUser }) {
     <div className="landing-page">
       <nav className="nav-bar">
         <h3 className="title">Games Collection</h3>
-        <br />
         <Link className="link nav" to="/UserMain">User Main</Link>
         <Link className="link nav" to="/UpdateProfile">Update Profile</Link>
           <div className="log-out">
@@ -60,6 +59,8 @@ function LandingPage({ getUser, currentUser }) {
           </div>
       </nav>
       <div className="landing">
+        <h3 className="front-header1">Too Many Games In Too Many Places?</h3>
+        <h3 className="front-header2">Let's Fix That</h3>
         <DemoSection />
         <div className="landing_login">
           <Login getUser={getUser} currentUser={currentUser} />
