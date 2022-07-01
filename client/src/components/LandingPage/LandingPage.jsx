@@ -49,8 +49,8 @@ function LandingPage({ getUser, currentUser }) {
       <nav className="nav-bar">
         <h3 className="title">Games Collection</h3>
         <br />
-        <Link className="link" to="/UserMain">User Main</Link>
-        <Link className="link" to="/UpdateProfile">Update Profile</Link>
+        {/* <Link className="link nav" to="/UserMain">User Main</Link>
+        <Link className="link nav" to="/UpdateProfile">Update Profile</Link> */}
           <div className="log-out">
             Logged in as
             <div>{currentUser.username}</div>

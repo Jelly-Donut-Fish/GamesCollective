@@ -63,7 +63,7 @@ function Register({ getUser, currentUser }) {
   return (
     <div className="page">
       <nav className="nav-bar">
-        <h3>Games Collection</h3>
+        <h3 className="title">Games Collection</h3>
         <br />
         <Link className="link" to="/">Home</Link>
       </nav>
