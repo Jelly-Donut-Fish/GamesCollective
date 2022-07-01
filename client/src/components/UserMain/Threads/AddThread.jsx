@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
-import { MdClear } from "react-icons/md";
 
 function AddThread({
   toggleAddThread, addThread, currentUser, gameId,
 }) {
   const [newThreadTitle, setNewThreadTitle] = useState('');
   const [newThreadBody, setNewThreadBody] = useState('');
-
-  const exitAddThread = (event) => {
-    event.preventDefault();
-    toggleAddThread();
-  };
 
   const handleTyping = (event) => {
     const { id, value } = event.target;
@@ -41,7 +35,6 @@ function AddThread({
   return (
     <div>
       <div>
-        <span onClick={exitAddThread}>{MdClear}</span>
         <form>
           <input
             type="text"
