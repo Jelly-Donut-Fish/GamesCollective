@@ -126,4 +126,14 @@ button {
   padding: 3px;
 }
 
+.threadsView input {
+  padding: 2px 3px;
+  width: 30%;
+}
+.threadsView textarea {
+  border-radius: 16px;
+  padding: 3px;
+  width: 60%;
+}
+
 /*# sourceMappingURL=threads.css.map */
