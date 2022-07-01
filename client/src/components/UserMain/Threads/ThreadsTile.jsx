@@ -11,7 +11,7 @@ function ThreadsTile({ toggleThreadView, thread }) {
   const handleReport = (event) => {
     event.preventDefault();
     axios({
-      method: 'PUT',
+      method: 'put',
       url: `/comments/${thread.id}/report`,
     });
   };
