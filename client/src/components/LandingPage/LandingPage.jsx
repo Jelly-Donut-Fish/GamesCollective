@@ -28,6 +28,9 @@ function LandingPage({ getUser, currentUser }) {
           getUser(loggedUser);
         }
       })
+      .then(() => {
+        navigate('/UserMain');
+      })
       .catch((err) => {
         console.log('error in landing page get user db', err);
       });
@@ -41,8 +44,8 @@ function LandingPage({ getUser, currentUser }) {
 
   useEffect(() => {
     if (user) getUserdb();
-    // navigate('/')
-  }, [user]);
+    // navigate('/UserMain');
+  });
 
   return (
     <div className="landing-page">

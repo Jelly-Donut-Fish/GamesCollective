@@ -8,7 +8,7 @@ import ThreadsContainer from '../../containers/ThreadsContainer.js';
 import UserInfo from './UserInfo.jsx';
 import { logout } from '../../authentication/firebase';
 
-function UserMain({ currentUser }) {
+function UserMain({ currentUser, getUser }) {
   const [gameDisplayed, toggleGameDisplay] = useState(false);
   const [gameThreadsDisplayed, toggleGameThreads] = useState(false);
   const [game, setGame] = useState({});
@@ -30,6 +30,7 @@ function UserMain({ currentUser }) {
 
   const handleLogout = (e) => {
     e.preventDefault();
+    getUser({});
     logout();
     navigate('/');
   };
@@ -42,7 +43,7 @@ function UserMain({ currentUser }) {
     <div className="landing-page">
       <nav className="nav-bar">
         <h3 className="pageTitle">Games Collective</h3>
-        <Link className="link nav" to="/">Login</Link>
+        {/* <Link className="link nav" to="/">Login</Link> */}
         <Link className="link nav" to="/UpdateProfile">Update Profile</Link>
         <div className="log-out">
           Logged in as
