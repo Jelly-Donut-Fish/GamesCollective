@@ -29,9 +29,9 @@ function LandingPage({ getUser, currentUser }) {
           getUser(loggedUser);
         }
       })
-      .then(() => {
-        navigate('/UserMain');
-      })
+      // .then(() => {
+      //   navigate('/UserMain');
+      // })
       .catch((err) => {
         console.log('error in landing page get user db', err);
       });

@@ -26,9 +26,9 @@ function UpdatUserProfile({ currentUser, getUser }) {
       username: loggedUser.username,
       img_url: loggedUser.image_url,
     })
-      .then(() => {
-        navigate('/UserMain');
-      });
+      // .then(() => {
+      //   navigate('/UserMain');
+      // });
   };
 
   return (
