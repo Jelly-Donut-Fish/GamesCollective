@@ -194,11 +194,10 @@ a:hover {
 
     .demo-section {
       box-sizing: border-box;
-
       position: absolute;
       width: 861px;
       height: 517px;
-      left: 71px;
+      left: 15vw;
       top: 380px;
 
       background: #38404E;
@@ -242,10 +241,10 @@ a:hover {
           box-sizing: border-box;
 
           position: absolute;
-          width: 349px;
-          height: 443px;
-          right: 66px;
-          top: 290px;
+          width: 15vw;
+          height: auto;
+          right: 5vw;
+          top: 7vw;
 
           background: #38404E;
           box-shadow: 8px 10px 16px 9px #B4376B;
