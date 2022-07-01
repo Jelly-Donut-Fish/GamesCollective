@@ -10,6 +10,28 @@ $press: 'Press Start 2P', cursive;
   font-family: $barlow;
 }
 
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
 .game_icon {
   font-size: 25px;
   justify-content: right;
@@ -30,6 +52,7 @@ $press: 'Press Start 2P', cursive;
 .collection {
   width: 55%;
   float: left;
+
 }
 
 .list {
@@ -247,32 +270,48 @@ input[type=text] {
 }
 
 .userInfo {
-  width: 80%;
+  width: 95%;
   margin: 25px;
+  background-color: #38404E;
+  border-top: 1px solid #FA59ED;
+  border-left: 1px solid #7AFA59;
+  border-radius: 16px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  box-shadow: 15px 10px 20px 4px rgb(55 183 255 / 25%);
 }
 
 .userImage {
-  width:40%;
+  max-width: 150px;
   float: left;
+  margin: 5px;
 }
 
 .profilePic {
-  width:80%;
+  max-width: 80%;
   border-top: 1px solid #7AFA59;
   border-left: 1px solid #7AFA59;
   border-radius: 50%;
-  box-shadow: 15px 10px 20px 4px rgba(55, 183, 255, 0.25);
+  box-shadow: 15px 10px 20px 4px rgb(55 183 255 / 25%);
+  margin-top: 3%;
+  margin-left: 3%;
 }
 
 .userDeets {
   height: 100%;
+  display: flex;
+  margin-bottom: 7%;
+  flex-direction: column;
 }
 
 .userName {
-  font-family: "Akshar", sans-serif;
-  font-size: 100px;
-  height: 400px;
-  line-height: 400px;
+  font-family: “Akshar”, sans-serif;
+  font-size: 300%;
+  height: 50px;
+  line-height: 50px;
+  padding-top: 30px;
 }
 
 .myCollection{
@@ -295,4 +334,29 @@ input[type=text] {
   font-family: $press;
   height: 97px;
   line-height: 97px;
+}
+
+// game details jpage
+
+.innerContent {
+  width: 90%;
+  margin: auto;
+}
+
+.gameDetailsInfo{
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.mainGameInfo {
+  width: 90%;
+  margin: auto;
+}
+
+.detailTitle {
+  font-size: 80px;
+}
+
+.imageHolder {
+  max-width: 50%;
 }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Akshar:wght@600&family=Barlow:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 * {
@@ -236,32 +237,48 @@ input[type=text]:focus {
 }
 
 .userInfo {
-  width: 80%;
+  width: 95%;
   margin: 25px;
+  background-color: #38404E;
+  border-top: 1px solid #FA59ED;
+  border-left: 1px solid #7AFA59;
+  border-radius: 16px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  box-shadow: 15px 10px 20px 4px rgba(55, 183, 255, 0.25);
 }
 
 .userImage {
-  width: 40%;
+  max-width: 150px;
   float: left;
+  margin: 5px;
 }
 
 .profilePic {
-  width: 80%;
+  max-width: 80%;
   border-top: 1px solid #7AFA59;
   border-left: 1px solid #7AFA59;
   border-radius: 50%;
   box-shadow: 15px 10px 20px 4px rgba(55, 183, 255, 0.25);
+  margin-top: 3%;
+  margin-left: 3%;
 }
 
 .userDeets {
   height: 100%;
+  display: flex;
+  margin-bottom: 7%;
+  flex-direction: column;
 }
 
 .userName {
-  font-family: "Akshar", sans-serif;
-  font-size: 100px;
-  height: 400px;
-  line-height: 400px;
+  font-family: “Akshar”, sans-serif;
+  font-size: 300%;
+  height: 50px;
+  line-height: 50px;
+  padding-top: 30px;
 }
 
 .myCollection {
@@ -277,6 +294,29 @@ input[type=text]:focus {
   font-family: "Press Start 2P", cursive;
   height: 97px;
   line-height: 97px;
+}
+
+.innerContent {
+  width: 90%;
+  margin: auto;
+}
+
+.gameDetailsInfo {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.mainGameInfo {
+  width: 90%;
+  margin: auto;
+}
+
+.detailTitle {
+  font-size: 80px;
+}
+
+.imageHolder {
+  max-width: 50%;
 }
 
 /*# sourceMappingURL=usercollection.css.map */
