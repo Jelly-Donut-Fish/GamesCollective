@@ -51,7 +51,7 @@ function UpdatUserProfile({ currentUser, getUser }) {
           onChange={(e) => setPhotoURL(e.target.value)}
           placeholder="Profile Pic URL"
         />
-        <input
+        <textarea
           type="text"
           className="login_textBox"
           value={bio || ''}
