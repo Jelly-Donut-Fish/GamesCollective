@@ -13,3 +13,15 @@ threadTile {
   padding: 10px;
 }
 
+.gameDiscussed {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.link {
+  &:hover{
+    color: #7AFA59;
+    cursor: pointer;
+  }
+}
+
