@@ -89,6 +89,7 @@ function ThreadsView({ currentUser, game, exitModal }) {
           <button
             type="button"
             onClick={toggleAddThreadView}
+            className="addThreadButton"
           >
             Add Thread
           </button>
