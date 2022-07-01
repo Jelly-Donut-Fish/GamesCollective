@@ -20,8 +20,12 @@
   position: fixed;
   width: 80%;
   height: 60%;
+  padding: 1%;
+  max-width: 900px;
+  margin: auto auto;
   overflow: scroll;
-  background-color: darkslategray;
+  border-radius: 16px;
+  background-color: #38404E;
 }
 .threadsList::-webkit-scrollbar {
   width: 10px;
@@ -31,11 +35,11 @@
   background: rgba(86, 247, 255, 0.597);
 }
 .threadsList::-webkit-scrollbar-track {
-  background: black;
+  background: #38404E;
 }
 .threadsList {
   scrollbar-face-color: rgba(86, 247, 255, 0.597);
-  scrollbar-track-color: black;
+  scrollbar-track-color: #38404E;
 }
 
 .gameDiscussed {
@@ -66,6 +70,27 @@ button {
   border-color: #b477ff;
   box-shadow: 15px 10px 20px 4px rgba(139, 15, 234, 0.25);
   padding: 2%;
+}
+
+.discussions {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.commentTile {
+  width: 40%;
+  border-radius: 10px;
+}
+
+.addThreadButton {
+  width: fit-content;
+  height: 100%;
+  margin: 0 auto;
+  padding: 1px;
+}
+
+.actionsIcons {
+  width: 30%;
 }
 
 /*# sourceMappingURL=threads.css.map */

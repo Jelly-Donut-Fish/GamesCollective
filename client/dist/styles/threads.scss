@@ -43,9 +43,13 @@ color: #ffffff;
   position: fixed;
   width: 80%;
   height: 60%;
+  padding: 1%;
+  max-width: 900px;
+  margin: auto auto;
   overflow: scroll;
-  background-color: darkslategray;
-  @include scrollbars(10px, rgba(86, 247, 255, 0.597), black);
+  border-radius: 16px;
+  background-color: #38404E;
+  @include scrollbars(10px, rgba(86, 247, 255, 0.597), #38404E);
 }
 
 .gameDiscussed {
@@ -80,3 +84,23 @@ button {
   padding: 2%;
 }
 
+.discussions {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.commentTile {
+  width: 40%;
+  border-radius: 10px;
+}
+
+.addThreadButton {
+  width: fit-content;
+  height: 100%;
+  margin: 0 auto;
+  padding: 1px;
+}
+
+.actionsIcons {
+  width: 30%
+}

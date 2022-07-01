@@ -29,9 +29,9 @@ function ThreadsTile({ toggleThreadView, thread }) {
           {thread.title}
         </h3>
       </div>
-      <div>
+      <div className="actionsIcons">
         <MdComment onClick={handleThreadClick} alt="discuss" />
-        <MdReport onClick={handleReport} alt="report"/>
+        <MdReport onClick={handleReport} alt="report" />
       </div>
     </div>
   );
