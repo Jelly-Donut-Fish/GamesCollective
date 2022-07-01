@@ -101,23 +101,24 @@ button {
 .commentTile {
   box-sizing: border-box;
   width: 40%;
+  height: 20%;
   border-radius: 10px;
   border-width: 1px 0px 2px 1px;
   border-style: solid;
   border-color: #b477ff;
   border-bottom-color: #171b24;
   box-shadow: 15px 10px 20px 4px rgba(139, 15, 234, 0.25);
-  padding: 2%;
+  padding: 5px;
   margin: 5px;
   margin-left: 5%;
 }
 
-// .addThreadButton {
-//   width: fit-content;
-//   height: auto;
-//   margin: 0 auto;
-//   padding: 1px;
-// }
+.addThreadButton {
+  width: fit-content;
+  height: auto;
+  margin: 0 auto;
+  padding: 1px;
+}
 
 .actionsIcons {
   width: 15%;
@@ -136,4 +137,5 @@ button {
 
 .postInfo {
   width: 100%;
+  padding: 3px;
 }

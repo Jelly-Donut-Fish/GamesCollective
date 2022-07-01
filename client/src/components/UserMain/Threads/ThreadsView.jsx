@@ -49,6 +49,10 @@ function ThreadsView({ currentUser, game, exitModal }) {
       .then((res) => setThreads(res.data))
       .then(() => setSingleThreadComments(filterChildren(selectedThread)))
       .catch((err) => console.log(err));
+
+    if (addThreadView) {
+      setAddThreadView(!addThreadView);
+    }
   };
 
   const exit = (event) => {
@@ -67,6 +71,24 @@ function ThreadsView({ currentUser, game, exitModal }) {
             <div className="clear" />
             <h2 className="gameDiscussed">{game.name}</h2>
             <br />
+            <div>
+              <button
+                type="button"
+                onClick={toggleAddThreadView}
+                className="addThreadButton"
+              >
+                Add Thread
+              </button>
+              {addThreadView && (
+              <AddThread
+                toggleAddThread={toggleAddThreadView}
+                addThread={addThread}
+                threads={threads}
+                currentUser={currentUser}
+                gameId={game.id}
+              />
+              )}
+            </div>
             {singleThreadView && (
               <span
                 onClick={toggleSingleThreadView}
@@ -90,26 +112,6 @@ function ThreadsView({ currentUser, game, exitModal }) {
               game={game.name}
               addThread={addThread}
               />
-            )}
-          </div>
-          <div>
-            { !singleThreadView && (
-            <button
-              type="button"
-              onClick={toggleAddThreadView}
-              className="addThreadButton"
-            >
-              Add Thread
-            </button>
-            )}
-            {addThreadView && (
-            <AddThread
-              toggleAddThread={toggleAddThreadView}
-              addThread={addThread}
-              threads={threads}
-              currentUser={currentUser}
-              gameId={game.id}
-            />
             )}
           </div>
         </div>

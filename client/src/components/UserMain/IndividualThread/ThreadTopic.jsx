@@ -10,9 +10,11 @@ function ThreadTopic({ thread }) {
       <div className="topic">
         <div className="postInfo">
           <span>{thread.username}</span>
-          <span className="datePosted">{thread.datePosted}</span>
+          <span className="datePosted">{thread.date}</span>
+          <div className="clear" />
         </div>
         <h3>{thread.title}</h3>
+        <br />
         <p>
           {thread.body}
         </p>
