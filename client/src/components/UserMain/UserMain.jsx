@@ -13,8 +13,8 @@ function UserMain({ currentUser }) {
   const [gameThreadsDisplayed, toggleGameThreads] = useState(false);
   const [game, setGame] = useState({});
   const [gameId, setGameId] = useState();
-  const [username, setUsername] = useState('Joy Parker');
-  const [userphoto, setUserphoto] = useState('https://i.postimg.cc/J4Knq464/Joy.png');
+  const [userphoto, setUserphoto] = useState('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png');
+  const [playAudio, setPlayAudio] = useState(false);
   const navigate = useNavigate();
 
   const toggleGameView = (gameInfo) => {
@@ -34,11 +34,14 @@ function UserMain({ currentUser }) {
     navigate('/');
   };
 
+  const triggerEasterEgg = () => {
+    setPlayAudio(true);
+  };
+
   return (
     <div>
       <nav className="nav-bar">
-        <h3 className="title">Games Collection</h3>
-        <br />
+        <h3 className="pageTitle">Games Collective</h3>
         <Link className="link nav" to="/">Login</Link>
         <Link className="link nav" to="/UpdateProfile">Update Profile</Link>
         <div className="log-out">
@@ -48,9 +51,9 @@ function UserMain({ currentUser }) {
             Logout
           </button>
         </div>
-      </nav>
+      </nav >
       <UserInfo
-        username={username}
+        username={currentUser.username}
         userphoto={userphoto}
       />
       <div className="container">
@@ -58,12 +61,14 @@ function UserMain({ currentUser }) {
           <MyCollectionContainer
             toggleGameView={toggleGameView}
             toggleThreadsView={toggleThreadsView}
+            triggerEasterEgg={triggerEasterEgg}
           />
         </div>
         <div className="catalog">
           <CatalogContainer
             toggleGameView={toggleGameView}
             toggleThreadsView={toggleThreadsView}
+            triggerEasterEgg={triggerEasterEgg}
           />
         </div>
       </div>
@@ -72,8 +77,9 @@ function UserMain({ currentUser }) {
           <GameDetails
             gameId={gameId}
             game={game}
+            currentUser={currentUser}
             toggleThreadsView={toggleThreadsView}
-            toggleGameView={toggleGameView}/>
+            toggleGameView={toggleGameView} />
         )}
         {gameThreadsDisplayed && (
           <ThreadsContainer
@@ -82,8 +88,18 @@ function UserMain({ currentUser }) {
             exitModal={toggleThreadsView}
           />
         )}
+        <iframe width="560" height="315" src={playAudio && 'https://www.youtube.com/embed/Y6ljFaKRTrI?start=7&autoplay=1'} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen hidden />
+        {/* <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/Y6ljFaKRTrI?controls=0&amp;start=6?autoplay=1"
+          title="YouTube video player"
+          allow="autoplay"
+          hidden
+
+        /> */}
       </div>
-    </div>
+    </div >
   );
 }
 

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Akshar:wght@600&family=Barlow:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 * {
   font-family: "Barlow", sans-serif;
 }
@@ -17,6 +18,7 @@
 .container {
   width: 80%;
   margin: auto;
+  clear: both;
 }
 
 .collection {
@@ -231,6 +233,50 @@ input[type=text]:focus {
 .mainTitle:hover {
   color: #B4376B;
   cursor: pointer;
+}
+
+.userInfo {
+  width: 80%;
+  margin: 25px;
+}
+
+.userImage {
+  width: 40%;
+  float: left;
+}
+
+.profilePic {
+  width: 80%;
+  border-top: 1px solid #7AFA59;
+  border-left: 1px solid #7AFA59;
+  border-radius: 50%;
+  box-shadow: 15px 10px 20px 4px rgba(55, 183, 255, 0.25);
+}
+
+.userDeets {
+  height: 100%;
+}
+
+.userName {
+  font-family: "Akshar", sans-serif;
+  font-size: 100px;
+  height: 400px;
+  line-height: 400px;
+}
+
+.myCollection {
+  font-family: "Akshar", sans-serif;
+  font-size: 100px;
+  text-decoration: underline;
+}
+
+.pageTitle {
+  margin-left: 10px;
+  padding-left: 10px;
+  font-size: 30px;
+  font-family: "Press Start 2P", cursive;
+  height: 97px;
+  line-height: 97px;
 }
 
 /*# sourceMappingURL=usercollection.css.map */
