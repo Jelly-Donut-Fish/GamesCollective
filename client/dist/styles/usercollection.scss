@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Akshar:wght@600&family=Barlow:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 
 $akshar: 'Akshar', sans-serif;
 $barlow: 'Barlow', sans-serif;
+$press: 'Press Start 2P', cursive;
 
 * {
   font-family: $barlow;
@@ -276,4 +279,20 @@ input[type=text] {
   font-family: "Akshar", sans-serif;
   font-size: 100px;
   text-decoration: underline;
+}
+
+// .bigTitle {
+//   width: 40%;
+//   display: inline-block;
+
+//   border: 1px solid white;
+// }
+
+.pageTitle {
+  margin-left: 10px;
+  padding-left: 10px;
+  font-size: 30px;
+  font-family: $press;
+  height: 97px;
+  line-height: 97px;
 }

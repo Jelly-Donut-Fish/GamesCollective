@@ -47,16 +47,16 @@ function LandingPage({ getUser, currentUser }) {
   return (
     <div className="landing-page">
       <nav className="nav-bar">
-        <h3 className="title">Games Collection</h3>
+        <h3 className="pageTitle">Games Collective</h3>
         <Link className="link nav" to="/UserMain">User Main</Link>
         <Link className="link nav" to="/UpdateProfile">Update Profile</Link>
-          <div className="log-out">
-            Logged in as
-            <div>{currentUser.username}</div>
-            <button type="button" className="logout_btn" onClick={handleLogout}>
-              Logout
-            </button>
-          </div>
+        <div className="log-out">
+          Logged in as
+          <div>{currentUser.username}</div>
+          <button type="button" className="logout_btn" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
       </nav>
       <div className="landing">
         <h3 className="front-header1">Too Many Games In Too Many Places?</h3>

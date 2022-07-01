@@ -41,8 +41,7 @@ function UserMain({ currentUser }) {
   return (
     <div>
       <nav className="nav-bar">
-        <h3 className="title">Games Collection</h3>
-        <br />
+        <h3 className="pageTitle">Games Collective</h3>
         <Link className="link nav" to="/">Login</Link>
         <Link className="link nav" to="/UpdateProfile">Update Profile</Link>
         <div className="log-out">
@@ -52,7 +51,7 @@ function UserMain({ currentUser }) {
             Logout
           </button>
         </div>
-      </nav>
+      </nav >
       <UserInfo
         username={currentUser.username}
         userphoto={userphoto}
@@ -100,7 +99,7 @@ function UserMain({ currentUser }) {
 
         /> */}
       </div>
-    </div>
+    </div >
   );
 }
 
