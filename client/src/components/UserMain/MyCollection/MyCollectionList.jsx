@@ -1,10 +1,11 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable consistent-return */
 import React from 'react';
 import { BsArrowRightSquareFill } from 'react-icons/bs';
 import MyCollectionTile from './MyCollectionTile';
 
 function MyCollectionList({
-  myCollection, currentUser, query, genre, category, status, platform,
+  myCollection, currentUser, query,
   toggleGameView, toggleThreadsView, getMyCollection,
 }) {
   const removeFromCollection = (index) => {
@@ -29,8 +30,6 @@ function MyCollectionList({
         : (
           <div>
             {myCollection.map((game, i) => {
-              console.log('game');
-              console.log(query, genre, category, status);
               const tile = (
                 <MyCollectionTile
                   key={game.id}
@@ -43,82 +42,35 @@ function MyCollectionList({
                 />
               );
 
-              const gameTitle = game.name.toLowerCase();
-              const lowerQuery = query.toLowerCase();
-              const genreString = game.genres.join('');
-              const categoryString = game.categories.join('');
-              if (gameTitle.includes(lowerQuery)
-                && genreString.includes(genre)
-                && categoryString.includes(category)
-                && game.status === status) {
+              const genreField = document.getElementById('genre').value.toLowerCase();
+              const categoryField = document.getElementById('category').value.toLowerCase();
+              const statusField = document.getElementById('status').value.toLowerCase();
+
+              const compareGenreTest = (item) => {
+                item = item.toLowerCase();
+                return item.match(genreField);
+              };
+              const compareCategoryTest = (item) => {
+                item = item.toLowerCase();
+                return item.match(categoryField);
+              };
+
+              let isTrue = true;
+              if (!game.name.toLowerCase().match(query.toLowerCase())) {
+                isTrue = false;
+              } else if (!game.genres.some(compareGenreTest)) {
+                isTrue = false;
+              } else if (!game.categories.some(compareCategoryTest)) {
+                isTrue = false;
+              } else if (!game.status.toLowerCase().match(statusField)) {
+                isTrue = false;
+              }
+
+              if (isTrue) {
                 return tile;
               }
-              // if (gameTitle.includes(lowerQuery)
-              //   && game.categories.includes(category)
-              //   && game.status === status) {
-              //   return tile;
-              // }
-              // if (gameTitle.includes(lowerQuery)
-              //   && game.genres.includes(genre)
-              //   && game.status === status) {
-              //   return tile;
-              // }
-              // if (gameTitle.includes(lowerQuery)
-              //   && game.genres.includes(genre)
-              //   && game.categories.includes(category)) {
-              //   return tile;
-              // }
-              // if (gameTitle.includes(lowerQuery)
-              //   && game.genres.includes(genre)
-              //   && game.categories.includes(category)
-              //   && game.status === status) {
-              //   return tile;
-              // }
-              // if (gameTitle.includes(lowerQuery)
-              //   && game.genres.includes(genre)) {
-              //   return tile;
-              // }
-              // if (gameTitle.includes(lowerQuery)
-              //   && game.categories.includes(category)) {
-              //   return tile;
-              // }
-              // if (gameTitle.includes(lowerQuery)
-              //   && game.status === status) {
-              //   return tile;
-              // }
-              // if (gameTitle.includes(lowerQuery) && lowerQuery !== '') {
-              //   return tile;
-              // }
-              // if (game.genres.includes(genre)
-              //   && game.categories.includes(category)
-              //   && game.status === status) {
-              //   return tile;
-              // }
-              // if (game.genres.includes(genre)
-              //   && game.categories.includes(category)) {
-              //   return tile;
-              // }
-              // if (game.genres.includes(genre)
-              //   && game.status === status) {
-              //   return tile;
-              // }
-              // if (game.genres.includes(genre)) {
-              //   return tile;
-              // }
-              // if (game.categories.includes(category)
-              //   && game.status === status) {
-              //   return tile;
-              // }
-              // if (game.categories.includes(category)) {
-              //   return tile;
-              // }
-              // if (game.status === status) {
-              //   return tile;
-              // }
-              // if (gameTitle.includes(lowerQuery)) {
-              //   return tile;
-              // }
-            })}
+            }
+            )}
           </div>
         )}
     </div>
