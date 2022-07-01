@@ -4,16 +4,13 @@
 }
 
 .game_icon {
-  color: blue;
+  font-size: 25px;
+  justify-content: right;
+  color: #515C97;
 }
 
 .game_icon:hover {
-  color: red;
-  cursor: pointer;
-}
-
-.title:hover {
-  color: blue;
+  color: #B4376B;
   cursor: pointer;
 }
 
@@ -153,6 +150,11 @@ h4 {
   background: #515C97;
 }
 
+.add:hover {
+  background: #B4376B;
+  cursor: pointer;
+}
+
 .collectionTile {
   border-top: 1px solid #7AFA59;
   border-left: 1px solid #7AFA59;
@@ -192,16 +194,43 @@ h4 {
 }
 
 .moreInfo {
-  float: left;
-  width: 15%;
+  float: right;
+  width: 40%;
   margin-bottom: 3px;
 }
 
+.buttons {
+  font-size: 20px;
+  float: right;
+  margin-right: 10px;
+}
+
 select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none; /* Remove default arrow */
-  background-color: pink; /* Add custom arrow */
+  margin-top: 1.5px;
+  border-radius: 5vw;
+  outline-color: black;
+}
+select:focus {
+  box-shadow: 0 0 1vw 0.1vw rgb(84, 4, 69);
+}
+
+input[type=text] {
+  height: 15px;
+  margin-top: 1.5px;
+  border-radius: 5vw;
+  outline-color: black;
+}
+input[type=text]:focus {
+  box-shadow: 0 0 1vw 0.1vw rgb(84, 4, 69);
+}
+
+.mainTitle {
+  color: #7AFA59;
+}
+
+.mainTitle:hover {
+  color: #B4376B;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=usercollection.css.map */
