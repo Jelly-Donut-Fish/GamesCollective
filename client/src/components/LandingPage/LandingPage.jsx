@@ -47,14 +47,10 @@ function LandingPage({ getUser, currentUser }) {
   return (
     <div className="landing-page">
       <nav className="nav-bar">
-        <h3>Games Collection</h3>
+        <h3 className="title">Games Collection</h3>
         <br />
         <Link className="link" to="/UserMain">User Main</Link>
         <Link className="link" to="/UpdateProfile">Update Profile</Link>
-      </nav>
-      <div className="landing">
-        <DemoSection />
-        <div className="landing_login">
           <div className="log-out">
             Logged in as
             <div>{currentUser.username}</div>
@@ -62,6 +58,10 @@ function LandingPage({ getUser, currentUser }) {
               Logout
             </button>
           </div>
+      </nav>
+      <div className="landing">
+        <DemoSection />
+        <div className="landing_login">
           <Login getUser={getUser} currentUser={currentUser} />
         </div>
       </div>

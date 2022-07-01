@@ -35,17 +35,34 @@ a:hover {
   align-self: center;
   grid-column-start: 2;
 }
+.nav-bar .title {
+  position: relative;
+  justify-self: flex-start;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 43.2px;
+  line-height: 48px;
+  color: #E3DFDF;
+}
+.nav-bar .log-out {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  text-align: center;
+  padding: 1vw;
+  width: 100%;
+  background-color: #000000;
+  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
+}
 
 .login_textBox {
   padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 16.8px;
+  margin-bottom: 1vh;
 }
 
 .logout_btn {
-  padding: 10px;
-  font-size: 18px;
-  margin-top: 10px;
   border: none;
   color: white;
   background-color: rgb(119, 56, 125);
@@ -153,14 +170,18 @@ a:hover {
   grid-template-rows: 10% 90%;
 }
 .landing-page .landing .demo-section {
-  grid-column-start: 2;
-  grid-row-start: 2;
-  align-self: flex-start;
-  text-align: center;
-  height: 75%;
-  width: 100%;
-  padding: 1vw;
-  border: 5px solid black;
+  box-sizing: border-box;
+  position: absolute;
+  width: 861px;
+  height: 517px;
+  left: 71px;
+  top: 380px;
+  background: #38404E;
+  border-width: 1px 0px 0px 1px;
+  border-style: solid;
+  border-color: #7AFA59;
+  box-shadow: 15px 10px 20px 4px rgba(55, 183, 255, 0.25);
+  border-radius: 16px;
 }
 .landing-page .landing .landing_login {
   grid-column-start: 3;
@@ -187,14 +208,15 @@ a:hover {
   box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
 }
 .landing-page .landing .landing_login .login {
-  height: auto;
-  width: 100%;
-  display: flex;
-  align-self: center;
-  align-items: center;
-  padding: 1vw;
-  background-color: #000000;
-  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
+  box-sizing: border-box;
+  position: absolute;
+  width: 349px;
+  height: 443px;
+  right: 66px;
+  top: 290px;
+  background: #38404E;
+  box-shadow: 8px 10px 16px 9px #B4376B;
+  border-radius: 8px;
 }
 .landing-page .landing .landing_login .login .login_container {
   grid-column-start: 2;
@@ -214,14 +236,6 @@ a:hover {
   background-color: rgb(119, 56, 125);
 }
 .landing-page .landing .landing_login .login .login_btn:hover {
-  color: #D8315B;
-  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
-  transition: box-shadow 1s ease-in-out;
-}
-.landing-page .landing .landing_login .login .login_google {
-  background-color: rgb(119, 56, 125);
-}
-.landing-page .landing .landing_login .login .login_google:hover {
   color: #D8315B;
   box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
   transition: box-shadow 1s ease-in-out;

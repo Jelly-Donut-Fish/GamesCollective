@@ -4,7 +4,7 @@ $second: rgb(84, 4, 69);
 $darkGray: rgb(43, 42, 42);
 $gray: rgb(202, 202, 202);
 $crimson: #D8315B;
-
+$fontsize: 24px;
 $defaultBorder: 0.075vw solid black;
 $mainBorder: 0.3vw solid $second;
 $mainBoxShadow: 0 0 1vw 0.1vw $second, 0 0 1vw 0.1vw $second inset;
@@ -30,13 +30,6 @@ input {
   border-radius: 5vw;
   outline-color: $main;
 
-  // &.search-itemId-input-err {
-  //   &::placeholder {
-  //     color: $crimson;
-  //   }
-
-  // }
-
   &:focus {
     box-shadow: $mainBoxShadow;
   }
@@ -44,7 +37,7 @@ input {
 
 a:link, a:visited {
   color: white;
-  font-size: 24px;
+  font-size: $fontsize;
   border: 2px inset purple;
 }
 a:hover {
@@ -52,19 +45,40 @@ a:hover {
 }
 .nav-bar{
   align-self: center;
-  grid-column-start:2
+  grid-column-start:2;
+
+  .title {
+    position: relative;
+    // width: 15%;
+    // height: auto;
+    justify-self: flex-start;
+    font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 700;
+    font-size: $fontsize*1.8;
+    line-height: 48px;
+    color: #E3DFDF;
+  }
+  .log-out {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    text-align: center;
+    padding: 1vw;
+    width: 100%;
+    background-color: #000000;
+    box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
+  }
 }
 
 .login_textBox {
   padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: $fontsize*.7;
+  margin-bottom: 1vh;
 }
 
 .logout_btn {
-  padding: 10px;
-  font-size: 18px;
-  margin-top: 10px;
+
   border: none;
   color: white;
   background-color: rgb(119, 56, 125);
@@ -89,14 +103,6 @@ a:hover {
     transition: $boxShadowTransition;
   }
 }
-
-// button {
-//   transition-duration: 0.4s;
-// }
-
-// button:hover {
-//   background-color: red;
-// }
 
 .register {
   height: 100vh;
@@ -171,14 +177,14 @@ a:hover {
   }
 }
 
-
 .landing-page{
   display: flex;
   flex-flow: column wrap;
   position: relative;
   color: white;
 
-  .landing {
+
+.landing {
     height: 100vh;
     width: 100vw;
     display: grid;
@@ -187,14 +193,20 @@ a:hover {
 
 
     .demo-section {
-      grid-column-start: 2;
-      grid-row-start: 2;
-      align-self: flex-start;
-      text-align: center;
-      height: 75%;
-      width: 100%;
-      padding: 1vw;
-      border: 5px solid black;
+      box-sizing: border-box;
+
+      position: absolute;
+      width: 861px;
+      height: 517px;
+      left: 71px;
+      top: 380px;
+
+      background: #38404E;
+      border-width: 1px 0px 0px 1px;
+      border-style: solid;
+      border-color: #7AFA59;
+      box-shadow: 15px 10px 20px 4px rgba(55, 183, 255, 0.25);
+      border-radius: 16px;
     }
 
 
@@ -227,15 +239,17 @@ a:hover {
 
 
         .login {
-        height: auto;
-        width: 100%;
-        display: flex;
-        align-self: center;
-        align-items: center;
-        // justify-content: flex-end;
-        padding: 1vw;
-        background-color: #000000;
-        box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
+          box-sizing: border-box;
+
+          position: absolute;
+          width: 349px;
+          height: 443px;
+          right: 66px;
+          top: 290px;
+
+          background: #38404E;
+          box-shadow: 8px 10px 16px 9px #B4376B;
+          border-radius: 8px;
 
         .login_container {
           grid-column-start: 2;
@@ -253,14 +267,6 @@ a:hover {
           margin-bottom: 10px;
           border: none;
           color: white;
-          background-color: rgb(119, 56, 125);
-          &:hover {
-            color: $crimson;
-            box-shadow: 0 0 1.3vw 0.2vw $second, 0 0 1.3vw 0.2vw $second inset;
-            transition: $boxShadowTransition;
-          }
-        }
-        .login_google {
           background-color: rgb(119, 56, 125);
           &:hover {
             color: $crimson;
