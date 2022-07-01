@@ -20,9 +20,9 @@ function CommentTile({ comment }) {
       </div>
       <div className="commentBody">
         <p className="postBody">{comment.body}</p>
-      </div>
-      <div className="actionsIcons">
-        <MdReport onClick={reportComment} className="icon" />
+        <div className="actionsIcons">
+          <MdReport onClick={reportComment} className="icon" />
+        </div>
       </div>
     </div>
   );

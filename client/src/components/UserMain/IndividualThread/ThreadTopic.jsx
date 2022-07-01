@@ -19,10 +19,9 @@ function ThreadTopic({ thread }) {
         <p>
           {thread.body}
         </p>
-      </div>
-      <div>
-        <span>{MdComment}</span>
-        <span>{MdReport}</span>
+        <div className="actionsIcons">
+          <MdReport className="icon" />
+        </div>
       </div>
     </div>
   );
