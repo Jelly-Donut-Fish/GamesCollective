@@ -55,11 +55,13 @@ function ThreadsView({ currentUser, game, exitModal }) {
     <div className="outerModal">
       <div className="modal">
         <div className="threadsView">
-          <h2>{game.name}</h2>
-          {singleThreadView && (
-            <span onClick={toggleSingleThreadView}>Go Back to Discussions</span>
-          )}
-          <span onClick={exit}>{MdClear}</span>
+          <div className="threadsHeader">
+            <h2 className="gameDiscussed">{game.name}</h2>
+            {singleThreadView && (
+              <span onClick={toggleSingleThreadView}>Go Back to Discussions</span>
+            )}
+            <MdClear onClick={exit} className="close" />
+          </div>
           { !singleThreadView && (
           <ThreadsList
             toggleThreadView={toggleSingleThreadView}
