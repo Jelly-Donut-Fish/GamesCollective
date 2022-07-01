@@ -15,7 +15,6 @@ function MyCollectionTile({
     if (confirm(`Are you sure you want to remove ${game.name} from your collection?`) === true) {
       removeFromCollection(index);
     }
-    console.log(currentUser.site_id, game.id)
     axios.delete('/games_users', { params: { user_id: currentUser.site_id, game_id: game.id } })
       .then(() => {
         alert(`${game.name} was removed from your collection`);
