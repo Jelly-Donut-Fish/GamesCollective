@@ -171,13 +171,15 @@ a:hover {
 
 .landing-page{
   display: flex;
-  height: 100vh;
   flex-flow: column wrap;
   position: relative;
   color: white;
 
+.frontpage {
+    height: 88vh;
+  }
+
 .landing {
-    // height: 100%;
     width: 100vw;
     display: grid;
     grid-template-columns: 2fr 6fr 1fr;

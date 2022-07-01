@@ -136,10 +136,12 @@ a:hover:hover {
 
 .landing-page {
   display: flex;
-  height: 100vh;
   flex-flow: column wrap;
   position: relative;
   color: white;
+}
+.landing-page .frontpage {
+  height: 88vh;
 }
 .landing-page .landing {
   width: 100vw;
