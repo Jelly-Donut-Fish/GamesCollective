@@ -32,6 +32,17 @@ function GameDetails({ game, toggleThreadsView, toggleGameView }) {
   };
 
 
+  axios.get(`/games_users/${user_id}`)
+    .then((res) => {
+      res.results.forEach((game) => {
+        if (gameId === game.id) {
+          setRating(game.user_rating);
+          setReview(game.user_review);
+        }
+      })
+    })
+    .catch((err) => console.log(err));
+
   const setNewRating = (e) => {
     e.preventDefault();
     if (e.target.name === 'rating') {
@@ -51,7 +62,7 @@ function GameDetails({ game, toggleThreadsView, toggleGameView }) {
     }
     if (e.target.name === 'review') {
       setSaveReview(e.target.value);
-      axios.put()
+      axios.put();
     }
   };
 

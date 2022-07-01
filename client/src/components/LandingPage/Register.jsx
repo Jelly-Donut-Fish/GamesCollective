@@ -26,7 +26,7 @@ function Register({ getUser, currentUser }) {
       loggedUser.image_url = photoURL;
       getUser(loggedUser);
     } catch (err) {
-      console.error('An error occured while fetching user data', err);
+      console.error('An error occurred while fetching user data', err);
     }
   };
 
