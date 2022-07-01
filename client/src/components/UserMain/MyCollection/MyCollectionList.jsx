@@ -56,13 +56,13 @@ function MyCollectionList({
               };
 
               let isTrue = true;
-              if (!game.name.toLowerCase().match(query.toLowerCase())) {
+              if (game.name ? !game.name.toLowerCase().match(query.toLowerCase()) : true) {
                 isTrue = false;
-              } else if (!game.genres.some(compareGenreTest)) {
+              } else if (game.genres ? !game.genres.some(compareGenreTest) : true) {
                 isTrue = false;
-              } else if (!game.categories.some(compareCategoryTest)) {
+              } else if (game.categories ? !game.categories.some(compareCategoryTest) : true) {
                 isTrue = false;
-              } else if (!game.status.toLowerCase().match(statusField)) {
+              } else if (game.status ? !game.status.toLowerCase().match(statusField) : true) {
                 isTrue = false;
               }
 
