@@ -1,3 +1,25 @@
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
 .gameTitle {
 font-family: 'Barlow';
 font-style: normal;
@@ -17,10 +39,13 @@ color: #ffffff;
 }
 
 .threadsList {
+  box-sizing:border-box;
+  position: fixed;
   width: 80%;
-  height: 80%;
+  height: 60%;
   overflow: scroll;
   background-color: darkslategray;
+  @include scrollbars(10px, rgba(86, 247, 255, 0.597), black);
 }
 
 .gameDiscussed {
@@ -33,5 +58,25 @@ color: #ffffff;
     color: #7AFA59;
     cursor: pointer;
   }
+}
+
+datePosted {
+  float: right;
+}
+
+button {
+  background-color: #515C97;
+  border-radius: 5px;
+  color: lightgray;
+}
+
+.topic {
+  background-color: #38404E;
+  border-radius: 16px;
+  border-width: 1px 0px 0px 1px;
+  border-style: solid;
+  border-color: #b477ff;
+  box-shadow: 15px 10px 20px 4px rgba(139, 15, 234, 0.25);
+  padding: 2%;
 }
 

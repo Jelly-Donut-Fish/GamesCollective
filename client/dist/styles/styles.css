@@ -12,6 +12,20 @@ body {
   background: url(.png), #191F2F;
   background-blend-mode: screen, normal;
 }
+body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background: rgba(86, 247, 255, 0.597);
+}
+body::-webkit-scrollbar-track {
+  background: black;
+}
+body {
+  scrollbar-face-color: rgba(86, 247, 255, 0.597);
+  scrollbar-track-color: black;
+}
 
 /* Header */
 .header {
