@@ -1,2 +1,6 @@
 node_modules
 .env
+yarn.lock
+bundle.js
+yarn-error.log
+firebaseAuth.js

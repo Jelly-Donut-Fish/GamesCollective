@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@600&family=Barlow:wght@400;700&display=swap');
+
+$akshar: 'Akshar', sans-serif;
+$barlow: 'Barlow', sans-serif;
+
+* {
+  font-family: $barlow;
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+body {
+width: 100%;
+height: 100%;
+color: white;
+overflow-y: scroll;
+background: linear-gradient(123.77deg, #343236 10.71%, #1E2031 83.42%);
+background: url(.png), #191F2F;
+background-blend-mode: screen, normal;
+@include scrollbars(10px, rgba(86, 247, 255, 0.597), black);
+}
+
+
+
+/* Header */
+.header {
+width: 100%;
+height: 106px;
+left: 0px;
+top: 0px;
+background: radial-gradient(36.75% 9796.72% at 50% 50%, #434C5A 0%, #191F2F 100%);
+mix-blend-mode: normal;
+border-bottom: 4px solid b#191E2C;
+box-shadow: 0px 4px 16px 10px rgba(254, 93, 190, 0.25);
+background: url(.png), radial-gradient(36.75% 9796.72% at 50% 50%, #434C5A 0%, #191F2F 100%);
+mix-blend-mode: normal;
+border-bottom: 4px solid #191E2C;
+}
+
+.outerModal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal {
+position: fixed;
+width: 80%;
+height: 80%;
+top: 0;
+left: 0;
+margin: 5% 10%;
+padding: 20px;
+background: #38404E;
+border-width: 1px 0px 0px 1px;
+border-style: solid;
+border-color: #7AFA59;
+box-shadow: 15px 10px 20px 4px rgba(55, 183, 255, 0.25);
+border-radius: 16px;
+}
+
+.close {
+  float: right;
+  top: 3px;
+  right: 1%;
+  :hover {
+    color:#7AFA59;
+  }
+}
+

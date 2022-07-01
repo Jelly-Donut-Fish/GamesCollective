@@ -1,0 +1,22 @@
+import { connect } from 'react-redux';
+// eslint-disable-next-line import/extensions
+import App from '../components/App.jsx';
+
+const mapStateToProps = (state) => (
+  {
+    // place state props that need to be added
+    catalog: state.catalog,
+  }
+);
+
+// example of mapping reducers
+// var mapDispatchToProps = (dispatch) => {
+//   return {
+//     setNewFilter: (filter) => dispatch(setNewFilter(filter)),
+//     setUserIsSort: (boolValue) => dispatch(setUserIsSort(boolValue))
+//   };
+// };
+
+const AppContainer = connect(mapStateToProps)(App);
+
+export default AppContainer;
