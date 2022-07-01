@@ -54,10 +54,10 @@ function MyCollectionTile({
       </div>
       <div className="moreInfo">
         <div className="status">
-          <p className="status">{game.status}</p>
+          <p className="status">{game.status && game.status}</p>
         </div>
         <div className="ratingMini">
-          <p className="rating">{game.rating}</p>
+          <p className="rating">{game.overall_rating ? game.overall_rating : 'No ratings yet'}</p>
         </div>
         <div className="buttons">
           <span onClick={openThreadView} className="game_icon"><MdComment /></span>
