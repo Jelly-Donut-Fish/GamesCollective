@@ -21,16 +21,17 @@ function ThreadsTile({ toggleThreadView, thread }) {
     <div className="threadTile">
       <div className="postInfo">
         <span>{thread.username}</span>
-        <span className="date">{moment(thread.date).format("d MMM, YYYY")}</span>
+        <span className="datePosted">{moment(thread.date).format("d MMM, YYYY")}</span>
       </div>
+      <div className="clear" />
       <div>
         <h3 className="link" onClick={handleThreadClick}>
           {thread.title}
         </h3>
       </div>
-      <div>
+      <div className="actionsIcons">
         <MdComment onClick={handleThreadClick} alt="discuss" />
-        <MdReport onClick={handleReport} alt="report"/>
+        <MdReport onClick={handleReport} alt="report" />
       </div>
     </div>
   );

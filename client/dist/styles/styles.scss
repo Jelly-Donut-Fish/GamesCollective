@@ -7,6 +7,28 @@ $barlow: 'Barlow', sans-serif;
   font-family: $barlow;
 }
 
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
 body {
 width: 100%;
 height: 100%;
@@ -15,7 +37,10 @@ overflow-y: scroll;
 background: linear-gradient(123.77deg, #343236 10.71%, #1E2031 83.42%);
 background: url(.png), #191F2F;
 background-blend-mode: screen, normal;
+@include scrollbars(10px, rgba(86, 247, 255, 0.597), black);
 }
+
+
 
 /* Header */
 .header {
@@ -68,3 +93,4 @@ border-radius: 16px;
     color:#7AFA59;
   }
 }
+
