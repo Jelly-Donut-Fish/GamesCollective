@@ -4,12 +4,15 @@ import CatalogContainer from '../../containers/CatalogContainer.js';
 import MyCollectionContainer from '../../containers/MyCollectionContainer.js';
 import GameDetails from './GameDetails/GameDetails.jsx';
 import ThreadsContainer from '../../containers/ThreadsContainer.js';
+import UserInfo from './UserInfo.jsx';
 
 function UserMain() {
   const [gameDisplayed, toggleGameDisplay] = useState(false);
   const [gameThreadsDisplayed, toggleGameThreads] = useState(false);
   const [game, setGame] = useState({});
   const [gameId, setGameId] = useState();
+  const [username, setUsername] = useState('Joy Parker');
+  const [userphoto, setUserphoto] = useState('https://i.postimg.cc/J4Knq464/Joy.png');
 
   const toggleGameView = (gameInfo) => {
     setGame(gameInfo);
@@ -24,6 +27,10 @@ function UserMain() {
 
   return (
     <div>
+      <UserInfo
+        username={username}
+        userphoto={userphoto}
+      />
       <div className="container">
         <div className="collection">
           <MyCollectionContainer
@@ -39,7 +46,7 @@ function UserMain() {
         </div>
       </div>
       <div className="clear">
-        {gameDisplayed && <GameDetails gameId={gameId} game={game} />}
+        {gameDisplayed && <GameDetails gameId={gameId} game={game} toggleThreadsView={toggleThreadsView} toggleGameView={toggleGameView}/>}
         {gameThreadsDisplayed && (
           <div className="outerModal">
             <div className="modal">
@@ -51,7 +58,7 @@ function UserMain() {
             </div>
           </div>
         )}
-      </div>
+       </div>
     </div>
   );
 }
