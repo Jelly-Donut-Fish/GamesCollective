@@ -28,21 +28,26 @@ function ThreadsView({ currentUser, game, exitModal }) {
   };
 
   const toggleSingleThreadView = (comment = {}) => {
+    setSelectedThread(comment);
+    setSingleThreadComments(filterChildren(comment));
+    setSingleThreadView(!singleThreadView);
+  };
+
+  const filterChildren = (comment = {}) => {
     const childrenComments = [];
     threads.forEach((thread) => {
       if (thread.parent_id === comment.id) {
         childrenComments.push(thread);
       }
     });
-    setSelectedThread(comment);
-    setSingleThreadComments(childrenComments);
-    setSingleThreadView(!singleThreadView);
+    return childrenComments;
   };
 
   const addThread = (thread) => {
     axios.post('/comments', thread)
       .then(() => (axios.get(`/comments/${game.id}`)))
       .then((res) => setThreads(res.data))
+      .then(() => setSingleThreadComments(filterChildren(selectedThread)))
       .catch((err) => console.log(err));
   };
 
@@ -59,6 +64,7 @@ function ThreadsView({ currentUser, game, exitModal }) {
             <div className="close">
               <MdClear onClick={exit} />
             </div>
+            <div className="clear" />
             <h2 className="gameDiscussed">{game.name}</h2>
             <br />
             {singleThreadView && (
@@ -68,40 +74,44 @@ function ThreadsView({ currentUser, game, exitModal }) {
                 Go Back to Discussions
               </span>
             )}
+            { !singleThreadView && (
+            <ThreadsList
+              toggleThreadView={toggleSingleThreadView}
+              threads={threads}
+            />
+            )}
+            {singleThreadView && (
+              <SingleThreadView
+              toggleThreadView={toggleSingleThreadView}
+              thread={selectedThread}
+              childComments={singleThreadComments}
+              currentUser={currentUser}
+              gameId={game.id}
+              game={game.name}
+              addThread={addThread}
+              />
+            )}
           </div>
-          { !singleThreadView && (
-          <ThreadsList
-            toggleThreadView={toggleSingleThreadView}
-            threads={threads}
-          />
-          )}
-          {singleThreadView && (
-          <SingleThreadView
-            toggleThreadView={toggleSingleThreadView}
-            thread={selectedThread}
-            childComments={singleThreadComments}
-            currentUser={currentUser}
-            gameId={game.id}
-            game={game.name}
-            addThread={addThread}
-          />
-          )}
-          <button
-            type="button"
-            onClick={toggleAddThreadView}
-            className="addThreadButton"
-          >
-            Add Thread
-          </button>
-          {addThreadView && (
-          <AddThread
-            toggleAddThread={toggleAddThreadView}
-            addThread={addThread}
-            threads={threads}
-            currentUser={currentUser}
-            gameId={game.id}
-          />
-          )}
+          <div>
+            { !singleThreadView && (
+            <button
+              type="button"
+              onClick={toggleAddThreadView}
+              className="addThreadButton"
+            >
+              Add Thread
+            </button>
+            )}
+            {addThreadView && (
+            <AddThread
+              toggleAddThread={toggleAddThreadView}
+              addThread={addThread}
+              threads={threads}
+              currentUser={currentUser}
+              gameId={game.id}
+            />
+            )}
+          </div>
         </div>
       </div>
     </div>

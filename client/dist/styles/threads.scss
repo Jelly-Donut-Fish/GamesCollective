@@ -31,11 +31,20 @@ color: #ffffff;
 }
 
 .threadTile {
+  box-sizing: border-box;
   border-radius: 16px;
   padding: 10px;
   background-color: #38404E;
   box-shadow: 7px 5px 10px 2px#ffe419;
-  margin: 2px;
+  margin: 4px 3px;
+  border-width: 1px 0px 2px 1px;
+  border-style: solid;
+  border-color:rgb(255, 133, 62);
+  border-bottom-color: #171b24;
+    & :hover {
+      bottom: 1px;
+      right: 1px;
+  }
 }
 
 .threadsList {
@@ -44,7 +53,6 @@ color: #ffffff;
   width: 80%;
   height: 60%;
   padding: 1%;
-  max-width: 900px;
   margin: auto auto;
   overflow: scroll;
   border-radius: 16px;
@@ -77,30 +85,50 @@ button {
 .topic {
   background-color: #38404E;
   border-radius: 16px;
-  border-width: 1px 0px 0px 1px;
+  border-width: 1px 0px 2px 1px;
   border-style: solid;
   border-color: #b477ff;
+  border-bottom-color: #171b24;
   box-shadow: 15px 10px 20px 4px rgba(139, 15, 234, 0.25);
   padding: 2%;
 }
 
 .discussions {
   width: 80%;
-  margin: 0 auto;
+  margin: 5px auto;
 }
 
 .commentTile {
   width: 40%;
   border-radius: 10px;
+  border-width: 1px 0px 2px 1px;
+  border-style: solid;
+  border-color: #b477ff;
+  border-bottom-color: #171b24;
+  box-shadow: 15px 10px 20px 4px rgba(139, 15, 234, 0.25);
+  padding: 2%;
+  margin: 5px;
+  margin-left: 5%;
 }
 
-.addThreadButton {
-  width: fit-content;
-  height: 100%;
-  margin: 0 auto;
-  padding: 1px;
-}
+// .addThreadButton {
+//   width: fit-content;
+//   height: auto;
+//   margin: 0 auto;
+//   padding: 1px;
+// }
 
 .actionsIcons {
-  width: 30%
+  width: 25%;
+  float: right;
+  margin: 0 2%;
+  font-size: 25px;
+  color: #58629e;
+}
+
+.icon {
+  :hover{
+    color: #B4376B;
+    cursor: pointer;
+  }
 }
