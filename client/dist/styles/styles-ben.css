@@ -3,6 +3,14 @@
   padding: 0;
 }
 
+body {
+  background: linear-gradient(-45deg, #060606, #1a0e19, #250824, #300f22);
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  animation: gradient 15s ease infinite;
+  color: white;
+}
+
 input {
   margin-top: 1.5vh;
   padding: 0.5vw 5vw 0.5vw 1vw;
@@ -14,9 +22,13 @@ input:focus {
 }
 
 a:link, a:visited {
-  color: white;
-  font-size: 24px;
-  border: 2px inset purple;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  text-align: center;
+  padding: 1vw;
+  background-color: #000000;
+  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
 }
 
 a:hover {
@@ -24,98 +36,94 @@ a:hover {
 }
 
 .nav-bar {
+  display: flex;
+  background: url(.png), radial-gradient(36.75% 9796.72% at 50% 50%, #434C5A 0%, #191F2F 100%);
+  height: 12vh;
+  mix-blend-mode: normal;
+  border-bottom: 4px solid #191E2C;
+  box-shadow: 0px 4px 16px 10px rgba(254, 93, 190, 0.25);
+}
+.nav-bar .link {
+  margin: auto;
+  left: 45%;
+  top: 3vh;
+  width: 10%;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+}
+.nav-bar .title {
+  position: absolute;
+  align-self: flex-start;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 43.2px;
+  line-height: 48px;
+  color: #E3DFDF;
+}
+.nav-bar .log-out {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  text-align: center;
+  padding: 1vw;
+  right: 3vw;
+  top: 1vh;
+  background-color: #000000;
+  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
+}
+
+.login_textBox {
+  padding: 10px;
+  font-size: 16.8px;
+  margin-bottom: 1vh;
+}
+
+.logout_btn {
+  border: none;
+  color: white;
+  background-color: rgb(119, 56, 125);
+}
+.logout_btn:hover {
+  color: #D8315B;
+  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
+  transition: box-shadow 1s ease-in-out;
+}
+
+.login_btn {
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border: none;
+  color: white;
+  background-color: rgb(119, 56, 125);
+}
+.login_btn:hover {
+  color: #D8315B;
+  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
+  transition: box-shadow 1s ease-in-out;
+}
+
+.page {
+  display: flex;
+  flex-flow: column wrap;
+  position: relative;
+  color: white;
+}
+.page a {
   align-self: center;
-  grid-column-start: 2;
 }
-
-.register {
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 10% 90%;
-  justify-content: center;
-}
-.register .register__container {
-  grid-column-start: 2;
-  grid-row-start: 2;
+.page .page_container {
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
+  align-self: center;
   text-align: center;
   padding: 1vw;
+  margin-top: 3vh;
   background-color: #000000;
   box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
-}
-.register .register__textBox {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-.register .register__btn {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
-  border: none;
-  color: white;
-  background-color: rgb(119, 56, 125);
-}
-.register .register__btn:hover {
-  color: #D8315B;
-  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
-  transition: box-shadow 1s ease-in-out;
-}
-.register .register__google {
-  background-color: rgb(119, 56, 125);
-}
-.register .register__google:hover {
-  color: #D8315B;
-  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
-  transition: box-shadow 1s ease-in-out;
-}
-.register .register div {
-  margin-top: 7px;
-}
-
-.reset {
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 10% 90%;
-  justify-content: center;
-}
-.reset .reset__container {
-  grid-column-start: 2;
-  grid-row-start: 2;
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
-  text-align: center;
-  padding: 1vw;
-  background-color: #000000;
-  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
-}
-.reset .reset__textBox {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-.reset .reset__btn {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
-  border: none;
-  color: white;
-  background-color: rgb(119, 56, 125);
-}
-.reset .reset__btn:hover {
-  color: #D8315B;
-  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
-  transition: box-shadow 1s ease-in-out;
-}
-.reset .reset div {
-  margin-top: 7px;
 }
 
 .landing-page {
@@ -128,18 +136,22 @@ a:hover {
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-columns: 2fr 3fr 2fr 1fr;
+  grid-template-columns: 2fr 6fr 1fr;
   grid-template-rows: 10% 90%;
 }
 .landing-page .landing .demo-section {
+  box-sizing: border-box;
+  position: relative;
+  width: 35vw;
+  height: 100vh;
   grid-column-start: 2;
-  grid-row-start: 2;
-  align-self: flex-start;
-  text-align: center;
-  height: 75%;
-  width: 100%;
-  padding: 1vw;
-  border: 5px solid black;
+  top: 15vh;
+  background: #38404E;
+  border-width: 1px 0px 0px 1px;
+  border-style: solid;
+  border-color: #7AFA59;
+  box-shadow: 15px 10px 20px 4px rgba(55, 183, 255, 0.25);
+  border-radius: 16px;
 }
 .landing-page .landing .landing_login {
   grid-column-start: 3;
@@ -165,28 +177,16 @@ a:hover {
   background-color: #000000;
   box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
 }
-.landing-page .landing .landing_login .logout_btn {
-  padding: 10px;
-  font-size: 18px;
-  margin-top: 10px;
-  border: none;
-  color: white;
-  background-color: rgb(119, 56, 125);
-}
-.landing-page .landing .landing_login .logout_btn:hover {
-  color: #D8315B;
-  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
-  transition: box-shadow 1s ease-in-out;
-}
 .landing-page .landing .landing_login .login {
+  box-sizing: border-box;
+  position: absolute;
+  width: 15vw;
   height: auto;
-  width: 100%;
-  display: flex;
-  align-self: center;
-  align-items: center;
-  padding: 1vw;
-  background-color: #000000;
-  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
+  right: 5vw;
+  top: 7vw;
+  background: #38404E;
+  box-shadow: 8px 10px 16px 9px #B4376B;
+  border-radius: 8px;
 }
 .landing-page .landing .landing_login .login .login_container {
   grid-column-start: 2;
@@ -197,11 +197,6 @@ a:hover {
   background-color: #2b1426;
   padding: 1vw;
 }
-.landing-page .landing .landing_login .login .login_textBox {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
 .landing-page .landing .landing_login .login .login_btn {
   padding: 10px;
   font-size: 18px;
@@ -211,14 +206,6 @@ a:hover {
   background-color: rgb(119, 56, 125);
 }
 .landing-page .landing .landing_login .login .login_btn:hover {
-  color: #D8315B;
-  box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
-  transition: box-shadow 1s ease-in-out;
-}
-.landing-page .landing .landing_login .login .login_google {
-  background-color: rgb(119, 56, 125);
-}
-.landing-page .landing .landing_login .login .login_google:hover {
   color: #D8315B;
   box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
   transition: box-shadow 1s ease-in-out;
