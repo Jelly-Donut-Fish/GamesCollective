@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
 import {
   query, collection, getDocs, where,
 } from 'firebase/firestore';
@@ -12,45 +13,37 @@ function LandingPage({ getUser, currentUser }) {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState('');
   const navigate = useNavigate();
-  // const fetchUserName = async () => {
-  //   try {
-  //     const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
-  //     const doc = await getDocs(q);
-  //     const data = doc.docs[0].data();
-  //     setName(data.name);
-  //   } catch (err) {
-  //     console.error(err);
-  //     alert('An error occured while fetching user data');
-  //   }
-  // };
 
-  // useEffect(() => {
-  //   if (loading) return;
-  //   if (!user) return navigate('/');
-  //   fetchUserName();
-  // }, [user, loading]);
-
-  // useEffect(() => {
-  //   if (user) getuserId();
-  // }, [user]);
-
-  // const getuserId = async () => {
-  //   try {
-  //     const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
-  //     const doc = await getDocs(q);
-  //     const data = doc.docs[0].data();
-  //     getUser(data.uid);
-  //   } catch (err) {
-  //     console.error(err);
-  //     console.log('An error occured while fetching user data');
-  //   }
-  // };
+  const getUserdb = () => {
+    axios.get('./users', {
+      params: {
+        user_id: user.uid,
+      },
+    })
+      .then((res) => {
+        console.log('res', res);
+        const loggedUser = {};
+        loggedUser.username = res.data.results.username;
+        loggedUser.email = user.email;
+        loggedUser.site_id = user.uid;
+        loggedUser.image_url = res.data.results.img_url;
+        loggedUser.bio = res.data.results.bio;
+        getUser(loggedUser);
+      })
+      .catch((err) => {
+        console.log('error in landing page get user db', err);
+      });
+  };
 
   const handleLogout = (e) => {
     e.preventDefault();
     logout();
-    getUser();
+    getUser({});
   };
+
+  useEffect(() => {
+    if (user) getUserdb();
+  }, [user]);
 
   return (
     <div className="landing-page">
@@ -58,14 +51,14 @@ function LandingPage({ getUser, currentUser }) {
         <h3>Games Collection</h3>
         <br />
         <Link className="link" to="/UserMain">User Main</Link>
+        <Link className="link" to="/UpdateProfile">Update Profile</Link>
       </nav>
       <div className="landing">
         <DemoSection />
         <div className="landing_login">
           <div className="log-out">
             Logged in as
-            <div>{name}</div>
-            <div>{user?.email}</div>
+            <div>{currentUser.username}</div>
             <button type="button" className="logout_btn" onClick={handleLogout}>
               Logout
             </button>

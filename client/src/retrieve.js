@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
+import axios from 'axios';
 import getCatalog from '../actions/getCatalog.js';
 import store from '../store/store.js';
-import axios from 'axios';
 
 const actions = [
   getCatalog,
@@ -11,7 +11,12 @@ function retrieve() {
   store.dispatch({ type: 'START' });
   const promisesAxios = [
     // place axios routes here
-    axios({ method: 'get', url: '/games', baseURL: 'http://localhost:3000', params: { page: 1, count: 10, q: '' }}),
+    axios({
+      method: 'get',
+      url: '/games',
+      baseURL: 'http://localhost:3000',
+      params: { page: 1, count: 10, q: '' },
+    }),
   ];
 
   Promise.all(promisesAxios).then((promises) => {

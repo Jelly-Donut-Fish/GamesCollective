@@ -1,15 +1,26 @@
 /* eslint-disable no-nested-ternary */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BsFillCheckCircleFill, BsFillPencilFill } from 'react-icons/bs';
 
-function GameDetails({ game }) {
-  const [rating, setRating] = useState('');
+function GameDetails({ gameId, user_id }) {
+  const [rating, setRating] = useState(0);
   const [saveRating, setSaveRating] = useState('');
   const [review, setReview] = useState('');
   const [saveReview, setSaveReview] = useState('');
   const [changeRating, setChangeRating] = useState(true);
   const [changeReview, setChangeReview] = useState(true);
+
+  axios.get(`/games_users/${user_id}`)
+    .then((res) => {
+      res.results.forEach((game) => {
+        if (gameId === game.id) {
+          setRating(game.user_rating);
+          setReview(game.user_review);
+        }
+      })
+    })
+    .catch((err) => console.log(err));
 
   const setNewRating = (e) => {
     e.preventDefault();
@@ -30,7 +41,7 @@ function GameDetails({ game }) {
     }
     if (e.target.name === 'review') {
       setSaveReview(e.target.value);
-      axios.put()
+      axios.put();
     }
   };
 

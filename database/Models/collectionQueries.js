@@ -51,6 +51,9 @@ select json_agg(
       'website', g.website,
       'required_age', g.required_age,
       'status', g.status,
+      'overall_rating', (select trim_scale(AVG(gu.rating)) from game_user gu where gu.game_id = g.id and gu.rating is not null),
+      'user_rating', g.rating,
+      'user_review', g.review,
       'genres', (select json_agg(description)
                  from genre INNER JOIN game_genre gg ON
                  (genre.genre_id = gg.genre_id )
@@ -78,7 +81,9 @@ from (
       gs.release_date,
       gs.website,
       gs.required_age,
-      gu.status
+      gu.status,
+      gu.rating,
+      gu.review
           FROM games gs
           inner join game_user gu
           on (gs.id = gu.game_id)
@@ -92,7 +97,7 @@ from (
 const removeGameFromCol = `
   delete from game_user where user_id = (select u.id
   from users u
-  where u.site_id = $1) and game_id = $2
+  where u.site_id = $1) and game_id = $2;
 `;
 
 module.exports = {
