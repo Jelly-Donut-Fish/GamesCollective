@@ -1,32 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@600&family=Barlow:wght@400;700&display=swap');
-
-$akshar: 'Akshar', sans-serif;
-$barlow: 'Barlow', sans-serif;
-
-* {
-  font-family: $barlow;
-}
 
 .outerModal {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .5);
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 .modal {
   width: 80%;
   height: 80%;
-  background-color: #38404E;
-  box-shadow: 10px 5px 5px #37B7FF;
+  margin: 15% auto;
+  padding: 20px;
+  background: #38404E;
+  border-width: 1px 0px 0px 1px;
+  border-style: solid;
+  border-color: #7AFA59;
+  box-shadow: 15px 10px 20px 4px rgba(55, 183, 255, 0.25);
+  border-radius: 16px;
 }
 
 .gameTitle {
-position: absolute;
-width: 260px;
-height: 20px;
-left: 24px;
-top: 14px;
-
 font-family: 'Barlow';
 font-style: normal;
 font-weight: 400;
