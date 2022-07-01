@@ -67,20 +67,26 @@ function GameDetails({ game, currentUser, toggleThreadsView, toggleGameView }) {
     }
   };
 
+  const exit = (e) => {
+    e.preventDefault();
+    toggleGameView(game);
+  };
+
   return (
     <div className="outerModal">
       <div className="modal">
         <div className="close">
-          <MdClear />
+          <MdClear onClick={exit} />
         </div>
         <div className="game info">
           <div className="game picture">
-            <img src={game.header} />
+            <img alt="Game Title Art" src={game.header} />
           </div>
           <div className="game details">
             <span>
               <h3>{game.name}</h3>
-              <span>{moment(game.release_date).format("d MMM, YYYY")}</span><br></br>
+              <span className="rDate">{moment(game.release_date).format('d MMM, YYYY')}</span>
+              <br />
             </span>
             <h4>{`Developer/Publisher: ${game.developers} ${game.publishers}`}</h4><br></br>
             <span>Platforms Available: </span>
