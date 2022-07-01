@@ -1,13 +1,20 @@
 import React from 'react';
 
-function UserInfo({ username, userphoto }) {
+function UserInfo({ currentUser, userphoto }) {
   return (
     <div className="userInfo">
       <div className="userImage">
-        <img src={userphoto} alt={`${username}'s profile`} className="profilePic" />
+        { currentUser.image_url
+          ? <img src={currentUser.image_url} alt={`${currentUser.username}'s profile`} className="profilePic" />
+          : <img src={userphoto} alt={`${currentUser.username}'s profile`} className="profilePic" />}
       </div>
       <div className="userDeets">
-        <h3 className="userName">{username}</h3>
+        {currentUser.username
+          ? <h3 className="userName">{currentUser.username}</h3>
+          : <h3 className="userName">Anonymous Gamer</h3>}
+        { currentUser.bio
+          ? <p>{currentUser.bio}</p>
+          : <p> Games Collective&lsquo;s Biggest Fan </p>}
       </div>
     </div>
   );

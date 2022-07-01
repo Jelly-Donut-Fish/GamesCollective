@@ -53,7 +53,7 @@ function UserMain({ currentUser }) {
         </div>
       </nav >
       <UserInfo
-        username={currentUser.username}
+        currentUser={currentUser}
         userphoto={userphoto}
       />
       <div className="container">
