@@ -23,7 +23,7 @@ function ThreadsTile({ toggleThreadView, thread }) {
         <span>{thread.date}</span>
       </div>
       <div>
-        <h3 onClick={handleThreadClick}>
+        <h3 className="link" onClick={handleThreadClick}>
           {thread.title}
         </h3>
       </div>

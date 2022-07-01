@@ -59,3 +59,12 @@ border-color: #7AFA59;
 box-shadow: 15px 10px 20px 4px rgba(55, 183, 255, 0.25);
 border-radius: 16px;
 }
+
+.close {
+  float: right;
+  top: 3px;
+  right: 1%;
+  :hover {
+    color:#7AFA59;
+  }
+}
