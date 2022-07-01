@@ -13,7 +13,7 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
   // set submit handler
   const submitSearch = (e) => {
     e.preventDefault();
-    console.log(quer, gen, cat, stat);
+   // console.log(quer, gen, cat, stat);
     setFilters(quer, gen, cat, stat);
     const myNewCollection = myCollection.slice();
     getMyCollection([...myNewCollection]);
@@ -21,7 +21,7 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
 
   const filterHandler = (e) => {
     e.preventDefault();
-    console.log('filter', e.target.value);
+   // console.log('filter', e.target.value);
     if (e.target.id === 'title') {
       setQuer(e.target.value);
     }
