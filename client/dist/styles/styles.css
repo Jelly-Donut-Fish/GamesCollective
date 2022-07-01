@@ -56,4 +56,13 @@ body {
   border-radius: 16px;
 }
 
+.close {
+  float: right;
+  top: 3px;
+  right: 1%;
+}
+.close :hover {
+  color: #7AFA59;
+}
+
 /*# sourceMappingURL=styles.css.map */
