@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Akshar:wght@600&family=Barlow:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 * {
   margin: 0;
   padding: 0;
+  font-family: "Barlow", sans-serif;
 }
 
 input {
@@ -34,37 +37,36 @@ a:link, a:visited {
   box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
 }
 
-a:hover {
-  color: red;
+a:hover:hover {
+  color: #7AFA59;
+  cursor: pointer;
 }
 
 .nav-bar {
-  display: flex;
-  flex-direction: column;
-  background: url(.png), radial-gradient(36.75% 9796.72% at 50% 50%, #434C5A 0%, #191F2F 100%);
+  display: inline-grid;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  background: radial-gradient(36.75% 9796.72% at 50% 50%, #434C5A 0%, #191F2F 100%);
   height: 12vh;
   mix-blend-mode: normal;
   border-bottom: 4px solid #191E2C;
   box-shadow: 0px 4px 16px 10px rgba(254, 93, 190, 0.25);
 }
 .nav-bar .link {
+  grid-row-start: 2;
   margin: auto;
-  top: 3vh;
-  width: 5%;
   font-family: "Barlow";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
 }
-.nav-bar .title {
+.nav-bar .pageTitle {
   position: absolute;
-  align-self: flex-start;
-  font-family: "Barlow";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 43.2px;
-  line-height: 48px;
-  color: #E3DFDF;
+  left: 1vh;
+  font-size: 30px;
+  font-family: "Press Start 2P", cursive;
+  height: 97px;
+  line-height: 97px;
 }
 .nav-bar .log-out {
   display: flex;
@@ -90,7 +92,8 @@ a:hover {
   background-color: rgb(119, 56, 125);
 }
 .logout_btn:hover {
-  color: #D8315B;
+  color: #7AFA59;
+  cursor: pointer;
   box-shadow: 0 0 1.3vw 0.2vw rgb(84, 4, 69), 0 0 1.3vw 0.2vw rgb(84, 4, 69) inset;
   transition: box-shadow 1s ease-in-out;
 }

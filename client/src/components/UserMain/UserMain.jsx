@@ -39,7 +39,7 @@ function UserMain({ currentUser }) {
   };
 
   return (
-    <div>
+    <div className="landing-page">
       <nav className="nav-bar">
         <h3 className="pageTitle">Games Collective</h3>
         <Link className="link nav" to="/">Login</Link>
