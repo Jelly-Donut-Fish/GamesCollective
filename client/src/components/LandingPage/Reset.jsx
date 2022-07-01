@@ -22,7 +22,7 @@ function Reset() {
     <div className="page">
       <nav className="nav-bar">
         <h3 className="pageTitle">Games Collective</h3>
-        <Link className="link" to="/">Home</Link>
+        <Link className="link" to="/">Login</Link>
       </nav>
       <div className="page_container">
         <input

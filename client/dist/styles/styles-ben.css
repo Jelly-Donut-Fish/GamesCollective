@@ -114,6 +114,8 @@ a:hover:hover {
 
 .page {
   display: flex;
+  height: 100vh;
+  position: absolute;
   flex-flow: column wrap;
   position: relative;
   color: white;
@@ -138,8 +140,10 @@ a:hover:hover {
   position: relative;
   color: white;
 }
+.landing-page .frontpage {
+  height: 88vh;
+}
 .landing-page .landing {
-  height: 100vh;
   width: 100vw;
   display: grid;
   grid-template-columns: 2fr 6fr 1fr;
@@ -171,7 +175,7 @@ a:hover:hover {
   box-sizing: border-box;
   position: relative;
   width: 45vw;
-  height: 100vh;
+  height: 25vh;
   grid-column-start: 2;
   top: 22vh;
   background: #38404E;

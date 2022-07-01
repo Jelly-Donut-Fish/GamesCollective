@@ -6,9 +6,10 @@ import MyCollectionContainer from '../../containers/MyCollectionContainer.js';
 import GameDetails from './GameDetails/GameDetails.jsx';
 import ThreadsContainer from '../../containers/ThreadsContainer.js';
 import UserInfo from './UserInfo.jsx';
-import { logout } from '../../authentication/firebase';
+import { auth } from '../../authentication/firebase';
+import { signOut } from 'firebase/auth';
 
-function UserMain({ currentUser }) {
+function UserMain({ currentUser, getUser }) {
   const [gameDisplayed, toggleGameDisplay] = useState(false);
   const [gameThreadsDisplayed, toggleGameThreads] = useState(false);
   const [game, setGame] = useState({});
@@ -30,8 +31,12 @@ function UserMain({ currentUser }) {
 
   const handleLogout = (e) => {
     e.preventDefault();
-    logout();
-    navigate('/');
+    signOut(auth)
+      .then(() => {
+        getUser({});
+        alert('User signed out');
+        navigate('/');
+      });
   };
 
   const triggerEasterEgg = () => {
@@ -42,7 +47,7 @@ function UserMain({ currentUser }) {
     <div className="landing-page">
       <nav className="nav-bar">
         <h3 className="pageTitle">Games Collective</h3>
-        <Link className="link nav" to="/">Login</Link>
+        {/* <Link className="link nav" to="/">Login</Link> */}
         <Link className="link nav" to="/UpdateProfile">Update Profile</Link>
         <div className="log-out">
           Logged in as
