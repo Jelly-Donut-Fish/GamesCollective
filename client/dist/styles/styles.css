@@ -29,7 +29,6 @@ body {
 }
 
 .outerModal {
-  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -42,9 +41,12 @@ body {
 }
 
 .modal {
+  position: fixed;
   width: 80%;
   height: 80%;
-  margin: 15% auto;
+  top: 0;
+  left: 0;
+  margin: 5% 10%;
   padding: 20px;
   background: #38404E;
   border-width: 1px 0px 0px 1px;
