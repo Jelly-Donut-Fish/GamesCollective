@@ -62,11 +62,20 @@
   width: 90%;
 }
 
-h1, h2, h3, h4, p {
+h1,
+h2,
+h3,
+h4,
+p {
   display: inline-block;
 }
 
-h1, h2, h3, h4, p, span {
+h1,
+h2,
+h3,
+h4,
+p,
+span {
   margin: 5px;
 }
 
@@ -80,7 +89,7 @@ h1, h2, h3, h4, p, span {
 
 .catalogTile {
   width: 100%;
-  margin: auto;
+  margin: 10px auto;
   clear: both;
   background-color: #38404E;
 }
@@ -96,7 +105,7 @@ h1, h2, h3, h4, p, span {
 }
 
 .otherInfo {
-  width: 20%;
+  width: 18%;
   float: left;
 }
 
@@ -125,7 +134,7 @@ h4 {
 
 .addGame {
   width: 80%;
-  margin: auto;
+  justify-content: left;
 }
 
 .add {
@@ -137,6 +146,45 @@ h4 {
   border: 0;
   border-radius: 0px;
   background: #515C97;
+}
+
+.collectionTile {
+  background-color: #38404E;
+  width: 95%;
+  clear: both;
+  display: block;
+  overflow: auto;
+  margin: 5px;
+}
+
+.mainInfo {
+  width: 45%;
+  float: left;
+}
+
+.title_image {
+  max-width: 95%;
+}
+
+.gameDetails {
+  width: 40%;
+  width: fit-content;
+  float: left;
+}
+
+.highlight {
+  font-size: 12px;
+}
+
+.lowlight {
+  font-size: 10px;
+  width: fit-content;
+}
+
+.moreInfo {
+  float: left;
+  width: 15%;
+  margin-bottom: 3px;
 }
 
 /*# sourceMappingURL=usercollection.css.map */
