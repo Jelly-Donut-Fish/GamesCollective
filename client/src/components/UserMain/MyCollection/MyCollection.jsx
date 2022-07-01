@@ -22,9 +22,6 @@ function MyCollection({
 
   useEffect(() => {
     const userID = currentUser.site_id || 1;
-    console.log('userID');
-    console.log(userID, typeof userID);
-    console.log(currentUser.site_id, typeof currentUser.site_id);
     axios.get(`/games_users/${userID}`)
       .then((games) => getMyCollection(games.data.results))
       .catch((err) => console.error(err));

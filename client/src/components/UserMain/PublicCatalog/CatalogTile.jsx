@@ -7,18 +7,14 @@ function CatalogTile({ item, getMyCollection, myCollection, currentUser }) {
     item.status = 'Want to Play';
     // getMyCollection([...myCollection, item]);
     // axios request to add to my collection
-    console.log('userID post')
-    console.log(currentUser.site_id)
-    console.log(item.id)
     axios.post(
       `/games_users/${currentUser.site_id}`,
       { game_id: item.id },
     )
       .then((res) => {
-        console.log('post response', res);
         getMyCollection([...myCollection, item]);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
   const uniqueCheck = (game) => game.name === item.name;
   return (
