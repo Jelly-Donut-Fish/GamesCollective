@@ -79,7 +79,8 @@ function UserMain({ currentUser }) {
             game={game}
             currentUser={currentUser}
             toggleThreadsView={toggleThreadsView}
-            toggleGameView={toggleGameView} />
+            toggleGameView={toggleGameView}
+          />
         )}
         {gameThreadsDisplayed && (
           <ThreadsContainer
@@ -88,18 +89,9 @@ function UserMain({ currentUser }) {
             exitModal={toggleThreadsView}
           />
         )}
-        <iframe width="560" height="315" src={playAudio && 'https://www.youtube.com/embed/Y6ljFaKRTrI?start=7&autoplay=1'} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen hidden />
-        {/* <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/Y6ljFaKRTrI?controls=0&amp;start=6?autoplay=1"
-          title="YouTube video player"
-          allow="autoplay"
-          hidden
-
-        /> */}
+        <iframe width="560" height="315" src={playAudio && 'https://www.youtube.com/embed/Y6ljFaKRTrI?start=7&autoplay=1'} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" hidden />
       </div>
-    </div >
+    </div>
   );
 }
 

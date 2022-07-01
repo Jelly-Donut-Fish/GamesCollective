@@ -2,7 +2,7 @@ import React from 'react';
 import CatalogTile from './CatalogTile.jsx'
 
 function CatalogList({
-  catalog, searchQuery, filterBy, getMyCollection,
+  catalog, searchQuery, filterBy, getMyCollection, toggleGameView,
   currentUser, myCollection, getCatalog, triggerEasterEgg,
 }) {
   const genreFilter = (genre) => genre.match(searchQuery);
@@ -17,8 +17,9 @@ function CatalogList({
             if (item.genres.some(genreFilter)) {
               return (
                 <CatalogTile
-                  key={index}
+                  key={item.id}
                   item={item}
+                  toggleGameView={toggleGameView}
                   getMyCollection={getMyCollection}
                   myCollection={myCollection}
                   currentUser={currentUser}
@@ -32,8 +33,9 @@ function CatalogList({
             if (item.platforms.some(platformFilter)) {
               return (
                 <CatalogTile
-                  key={index}
+                  key={item.id}
                   item={item}
+                  toggleGameView={toggleGameView}
                   getMyCollection={getMyCollection}
                   myCollection={myCollection}
                   currentUser={currentUser}
@@ -47,8 +49,9 @@ function CatalogList({
             if (item.categories.some(categoriesFilter)) {
               return (
                 <CatalogTile
-                  key={index}
+                  key={item.id}
                   item={item}
+                  toggleGameView={toggleGameView}
                   getMyCollection={getMyCollection}
                   myCollection={myCollection}
                   currentUser={currentUser}
@@ -62,8 +65,9 @@ function CatalogList({
             if (item.name.toLowerCase().match(searchQuery.toLowerCase())) {
               return (
                 <CatalogTile
-                  key={index}
+                  key={item.id}
                   item={item}
+                  toggleGameView={toggleGameView}
                   getMyCollection={getMyCollection}
                   myCollection={myCollection}
                   currentUser={currentUser}

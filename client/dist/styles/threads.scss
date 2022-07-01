@@ -99,6 +99,7 @@ button {
 }
 
 .commentTile {
+  box-sizing: border-box;
   width: 40%;
   border-radius: 10px;
   border-width: 1px 0px 2px 1px;
@@ -119,7 +120,7 @@ button {
 // }
 
 .actionsIcons {
-  width: 25%;
+  width: 15%;
   float: right;
   margin: 0 2%;
   font-size: 25px;
@@ -131,4 +132,8 @@ button {
     color: #B4376B;
     cursor: pointer;
   }
+}
+
+.postInfo {
+  width: 100%;
 }

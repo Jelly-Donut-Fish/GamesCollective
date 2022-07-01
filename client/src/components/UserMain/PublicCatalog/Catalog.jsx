@@ -3,7 +3,7 @@ import CatalogList from './CatalogList.jsx'
 import Search from './Search.jsx'
 
 function Catalog({
-  catalog, getMyCollection, currentUser,
+  catalog, getMyCollection, currentUser, toggleGameView,
   myCollection, getCatalog, triggerEasterEgg,
 }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -16,7 +16,8 @@ function Catalog({
         setFilterBy={setFilterBy}
         getCatalog={getCatalog}
         catalog={catalog}
-        filterBy={filterBy} />
+        filterBy={filterBy}
+      />
       <CatalogList
         catalog={catalog}
         searchQuery={searchQuery}
@@ -26,7 +27,8 @@ function Catalog({
         myCollection={myCollection}
         getCatalog={getCatalog}
         triggerEasterEgg={triggerEasterEgg}
-        />
+        toggleGameView={toggleGameView}
+      />
     </div>
   );
 }
