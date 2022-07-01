@@ -2,10 +2,14 @@ import React from 'react';
 
 function UserInfo({ username, userphoto }) {
   return (
-    <>
-      <img src={userphoto} alt={`${username}'s profile`} />
-      <h3>{username}</h3>
-    </>
+    <div className="userInfo">
+      <div className="userImage">
+        <img src={userphoto} alt={`${username}'s profile`} className="profilePic" />
+      </div>
+      <div className="userDeets">
+        <h3 className="userName">{username}</h3>
+      </div>
+    </div>
   );
 }
 

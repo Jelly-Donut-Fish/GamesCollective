@@ -8,8 +8,30 @@ line-height: 38px;
 color: #ffffff;
 }
 
-threadTile {
+.threadTile {
   border-radius: 16px;
   padding: 10px;
+  background-color: #38404E;
+  box-shadow: 7px 5px 10px 2px#ffe419;
+  margin: 2px;
+}
+
+.threadsList {
+  width: 80%;
+  height: 80%;
+  overflow: scroll;
+  background-color: darkslategray;
+}
+
+.gameDiscussed {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.link {
+  &:hover{
+    color: #7AFA59;
+    cursor: pointer;
+  }
 }
 

@@ -21,18 +21,8 @@ function Search({ setSearchQuery, setFilterBy, getCatalog, filterBy }) {
 
   return (
     <div>
-      <label htmlFor="user filter">
-        <select name="filters" id="user filter" onChange={handleFilter}>
-          <option value="">Filter by</option>
-          <option value="title">Title</option>
-          <option value="genre">Genre</option>
-          <option value="category">Category</option>
-          <option value="platform">Platform</option>
-          <option value="service">Game Library</option>
-        </select>
-      </label>
       <label htmlFor="filter collection">
-        <input onChange={handleChange} type="text" placeholder="Filter Collection" id="filter collection" />
+        <input className="innerSearch" onChange={handleChange} type="text" placeholder="Search for Games" id="filter collection" />
       </label>
     </div>
   );

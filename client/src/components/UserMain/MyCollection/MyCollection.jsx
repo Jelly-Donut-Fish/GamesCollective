@@ -29,7 +29,7 @@ function MyCollection({
 
   return (
     <div>
-      <h2>My Collection</h2>
+      <h2 className="myCollection">My Collection</h2>
       <MyCollectionSearch
         myCollection={myCollection}
         setFilters={setFilters}

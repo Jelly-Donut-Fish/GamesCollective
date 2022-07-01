@@ -1,13 +1,16 @@
 import React from 'react';
 import CatalogTile from './CatalogTile.jsx'
 
-function CatalogList({ catalog, searchQuery, filterBy, getMyCollection, currentUser, myCollection, getCatalog }) {
+function CatalogList({
+  catalog, searchQuery, filterBy, getMyCollection,
+  currentUser, myCollection, getCatalog, triggerEasterEgg,
+}) {
   const genreFilter = (genre) => genre.match(searchQuery);
   const platformFilter = (platform) => platform.match(searchQuery);
   const categoriesFilter = (categories) => categories.match(searchQuery);
 
   return (
-    <div>
+    <div className="list">
       {catalog.results.map((item, index) => {
         switch (filterBy) {
           case 'genre':
@@ -19,7 +22,9 @@ function CatalogList({ catalog, searchQuery, filterBy, getMyCollection, currentU
                   getMyCollection={getMyCollection}
                   myCollection={myCollection}
                   currentUser={currentUser}
-                  getCatalog={getCatalog} />
+                  getCatalog={getCatalog}
+                  triggerEasterEgg={triggerEasterEgg}
+                />
               );
             }
             break;
@@ -32,7 +37,9 @@ function CatalogList({ catalog, searchQuery, filterBy, getMyCollection, currentU
                   getMyCollection={getMyCollection}
                   myCollection={myCollection}
                   currentUser={currentUser}
-                  getCatalog={getCatalog} />
+                  getCatalog={getCatalog}
+                  triggerEasterEgg={triggerEasterEgg}
+                />
               );
             }
             break;
@@ -45,7 +52,9 @@ function CatalogList({ catalog, searchQuery, filterBy, getMyCollection, currentU
                   getMyCollection={getMyCollection}
                   myCollection={myCollection}
                   currentUser={currentUser}
-                  getCatalog={getCatalog} />
+                  getCatalog={getCatalog}
+                  triggerEasterEgg={triggerEasterEgg}
+                />
               );
             }
             break;
@@ -58,7 +67,9 @@ function CatalogList({ catalog, searchQuery, filterBy, getMyCollection, currentU
                   getMyCollection={getMyCollection}
                   myCollection={myCollection}
                   currentUser={currentUser}
-                  getCatalog={getCatalog} />
+                  getCatalog={getCatalog}
+                  triggerEasterEgg={triggerEasterEgg}
+                />
               );
             }
             break;

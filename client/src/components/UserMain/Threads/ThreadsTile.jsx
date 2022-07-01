@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdComment, MdReport } from 'react-icons/md';
 import axios from 'axios';
+import moment from 'moment';
 
 function ThreadsTile({ toggleThreadView, thread }) {
   const handleThreadClick = (event) => {
@@ -19,11 +20,11 @@ function ThreadsTile({ toggleThreadView, thread }) {
   return (
     <div className="threadTile">
       <div className="postInfo">
-        <span>{thread.username}  </span>
-        <span>{thread.date}</span>
+        <span>{thread.username}</span>
+        <span className="date">{moment(thread.date).format("d MMM, YYYY")}</span>
       </div>
       <div>
-        <h3 onClick={handleThreadClick}>
+        <h3 className="link" onClick={handleThreadClick}>
           {thread.title}
         </h3>
       </div>

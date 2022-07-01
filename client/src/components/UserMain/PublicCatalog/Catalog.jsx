@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import CatalogList from './CatalogList.jsx'
 import Search from './Search.jsx'
 
-function Catalog({ catalog, getMyCollection, currentUser, myCollection, getCatalog }) {
+function Catalog({
+  catalog, getMyCollection, currentUser,
+  myCollection, getCatalog, triggerEasterEgg,
+}) {
   const [searchQuery, setSearchQuery] = useState('');
   const [filterBy, setFilterBy] = useState('');
 
@@ -21,7 +24,9 @@ function Catalog({ catalog, getMyCollection, currentUser, myCollection, getCatal
         getMyCollection={getMyCollection}
         currentUser={currentUser}
         myCollection={myCollection}
-        getCatalog={getCatalog} />
+        getCatalog={getCatalog}
+        triggerEasterEgg={triggerEasterEgg}
+        />
     </div>
   );
 }
