@@ -83,13 +83,13 @@ function GameDetails({ game, currentUser, toggleThreadsView, toggleGameView }) {
             <div className="imageHolder">
               <img alt="mainTitle" src={game.header_image} />
             </div>
-            <div className={deets}>
-              <h3 className="detailTitle">{game.name}</h3>
+            <div className="deets">
+              <h3 className="detailTitle">{game.name}</h3><br></br>
               <span className="rDate">{moment(game.release_date).format('d MMM, YYYY')}</span>
-              <h4>{`Developer/Publisher: ${game.developers} ${game.publishers}`}</h4><br></br>
+              <h4 className="publishers">{`Publisher: ${game.publishers}`}</h4><br></br>
             </div>
           </div>
-          <div className={clearDeets}>
+          <div className="clearDeets">
             <span>Platforms Available: </span>
             {game.platforms.map((platform) => <span>{platform}</span>)}<br></br>
             <span>Features:</span><br></br>

@@ -23,7 +23,7 @@ function AddThread({
   const postThread = (event) => {
     event.preventDefault();
     const postBody = {
-      user_id: currentUser,
+      user_id: currentUser.site_id,
       game_id: gameId,
       body: newThreadBody,
       parent_comment_id: 0,
