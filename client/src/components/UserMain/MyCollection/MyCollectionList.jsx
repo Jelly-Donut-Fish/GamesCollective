@@ -15,7 +15,7 @@ function MyCollectionList({
   };
 
   return (
-    <div className="list">
+    <div>
       {myCollection.length === 0
         ? (
           <div>
@@ -28,7 +28,7 @@ function MyCollectionList({
           </div>
         )
         : (
-          <div className="list">
+          <div>
             {myCollection.map((game, i) => {
               const tile = (
                 <MyCollectionTile
@@ -42,35 +42,34 @@ function MyCollectionList({
                 />
               );
 
-              // const genreField = document.getElementById('genre').value.toLowerCase();
-              // const categoryField = document.getElementById('category').value.toLowerCase();
-              // const statusField = document.getElementById('status').value.toLowerCase();
+              const genreField = document.getElementById('genre').value.toLowerCase();
+              const categoryField = document.getElementById('category').value.toLowerCase();
+              const statusField = document.getElementById('status').value.toLowerCase();
 
-              // const compareGenreTest = (item) => {
-              //   item = item.toLowerCase();
-              //   return item.match(genreField);
-              // };
-              // const compareCategoryTest = (item) => {
-              //   item = item.toLowerCase();
-              //   return item.match(categoryField);
-              // };
+              const compareGenreTest = (item) => {
+                item = item.toLowerCase();
+                return item.match(genreField);
+              };
+              const compareCategoryTest = (item) => {
+                item = item.toLowerCase();
+                return item.match(categoryField);
+              };
 
-              // let isTrue = true;
-              // if (game.name ? !game.name.toLowerCase().match(query.toLowerCase()) : true) {
-              //   isTrue = false;
-              // } else if (game.genres ? !game.genres.some(compareGenreTest) : true) {
-              //   isTrue = false;
-              // } else if (game.categories ? !game.categories.some(compareCategoryTest) : true) {
-              //   isTrue = false;
-              // } else if (game.status ? !game.status.toLowerCase().match(statusField) : true) {
-              //   isTrue = false;
+              let isTrue = true;
+              if (!game.name.toLowerCase().match(query.toLowerCase())) {
+                isTrue = false;
+              } else if (!game.genres.some(compareGenreTest)) {
+                isTrue = false;
+              } else if (!game.categories.some(compareCategoryTest)) {
+                isTrue = false;
+              }// else if (!game.status.toLowerCase().match(statusField)) {
+              // isTrue = false;
               // }
 
-              // if (isTrue) {
+              if (isTrue) {
                 return tile;
-              // }
-            }
-            )}
+              }
+            })}
           </div>
         )}
     </div>
