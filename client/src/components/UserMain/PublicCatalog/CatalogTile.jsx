@@ -2,9 +2,16 @@ import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
 
-function CatalogTile({ item, getMyCollection, myCollection, currentUser }) {
+function CatalogTile({
+  item, getMyCollection, myCollection,
+  currentUser, triggerEasterEgg,
+}) {
+  console.log(item.name);
   const handleClick = function () {
     item.status = 'Want to Play';
+    if (item.name.includes('Portal')) {
+      triggerEasterEgg();
+    }
     // getMyCollection([...myCollection, item]);
     // axios request to add to my collection
     axios.post(
