@@ -16,7 +16,7 @@ function CommentTile({ comment }) {
     <div className="commentTile">
       <div className="postInfo">
         <span className="Author">{comment.username}</span>
-        <span className="postDate">{moment(comment.date).format('d MMM, YYYY')}</span>
+        <span className="datePosted">{moment(comment.date).format('d MMM, YYYY')}</span>
       </div>
       <div className="commentBody">
         <p className="postBody">{comment.body}</p>
