@@ -241,6 +241,12 @@ h4 {
   margin-right: 10px;
 }
 
+.searchButton {
+  border-radius: 0;
+  border: none;
+}
+
+
 select {
   margin-top: 1.5px;
   border-radius: 5vw;
@@ -250,8 +256,8 @@ select {
   }
 }
 
-input[type=text] {
-  height: 15px;
+.innerFilter {
+  height: 30px;
   margin-top: 1.5px;
   border-radius: 5vw;
   outline-color: black;
@@ -359,4 +365,14 @@ input[type=text] {
 
 .imageHolder {
   max-width: 50%;
+  float: left;
+}
+
+.deets {
+  max-width: 45%;
+  float: left;
+}
+
+.clearDeets {
+  clear: both;
 }
