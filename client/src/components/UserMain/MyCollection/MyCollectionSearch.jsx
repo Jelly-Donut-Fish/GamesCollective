@@ -58,7 +58,7 @@ function MyCollectionSearch({ myCollection, setFilters, getMyCollection }) {
   return (
     <div>
       <label htmlFor="title">
-        <input type="text" placeholder="Search for a title" id="title" onChange={filterHandler} />
+        <input className="innerSearch" type="text" placeholder="Search for a title" id="title" onChange={filterHandler} />
       </label>
       <label htmlFor="searchTitle" />
 
