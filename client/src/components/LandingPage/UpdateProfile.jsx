@@ -2,10 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { getAuth, updateProfile, signInAnonymously } from 'firebase/auth';
-import {
-  query, collection, getDocs, where,
-} from 'firebase/firestore';
+// import { getAuth, updateProfile, signInAnonymously } from 'firebase/auth';
 import { auth, db, updateUser } from '../../authentication/firebase';
 
 function UpdatUserProfile({ currentUser, getUser }) {
@@ -21,7 +18,7 @@ function UpdatUserProfile({ currentUser, getUser }) {
     loggedUser.image_url = photoURL;
     loggedUser.bio = bio;
 
-    console.log('logged user', loggedUser);
+    // console.log('logged user', loggedUser);
     getUser(loggedUser);
     axios.put('/users', {
       user_id: loggedUser.site_id,
@@ -29,39 +26,39 @@ function UpdatUserProfile({ currentUser, getUser }) {
       username: loggedUser.username,
       img_url: loggedUser.image_url,
     });
-    // navigate('/');
+    navigate('/');
   };
 
   return (
-    <div className="register">
+    <div className="page">
       <nav className="nav-bar">
         <h3>Games Collection</h3>
         <br />
         <Link className="link" to="/">Home</Link>
       </nav>
-      <div className="register__container">
+      <div className="page_container">
         <input
           type="text"
-          className="register__textBox"
+          className="login_textBox"
           value={displayName || ''}
           onChange={(e) => setName(e.target.value)}
           placeholder="Username"
         />
         <input
           type="text"
-          className="register__textBox"
+          className="login_textBox"
           value={photoURL || ''}
           onChange={(e) => setPhotoURL(e.target.value)}
           placeholder="Profile Pic URL"
         />
         <input
           type="text"
-          className="register__textBox"
+          className="login_textBox"
           value={bio || ''}
           onChange={(e) => setBio(e.target.value)}
           placeholder="Bio"
         />
-        <button type="button" className="register__btn" onClick={profileUpdate}>
+        <button type="button" className="login_btn" onClick={profileUpdate}>
           Update Profile
         </button>
       </div>

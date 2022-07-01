@@ -2,10 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import {
-  query, collection, getDocs, where,
-} from 'firebase/firestore';
-import { auth, db, logout } from '../../authentication/firebase';
+import { auth, logout } from '../../authentication/firebase';
 import Login from './LogIn';
 import DemoSection from './DemoSection';
 
@@ -21,14 +18,15 @@ function LandingPage({ getUser, currentUser }) {
       },
     })
       .then((res) => {
-        console.log('res', res);
-        const loggedUser = {};
-        loggedUser.username = res.data.results.username;
-        loggedUser.email = user.email;
-        loggedUser.site_id = user.uid;
-        loggedUser.image_url = res.data.results.img_url;
-        loggedUser.bio = res.data.results.bio;
-        getUser(loggedUser);
+        if (res.data !== 'no user found') {
+          const loggedUser = {};
+          loggedUser.username = res.data.results.username;
+          loggedUser.email = user.email;
+          loggedUser.site_id = user.uid;
+          loggedUser.image_url = res.data.results.img_url;
+          loggedUser.bio = res.data.results.bio;
+          getUser(loggedUser);
+        }
       })
       .catch((err) => {
         console.log('error in landing page get user db', err);
@@ -43,19 +41,16 @@ function LandingPage({ getUser, currentUser }) {
 
   useEffect(() => {
     if (user) getUserdb();
+    // navigate('/')
   }, [user]);
 
   return (
     <div className="landing-page">
       <nav className="nav-bar">
-        <h3>Games Collection</h3>
+        <h3 className="title">Games Collection</h3>
         <br />
-        <Link className="link" to="/UserMain">User Main</Link>
-        <Link className="link" to="/UpdateProfile">Update Profile</Link>
-      </nav>
-      <div className="landing">
-        <DemoSection />
-        <div className="landing_login">
+        {/* <Link className="link nav" to="/UserMain">User Main</Link>
+        <Link className="link nav" to="/UpdateProfile">Update Profile</Link> */}
           <div className="log-out">
             Logged in as
             <div>{currentUser.username}</div>
@@ -63,6 +58,10 @@ function LandingPage({ getUser, currentUser }) {
               Logout
             </button>
           </div>
+      </nav>
+      <div className="landing">
+        <DemoSection />
+        <div className="landing_login">
           <Login getUser={getUser} currentUser={currentUser} />
         </div>
       </div>

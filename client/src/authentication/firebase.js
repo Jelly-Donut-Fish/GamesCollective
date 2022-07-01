@@ -50,7 +50,6 @@ const signInWithGoogle = async () => {
         authProvider: 'google',
         email: user.email,
       });
-      console.log(user);
       axios.post('/users', {
         site_id: user.uid,
         username: user.displayName,

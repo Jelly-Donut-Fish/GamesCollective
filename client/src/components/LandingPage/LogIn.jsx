@@ -1,22 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import axios from 'axios';
 import {
-  query, collection, getDocs, where,
-} from 'firebase/firestore';
-import {
-  auth, logInWithEmailAndPassword, signInWithGoogle, db, logout
+  auth, logInWithEmailAndPassword, signInWithGoogle
 } from '../../authentication/firebase';
 
 function Login({ getUser }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [user, loading, error] = useAuthState(auth);
-
-  // useEffect(() => {
-  //   if (user) {};
-  // }, [user, loading]);
 
   return (
     <div className="login">
@@ -42,7 +35,7 @@ function Login({ getUser }) {
         >
           Login
         </button>
-        <button type="button" className="login_btn login_google" onClick={signInWithGoogle}>
+        <button type="button" className="login_btn" onClick={signInWithGoogle}>
           Login with Google
         </button>
         <div>
