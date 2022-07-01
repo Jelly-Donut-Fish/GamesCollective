@@ -91,22 +91,27 @@ function GameDetails({ game, currentUser, toggleThreadsView, toggleGameView }) {
           </div>
           <div className="clearDeets">
             <span>Platforms Available: </span>
-            {game.platforms.map((platform) => <span>{platform}</span>)}<br></br>
+            {game.platforms.map((platform) => <span>{platform}</span>)}
+            <br></br>
+            <br></br>
             <span>Features:</span><br></br>
             {game.genres.map((genre) => <span>{genre} |</span>)}
             {game.categories.map((category) => <span>{category} |</span>)}
+            <br></br>
+            <br></br>
 
             {rating ? (changeRating ? (
-              <span>
+              <span className="ratingSize">
                 <input type="number" min="0" max="5" name="rating" onChange={saveNewRating} />
                 <BsFillCheckCircleFill name="rating" onClick={setNewRating} />
               </span>
             )
-              : <p>{rating} <BsFillPencilFill name="rating" onClick={setNewRating} /></p>)
-              : <p>0.0 <BsFillPencilFill name="rating" onClick={setNewRating} /></p>}
+              : <p className="ratingSize">{rating} <BsFillPencilFill name="rating" onClick={setNewRating} /></p>)
+              : <p className="ratingSize">0.0 <BsFillPencilFill name="rating" onClick={setNewRating} /></p>}
 
-            <p>{game.status}</p>
+            <p className="ratingSize">{game.status}</p><br></br>
             <div>
+              <p className="ratingSize">My Review: </p>
               {review ? (changeReview ? (
                 <span>
                   <textarea value="" rows="5" columns="30" name="review" onChange={saveNewRating} />
@@ -124,13 +129,18 @@ function GameDetails({ game, currentUser, toggleThreadsView, toggleGameView }) {
                   </p>
                 )}
             </div>
-            <div className="short description and comments">
-              <div className="shortdescription">
-                <h2>Short Description</h2>
-                <span>{game.short_description}</span>
+
+            <div className="moreDetails">
+
+              <div className="descriptionDetail">
+                <div className="shortdescription">
+                  <h2>About the Game: </h2>
+                  <span>{game.short_description}</span>
+                </div>
               </div>
-              <div className="comments">
-                <div className="threadsList">
+
+              <div className="threadPreview">
+                <div className="listThreads">
                   {parent.slice(0, 3).map((parent) => (
                     <div className="threadTile">
                       <div className="postInfo">
@@ -143,8 +153,11 @@ function GameDetails({ game, currentUser, toggleThreadsView, toggleGameView }) {
                     </div>
                   ))}
                 </div>
-                <button onClick={handleMoreComments}>More Comments</button>
               </div>
+
+            </div>
+            <div className="buttonDiv">
+              <button className="more" onClick={handleMoreComments}>More Comments</button>
             </div>
           </div>
         </div>

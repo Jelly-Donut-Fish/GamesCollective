@@ -336,10 +336,51 @@ select:focus {
 
 .rDate {
   font-size: 50px;
+  display: block;
 }
 
 .publishers {
   font-size: 25px;
+}
+
+.moreDetails {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.descriptionDetail {
+  float: left;
+  width: 35%;
+}
+
+.threadPreview {
+  float: right;
+  width: 55%;
+  max-height: 95%;
+}
+
+.more {
+  float: right;
+  border-radius: 0;
+  border: none;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.listThreads {
+  max-height: 95%;
+}
+
+.buttonDiv {
+  width: 100%;
+  clear: both;
+  margin-top: 15px;
+  justify-items: right;
+}
+
+.ratingSize {
+  font-size: 30px;
 }
 
 /*# sourceMappingURL=usercollection.css.map */

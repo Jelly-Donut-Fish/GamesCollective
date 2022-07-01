@@ -40,7 +40,8 @@ function MyCollectionTile({
       <div className="mainInfo">
         <img src={game.header_image} alt={`${game.name} thumbnail`} className="title_image" />
         <h3 onClick={openGameView} className="mainTitle">{game.name}</h3><br></br>
-        <span className="mainDate">{moment(game.release_date).format("d MMM, YYYY")}</span><br></br>
+        <h4 className="mainDate">{moment(game.release_date).format("d MMM, YYYY")}</h4>
+        <br></br>
         <h4 className="mainDevelopers">{`Developer/Publisher: ${game.developers} ${game.publishers}`}</h4>
       </div>
       <div className="gameDetailsMini">
