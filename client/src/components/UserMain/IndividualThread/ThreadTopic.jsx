@@ -1,5 +1,6 @@
 import React from 'react';
 import { MdComment, MdReport, MdClear } from 'react-icons/md';
+import moment from 'moment';
 
 function ThreadTopic({ thread }) {
   return (
@@ -10,7 +11,7 @@ function ThreadTopic({ thread }) {
       <div className="topic">
         <div className="postInfo">
           <span>{thread.username}</span>
-          <span className="datePosted">{thread.date}</span>
+          <span className="datePosted">{moment(thread.date).format('d MMM, YYYY')}</span>
           <div className="clear" />
         </div>
         <h3>{thread.title}</h3>
@@ -18,10 +19,9 @@ function ThreadTopic({ thread }) {
         <p>
           {thread.body}
         </p>
-      </div>
-      <div>
-        <span>{MdComment}</span>
-        <span>{MdReport}</span>
+        <div className="actionsIcons">
+          <MdReport className="icon" />
+        </div>
       </div>
     </div>
   );

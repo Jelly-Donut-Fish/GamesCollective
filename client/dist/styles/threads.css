@@ -60,7 +60,7 @@
   cursor: pointer;
 }
 
-datePosted {
+.datePosted {
   float: right;
 }
 
@@ -111,7 +111,7 @@ button {
 .actionsIcons {
   width: 15%;
   float: right;
-  margin: 0 2%;
+  margin: 2px 2%;
   font-size: 25px;
   color: #58629e;
 }
@@ -124,6 +124,16 @@ button {
 .postInfo {
   width: 100%;
   padding: 3px;
+}
+
+.threadsView input {
+  padding: 2px 3px;
+  width: 30%;
+}
+.threadsView textarea {
+  border-radius: 16px;
+  padding: 3px;
+  width: 60%;
 }
 
 /*# sourceMappingURL=threads.css.map */
