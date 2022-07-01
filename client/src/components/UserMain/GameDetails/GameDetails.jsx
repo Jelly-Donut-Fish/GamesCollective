@@ -5,7 +5,7 @@ import { BsFillCheckCircleFill, BsFillPencilFill } from 'react-icons/bs';
 import { MdClear } from 'react-icons/md';
 import moment from 'moment';
 
-function GameDetails({ game, toggleThreadsView, toggleGameView }) {
+function GameDetails({ game, currentUser, toggleThreadsView, toggleGameView }) {
   const [rating, setRating] = useState('');
   const [saveRating, setSaveRating] = useState('');
   const [review, setReview] = useState('');
@@ -15,7 +15,7 @@ function GameDetails({ game, toggleThreadsView, toggleGameView }) {
   const [threads, setThreads] = useState([]);
   const [parent, setParent] = useState([]);
 
-  console.log(game);
+  console.log(currentUser);
 
   useEffect(() => {
     axios.get(`/comments/${game.id}`)
@@ -32,7 +32,8 @@ function GameDetails({ game, toggleThreadsView, toggleGameView }) {
     toggleGameView(game);
   };
 
-  axios.get(`/games_users/${user_id}`)
+
+  axios.get(`/games_users/${currentUser.site_id}`)
     .then((res) => {
       res.results.forEach((game) => {
         if (gameId === game.id) {
