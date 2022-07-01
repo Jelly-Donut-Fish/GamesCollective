@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import UserMain from '../components/UserMain/UserMain.jsx';
 import getMyCollection from '../../actions/getMyCollection.js';
 import getCatalog from '../../actions/getCatalog.js';
+import getUser from '../../actions/getUser';
 
 const mapStateToProps = (state) => (
   {
@@ -18,6 +19,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getMyCollection: (myCollection) => dispatch(getMyCollection(myCollection)),
     getCatalog: (catalog) => dispatch(getCatalog(catalog)),
+    getUser: (currentUser) => dispatch(getUser(currentUser)),
   };
 };
 
