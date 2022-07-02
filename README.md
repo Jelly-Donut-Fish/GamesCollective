@@ -4,7 +4,7 @@
 run ```yarn install```
 
 Installing database on local machine
-$ psql -U <an exisiting role with superuser privileges> blue < dbname.bak
+$ psql -U {an exisiting role with superuser privileges} blue < dbname.bak
 
 Installing TO remote
 download repo to remote and run the local command
