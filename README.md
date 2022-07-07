@@ -21,14 +21,14 @@ $ pg_dump -h localhost -d {database name to copy FROM} | psql -h {remote public 
 ## Contributors 
 ### Project Managers
 Joy Parker - Front End Operations\
-Sonia Ann Friscia - Back End Operations\
+Sonia Ann Friscia - Back End Operations
 ### Architecture Owner
-Brice Koppin\
+Brice Koppin
 ### UI/UX Owner
-Kayla Kranzfelder\
+Kayla Kranzfelder
 ### Front End Engineers
-Benjamin Thornton\
+Benjamin Thornton
 ### Back End Engineers
 Po-Chang Chen\
 Irvin Solano\
-Philip Koller\
+Philip Koller
