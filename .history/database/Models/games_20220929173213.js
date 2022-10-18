@@ -1,4 +1,3 @@
-
 const { pool } = require('../index');
 const game = require('./game_query');
 

@@ -1,0 +1,398 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Akshar:wght@600&family=Barlow:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+* {
+  font-family: "Barlow", sans-serif;
+}
+
+.game_icon {
+  font-size: 25px;
+  justify-content: right;
+  color: #515C97;
+}
+
+.game_icon:hover {
+  color: #B4376B;
+  cursor: pointer;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  clear: both;
+}
+
+.collection {
+  width: 55%;
+  float: left;
+}
+
+.list {
+  height: 1000px;
+  overflow-y: scroll;
+  scrollbar-color: #B4376B;
+  scrollbar-width: 5px;
+}
+
+.catalog {
+  width: 45%;
+  float: left;
+}
+
+.clear {
+  width: 80%;
+  margin: auto;
+  clear: both;
+}
+
+.empty {
+  width: 50%;
+  margin: auto;
+}
+
+#collectionList {
+  width: 90%;
+  margin: auto;
+}
+
+.image_container {
+  width: 35%;
+}
+
+.info_container {
+  width: 40%;
+}
+
+.title_image {
+  width: 90%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  display: inline-block;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+span {
+  margin: 5px;
+}
+
+.date {
+  font-style: italic;
+}
+
+.features {
+  margin: 0;
+}
+
+.catalogTile {
+  width: 100%;
+  margin: 10px auto;
+  clear: both;
+  background-color: #38404E;
+}
+
+.gameImage {
+  width: 35%;
+  float: left;
+}
+
+.gameInfo {
+  width: 45%;
+  float: left;
+}
+
+.otherInfo {
+  width: 18%;
+  float: left;
+}
+
+img {
+  max-width: 95%;
+}
+
+.gameTitle {
+  width: 95%;
+  display: inline-block;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+.release {
+  font-size: 12px;
+  display: block;
+}
+
+h4 {
+  font-size: 11px;
+  margin: 0;
+}
+
+.addGame {
+  width: 80%;
+  justify-content: left;
+}
+
+.add {
+  color: white;
+  height: 30px;
+  width: 115px;
+  left: 0px;
+  top: 0px;
+  border: 0;
+  border-radius: 0px;
+  background: #515C97;
+}
+
+.add:hover {
+  background: #B4376B;
+  cursor: pointer;
+}
+
+.collectionTile {
+  border-top: 1px solid #7AFA59;
+  border-left: 1px solid #7AFA59;
+  border-radius: 16px;
+  box-shadow: 15px 10px 20px 4px rgba(55, 183, 255, 0.25);
+  background-color: #38404E;
+  width: 95%;
+  clear: both;
+  display: block;
+  overflow: auto;
+  margin: 5px;
+}
+
+.mainInfo {
+  width: 45%;
+  float: left;
+  margin-left: 5px;
+}
+
+.title_image {
+  max-width: 95%;
+}
+
+.gameDetails {
+  width: 40%;
+  width: fit-content;
+  float: left;
+}
+
+.highlight {
+  font-size: 12px;
+}
+
+.lowlight {
+  font-size: 10px;
+  width: fit-content;
+}
+
+.moreInfo {
+  float: right;
+  width: 40%;
+  margin-bottom: 3px;
+}
+
+.buttons {
+  font-size: 20px;
+  float: right;
+  margin-right: 10px;
+}
+
+.searchButton {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  border-left-width: 7px;
+
+  border-radius: 0;
+  border: none;
+}
+
+select {
+  margin-top: 1.5px;
+  border-radius: 5vw;
+  outline-color: black;
+}
+select:focus {
+  box-shadow: 0 0 1vw 0.1vw rgb(84, 4, 69);
+}
+
+.innerFilter {
+  height: 30px;
+  margin-top: 1.5px;
+  border-radius: 5vw;
+  outline-color: black;
+}
+.innerFilter:focus {
+  box-shadow: 0 0 1vw 0.1vw rgb(84, 4, 69);
+}
+
+.mainTitle {
+  color: #7AFA59;
+}
+
+.mainTitle:hover {
+  color: #B4376B;
+  cursor: pointer;
+}
+
+.userInfo {
+  width: 95%;
+  margin: 25px;
+  background-color: #38404E;
+  border-top: 1px solid #FA59ED;
+  border-left: 1px solid #7AFA59;
+  border-radius: 16px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  box-shadow: 15px 10px 20px 4px rgba(55, 183, 255, 0.25);
+}
+
+.userImage {
+  max-width: 150px;
+  float: left;
+  margin: 5px;
+}
+
+.profilePic {
+  max-width: 80%;
+  border-top: 1px solid #7AFA59;
+  border-left: 1px solid #7AFA59;
+  border-radius: 50%;
+  box-shadow: 15px 10px 20px 4px rgba(55, 183, 255, 0.25);
+  margin-top: 3%;
+  margin-left: 3%;
+}
+
+.userDeets {
+  height: 100%;
+  display: flex;
+  margin-bottom: 7%;
+  flex-direction: column;
+}
+
+.userName {
+  font-family: “Akshar”, sans-serif;
+  font-size: 300%;
+  height: 50px;
+  line-height: 50px;
+  padding-top: 30px;
+}
+
+.myCollection {
+  font-family: "Press Start 2P", cursive;
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.pageTitle {
+  margin-left: 10px;
+  padding-left: 10px;
+  font-size: 30px;
+  font-family: "Press Start 2P", cursive;
+  height: 97px;
+  line-height: 97px;
+}
+
+.innerContent {
+  width: 90%;
+  margin: auto;
+}
+
+.gameDetailsInfo {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.mainGameInfo {
+  width: 90%;
+  margin: auto;
+}
+
+.detailTitle {
+  font-size: 80px;
+}
+
+.imageHolder {
+  max-width: 50%;
+  float: left;
+}
+
+.deets {
+  max-width: 45%;
+  float: left;
+}
+
+.clearDeets {
+  clear: both;
+}
+
+.rDate {
+  font-size: 50px;
+  display: block;
+}
+
+.publishers {
+  font-size: 25px;
+}
+
+.moreDetails {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.descriptionDetail {
+  float: left;
+  width: 35%;
+}
+
+.threadPreview {
+  float: right;
+  width: 55%;
+  max-height: 95%;
+}
+
+.more {
+  float: right;
+  border-radius: 0;
+  border: none;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.listThreads {
+  max-height: 95%;
+}
+
+.buttonDiv {
+  width: 100%;
+  clear: both;
+  margin-top: 15px;
+  justify-items: right;
+}
+
+.ratingSize {
+  font-size: 30px;
+}
+
+.demo {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+/*# sourceMappingURL=usercollection.css.map */
