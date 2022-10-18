@@ -5,3 +5,4 @@ bundle.js
 yarn-error.log
 firebaseAuth.js
 .DS_Store
+.history
